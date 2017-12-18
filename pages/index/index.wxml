@@ -9,8 +9,12 @@
 </template>
 
 <template name="banner">
-    <swiper>
-        banner
+    <swiper autoplay interval="5000" class="branner-bg">
+        <block wx:for="{{list}}">
+            <swiper-item>
+                <image src="{{item.url}}" mode="aspectFill" class="branner-img"/>
+            </swiper-item>
+        </block>
     </swiper>
 </template>
 
@@ -68,7 +72,7 @@
 
 <view>
     <template is="titleBar"></template>
-    <template is="banner"></template>
+    <template is="banner" data="{{...bannerList}}"></template>
     <template is="menu"></template>
     <template is="ticket" data="{{...goodsList}}"></template>
 </view>

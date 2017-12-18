@@ -27,6 +27,16 @@ page {
     height: 80rpx;
 }
 
+.branner-bg {
+    width: 100%;
+    height: 350rpx;
+}
+
+.branner-img {
+    width: 100%;
+    height: 350rpx;
+}
+
 .menu-bg {
     widows: 100%;
     background: white;
