@@ -33,7 +33,36 @@
 
 <template name="ticket">
     <view class="ticket-bg">
-        ticket
+        <view class="ticket-line">
+            <text class="ticket-title-txt">票务·场次票</text>
+            <scroll-view scroll-x>
+                <view class="ticket-scroll">
+                    <view wx:for="{{ ticketShow }}" wx:for-item="item" wx:key="" class="ticket-item" >
+                        <view >id:{{item.id}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="ticket-line">
+            <text class="ticket-title-txt">票务·套票</text>
+            <scroll-view scroll-x>
+                <view class="ticket-scroll">
+                    <view wx:for="{{ ticketSet }}" wx:for-item="item" wx:key="" class="ticket-item" >
+                        <view >id:{{item.id}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="ticket-line">
+            <text class="ticket-title-txt">票务·通兑券</text>
+            <scroll-view scroll-x>
+                <view class="ticket-scroll">
+                    <view wx:for="{{ ticketVoucher }}" wx:for-item="item" wx:key="" class="ticket-item" >
+                        <view >id:{{item.id}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
     </view>
 </template>
 
@@ -41,5 +70,5 @@
     <template is="titleBar"></template>
     <template is="banner"></template>
     <template is="menu"></template>
-    <template is="ticket"></template>
+    <template is="ticket" data="{{...goodsList}}"></template>
 </view>

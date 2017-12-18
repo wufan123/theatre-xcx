@@ -1,5 +1,5 @@
 page {
-    background-color: #a4a4a4;
+    background-color: #e4e4e4;
     font-family:微软雅黑;
 }
 
@@ -53,5 +53,29 @@ page {
 }
 
 .ticket-bg {
-    
+    background: white;
+    margin-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+
+.ticket-line {
+    padding-top: 20rpx;
+}
+
+.ticket-scroll {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.ticket-item {
+    background: #e4e4e4;
+    margin-left: 20rpx;
+    min-width:500rpx;
+    min-height: 300rpx;
+    white-space: nowrap;
+}
+
+.ticket-title-txt {
+    font-size: 30rpx;
+    margin-left: 20rpx;
 }
