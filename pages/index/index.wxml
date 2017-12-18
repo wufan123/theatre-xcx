@@ -1,0 +1,45 @@
+<template name="titleBar">
+    <view class="title-bg">
+        <image src="/images/home-logo.png" class="title-logo"></image>
+        <view>
+          <image src="/images/home-account.png" class="title-account"></image>
+          <image src="/images/home-other.png" class="title-other"></image>
+        </view>
+    </view>
+</template>
+
+<template name="banner">
+    <swiper>
+        banner
+    </swiper>
+</template>
+
+<template name="menu">
+    <view class="menu-bg">
+        <view class="menu-item">
+            <image src="/images/menu-rob.png" class="menu-item-ico"></image>
+            <text class="menu-item-txt">限时抢购</text>
+        </view>
+        <view class="menu-item">
+            <image src="/images/menu-day.png" class="menu-item-ico"></image>
+            <text class="menu-item-txt">超级联合日</text>
+        </view>
+        <view class="menu-item">
+            <image src="/images/menu-mall.png" class="menu-item-ico"></image>
+            <text class="menu-item-txt">商城</text>
+        </view>
+    </view>
+</template>
+
+<template name="ticket">
+    <view class="ticket-bg">
+        ticket
+    </view>
+</template>
+
+<view>
+    <template is="titleBar"></template>
+    <template is="banner"></template>
+    <template is="menu"></template>
+    <template is="ticket"></template>
+</view>

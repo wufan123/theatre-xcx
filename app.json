@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#dc3c38",
+    "navigationBarTitleText": "坊巷文化影音秀《三坊七巷》",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F8F8F8"
+  }
+}

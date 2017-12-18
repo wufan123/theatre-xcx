@@ -1,0 +1,57 @@
+page {
+    background-color: #a4a4a4;
+    font-family:微软雅黑;
+}
+
+.title-bg {
+    widows: 100%;
+    height: 100rpx;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items:Center;
+}
+
+.title-logo {
+    width: 174rpx;
+    height: 96rpx;
+}
+
+.title-account {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.title-other {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.menu-bg {
+    widows: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items:Center;
+}
+
+.menu-item {
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-item-ico {
+    width: 110rpx;
+    height: 110rpx;
+}
+
+.menu-item-txt {
+    font-size: 24rpx;
+}
+
+.ticket-bg {
+    
+}
