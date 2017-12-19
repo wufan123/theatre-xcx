@@ -64,5 +64,5 @@
     <template is="topInfo" data="{{...userInfo}}"></template>
     <template is="orderMenu"></template>
     <template is="listInfo"></template>
-    <view class="logout">退出登陆</view>
+    <view class="logout" bindtap="loginOut">退出登陆</view>
 </view>
