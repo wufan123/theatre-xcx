@@ -1,0 +1,16 @@
+.center_confirm_button {
+    position: absolute;
+    left: 50%;
+    width: 260rpx;
+    margin-left: -120rpx;
+}
+.item-flex{
+    display: flex;
+    border-bottom: 1px solid #dad9d9;
+    padding: 30rpx 40rpx;
+}
+.button-b{
+    background: #dc3c38;
+    color: #ffffff;
+    margin: 50rpx;
+}

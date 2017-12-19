@@ -1,0 +1,59 @@
+.center_confirm_button {
+  background: #dc3c38;
+  color: #ffffff;
+  margin:50rpx 50rpx 20rpx ;
+}
+.item-flex{
+  display: flex;
+  background: #ffffff;
+  border-bottom: 1px solid #f6f6f6;
+  padding: 20rpx 40rpx;
+}
+
+.recharge-item{
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 45rpx;
+  margin:50rpx;
+  background: white;
+}
+.recharge-item-btn{
+  display:flex;
+  
+}
+.recharge-item-btn:active .recharge-item-btn-normal{
+  display: none;
+}
+.recharge-item-btn:active .recharge-item-btn-active{
+  display: inline-block;
+}
+.recharge-item-btn-normal{
+  display: inline-block;
+  position: relative;
+  width:60rpx;
+  height:60rpx;
+  padding:15rpx;
+
+}
+.recharge-item-btn-active{
+  display: none;
+  position: relative;
+  width:60rpx;
+  height:60rpx;
+  padding:15rpx;
+}
+
+.recharge-item-lable{
+  display: inline-block;
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+.recharge-bz{
+  display: block;
+  text-align: center;
+
+}

@@ -20,8 +20,7 @@ Page({
   },
   onLoad: function (e) {
     wx.navigateTo({
-      // url: '../login/login/login'
-      url: '../me/index/index'
+      url: '../me/card/recharge/recharge'
     });
   },
   login: function() {

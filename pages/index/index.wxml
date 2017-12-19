@@ -3,7 +3,7 @@
         <image src="/images/home-logo.png" class="title-logo"></image>
         <view>
           <image src="/images/home-account.png" class="title-account" bindtap="login"></image>
-          <image src="/images/home-other.png" class="title-other"></image>
+          <!-- <image src="/images/home-other.png" class="title-other"></image> -->
         </view>
     </view>
 </template>
