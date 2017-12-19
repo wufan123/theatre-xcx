@@ -1,0 +1,17 @@
+<view class="coupon-detial">
+    <view class="coupon-detial-item">
+      <lable class="t-gray f26">票券名称：</lable>
+      <lable class="t-black f26">{{coupon.voucherName}}</lable>
+    </view>
+    <view class="coupon-detial-item">
+      <lable class="t-gray f26">票券编码：</lable>
+      <lable class="t-black f26">{{coupon.voucherNum}}</lable>
+    </view>
+    <view class="coupon-detial-item">
+      <lable class="t-gray f26">截止日期：</lable>
+      <lable class="t-black f26">{{coupon.validData}}</lable>
+    </view>
+    <lable class="coupon-detial-rule t-danger f26">使用规则</lable>
+    <lable class="coupon-detial-rule-item t-black f24">{{coupon.useRule}} </lable>
+    <!--<lable class="coupon-detial-rule-item t-black f24">· 抵用券仅限购买卖品套餐时抵扣，不可与其他优惠同时使用；  </lable><lable class="coupon-detial-rule-item t-black f24">· 一经兑换即为无效券，如需退单，退换金额为实际支付金额；  </lable><lable class="coupon-detial-rule-item t-black f24"> · 抵用券只能冲抵卖品金额，不能冲抵影片金额，不兑换现金，不找赎；  </lable><lable class="coupon-detial-rule-item t-black f24">  · 抵用券需在有效期内使用，过期作废，每个订单限使用1张；  </lable><lable class="coupon-detial-rule-item t-black f24">   · 如另有附加规则，在发送礼券时附加使用说明；  </lable><lable class="coupon-detial-rule-item t-black f24">   · 影城可在法律允许的范围内对使用规则作出适当调整；  </lable>-->
+</view>
