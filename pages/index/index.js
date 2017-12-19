@@ -19,9 +19,6 @@ Page({
     }
   },
   onLoad: function (e) {
-    wx.navigateTo({
-      url: '../me/coupon/index/index'
-    });
   },
   login: function() {
     wx.navigateTo({

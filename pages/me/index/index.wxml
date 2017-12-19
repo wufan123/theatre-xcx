@@ -30,7 +30,7 @@
 </template>
 <template name="listInfo">
     <view class="list-bg">
-      <view class="list-item" bindtap='couponManage'>
+      <view class="list-item" bindtap='cardManage'>
         <view class='list-item-bg'>
           <image class="list-item-ico" src="/images/fail-toast.png"></image>
           <text class="list-item-text">剧坊会员卡</text>
@@ -51,7 +51,7 @@
         </view>
         <image class="list-item-arrow" src="/images/arrow_next.png"></image>
       </view>
-      <view class="list-item" bindtap='couponManage'>
+      <view class="list-item" bindtap='makeCall'>
         <view class='list-item-bg'>
           <image class="list-item-ico" src="/images/fail-toast.png"></image>
           <text class="list-item-text">联系客服</text>
