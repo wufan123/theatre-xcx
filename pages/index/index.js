@@ -20,7 +20,7 @@ Page({
   },
   onLoad: function (e) {
     wx.navigateTo({
-      url: '../me/card/recharge/recharge'
+      url: '../me/coupon/index/index'
     });
   },
   login: function() {

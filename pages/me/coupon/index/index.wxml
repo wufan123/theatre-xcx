@@ -1,0 +1,54 @@
+<view class="coupon-top-item">
+    <input bindinput="bindInput" bindconfirm="addVoucherClickListener" class="coupon-top-item-input" placeholder="输入票券编码" confirm-type="done"></input>
+    <button bindtap="addVoucherClickListener" class="coupon-top-item-button f32" hover-class="coupon-top-item-button-hover">绑定</button>
+    <image bindtap="scanCouponCode" class="coupon-top-item-img" src="/images/sm.png" mode="aspectFit"></image>
+</view>
+<view wx:if="{{couponList&&couponList.length>0}}">
+    <block wx:for="{{couponList}}" wx:key="id">
+        <view class="coupon-item">
+            <image class="coupon-item-bg" src="{{!item._disabled&&item.status==1? item._couponImage:'/resources/images/coupon-2.png'}}"></image>
+            <view class="coupon-item-detial" style="color:{{ !item._disabled&&item.status==1? '#81511c':'#d2d2d2'}}">
+                <view class="coupon-item-detail-box">
+                    <view class="coupon-item-top">
+                        <lable class="f28 coupon-coupon-item-top-rmb" wx:if="{{item.voucherType!='0'}}">¥</lable>
+                        <lable class="f48 coupon-coupon-item-top-price" wx:if="{{item.voucherType!='0'}}">{{item.voucherValue}}</lable>
+                        <view class="coupon-item-top-detial">
+                            <lable class="f28 ">{{item.voucherName}}</lable>
+                            <lable class="f28 ">{{item.voucherNum}}</lable>
+                        </view>
+                        <view class="f28 " bindtap="couponDetail" id="{{index}}">使用规则</view>
+                        <image class="coupon-item-top-help" bindtap="couponDetail" id="{{index}}" src="{{!item._disabled&&item.status==1?item._helpImage:'/resources/images/coupon-h1.png'}}"></image>
+                    </view>
+                </view>
+                <view class="coupon-item-detail-box">
+                    <view class="coupon-item-bottom">
+                        <lable class="md10 f24 coupon-item-bottom-remark">有效期：{{item.startTime}}至{{item.validData}}</lable>
+                        <lable class="f24 coupon-item-bottom-remark" wx:if="{{item.status==1}}">备注：{{item.description}}</lable>
+                        <lable class="f24 coupon-item-bottom-remark" wx:else>不可用原因：{{item.canNotUseReason}}</lable>
+                    </view>
+                    <image class="coupon-item-bottom-img-expire" src="/images/soon-expire.png" wx:if="{{item.soonExpire==1}}"></image>
+                    <block>
+                        <image wx:if="{{!item._disabled&&item.status==1}}" bindtap="selectCouponClickListener" id="{{index}}" class="coupon-item-bottom-checked" src="{{item.checked?'/resources/images/2.png' : '/resources/images/1.png'}}"></image>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view wx:if="{{couponList&&couponList.length>0}}"></view>
+    <view class="item-normal" wx:if="{{showHint}}">
+        <text class="coupon-selected-count f28" wx:if="{{hintText==0}}">座位已全部兑换</text>
+        <div class="coupon-selected-count f28" wx:else>
+            还差
+
+            <lable class="t-orange">{{hintText}}</lable>个座位没有兑换
+
+        </div>
+    </view>
+    <view style="width:100%;height:200rpx;"></view>
+    <button bindtap="submit" class="button-orange-max" hover-class="button-orange-max-hover" disabled="{{!canSubmit&&showHint}}" wx:if="{{canSubmit||showHint}}"> {{selectCount==0?'取消使用优惠券':'确定'}}</button>
+</view>
+
+<view  wx:else class="empty-view">
+    <image src="/images/nopq.png" class="empty-img"/>
+    <image src="/images/nopqword.png" class="empty-lable"/>
+</view>

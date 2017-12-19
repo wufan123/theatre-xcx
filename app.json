@@ -7,7 +7,8 @@
     "pages/me/index/index",
     "pages/me/card/index/index",
     "pages/me/card/addCard/addCard",
-    "pages/me/card/recharge/recharge"
+    "pages/me/card/recharge/recharge",
+    "pages/me/coupon/index/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
