@@ -12,34 +12,38 @@ page {
 }
 
 .top-phone {
-    font-size: 24rpx;
+    font-size: 28rpx;
 }
 
 .top-balance {
-    font-size: 28rpx;
+    font-size: 32rpx;
     margin-top: 20rpx;
 }
 
 .top-tip {
-    font-size: 28rpx;
+    font-size: 32rpx;
     margin-top: 20rpx;
 }
 
 .menu-bg {
     display: flex;
     flex-direction: column;
+    background: white;
+    padding-top: 40rpx;
+    padding-bottom: 40rpx;
 }
 
 .menu-title-txt {
     font-size: 30rpx;
+    margin-left: 40rpx;
 }
 
 .menu-row {
     widows: 100%;
-    background: white;
     display: flex;
     justify-content: space-around;
     align-items:Center;
+    margin-top: 20rpx;
 }
 
 .menu-item {

@@ -7,7 +7,7 @@
 </template>
 <template name="orderMenu">
     <view class="menu-bg">
-        <text class="menu-title-txt"></text>
+        <text class="menu-title-txt">我的订单</text>
         <view class="menu-row">
             <view class="menu-item">
                 <image src="/images/menu-rob.png" class="menu-item-ico"></image>
