@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/login/login/login",
+    "pages/login/register/register",
     "pages/login/protocol/protocol"
   ],
   "window": {

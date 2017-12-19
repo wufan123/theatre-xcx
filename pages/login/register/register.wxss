@@ -37,35 +37,33 @@
   font-size: 15px;
 }
 
+.titleColorBlue {
+  color:rgba(19,159,236, .8);
+}
+
 .buttonDefault {
   width:260rpx;
   height:70rpx;
 }
 
-.titleColorBlue {
-  color:rgba(19,159,236, .8);
-}
-
 .center_mobile_view {
   position: absolute;
-  top: 50%;
+  top:50%;
   left:50%;
   width:500rpx;
-  height:530rpx;
+  height:600rpx;
   margin-left: -250rpx;
-  margin-top: -270rpx;
+  margin-top: -300rpx;
   font-size: 30rpx;
   z-index: 10;
 }
 
 .center_confirm_button {
   position: absolute;
-  top:370rpx;
+  bottom:50rpx;
   left: 50%;
   width: 260rpx;
   margin-left: -120rpx;
-  margin-top:30rpx;
-  
 }
 
 .center_mobile_title_view {
@@ -95,23 +93,4 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-}
-
-.center_mobile_title_tab{
-  margin-bottom: 80rpx;
-  display: flex;
-  justify-content: space-around;
-}
-.active{
-  flex: 1;
-  text-align: center;
-  color: #dc3c38;
-}
-.default{text-align: center;
-  flex: 1;
-}
-.center_confirm_register_text{
-  position:relative;
-  margin-top:200rpx;
-  text-align: center
 }

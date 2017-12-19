@@ -1,6 +1,6 @@
 import Countdown from '../../../components/countdown'
 const inputUtil = require('../../../util/inputUtil.js')
-var modalUtils = require('../../../util/modalUtil.js');
+var modalUtils = require('../../../util/modalUtil.js')
 const userRest = require('../../../rest/userRest.js')
 const wxRest = require('../../../rest/wxRest.js')
 //获取应用实例
