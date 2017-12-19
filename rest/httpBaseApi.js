@@ -1,5 +1,5 @@
 var app = getApp()
-var modalUtils = require('../util/modalUtils.js')
+var modalUtils = require('../util/modalUtil.js')
 var signUtil = require('../util/signUtil.js')
 
 

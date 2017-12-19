@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/login/login/login",
+    "pages/login/protocol/protocol"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -11,13 +11,21 @@ App({
     appName: '中瑞剧坊',
     appVersion: '1.0.0',
     deviceType: 'weixin-xcx',
+    cinemaCode: 'JC170001',
 
     tokenId: null,
+    openId:'',
+
+    userInfo: null,
 
   },
   setTokenId: function (tokenId) {
     this.globalData.tokenId = tokenId
     wx.setStorageSync('zmaxfilm_tokenId', tokenId)
+  },
+  setOpenId: function (openId) {
+    wx.setStorageSync('zmaxfilm_openId', openId)
+    this.globalData.openId = openId
   },
   setUserAccount: function (account, passwd) {
     let info
@@ -30,5 +38,23 @@ App({
   },
   getUserAccount: function () {
     return wx.getStorageSync('zmaxfilm_account')
+  },
+  setUserInfo: function (userInfo) {
+    this.globalData.userInfo = userInfo;
+    wx.setStorageSync('zmaxfilm_userInfo', userInfo);
+  },
+  getUserInfo: function () {
+    var userInfo = wx.getStorageSync('zmaxfilm_userInfo');
+    this.globalData.userInfo = userInfo;
+  },
+  getCinema: function () {
+    var cinema = wx.getStorageSync('cinema')
+    this.globalData.cinema = cinema
+    this.globalData.cinemaCode = cinema.cinemaCode
+  },
+  setCinema: function (cinema) {
+      this.globalData.cinema = cinema
+      this.globalData.cinemaCode = cinema.cinemaCode
+      wx.setStorageSync('cinema', cinema)
   }
 })

@@ -19,5 +19,10 @@ Page({
     }
   },
   onLoad: function (e) {
+  },
+  login: function() {
+    wx.navigateTo({
+      url: '../login/login/login'
+    });
   }
 })
