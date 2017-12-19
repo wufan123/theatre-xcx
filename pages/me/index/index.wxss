@@ -1,0 +1,111 @@
+page {
+    background-color: #e4e4e4;
+    font-family:微软雅黑;
+}
+
+.top-bg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40rpx;
+    padding-bottom: 40rpx;
+}
+
+.top-phone {
+    font-size: 24rpx;
+}
+
+.top-balance {
+    font-size: 28rpx;
+    margin-top: 20rpx;
+}
+
+.top-tip {
+    font-size: 28rpx;
+    margin-top: 20rpx;
+}
+
+.menu-bg {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-title-txt {
+    font-size: 30rpx;
+}
+
+.menu-row {
+    widows: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items:Center;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-item-ico {
+    width: 110rpx;
+    height: 110rpx;
+}
+
+.menu-item-txt {
+    font-size: 24rpx;
+}
+
+.list-bg {
+    margin-top: 20rpx;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 90rpx;
+    width: 100%;
+    font-size: 14px;
+    background: white;
+}
+
+.list-item-bg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 90rpx;
+}
+
+.list-item-ico {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 20rpx;
+}
+
+.list-item-text {
+    color: gray;
+    font-size: 15px;
+    margin-left: 20rpx;
+}
+
+.list-item-arrow {
+    width: 20rpx;
+    height: 25rpx;
+    position: relative;
+    margin-right: 10rpx;
+}
+
+.logout {
+    width: 100%;
+    height: 100rpx;
+    position:fixed;
+    bottom: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+}

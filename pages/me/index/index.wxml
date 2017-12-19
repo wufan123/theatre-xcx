@@ -1,0 +1,68 @@
+<template name="topInfo">
+    <view class="top-bg">
+        <text class="top-phone">138****8888</text>
+        <text class="top-balance">余额：0.00 | 积分：0</text>
+        <view class="top-tip">剧坊会员</view>
+    </view>
+</template>
+<template name="orderMenu">
+    <view class="menu-bg">
+        <text class="menu-title-txt"></text>
+        <view class="menu-row">
+            <view class="menu-item">
+                <image src="/images/menu-rob.png" class="menu-item-ico"></image>
+                <text class="menu-item-txt">场次票</text>
+            </view>
+            <view class="menu-item">
+                <image src="/images/menu-day.png" class="menu-item-ico"></image>
+                <text class="menu-item-txt">套票</text>
+            </view>
+            <view class="menu-item">
+                <image src="/images/menu-mall.png" class="menu-item-ico"></image>
+                <text class="menu-item-txt">福州特产</text>
+            </view>
+            <view class="menu-item">
+                <image src="/images/menu-mall.png" class="menu-item-ico"></image>
+                <text class="menu-item-txt">通兑券</text>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="listInfo">
+    <view class="list-bg">
+      <view class="list-item" bindtap='couponManage'>
+        <view class='list-item-bg'>
+          <image class="list-item-ico" src="/images/fail-toast.png"></image>
+          <text class="list-item-text">剧坊会员卡</text>
+        </view>
+        <image class="list-item-arrow" src="/images/arrow_next.png"></image>
+      </view>
+      <view class="list-item" bindtap='couponManage'>
+        <view class='list-item-bg'>
+          <image class="list-item-ico" src="/images/fail-toast.png"></image>
+          <text class="list-item-text">优惠券</text>
+        </view>
+        <image class="list-item-arrow" src="/images/arrow_next.png"></image>
+      </view>
+      <view class="list-item" bindtap='couponManage'>
+        <view class='list-item-bg'>
+          <image class="list-item-ico" src="/images/fail-toast.png"></image>
+          <text class="list-item-text">邀请好友</text>
+        </view>
+        <image class="list-item-arrow" src="/images/arrow_next.png"></image>
+      </view>
+      <view class="list-item" bindtap='couponManage'>
+        <view class='list-item-bg'>
+          <image class="list-item-ico" src="/images/fail-toast.png"></image>
+          <text class="list-item-text">联系客服</text>
+        </view>
+        <image class="list-item-arrow" src="/images/arrow_next.png"></image>
+      </view>
+    </view>
+</template>
+<view>
+    <template is="topInfo"></template>
+    <template is="orderMenu"></template>
+    <template is="listInfo"></template>
+    <view class="logout">退出登陆</view>
+</view>

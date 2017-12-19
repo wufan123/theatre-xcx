@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/login/login/login",
     "pages/login/register/register",
-    "pages/login/protocol/protocol"
+    "pages/login/protocol/protocol",
+    "pages/me/index/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
