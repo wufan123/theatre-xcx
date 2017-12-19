@@ -22,7 +22,7 @@ Page({
     },
     makeCall:function(){
       wx.makePhoneCall({
-        phoneNumber: '400-850-7010'
+        phoneNumber: app.globalData.servicePhone
       })
     },
     loginOut: function (e) {

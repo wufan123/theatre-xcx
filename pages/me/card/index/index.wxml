@@ -5,7 +5,7 @@
     <view class="{{item.isExpire==1?'card-item-normal t-gray':'card-item-normal t-black'}}">
       <view class="card-item-top">
         <lable class=" f30 card-item-top-title">{{item.levelName}}:{{item.cardNumber}}</lable>
-        <image class="card-check-img" src="../../../resources/images/deleteCard.png" bindtap="deleteCardEvent" data-card="{{item}}"></image>
+        <image class="card-check-img" src="/images/deleteCard.png" bindtap="deleteCardEvent" data-card="{{item}}"></image>
       </view>
       <view class="card-item-deital">
         <lable class=" f26">卡余额：</lable>

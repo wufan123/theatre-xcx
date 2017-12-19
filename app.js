@@ -12,6 +12,7 @@ App({
     appVersion: '1.0.0',
     deviceType: 'weixin-xcx',
     cinemaCode: 'JC170001',
+    servicePhone: '400-850-7010',
 
     tokenId: null,
     openId:'',
