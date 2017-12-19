@@ -1,4 +1,5 @@
 //获取应用实例
+var app = getApp()
 Page({
   data: {
     bannerList: {
@@ -21,9 +22,15 @@ Page({
   onLoad: function (e) {
   },
   login: function() {
-    wx.navigateTo({
-      // url: '../login/login/login'
-      url: '../me/index/index'
-    });
+    let userInfo = app.getUserInfo()
+    if (userInfo) {
+      wx.navigateTo({
+        url: '../me/index/index'
+      });
+    } else {
+      wx.navigateTo({
+        url: '../login/login/login'
+      });
+    }
   }
 })

@@ -1,7 +1,7 @@
 <template name="topInfo">
     <view class="top-bg">
-        <text class="top-phone">138****8888</text>
-        <text class="top-balance">余额：0.00 | 积分：0</text>
+        <text class="top-phone">{{userNickname}}</text>
+        <text class="top-balance">余额：{{userMoney}} | 积分：{{integral}}</text>
         <view class="top-tip">剧坊会员</view>
     </view>
 </template>
@@ -61,7 +61,7 @@
     </view>
 </template>
 <view>
-    <template is="topInfo"></template>
+    <template is="topInfo" data="{{...userInfo}}"></template>
     <template is="orderMenu"></template>
     <template is="listInfo"></template>
     <view class="logout">退出登陆</view>

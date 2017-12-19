@@ -27,6 +27,13 @@ App({
     wx.setStorageSync('zmaxfilm_openId', openId)
     this.globalData.openId = openId
   },
+  getOpenId: function () {
+    if (this.globalData.openId)
+      return this.globalData.openId
+    var openId = wx.getStorageSync('zmaxfilm_openId')
+    this.globalData.openId = openId
+    return this.globalData.openId
+  },
   setUserAccount: function (account, passwd) {
     let info
     if (account && passwd)
@@ -46,6 +53,7 @@ App({
   getUserInfo: function () {
     var userInfo = wx.getStorageSync('zmaxfilm_userInfo');
     this.globalData.userInfo = userInfo;
+    return userInfo;
   },
   getCinema: function () {
     var cinema = wx.getStorageSync('cinema')

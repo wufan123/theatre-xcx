@@ -1,7 +1,13 @@
+var app = getApp()
 Page({
     data: {
+      userInfo: {}
     },
     onLoad: function (e) {
+      this.setData({
+        userInfo: app.globalData.userInfo
+      })
+      console.log(app.globalData.userInfo)
     },
     cardManage: function() {
       wx.navigateTo({
