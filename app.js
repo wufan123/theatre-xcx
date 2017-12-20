@@ -18,6 +18,7 @@ App({
     openId:'',
 
     userInfo: null,
+    canUseCouponNum:0
 
   },
   setTokenId: function (tokenId) {
@@ -65,5 +66,8 @@ App({
       this.globalData.cinema = cinema
       this.globalData.cinemaCode = cinema.cinemaCode
       wx.setStorageSync('cinema', cinema)
+  },
+  setCanUseCouponNum: function(num){
+    this.globalData.canUseCouponNum = num;
   }
 })
