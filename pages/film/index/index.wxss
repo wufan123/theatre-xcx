@@ -1,0 +1,77 @@
+page {
+    background-color: #e4e4e4;
+    font-family:微软雅黑;
+}
+
+.branner-bg {
+    width: 100%;
+    height: 350rpx;
+}
+
+.branner-img {
+    width: 100%;
+    height: 350rpx;
+}
+
+.content-bg {
+    width: 670rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    margin-top: -20rpx;
+    position: absolute;
+}
+
+.content-body {
+    background: white;
+}
+
+.content-title {
+    font-size: 28rpx;
+    padding-top: 40rpx;
+    padding-left: 20rpx;
+}
+
+.content-interval {
+    width: 670rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:Center;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.content-interval-txt {
+    width: 170rpx;
+    font-size: 24rpx;
+    display: flex;
+    justify-content: center;
+    align-items:Center;
+    background: #a4a4a4;
+}
+
+.content-line {
+    width: 225rpx;
+    height: 2rpx;
+    border-top:2rpx solid #a4a4a4;
+}
+
+.content-detail {
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    padding-bottom: 20rpx;
+    font-size: 26rpx;
+}
+
+.bottom-btn {
+    width: 100%;
+    height: 100rpx;
+    position:fixed;
+    bottom: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+    border-top:2rpx solid #a4a4a4;
+}

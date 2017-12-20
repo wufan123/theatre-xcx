@@ -1,0 +1,23 @@
+<swiper autoplay interval="5000" class="branner-bg">
+    <block wx:for="{{filmDetail.imgs}}" wx:for-item="item" wx:key="" >
+        <swiper-item>
+            <image src="{{item}}" mode="aspectFill" class="branner-img"/>
+        </swiper-item>
+    </block>
+</swiper>
+<view class="content-bg">
+    <view class="content-body">
+        <view class="content-title">
+            {{filmDetail.filmName}}
+        </view>
+        <view class="content-interval">
+            <view class="content-line"></view>
+            <view class="content-interval-txt">剧坊介绍</view>
+            <view class="content-line"></view>
+        </view>
+        <view class="content-detail">
+            {{filmDetail.introduction}}
+        </view>
+    </view>
+</view>
+<view class="bottom-btn" bindtap="confirm">马上购买</view>

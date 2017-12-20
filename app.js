@@ -3,8 +3,8 @@ App({
   onLaunch: function () {
   },
   globalData: {
-    serverUrlBase: 'https://m.zmaxfilm.com/Api_35',
-    //serverUrlBase: 'https://premapi.zmaxfilm.com/Api_35',
+    //serverUrlBase: 'https://m.zmaxfilm.com/Api_35',
+    serverUrlBase: 'https://premapi.zmaxfilm.com/Api_35',
     
     appAccount: 'zhongruijufang',
     appPasswd: 'zrjf1123',

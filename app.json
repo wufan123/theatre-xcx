@@ -11,7 +11,8 @@
     "pages/me/coupon/index/index",
     "pages/me/coupon/detail/detail",
     "pages/me/order/index/index",
-    "pages/me/order/detail/detail"
+    "pages/me/order/detail/detail",
+    "pages/film/index/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

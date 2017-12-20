@@ -32,5 +32,10 @@ Page({
         url: '../login/login/login'
       });
     }
+  },
+  ticketFilm: function() {
+    wx.navigateTo({
+      url: '../film/index/index'
+    });
   }
 })
