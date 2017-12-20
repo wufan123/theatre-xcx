@@ -9,19 +9,19 @@
     <view class="menu-bg">
         <text class="menu-title-txt">我的订单</text>
         <view class="menu-row">
-            <view class="menu-item">
+            <view class="menu-item" bindtap="orderManage" id="0">
                 <image src="/images/menu-rob.png" class="menu-item-ico"></image>
                 <text class="menu-item-txt">场次票</text>
             </view>
-            <view class="menu-item">
+            <view class="menu-item" bindtap="orderManage" id="1">
                 <image src="/images/menu-day.png" class="menu-item-ico"></image>
                 <text class="menu-item-txt">套票</text>
             </view>
-            <view class="menu-item">
+            <view class="menu-item" bindtap="orderManage" id="2">
                 <image src="/images/menu-mall.png" class="menu-item-ico"></image>
                 <text class="menu-item-txt">福州特产</text>
             </view>
-            <view class="menu-item">
+            <view class="menu-item" bindtap="orderManage" id="3">
                 <image src="/images/menu-mall.png" class="menu-item-ico"></image>
                 <text class="menu-item-txt">通兑券</text>
             </view>

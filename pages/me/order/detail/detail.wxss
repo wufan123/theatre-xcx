@@ -1,0 +1,32 @@
+/* pages/orderDetail/orderDetail.wxss */
+.position-center-small{
+    overflow:initial;
+    position: relative;
+    margin: 0 auto;
+    left: 0;
+    height: auto;
+    top: 100rpx;
+    margin-bottom:48px;  
+    min-height: 900rpx;
+  }
+  .border-t{
+    border-top: 1px solid #dddddc;
+    padding:30rpx 0;
+  }
+  .list_flex_row > label{
+    font-size: 14px;
+  }
+  .code-text-view{
+    font-size: 12px;
+    justify-content: space-around;
+  }
+  .qrcode-image {
+    width: 460rpx;
+    height: 460rpx;
+    margin-top: -30rpx;
+    margin-bottom: -50rpx;
+    z-index:100;
+  }
+  .hideView{
+    display: none;
+  }

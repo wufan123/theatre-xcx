@@ -68,15 +68,15 @@ function showLoginModal() {
     confirmText: '立即登陆',
     confirmColor: '#dc3c38',
     success: function (res) {
-    //   if (res.confirm) {
-    //     wx.navigateTo({
-    //       url: '/pages/mobileFastRegister/mobileFastRegister'
-    //     })
-    //   } else {
-    //     // wx.switchTab({
-    //     //     url: '/pages/index/index'
-    //     // })
-    //   }
+      if (res.confirm) {
+        wx.navigateTo({
+          url: '/pages/login/login/login'
+        })
+      } else {
+        // wx.switchTab({
+        //     url: '/pages/index/index'
+        // })
+      }
     },
     fail: function () {
 

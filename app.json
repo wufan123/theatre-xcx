@@ -9,7 +9,9 @@
     "pages/me/card/addCard/addCard",
     "pages/me/card/recharge/recharge",
     "pages/me/coupon/index/index",
-    "pages/me/coupon/detail/detail"
+    "pages/me/coupon/detail/detail",
+    "pages/me/order/index/index",
+    "pages/me/order/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

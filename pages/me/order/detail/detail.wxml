@@ -1,0 +1,74 @@
+<!-- 背景图 -->
+<image class="bg_container" src='/images/bg_common.png'></image>
+
+<!-- 背景 红色纹理图 -->
+<image class="bg_container_t" style="margin-top:20rpx;" src='/images/bg_rectange_line_t.png'></image>
+
+<view class='position-center-small'>
+  <view class="list_flex_column">
+    <image class='border_around' style="width:150rpx;height:210rpx" src="{{orderInfo.filmImg?orderInfo.filmImg:'http://onmxkx5tf.bkt.clouddn.com/zrjf/bg_main.png'}}">
+    </image>
+  </view>
+  <view class='list_flex_column' style='margin-top:30rpx; border-bottom:1px solid #dddddc'>
+    <view class='list_flex_row border-t'>
+      <label>订单状态</label>
+
+      <label class="titleColorRed">
+        {{orderInfo.statustr}}
+      </label>
+    </view>
+    <view class='list_flex_row border-t'>
+      <label>剧目</label>
+      <label>{{item.name}}</label>
+    </view>
+    <view class='list_flex_row border-t'>
+      <label>时间</label>
+      <label>{{orderInfo.startTimetStr}}</label>
+    </view>
+    <view class='list_flex_row border-t'>
+      <label>票数</label>
+      <label>{{item.filmCount ? item.filmCount : 0}}张</label>
+    </view>
+
+    <view class='list_flex_row border-t' bindtap='moreFn'>
+      <view>
+          <label>票价总额<text class="t-danger">{{item.filmCount ? item.totalPrice : 0}}元</text>     </label>
+          <label>实付<text class="t-danger">{{item.realPrice}}元</text>     </label>
+      </view>
+      <label wx:if="{{isShowMore}}"> {{isMoreOn?'收起 ∧':'展开 ∨'}}</label>
+    </view>
+    <block wx:if="{{isMoreOn}}">
+        <view class='list_flex_row' wx:for="{{item.payInfo}}" wx:for-item="pay" wx:key="index" wx:if="{{pay.type!='weixinpay'}}" style="padding-bottom:30rpx;">
+            <label>{{pay.name}}</label>
+            <label class="t-danger">{{pay.money}}</label>
+          </view>
+    </block>
+    
+  </view>
+
+  <view class="list_flex_column {{orderInfo.status=='3'?'':'hideView'}}" style="margin-top:60rpx;">
+    <view class="code-text-view list_flex_row titleColorRed">
+      <text>订单号: {{order_id}}</text>
+      <text>取票码: {{orderInfo.verifyCode}}</text>
+    </view>
+    <canvas canvas-id="qrcode" class="qrcode-image" />
+    <label class="t-danger" style='text-align:center; font-size:11px; width:100%; display:block;margin:20rpx auto;padding-bottom:20rpx'>{{orderTip}}</label>
+  </view>
+  <view style='position:relative;z-index:1' data-orderid="{{orderInfo.orderCode}}" bindtap='refunPaidOrder' class="list_flex_row_center {{ orderInfo.status == '1' ? '' : 'hideView' }} ">
+    <image class="buttonDefault" src='/images/btn_red_outline.png'>
+    </image>
+    <label class='label_center_register titleColorRed font_normal_title_px'>申请退款</label>
+  </view>
+  <view class="list_flex_row " style='width:100%;justify-content:flex-start;margin-top:-20rpx'>
+    <view wx:for-index="index" wx:for-item="seat" wx:for="{{ item.seats }}" wx:key="" style='width:135rpx;position:relative;margin-left:15rpx'
+      class="list_flex_row_center">
+      <image class="buttonDefault" src='/images/bg_seat_outline.png'>
+      </image>
+      <view class='button_outline_center' style="text-align:center; font-size:12px; position:absolute;width:50rpx;height:50rpx;top:50%;left:50%;margin:-25rpx 0 0 -25rpx;line-height:50rpx"
+        class='titleColoYellow'>{{seat}}</view>
+    </view>
+  </view>
+  <image class="bg_container_c" src='/images/bg_rectange_line_c.png'></image>
+</view>
+
+<image class="bg_container_t" src='/images/bg_rectange_line_b.png'></image>

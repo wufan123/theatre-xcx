@@ -1,0 +1,111 @@
+.bg-white {
+    background-color: white;
+  }
+  
+  .t-red {
+    color: #dc3c38;
+  }
+  
+  .seperator-red {
+    border-bottom: 1rpx solid #dc3c38;
+  }
+  
+  .tab-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100rpx;
+  }
+  
+  .tab {
+    flex: 1;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: white;
+  }
+  
+  .container {
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .no_order_img {
+    width: 200rpx;
+    height: 250rpx;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -125rpx;
+    margin-left: -100rpx;
+  }
+  
+  .list_box {
+    width: 150rpx;
+    height: 50rpx;
+  }
+  
+  .list_flex_row {
+    width: 90%;
+    position: relative;
+  }
+  
+  .list_flex_column.card {
+    margin-top: 60rpx;
+  }
+  
+  .border_around {
+    width: 250rpx;
+    height: 200rpx;
+  }
+  
+  .list_content {
+    margin-left: 30rpx;
+    z-index: 1;
+    height: 200rpx;
+    font-size: 13px;
+  }
+  
+  .list_content_bg {
+    width: 200rpx;
+    height: 130rpx;
+    padding-top: 70rpx;
+    position: absolute;
+    right: 0rpx;
+    z-index: 0;
+  }
+  
+  .list_flex_column_around {
+    justify-content: space-around;
+  }
+  
+  .list_boxs {
+    margin-top: 20rpx;
+  }
+  
+  .box_bg {
+    position: absolute;
+    width: 150rpx;
+    text-align: center;
+    height: 50rpx;
+  }
+  
+  .seat {
+    text-align: center;
+    line-height: 50rpx;
+    font-size: 26rpx;
+  }
+  
+  .align_left {
+    justify-content: flex-start;
+  }
+  
+  .bg{
+    box-sizing: border-box;
+    margin-top: -100rpx;
+    padding-top: 100rpx;
+  }

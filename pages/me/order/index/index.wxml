@@ -1,0 +1,41 @@
+<view class="tab-bar bg-white">
+    <view class="tab {{curTab=='0'?'seperator-red':''}}" bindtap="selectTab" data-index="0">
+      <text class="f32 {{curTab==0?'t-red':'t-gray'}}">完成订单</text>
+    </view>
+    <view class="tab {{curTab=='1'?'seperator-red':''}}" bindtap="selectTab" data-index="1">
+      <text class="f32 {{curTab==1?'t-red':'t-gray'}}">退票订单</text>
+    </view>
+    <view class="tab {{curTab=='2'?'seperator-red':''}}" bindtap="selectTab" data-index="2">
+      <text class="f32 {{curTab==2?'t-red':'t-gray'}}">异常订单</text>
+    </view>
+  </view>
+  
+  
+  <view class='bg'>
+    <view>
+      <image class='bg_container' mode="widthFix" src='/images/bg_common.png'></image>
+      <image class="no_order_img" wx:if="{{orderData[curTab].orderList.length==0}}" src='/images/img_noOrder.png'></image>
+    </view>
+    <view class='list_flex_column font_normal_title_px card' wx:if="{{orderData[curTab].orderList.length!==0}}" wx:for="{{orderData[curTab].orderList}}" wx:for-item="order" wx:key="{{order.orderCode}}" style='z-index:3;'>
+  
+  
+      <view class='list_flex_row ' bindtap="orderDetailPage" data-indexid="{{index }}">
+        <image class='border_around' src="{{order.filmImg?order.filmImg:'/images/bg_main_small.png'}}"></image>
+        <view class='list_flex_column list_flex_column_around list_content '>
+          <view class='list_flex_row'>
+            <label class="font_normal_title">{{order.filmName}}</label>
+            <label class="titleColorRed font_normal_title_px">{{order.realPrice}}元</label>
+          </view>
+          <view class='list_flex_row '>
+            <label>{{order.startTimetStr}}</label>
+          </view>
+          <view class="list_flex_row align_left">
+            <label class="titleColorRed">{{order.statustr}}</label>
+          </view>
+  
+        </view>
+        <image class="list_content_bg" src='/images/img_list_cover.png'>
+        </image>
+      </view>
+    </view>
+  </view>

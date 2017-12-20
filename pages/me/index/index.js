@@ -20,6 +20,11 @@ Page({
         url: '../coupon/index/index'
       });
     },
+    orderManage: function(e) {
+      wx.navigateTo({
+        url: '../order/index/index'
+      });
+    },
     makeCall:function(){
       wx.makePhoneCall({
         phoneNumber: app.globalData.servicePhone
