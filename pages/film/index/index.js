@@ -9,8 +9,9 @@ Page({
             showPlan: false
         },
         filmPlan: {
-            timeList: null,
-            planList: null
+            timeList: [{time: "20161220"},{time: "20161221"},{time: "20161222"}],
+            planList: [{time: "15:30"},{time: "17:00"},{time: "20:00"}],
+            count: 0
         }
     },
     onLoad: function (e) {
@@ -88,5 +89,16 @@ Page({
         }, res => {
             console.log(res)
         })
+    },
+
+    // 排期
+    subtract: function () {
+        this.data.filmPlan.count = this.data.filmPlan.count - 1;
+        this.data.filmPlan.count = this.data.filmPlan.count > 0 ? this.data.filmPlan.count : 0
+        this.setData(this.data)
+    },
+    add: function () {
+        this.data.filmPlan.count = Number(this.data.filmPlan.count) + 1
+        this.setData(this.data)
     }
 })

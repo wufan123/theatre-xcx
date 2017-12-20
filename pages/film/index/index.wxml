@@ -28,10 +28,44 @@
 <template name="filmPlan">
     <view class="plan-bg" catchtap="hidePlan">
         <view class="plan-content" catchtap="emptyBtn">
+            <view class="plan-line">
+                <text class="plan-title-txt">时间</text>
+                <scroll-view scroll-x>
+                    <view class="plan-scroll">
+                        <view wx:for="{{ timeList }}" wx:for-item="item" wx:key="" class="plan-item" bindtap="ticketFilm">
+                            <view >{{item.time}}</view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="plan-line">
+                <text class="plan-title-txt">场次</text>
+                <scroll-view scroll-x>
+                    <view class="plan-scroll">
+                        <view wx:for="{{ planList }}" wx:for-item="item" wx:key="" class="plan-item" bindtap="ticketFilm">
+                            <view >{{item.time}}</view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="plan-line">
+                <text class="plan-title-txt">购买数量</text>
+                <view class="recharge-item">
+                    <view class="recharge-item-btn">
+                        <image src="/images/subtract_on.png" class="recharge-item-btn-active" catchtap="subtract"></image>
+                        <image src="/images/subtract.png" class="recharge-item-btn-normal" catchtap="subtract"></image>
+                    </view>
+                    <input class="recharge-item-lable t-black" placeholder="数量" value="{{count?count:''}}" type="number" bindinput="bindAmountInput"></input>
+                    <view class="recharge-item-btn">
+                        <image src="/images/add_on.png" class="recharge-item-btn-active" catchtap="add"></image>
+                        <image src="/images/add.png" class="recharge-item-btn-normal" catchtap="add"></image>
+                    </view>
+                </view>
+            </view>
         </view>
     </view>
 </template>
 
 <template is="filmDetail" data="{{...filmDetail}}"></template>
-<template is="filmPlan" wx:if="{{filmDetail.showPlan}}"></template>
+<template is="filmPlan" wx:if="{{filmDetail.showPlan}}" data="{{...filmPlan}}"></template>
 <view class="bottom-btn" bindtap="confirm">马上购买</view>

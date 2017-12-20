@@ -81,11 +81,76 @@ page {
 
 .plan-content {
     width: 100%;
-    height: 400rpx;
     background: white;
     position: fixed;
-    bottom: 2rpx;
+    bottom: 102rpx;
 }
+
+.plan-line {
+    padding-top: 20rpx;
+}
+
+.plan-scroll {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.plan-item {
+    background: #e4e4e4;
+    margin-left: 20rpx;
+    min-width:200rpx;
+    min-height: 100rpx;
+    white-space: nowrap;
+}
+
+.plan-title-txt {
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+
+.recharge-item{
+    width: 400rpx;
+    height: 90rpx;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 45rpx;
+    margin:50rpx;
+    background: white;
+  }
+  .recharge-item-btn{
+    display:flex;
+    
+  }
+  .recharge-item-btn:active .recharge-item-btn-normal{
+    display: none;
+  }
+  .recharge-item-btn:active .recharge-item-btn-active{
+    display: inline-block;
+  }
+  .recharge-item-btn-normal{
+    display: inline-block;
+    position: relative;
+    width:60rpx;
+    height:60rpx;
+    padding:15rpx;
+  
+  }
+  .recharge-item-btn-active{
+    display: none;
+    position: relative;
+    width:60rpx;
+    height:60rpx;
+    padding:15rpx;
+  }
+  
+  .recharge-item-lable{
+    display: inline-block;
+    position: relative;
+    flex: 1;
+    text-align: center;
+  }
 
 .bottom-btn {
     width: 100%;
