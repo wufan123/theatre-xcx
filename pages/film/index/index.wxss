@@ -18,6 +18,7 @@ page {
     padding-left: 30rpx;
     padding-right: 30rpx;
     margin-top: -20rpx;
+    margin-bottom: 120rpx;
     position: absolute;
 }
 

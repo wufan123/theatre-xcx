@@ -1,9 +1,14 @@
 const filmRest = require('../../../rest/filmRest.js')
+const planRest = require('../../../rest/planRest.js')
 const modalUtil = require('../../../util/modalUtil.js')
 var app = getApp();
 Page({
     data: {
-        filmDetail: null
+        filmDetail: {},
+        filmPlan: {
+            timeList: null,
+            planList: null
+        }
     },
     onLoad: function (e) {
         this.loadFilmDetail();
@@ -26,7 +31,7 @@ Page({
                     this.setData({
                         filmDetail: res
                     })
-                    console.log(res)
+                    this.loadFilmTime();
                 }, res => {
                     console.log(res)
                     modalUtil.hideLoadingToast();
@@ -41,5 +46,32 @@ Page({
             modalUtil.hideLoadingToast();
             modalUtil.showWarnToast("影片加载失败");
         });
+    },
+    loadFilmTime: function() {
+        let params = {
+            filmNo: this.data.filmDetail.filmNo,
+            cinemaCode: app.globalData.cinemaCode
+        }
+        planRest.getTimes(params, res => {
+            this.data.filmPlan.timeList = res;
+            this.setData(this.data)
+            if (res.length > 0) {
+                this.loadFilmPlan(res[0].time);
+            }
+        }, res => {
+            console.log(res)
+        })
+    },
+    loadFilmPlan: function(time) {
+        let params = {
+            filmNo: this.data.filmDetail.filmNo,
+            cinemaCode: app.globalData.cinemaCode,
+            time: time
+        }
+        planRest.getPlans(params, res => {
+            console.log(res)
+        }, res => {
+            console.log(res)
+        })
     }
 })
