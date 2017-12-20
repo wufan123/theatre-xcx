@@ -4,7 +4,10 @@ const modalUtil = require('../../../util/modalUtil.js')
 var app = getApp();
 Page({
     data: {
-        filmDetail: {},
+        filmDetail: {
+            detail: null,
+            showPlan: false
+        },
         filmPlan: {
             timeList: null,
             planList: null
@@ -12,6 +15,19 @@ Page({
     },
     onLoad: function (e) {
         this.loadFilmDetail();
+    },
+    confirm: function(e) {
+        if (!this.data.filmDetail.showPlan) {
+            this.data.filmDetail.showPlan = true;
+            this.setData(this.data)
+        }
+    },
+    hidePlan: function() {
+        this.data.filmDetail.showPlan = false;
+        this.setData(this.data)
+    },
+    emptyBtn: function() {
+
     },
     // 加载影片详情
     loadFilmDetail: function() {
@@ -28,9 +44,8 @@ Page({
                                                         .replace(/&quot;/g, '"')
                                                         .replace(/&apos;/g, "'")
                                                         .replace(/\<br\s*\/\>/g, "\r\n")
-                    this.setData({
-                        filmDetail: res
-                    })
+                    this.data.filmDetail.detail = res
+                    this.setData(this.data)
                     this.loadFilmTime();
                 }, res => {
                     console.log(res)
@@ -49,7 +64,7 @@ Page({
     },
     loadFilmTime: function() {
         let params = {
-            filmNo: this.data.filmDetail.filmNo,
+            filmNo: this.data.filmDetail.detail.filmNo,
             cinemaCode: app.globalData.cinemaCode
         }
         planRest.getTimes(params, res => {
@@ -64,7 +79,7 @@ Page({
     },
     loadFilmPlan: function(time) {
         let params = {
-            filmNo: this.data.filmDetail.filmNo,
+            filmNo: this.data.filmDetail.detail.filmNo,
             cinemaCode: app.globalData.cinemaCode,
             time: time
         }

@@ -1,33 +1,37 @@
 <template name="filmDetail">
-    <swiper autoplay interval="5000" class="branner-bg">
-        <block wx:for="{{imgs}}" wx:for-item="item" wx:key="" >
-            <swiper-item>
-                <image src="{{item}}" mode="aspectFill" class="branner-img"/>
-            </swiper-item>
-        </block>
-    </swiper>
-    <view class="content-bg">
-        <view class="content-body">
-            <view class="content-title">
-                {{filmName}}
-            </view>
-            <view class="content-interval">
-                <view class="content-line"></view>
-                <view class="content-interval-txt">剧坊介绍</view>
-                <view class="content-line"></view>
-            </view>
-            <view class="content-detail">
-                {{introduction}}
-                {{introduction}}
-                {{introduction}}
+    <view class="film-detail-bg" style="{{showPlan?'overflow: hidden;':''}}">
+        <swiper autoplay interval="5000" class="branner-bg">
+            <block wx:for="{{detail.imgs}}" wx:for-item="item" wx:key="" >
+                <swiper-item>
+                    <image src="{{item}}" mode="aspectFill" class="branner-img"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="content-bg">
+            <view class="content-body">
+                <view class="content-title">
+                    {{detail.filmName}}
+                </view>
+                <view class="content-interval">
+                    <view class="content-line"></view>
+                    <view class="content-interval-txt">剧坊介绍</view>
+                    <view class="content-line"></view>
+                </view>
+                <view class="content-detail">
+                    {{detail.introduction}}
+                </view>
             </view>
         </view>
     </view>
 </template>
 
 <template name="filmPlan">
-    
+    <view class="plan-bg" catchtap="hidePlan">
+        <view class="plan-content" catchtap="emptyBtn">
+        </view>
+    </view>
 </template>
 
 <template is="filmDetail" data="{{...filmDetail}}"></template>
+<template is="filmPlan" wx:if="{{filmDetail.showPlan}}"></template>
 <view class="bottom-btn" bindtap="confirm">马上购买</view>
