@@ -1,3 +1,87 @@
+.main-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 100rpx;
+  }
+  .goods-item {
+    display: flex;
+    padding: 30rpx 28rpx;
+    overflow: hidden;
+    margin-bottom: 24rpx;
+    background: #fff;
+  }
+  .goods-item-img {
+    width: 168rpx;
+    height: 135rpx;
+    border: 1px solid #f6f6f6;
+  }
+  .goods-item-img image {
+    width: 168rpx;
+    height: 135rpx;
+  }
+  .goods-item-right {
+    margin-left: 30rpx;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .goods-item-title {
+    font-size: 32rpx;
+    color: #3f3f3f;
+  }
+  .goods-item-detial {
+    color: #808080;
+    padding: 10rpx 0;
+  }
+  .goods-price {
+    display: flex;
+    justify-content: space-between;
+  }
+  .goods-item-price {
+    color: #fc9d40;
+    font-size: 30rpx;
+  }
+  .goods-itme-showPrice {
+    color: #808080;
+    font-size: 22rpx;
+    padding-left: 18rpx;
+    text-decoration: line-through;
+  }
+  .goods-item-quantity {
+    width: 150rpx;
+    height: 50rpx;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+  .goods-item-quantity view.subtract,
+  .goods-item-quantity view.add {
+    text-align: center;
+    width: 50rpx;
+    line-height: 45rpx;
+    font-size: 40rpx;
+    display: inline-block;
+    font-weight: bolder;
+    height: 50rpx;
+    color: #dc3c38;
+    border: 1px solid #e8e8e8;
+    border-radius: 50%;
+  }
+  .goods-item-quantity view.subtract:active,
+  .goods-item-quantity view.add:active {
+    background: #dc3c38;
+    color: #ffffff;
+  }
+  .goods-item-quantity .text-label {
+    width: 50rpx;
+    display: inline-block;
+    text-align: center;
+  }
+  
+
 .bottom-btn {
     width: 100%;
     height: 100rpx;

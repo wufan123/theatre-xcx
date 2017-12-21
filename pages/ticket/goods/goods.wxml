@@ -1,1 +1,24 @@
+<view class="main-content">
+    <view class="goods-item"  wx:for = "{{goodsList}}"  wx:key="index">
+        <view class="goods-item-img" bindtap="goToGoodsDetial" id="{{item.goodsId}}">
+            <image src="{{item.goodsImg}}"  binderror="imageError" data-index="{{index}}" ></image>
+        </view> 
+        <view class="goods-item-right">
+            <span class= "goods-item-title t-ellipsis">{{item.goodsName}}</span>
+            <span class="goods-item-detial t-ellipsis">描述: {{item.detail}}</span>
+            <view class="goods-price">
+                <view class="goods-item-prices">
+                    <em class="goods-item-price">￥{{item.price}}  </em>
+                    <em class="goods-itme-showPrice">￥{{item.showPrice}}</em>
+                </view>
+                <view class="goods-item-quantity">
+                    <view class="subtract" mode="aspectFit"  bindtap="subtractQuatity" data-index="{{index}}">-</view>
+                    <em class="text-label">{{item.num?item.num:0}}</em>
+                    <view class="add" mode="aspectFit" bindtap="addQuatity" data-index="{{index}}">+</view>
+                </view>
+            </view>
+         </view>
+    </view>
+</view>
+
 <view class="bottom-btn" bindtap="confirm">{{bottomTxt}}</view>
