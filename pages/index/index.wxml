@@ -20,11 +20,11 @@
 
 <template name="menu">
     <view class="menu-bg">
-        <view class="menu-item">
+        <view class="menu-item" bindtap="flashSale">
             <image src="/images/menu-rob.png" class="menu-item-ico"></image>
             <text class="menu-item-txt">限时抢购</text>
         </view>
-        <view class="menu-item">
+        <view class="menu-item" bindtap="localProduct">
             <image src="/images/menu-day.png" class="menu-item-ico"></image>
             <text class="menu-item-txt">超级联合日</text>
         </view>

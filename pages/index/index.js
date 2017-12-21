@@ -1,4 +1,5 @@
 //获取应用实例
+const webviewUtil = require('../../util/webviewUtil.js')
 var app = getApp()
 Page({
   data: {
@@ -33,9 +34,18 @@ Page({
       });
     }
   },
+  // 场次票购买
   ticketFilm: function() {
     wx.navigateTo({
-      url: '../film/index/index'
+      url: '../ticket/index/index'
     });
+  },
+  // 限时抢购
+  flashSale: function() {
+    webviewUtil.goto('/FlashSale');
+  },
+  // 超级联合日
+  localProduct: function() {
+    webviewUtil.goto('/LocalProduct');
   }
 })

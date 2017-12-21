@@ -1,0 +1,2 @@
+<web-view wx:if="{{canUseWeb}}" src="{{protocolWebUrl}}"></web-view>
+<view wx:else>微信版本过低，不支持显示页面。</view>

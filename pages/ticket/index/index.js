@@ -6,13 +6,15 @@ Page({
     data: {
         filmDetail: {
             detail: null,
+            standardPrice: 0,
             showPlan: false
         },
         filmPlan: {
-            timeList: [{time: "20161220"},{time: "20161221"},{time: "20161222"}],
-            planList: [{time: "15:30"},{time: "17:00"},{time: "20:00"}],
+            timeList: [],
+            planList: [],
             count: 0
-        }
+        },
+        bottomTxt: '马上购买'
     },
     onLoad: function (e) {
         this.loadFilmDetail();
@@ -20,11 +22,13 @@ Page({
     confirm: function(e) {
         if (!this.data.filmDetail.showPlan) {
             this.data.filmDetail.showPlan = true;
+            this.data.bottomTxt = '确定'
             this.setData(this.data)
         }
     },
     hidePlan: function() {
         this.data.filmDetail.showPlan = false;
+        this.data.bottomTxt = '马上购买'
         this.setData(this.data)
     },
     emptyBtn: function() {
@@ -85,13 +89,17 @@ Page({
             time: time
         }
         planRest.getPlans(params, res => {
-            console.log(res)
+            if (res.planInfo && res.planInfo.length>0) {
+                this.data.filmPlan.planList = res.planInfo;
+                this.data.filmDetail.standardPrice = res.planInfo[0].standardPrice // 取价格
+                this.setData(this.data)
+            }
         }, res => {
             console.log(res)
         })
     },
 
-    // 排期
+    // 排期选择
     subtract: function () {
         this.data.filmPlan.count = this.data.filmPlan.count - 1;
         this.data.filmPlan.count = this.data.filmPlan.count > 0 ? this.data.filmPlan.count : 0

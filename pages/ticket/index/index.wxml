@@ -10,7 +10,7 @@
         <view class="content-bg">
             <view class="content-body">
                 <view class="content-title">
-                    {{detail.filmName}}
+                    {{detail.filmName}} - {{standardPrice}}
                 </view>
                 <view class="content-interval">
                     <view class="content-line"></view>
@@ -33,7 +33,7 @@
                 <scroll-view scroll-x>
                     <view class="plan-scroll">
                         <view wx:for="{{ timeList }}" wx:for-item="item" wx:key="" class="plan-item" bindtap="ticketFilm">
-                            <view >{{item.time}}</view>
+                            <view >{{item.instr}}</view>
                         </view>
                     </view>
                 </scroll-view>
@@ -68,4 +68,4 @@
 
 <template is="filmDetail" data="{{...filmDetail}}"></template>
 <template is="filmPlan" wx:if="{{filmDetail.showPlan}}" data="{{...filmPlan}}"></template>
-<view class="bottom-btn" bindtap="confirm">马上购买</view>
+<view class="bottom-btn" bindtap="confirm">{{bottomTxt}}</view>

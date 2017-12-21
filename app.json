@@ -12,7 +12,8 @@
     "pages/me/coupon/detail/detail",
     "pages/me/order/index/index",
     "pages/me/order/detail/detail",
-    "pages/film/index/index"
+    "pages/ticket/index/index",
+    "pages/webview/webview"
   ],
   "window": {
     "backgroundTextStyle": "dark",
