@@ -5,7 +5,7 @@ App({
   globalData: {
     serverUrlBase: 'https://m.zmaxfilm.com/Api_35',
     //serverUrlBase: 'https://premapi.zmaxfilm.com/Api_35',
-    wapServerUrlBase: 'https://jufang.zmaxfilm.com/#',
+    wapServerUrlBase: 'http://localhost:8080/#',
     
     appAccount: 'zhongruijufang',
     appPasswd: 'zrjf1123',

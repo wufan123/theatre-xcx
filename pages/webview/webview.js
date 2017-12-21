@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      protocolWebUrl: options.url+"?source=xcx"
+      protocolWebUrl: options.url
     });
   }
 })
