@@ -1,0 +1,1 @@
+<view class="bottom-btn" bindtap="confirm">确认支付</view>

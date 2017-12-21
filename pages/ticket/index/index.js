@@ -24,6 +24,18 @@ Page({
             this.data.filmDetail.showPlan = true;
             this.data.bottomTxt = '确定'
             this.setData(this.data)
+        } else {
+            // TODO 判断参数
+            wx.navigateTo({
+                url: '../goods/goods',
+            })
+
+            // 还原界面状态
+            setTimeout(() => {
+                this.data.filmDetail.showPlan = false;
+                this.data.bottomTxt = '马上购买'
+                this.setData(this.data)
+            }, 1000)
         }
     },
     hidePlan: function() {
