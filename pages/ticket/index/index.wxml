@@ -1,71 +1,82 @@
+<view class='page'>
+  <view class='body'>
+    <template is="filmDetail" data="{{...filmDetail}}"></template>
+  </view>
+  <view class='footer'>
+    <view class="bottom-btn" bindtap="confirm">{{bottomTxt}}</view>
+  </view>
+</view>
+
 <template name="filmDetail">
-    <view class="film-detail-bg" style="{{showPlan?'overflow: hidden;':''}}">
-        <swiper autoplay interval="5000" class="branner-bg">
-            <block wx:for="{{detail.imgs}}" wx:for-item="item" wx:key="" >
-                <swiper-item>
-                    <image src="{{item}}" mode="aspectFill" class="branner-img"/>
-                </swiper-item>
-            </block>
-        </swiper>
-        <view class="content-bg">
-            <view class="content-body">
-                <view class="content-title">
-                    {{detail.filmName}} - {{standardPrice}}
-                </view>
-                <view class="content-interval">
-                    <view class="content-line"></view>
-                    <view class="content-interval-txt">剧坊介绍</view>
-                    <view class="content-line"></view>
-                </view>
-                <view class="content-detail">
-                    {{detail.introduction}}
-                </view>
-            </view>
+  <view class="film-detail-bg" style="{{showPlan?'overflow: hidden;':''}}">
+    <swiper autoplay interval="5000" class="branner-bg">
+      <block wx:for="{{detail.imgs}}" wx:for-item="item" wx:key="">
+        <swiper-item>
+          <image src="{{item}}" mode="aspectFill" class="branner-img" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="content-bg">
+      <view class="fxrb content-title">
+        <view>
+          <text class='bold'>{{detail.filmName}}</text>
+          <text>坊巷文化影音秀场次票</text>
         </view>
+        <view>
+          <text class='bold f18'>￥{{standardPrice}}</text>
+          <text>满200立减10元</text>
+        </view>
+      </view>
+      <view class="content-interval">
+        <text class="content-interval-txt">剧坊介绍</text>
+        <view class="content-interval-line"></view>
+      </view>
+      <view class="content-detail">
+        {{detail.introduction}}阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬阿什顿发斯蒂芬
+      </view>
     </view>
+  </view>
 </template>
+
+<template is="filmPlan" wx:if="{{filmDetail.showPlan}}" data="{{...filmPlan}}"></template>
 
 <template name="filmPlan">
-    <view class="plan-bg" catchtap="hidePlan">
-        <view class="plan-content" catchtap="emptyBtn">
-            <view class="plan-line">
-                <text class="plan-title-txt">时间</text>
-                <scroll-view scroll-x>
-                    <view class="plan-scroll">
-                        <view wx:for="{{ timeList }}" wx:for-item="item" wx:key="" class="plan-item" bindtap="ticketFilm">
-                            <view >{{item.instr}}</view>
-                        </view>
-                    </view>
-                </scroll-view>
+  <view class="plan-bg" catchtap="hidePlan">
+    <view class="plan-content" catchtap="emptyBtn">
+      <view class="plan-line">
+        <text class="plan-title-txt">时间</text>
+        <scroll-view scroll-x>
+          <view class="plan-scroll">
+            <view wx:for="{{ timeList }}" wx:for-item="item" wx:key="" class="plan-item fxrm selected" bindtap="ticketFilm">
+              {{item.instr}}
             </view>
-            <view class="plan-line">
-                <text class="plan-title-txt">场次</text>
-                <scroll-view scroll-x>
-                    <view class="plan-scroll">
-                        <view wx:for="{{ planList }}" wx:for-item="item" wx:key="" class="plan-item" bindtap="ticketFilm">
-                            <view >{{item.time}}</view>
-                        </view>
-                    </view>
-                </scroll-view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="plan-line">
+        <text class="plan-title-txt">场次</text>
+        <scroll-view scroll-x>
+          <view class="plan-scroll">
+            <view wx:for="{{ planList }}" wx:for-item="item" wx:key="" class="plan-item" bindtap="ticketFilm">
+              <view>{{item.time}}</view>
             </view>
-            <view class="plan-line">
-                <text class="plan-title-txt">购买数量</text>
-                <view class="recharge-item">
-                    <view class="recharge-item-btn">
-                        <image src="/images/subtract_on.png" class="recharge-item-btn-active" catchtap="subtract"></image>
-                        <image src="/images/subtract.png" class="recharge-item-btn-normal" catchtap="subtract"></image>
-                    </view>
-                    <input class="recharge-item-lable t-black" placeholder="数量" value="{{count?count:''}}" type="number" bindinput="bindAmountInput"></input>
-                    <view class="recharge-item-btn">
-                        <image src="/images/add_on.png" class="recharge-item-btn-active" catchtap="add"></image>
-                        <image src="/images/add.png" class="recharge-item-btn-normal" catchtap="add"></image>
-                    </view>
-                </view>
-            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="plan-line fxrb mb10" style="align-items:center">
+        <text class="plan-title-txt">购买数量</text>
+        <view class='recharge-item' >
+          <view class="recharge-item-btn">
+            <image src="/images/subtract_on.png" class="recharge-item-btn-active" catchtap="subtract"></image>
+            <image src="/images/subtract.png" class="recharge-item-btn-normal" catchtap="subtract"></image>
+          </view>
+          <input class="recharge-item-lable t-black" placeholder="数量" value="{{count?count:''}}" type="number" bindinput="bindAmountInput"></input>
+          <view class="recharge-item-btn">
+            <image src="/images/add_on.png" class="recharge-item-btn-active" catchtap="add"></image>
+            <image src="/images/add.png" class="recharge-item-btn-normal" catchtap="add"></image>
+          </view>
         </view>
+      </view>
     </view>
+  </view>
 </template>
-
-<template is="filmDetail" data="{{...filmDetail}}"></template>
-<template is="filmPlan" wx:if="{{filmDetail.showPlan}}" data="{{...filmPlan}}"></template>
-<view class="bottom-btn" bindtap="confirm">{{bottomTxt}}</view>

@@ -1,3 +1,14 @@
+@import './style/common.wxss';
 page {
-    
+  height: 100%;
+  color:#333;
+  background-color:#f1f1f2;    
+  line-height:1.6;    
+  font-size:28rpx;
+  font-family:-apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
+input{width: 100%;}
+
+ view label { box-sizing: content-box;} 
+
+

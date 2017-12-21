@@ -54,7 +54,6 @@
   height:530rpx;
   margin-left: -250rpx;
   margin-top: -270rpx;
-  font-size: 30rpx;
   z-index: 10;
 }
 

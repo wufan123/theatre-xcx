@@ -59,7 +59,6 @@ page {
 }
 
 .menu-item-txt {
-    font-size: 24rpx;
 }
 
 .ticket-bg {
@@ -75,17 +74,25 @@ page {
 .ticket-scroll {
     display: flex;
     margin-top: 20rpx;
+    height: 320rpx;
 }
 
 .ticket-item {
-    background: #e4e4e4;
+    box-sizing:border-box;
+    border: 1px solid #eee;
     margin-left: 20rpx;
+    padding: 20rpx;
     min-width:500rpx;
-    min-height: 300rpx;
+    min-height: 200rpx;
     white-space: nowrap;
+    height: 300rpx;
+    border-radius: 8rpx;
 }
 
 .ticket-title-txt {
-    font-size: 30rpx;
     margin-left: 20rpx;
 }
+.ticket-title-txt text{
+  margin: 0 4rpx;
+}
+.go-buy{margin-top: 50rpx;}

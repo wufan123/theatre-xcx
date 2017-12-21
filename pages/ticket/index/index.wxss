@@ -1,18 +1,14 @@
-page {
-    background-color: #e4e4e4;
-    font-family:微软雅黑;
-}
 
-.film-detail-bg {
-    width: 100%;
-    position: absolute;
-    bottom: 100rpx;
-    top: 0;
-}
+.page{display: flex;flex-direction: column;height: 100%}
+.body{flex: 1;overflow: auto}
+.footer{height: 100rpx;}
 
 .branner-bg {
     width: 100%;
     height: 350rpx;
+    position: absolute;
+    z-index: -1;
+    top: 0;
 }
 
 .branner-img {
@@ -21,41 +17,41 @@ page {
 }
 
 .content-bg {
-    width: 670rpx;
-    padding-left: 30rpx;
-    padding-right: 30rpx;
-    margin-top: -20rpx;
-    margin-bottom: 120rpx;
-    position: absolute;
+    margin: 100rpx 30rpx 40rpx 30rpx;
+    z-index: 1;
+    padding: 40rpx;
+    background: #ffffff;
 }
 
-.content-body {
-    background: white;
-}
-
-.content-title {
-    font-size: 28rpx;
-    padding-top: 40rpx;
-    padding-left: 20rpx;
+.content-title text{
+  display: block;
+  margin-bottom: 10rpx;
 }
 
 .content-interval {
-    width: 670rpx;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items:Center;
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
+  text-align: center;
+  margin: 40rpx 0;
+  position: relative;
+  height: 50rpx;
+}
+
+.content-interval-line {
+  border-top: 1px solid #ccc;
+  left: 0;
+  width: 100%;
+  color: red;
+  top: 25rpx;
+  z-index: 0;
+  position: absolute
 }
 
 .content-interval-txt {
-    width: 170rpx;
-    font-size: 24rpx;
-    display: flex;
-    justify-content: center;
-    align-items:Center;
+    position: absolute;
+    padding: 4rpx 30rpx;
+    color: #ffffff;
     background: #a4a4a4;
+    margin-left: -80rpx;
+    z-index: 1
 }
 
 .content-line {
@@ -64,12 +60,6 @@ page {
     border-top:2rpx solid #a4a4a4;
 }
 
-.content-detail {
-    padding-left: 20rpx;
-    padding-right: 20rpx;
-    padding-bottom: 20rpx;
-    font-size: 26rpx;
-}
 
 .plan-bg {
     width: 100%;
@@ -77,6 +67,7 @@ page {
     background: #74a4a4a4;
     position: fixed;
     bottom: 100rpx;
+    z-index:2;
 }
 
 .plan-content {
@@ -84,23 +75,31 @@ page {
     background: white;
     position: fixed;
     bottom: 102rpx;
+    padding-top: 20rpx;
 }
 
 .plan-line {
-    padding-top: 20rpx;
+    padding: 20rpx;
 }
 
 .plan-scroll {
     display: flex;
     margin-top: 20rpx;
+    height: 100rpx
 }
 
 .plan-item {
-    background: #e4e4e4;
+    background: #eee;
     margin-left: 20rpx;
     min-width:200rpx;
-    min-height: 100rpx;
+    height: 80rpx;
+    min-height: 80rpx;
     white-space: nowrap;
+    border-radius: 10rpx;
+    box-sizing: border-box
+}
+.plan-item.selected {
+    border:1px solid red;
 }
 
 .plan-title-txt {
@@ -109,19 +108,12 @@ page {
 }
 
 .recharge-item{
-    width: 400rpx;
-    height: 90rpx;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    border-radius: 45rpx;
-    margin:50rpx;
-    background: white;
+    width: 300rpx;
+    display: flex;justify-content: center;align-items: center;
   }
   .recharge-item-btn{
-    display:flex;
-    
+    display: flex;
+    align-items: center
   }
   .recharge-item-btn:active .recharge-item-btn-normal{
     display: none;
@@ -131,23 +123,20 @@ page {
   }
   .recharge-item-btn-normal{
     display: inline-block;
-    position: relative;
     width:60rpx;
     height:60rpx;
-    padding:15rpx;
   
   }
   .recharge-item-btn-active{
     display: none;
-    position: relative;
     width:60rpx;
     height:60rpx;
-    padding:15rpx;
   }
   
   .recharge-item-lable{
     display: inline-block;
-    position: relative;
+    margin: 0 10rpx;
+    background: #eee;
     flex: 1;
     text-align: center;
   }
