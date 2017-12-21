@@ -1,6 +1,6 @@
 <view class="main-content">
     <view class="goods-item"  wx:for = "{{goodsList}}"  wx:key="index">
-        <view class="goods-item-img" bindtap="goToGoodsDetial" id="{{item.goodsId}}">
+        <view class="goods-item-img" id="{{item.goodsId}}">
             <image src="{{item.goodsImg}}"  binderror="imageError" data-index="{{index}}" ></image>
         </view> 
         <view class="goods-item-right">
