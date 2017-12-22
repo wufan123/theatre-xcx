@@ -203,6 +203,33 @@ function updateGoodsOrder(orderId, phone, success_cb, fail_cb) {
   httpRest.getRequest('/user/updateOrderFilmMobile', params, success_cb, fail_cb)
 }
 
+/**
+ * 获取抢购卖品列表
+ * @param {*} cinemaCode
+ * @param {*} success_cb
+ * @param {*} fail_cb
+ */
+function getBuyingGoods(cinemaCode, success_cb, fail_cb) {
+  var params = {
+    cinemaCode: cinemaCode
+  }
+  httpRest.getRequest('/Buying/getBuyingGoods', params, success_cb, fail_cb)
+}
+
+/**
+ * 抢购卖品下单
+ * @param {*} panicbuyingId 活动id
+ * @param {*} orderNumber 抢购数量
+ * @param {*} success_cb
+ * @param {*} fail_cb
+ */
+function createBuyingOrder(panicbuyingId, orderNumber, success_cb, fail_cb) {
+  var params = {
+    panicbuyingId: panicbuyingId,
+    number: orderNumber
+  }
+  httpRest.getRequest('/Sale/setCinemaBuyingOrderNew', params, success_cb, fail_cb)
+}
 
 module.exports = {
   getGoodsList: getGoodsList,
@@ -218,5 +245,7 @@ module.exports = {
   getGoodsStatus: getGoodsStatus,
   createGoodsFilmOrder: createGoodsFilmOrder,
   getGoodsDetail: getGoodsDetail,
-  updateGoodsOrder: updateGoodsOrder
+  updateGoodsOrder: updateGoodsOrder,
+  getBuyingGoods: getBuyingGoods,
+  createBuyingOrder: createBuyingOrder
 }
