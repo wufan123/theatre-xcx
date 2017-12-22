@@ -1,1 +1,36 @@
-<view class="bottom-btn" bindtap="confirm">确认支付</view>
+<view class='page'>
+  <view class='body'>
+    <view class="c-good">
+      <view class='goods'>
+        <view class='list'>
+          <image class='film-img' src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1050241476,1492482088&fm=58&s=D10340B45C13FECC042F9C4803007099"></image>
+          <view class='list-body fxrb'>
+            <view class='list-con'>
+              <view>永和鱼丸</view>
+              <view>x 1</view>
+            </view>
+            <view class='bold'>￥5.00</view>
+          </view>
+        </view>
+        <view class='list'>
+          <image class='good-img' src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513916524579&di=f8bb7b6721d3d41a2ed341591caf4ff0&imgtype=0&src=http%3A%2F%2Fimage1.ocj.com.cn%2Fitem_desc%2Fsupplier%2F2016%2F11%2F14%2F20160923652220%2F1479087155506.jpg"></image>
+          <view class='list-body fxrb'>
+            <view class='list-con'>
+              <view>永和鱼丸</view>
+              <view>x 1</view>
+            </view>
+            <view class='bold'>￥5.00</view>
+          </view>
+        </view>
+      </view>
+      <view class='cell'><text>优惠券</text><text>4张可用</text></view>
+      <view class='cell'><text>会员卡</text><text>未选择</text></view>
+      <view class='info fxrb f12'><text>总价</text><text>$233.00</text></view>
+      <view class='info fxrb'><text>实付款</text><text class='bold'>$233.00</text></view>
+    </view>
+    <view class='cell-line'><text>手机号</text> <input type='text' placeholder="请输入手机号码"></input> </view>
+  </view>
+  <view class='footer'>
+    <view class="bottom-btn" bindtap="confirm">支付</view>
+  </view>
+</view>

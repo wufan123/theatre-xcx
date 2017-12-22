@@ -1,9 +1,9 @@
 <view class='page'>
   <view class='body'>
-    <template is="filmDetail" data="{{...filmDetail}}"></template>
+     <template is="filmDetail" data="{{...filmDetail}}"></template> 
   </view>
   <view class='footer'>
-    <view class="bottom-btn" bindtap="confirm">{{bottomTxt}}</view>
+   <view class="bottom-btn" bindtap="confirm">{{bottomTxt}}</view> 
   </view>
 </view>
 
@@ -39,7 +39,6 @@
 </template>
 
 <template is="filmPlan" wx:if="{{filmDetail.showPlan}}" data="{{...filmPlan}}"></template>
-
 <template name="filmPlan">
   <view class="plan-bg" catchtap="hidePlan">
     <view class="plan-content" catchtap="emptyBtn">

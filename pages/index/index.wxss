@@ -1,98 +1,29 @@
-page {
-    background-color: #e4e4e4;
-    font-family:微软雅黑;
-}
+.title-bg {height: 100rpx;padding: 10rpx 30rpx;}
+.title-logo {width: 160rpx;height: 90rpx;}
+.title-icon{width: 50rpx;height: 50rpx;margin-left: 40rpx;}
 
-.title-bg {
-    widows: 100%;
-    height: 100rpx;
-    background: white;
-    display: flex;
-    justify-content: space-between;
-    align-items:Center;
-}
+.branner-bg {width: 100%;height: 500rpx;}
+.branner-img {width: 100%;height: 500rpx;}
 
-.title-logo {
-    width: 174rpx;
-    height: 96rpx;
-}
+.menu-bg {background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/menu_bg.png'); background-size: contain;display: flex;justify-content: space-around;align-items:Center;padding-top: 50rpx;}
+.menu-item {display: flex;flex-direction: column;align-items: center;}
+.menu-item-ico {width: 110rpx;height: 110rpx;}
 
-.title-account {
-    width: 80rpx;
-    height: 80rpx;
-}
+.ticket-bg {margin-top: 20rpx;padding-bottom: 20rpx;}
+.title-txt {text-align: right;height: 93rpx;background-size: contain;padding-right: 30rpx;line-height: 93rpx;}
+.title-txt.zhg{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/zhg_title_bg.png');}
+.title-txt.ticket{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/ticket__title_bg.png');}
+.title-txt.tdq{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/tdq_title_bg.png');}
 
-.title-other {
-    width: 80rpx;
-    height: 80rpx;
-}
 
-.branner-bg {
-    width: 100%;
-    height: 350rpx;
-}
+.ticket-line {margin: 20rpx 0 0 0;}
+.ticket-scroll {display: flex;height: 264rpx;align-items: center;}
+.ticket-item {width: 650rpx;min-width:650rpx;min-height: 204rpx;white-space: nowrap;text-align: center;position: relative;}
+.ticket-img {width: 604rpx;height: 204rpx;}
 
-.branner-img {
-    width: 100%;
-    height: 350rpx;
-}
+.card-text{position: absolute;width: 375rpx;top: 20rpx;left: 160rpx;text-align: left;}
+.card-text .card-name{line-height: 60rpx;font-size: 32rpx;margin-bottom: 10rpx;}
+.card-text text{display: block;color: #c4a983;}
 
-.menu-bg {
-    widows: 100%;
-    background: white;
-    display: flex;
-    justify-content: space-around;
-    align-items:Center;
-}
 
-.menu-item {
-    padding-top: 10rpx;
-    padding-bottom: 10rpx;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.menu-item-ico {
-    width: 110rpx;
-    height: 110rpx;
-}
-
-.menu-item-txt {
-}
-
-.ticket-bg {
-    background: white;
-    margin-top: 20rpx;
-    padding-bottom: 20rpx;
-}
-
-.ticket-line {
-    padding-top: 20rpx;
-}
-
-.ticket-scroll {
-    display: flex;
-    margin-top: 20rpx;
-    height: 320rpx;
-}
-
-.ticket-item {
-    box-sizing:border-box;
-    border: 1px solid #eee;
-    margin-left: 20rpx;
-    padding: 20rpx;
-    min-width:500rpx;
-    min-height: 200rpx;
-    white-space: nowrap;
-    height: 300rpx;
-    border-radius: 8rpx;
-}
-
-.ticket-title-txt {
-    margin-left: 20rpx;
-}
-.ticket-title-txt text{
-  margin: 0 4rpx;
-}
-.go-buy{margin-top: 50rpx;}
+.go-buy{position: absolute;width: 90rpx;height: 50rpx;right: 57rpx;bottom: 40rpx;}

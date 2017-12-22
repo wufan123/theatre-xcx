@@ -42,7 +42,9 @@ Page({
   },
   // 限时抢购
   flashSale: function() {
-    webviewUtil.goto('/FlashSale');
+    wx.navigateTo({
+      url: '../business/flashSale/index',
+    })
   },
   // 超级联合日
   localProduct: function() {

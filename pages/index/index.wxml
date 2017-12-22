@@ -1,84 +1,100 @@
 <template name="titleBar">
-    <view class="title-bg">
-        <image src="/images/home-logo.png" class="title-logo"></image>
-        <view>
-          <image src="/images/home-account.png" class="title-account" bindtap="login"></image>
-          <!-- <image src="/images/home-other.png" class="title-other"></image> -->
-        </view>
+  <view class="title-bg fxrbm">
+    <image src="/assets/images/logo.png" class="title-logo"></image>
+    <view class='fxrm'>
+      <image src="/assets/images/me.png" class="title-icon" bindtap="login"></image>
+      <image src="/assets/images/all.png" class="title-icon"></image>
     </view>
+  </view>
 </template>
 
 <template name="banner">
-    <swiper autoplay interval="5000" class="branner-bg">
-        <block wx:for="{{list}}" wx:for-item="item" wx:key="" >
-            <swiper-item>
-                <image src="{{item.url}}" mode="aspectFill" class="branner-img"/>
-            </swiper-item>
-        </block>
-    </swiper>
+  <swiper autoplay interval="5000" class="branner-bg">
+    <block wx:for="{{list}}" wx:for-item="item" wx:key="">
+      <swiper-item>
+        <image src="http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/pic.png" mode="aspectFill" class="branner-img" />
+      </swiper-item>
+      <swiper-item>
+        <image src="{{item.url}}" mode="aspectFill" class="branner-img" />
+      </swiper-item>
+    </block>
+  </swiper>
 </template>
 
 <template name="menu">
-    <view class="menu-bg">
-        <view class="menu-item" bindtap="flashSale">
-            <image src="/images/menu-rob.png" class="menu-item-ico"></image>
-            <text class="menu-item-txt">限时抢购</text>
-        </view>
-        <view class="menu-item" bindtap="localProduct">
-            <image src="/images/menu-day.png" class="menu-item-ico"></image>
-            <text class="menu-item-txt">超级联合日</text>
-        </view>
-        <view class="menu-item">
-            <image src="/images/menu-mall.png" class="menu-item-ico"></image>
-            <text class="menu-item-txt">商城</text>
-        </view>
+  <view class="menu-bg">
+    <view class="menu-item" bindtap="flashSale">
+      <image src="/assets/images/menu_xsq.png" class="menu-item-ico"></image>
+      <text class="menu-item-txt">限时抢购</text>
     </view>
+    <view class="menu-item" bindtap="localProduct">
+      <image src="/assets/images/menu_lhr.png" class="menu-item-ico"></image>
+      <text class="menu-item-txt">超级联合日</text>
+    </view>
+    <view class="menu-item">
+      <image src="/assets/images/menu_tc.png" class="menu-item-ico"></image>
+      <text class="menu-item-txt">商城</text>
+    </view>
+  </view>
 </template>
 
 <template name="ticket">
-    <view class="ticket-bg">
-        <view class="ticket-line">
-            <view class="ticket-title-txt"> <text>票务</text> ● <text>场次票</text> </view>
-            <scroll-view scroll-x>
-                <view class="ticket-scroll">
-                    <view wx:for="{{ ticketShow }}" wx:for-item="item" wx:key="" class="ticket-item" bindtap="ticketFilm">
-                        <view >坊巷影音文化秀《三坊七巷》</view>
-                        <view>中瑞剧坊</view>
-                        <view>￥228</view>
-                        <view class='go-buy right'><button size='mini'>购买</button></view>
-                    </view>
-                </view>
-            </scroll-view>
+  <view class="ticket-bg">
+    <view class="ticket-line">
+      <view class="title-txt ticket"></view>
+      <scroll-view scroll-x>
+        <view class="ticket-scroll">
+          <view  class="ticket-item">
+            <view class='card-text'>
+              <text class='card-name text-ellipsis-line'>《三坊七巷》</text>
+              <text class='text-ellipsis-line'>中瑞剧坊 • 坊巷文化影音秀</text>
+              <text class='f16 bold'>￥228</text>
+            </view>
+            <image src='/assets/images/ccp_card.png' class='ticket-img'></image>
+            <image src='/assets/images/go_buy.png' class='go-buy' bindtap="ticketFilm"></image>
+          </view>
         </view>
-        <view class="ticket-line">
-            <view class="ticket-title-txt"> <text>票务</text> ● <text>组合购</text> </view>
-            <scroll-view scroll-x >
-                <view class="ticket-scroll">
-                    <view wx:for="{{ ticketSet }}" wx:for-item="item" wx:key="" class="ticket-item" >
-                        <view >坊巷影音文化秀《三坊七巷》</view>
-                        <view>中瑞剧坊</view>
-                        <view>￥228</view>
-                        <view class='go-buy right'><button size='mini'>购买</button></view>
-                    </view>
-                </view>
-            </scroll-view>
-        </view>
-        <view class="ticket-line">
-            <view class="ticket-title-txt"> <text>票务</text> ● <text>兑换券</text> </view>
-            <scroll-view scroll-x>
-                <view class="ticket-scroll">
-                    <view wx:for="{{ ticketVoucher }}" wx:for-item="item" wx:key="" class="ticket-item" >
-                        <view >id:{{item.id}}</view>
-                    </view>
-                </view>
-            </scroll-view>
-        </view>
+      </scroll-view>
     </view>
+    <view class="ticket-line">
+      <view class="title-txt zhg"></view>
+      <scroll-view scroll-x>
+        <view class="ticket-scroll">
+          <view wx:for="{{ ticketShow }}" wx:for-item="item" wx:key="" class="ticket-item">
+            <view class='card-text'>
+              <text class='card-name text-ellipsis-line'>《三坊七巷》</text>
+              <text class='text-ellipsis-line'>中瑞剧坊 • 坊巷文化影音秀</text>
+              <text class='f16 bold'>￥228</text>
+            </view>
+            <image src='/assets/images/zhq_card.png' class='ticket-img'></image>
+            <image src='/assets/images/go_buy.png' class='go-buy' bindtap="ticketFilm"></image>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="ticket-line">
+      <view class="title-txt tdq"></view>
+      <scroll-view scroll-x>
+        <view class="ticket-scroll">
+          <view wx:for="{{ ticketShow }}" wx:for-item="item" wx:key="" class="ticket-item">
+            <view class='card-text'>
+              <text class='card-name text-ellipsis-line'>《三坊七巷》</text>
+              <text class='text-ellipsis-line'>中瑞剧坊 • 坊巷文化影音秀</text>
+              <text class='f16 bold'>￥228</text>
+            </view>
+            <image src='/assets/images/dhq_card.png' class='ticket-img'></image>
+            <image src='/assets/images/go_buy.png' class='go-buy' bindtap="ticketFilm"></image>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+  </view>
 </template>
 
 <view>
-    <template is="titleBar"></template>
-    <template is="banner" data="{{...bannerList}}"></template>
-    <template is="menu"></template>
-    <template is="ticket" data="{{...goodsList}}"></template>
+  <template is="titleBar"></template>
+  <template is="banner" data="{{...bannerList}}"></template>
+  <template is="menu"></template>
+  <template is="ticket" data="{{...goodsList}}"></template>
 </view>

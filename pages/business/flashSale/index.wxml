@@ -1,0 +1,66 @@
+<view class='page'>
+  <view class='body'>
+    <view class='content'>
+      <view class='card' wx:for="[2]" wx:for-item="item" wx:key="">
+        <view class='shade' wx:if="{{false}}"></view>
+        <view class='body '>
+          <text class='f24 khaki bold'>￥150.00</text>
+          <text class='text-ellipsis-line'>立享￥228元坊巷文化影音通兑券立享￥228元坊巷文化影音通兑券</text>
+          <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
+        </view>
+        <view class='info fxcm'>
+          <text class='f16 mb10'>立即抢</text>
+          <text>已抢 20%</text>
+          <image src='/assets/images/business/card_info.png' class='bg info_bg'></image>
+        </view>
+      </view>
+      <view class='card'>
+        <view class='shade' wx:if="{{false}}"></view>
+        <view class='body '>
+          <text class='f24 khaki bold'>￥150.00</text>
+          <text>立享￥228元坊巷文化影音通兑券</text>
+          <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
+        </view>
+        <view class='info fxcm'>
+          <text class='f16 mb10'>立即抢</text>
+          <text>已抢 20%</text>
+          <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
+          <!-- <image src='/assets/images/business/card_info.png' class='bg info_bg'></image> -->
+        </view>
+      </view>
+      <!-- 已抢完 -->
+      <view class='card'>
+        <view class='shade' wx:if="{{true}}"></view>
+        <view class='body '>
+          <text class='f24 khaki bold'>￥150.00</text>
+          <text>立享￥228元坊巷文化影音通兑券</text>
+          <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
+        </view>
+        <view class='info fxcm'>
+          <text class='f16 mb10'>已抢完</text>
+          <!-- <text>已抢 20%</text> -->
+          <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
+          <!-- <image src='/assets/images/business/card_info.png' class='bg info_bg'></image> -->
+        </view>
+      </view>
+      <view class='card'>
+        <view class='shade' wx:if="{{true}}"></view>
+        <view class='body '>
+          <text class='f24 khaki bold'>￥150.00</text>
+          <text>立享￥228元坊巷文化影音通兑券</text>
+          <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
+        </view>
+        <view class='info fxcm'>
+          <text class='f16 mb10'>已抢完</text>
+          <!-- <text>已抢 20%</text> -->
+          <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
+          <!-- <image src='/assets/images/business/card_info.png' class='bg info_bg'></image> -->
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class='footer fxrm'>
+    <image src='/assets/images/business/see_card.png' class='see-card'></image>
+  </view>
+</view>

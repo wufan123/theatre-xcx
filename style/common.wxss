@@ -1,4 +1,5 @@
 .f12{font-size: 24rpx;}
+.f14{font-size: 28rpx;}
 .f16{font-size: 32rpx;}
 .f18{font-size: 36rpx;}
 .f20{font-size: 40rpx;}
@@ -9,6 +10,10 @@
 .right{text-align: right}
 .left{text-align: left}
 
+.red{color: #a40000}
+.black{color: #000000}
+.khaki{color: #a78658}
+
 .mt10{margin-top: 20rpx;}
 .mb10{margin-bottom: 20rpx;}
 .mb20{margin-bottom: 40rpx;}
@@ -16,11 +21,13 @@
 
 .bold{font-weight: bolder;}
 
-
 .fxrb{display: flex;flex-direction: row; justify-content: space-between;}
 .fxrm{display: flex;justify-content:center;align-items: center;}
+.fxrbm{display: flex;justify-content: space-between;align-items: center;}
+
 .fxcb{display: flex;flex-direction: column; justify-content: space-between;}
 .fxcm{display: flex;flex-direction: column;justify-content:center;align-items: center;}
+.fxcbm{display: flex;flex-direction: column;justify-content:space-between;align-items: center;}
 
 .text-ellipsis{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;}
 .text-ellipsis-line{width: 100%; display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}

@@ -1,12 +1,12 @@
-.bottom-btn {
-    width: 100%;
-    height: 100rpx;
-    position:fixed;
-    bottom: 0;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28rpx;
-    border-top:2rpx solid #a4a4a4;
-}
+.c-good{background: #ffffff;padding: 10rpx 30rpx;}
+.c-good .goods{border-bottom: 1px solid #eee;}
+.c-good .list{display: flex;justify-content: flex-start;align-items: center;padding: 20rpx 0;}
+.c-good .list .film-img{width: 100rpx;height: 180rpx;margin-right: 20rpx;}
+.c-good .list .good-img{width: 100rpx;height: 100rpx;margin-right: 20rpx;}
+.c-good .list .list-body{flex: 1}
+
+.info{ margin-top: 20rpx;}
+
+.cell-line{display: flex;background: #ffffff;padding: 20rpx 30rpx;justify-content: center;margin-top: 20rpx;}
+.cell-line text{margin-right: 20rpx;}
+

@@ -3,7 +3,9 @@ Page({
     },
     onLoad: function (e) {
     },
-    confirm: function() {
-        
+    pay: function() {
+      wx.redirectTo({
+        url: '../payResult/paySuccess/index',
+      })
     }
 })

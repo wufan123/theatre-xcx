@@ -1,0 +1,3 @@
+.result-con{height: 1000rpx;}
+.result-con image{width: 300rpx;height: 300rpx;margin-bottom: 50rpx;}
+.result-con button{width: 50%;}

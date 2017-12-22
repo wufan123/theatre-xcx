@@ -1,14 +1,24 @@
 @import './style/common.wxss';
+
 page {
   height: 100%;
   color:#333;
-  background-color:#f1f1f2;    
+  /* background-color:#e9decd;     */
   line-height:1.6;    
-  font-size:28rpx;
+  font-size:24rpx;
+  background-image:url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/page_bg.png');
   font-family:-apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
-input{width: 100%;}
+input{width: 100%;flex:1;}
 
  view label { box-sizing: content-box;} 
 
+.page{display: flex;flex-direction: column;height: 100%}
+.body{flex: 1;overflow: auto}
+.footer{height: 100rpx;overflow: hidden}
 
+.bottom-btn {background: white;border-top:1rpx solid #eee;box-sizing: border-box; text-align: center;line-height: 100rpx;}
+
+.cell{border-bottom: 1px solid #eee;padding: 30rpx 0;position: relative;padding-right: 50rpx;display: flex;flex-direction: row; justify-content: space-between;}
+.cell::after{content: "";display: block; width: 6px;height: 6px;margin-left: 0;border: 2px solid #ccc;-webkit-transform: rotate(315deg);right: 15rpx;border-top: 0 none;position: absolute;margin-top: 15rpx;border-left: 0 none
+}
