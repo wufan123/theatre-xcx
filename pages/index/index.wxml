@@ -9,7 +9,7 @@
 </template>
 
 <template name="banner">
-  <swiper autoplay interval="5000" class="branner-bg">
+  <swiper autoplay interval="5000" class="branner-bg" indicator-dots indicator-color="white" indicator-active-color="red">
     <block wx:for="{{list}}" wx:for-item="item" wx:key="">
       <swiper-item>
         <image src="http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/pic.png" mode="aspectFill" class="branner-img" />
