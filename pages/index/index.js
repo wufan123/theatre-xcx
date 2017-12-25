@@ -72,5 +72,12 @@ Page({
     wx.navigateTo({
       url: '../business/localProduct/localProduct?classType='+e.currentTarget.id,
     })
+  },
+  onShareAppMessage: function () {
+      return {
+          title: '中瑞剧坊',
+          desc: '中瑞三坊七巷影音秀购票',
+          path: '/pages/index/index'
+      }
   }
 })
