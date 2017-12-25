@@ -5,20 +5,22 @@ page {
   color:#333;
   /* background-color:#e9decd;     */
   line-height:1.6;    
-  font-size:24rpx;
+  font-size:28rpx;
   background-image:url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/page_bg.png');background-size: 137rpx 137rpx;background-repeat: repeat;
   font-family:-apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 input{width: 100%;flex:1;}
 
  view label { box-sizing: content-box;} 
-
 .page{display: flex;flex-direction: column;height: 100%}
 .body{flex: 1;overflow: auto}
 .footer{height: 100rpx;overflow: hidden}
 
-.bottom-btn {background: white;border-top:1rpx solid #eee;box-sizing: border-box; text-align: center;line-height: 100rpx;}
+.bottom-btn {background: #a40000; color: #ffffff;font-size: 32rpx;text-align: center;line-height: 100rpx;}
 
 .cell{border-bottom: 1px solid #eee;padding: 30rpx 0;position: relative;padding-right: 50rpx;display: flex;flex-direction: row; justify-content: space-between;}
 .cell::after{content: "";display: block; width: 6px;height: 6px;margin-left: 0;border: 2px solid #ccc;-webkit-transform: rotate(315deg);right: 15rpx;border-top: 0 none;position: absolute;margin-top: 15rpx;border-left: 0 none
 }
+
+.btn {padding: 8rpx 20rpx;display: inline-block;border: 1px solid #cd2e1b;position: relative;background: #cd2e1b;color:#ffffff;}
+.btn::before {content: "";display: block;border: 5rpx solid #e9decd;position: absolute; left: 0;right: 0;top: 0;bottom: 0;}

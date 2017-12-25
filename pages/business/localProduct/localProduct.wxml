@@ -7,7 +7,7 @@
             <text class='title f14'>永和鱼丸提货券</text>
             <view><text class='price'>￥5.00  </text><text class='decoration'>￥20</text></view>
           </view>
-          <view class="btn">马上购买</view>
+          <view class="btn" bindtap="goBuy">马上购买</view>
         </view>
         <image src='/assets/images/business/lhr_card.png' class='good-card-bg'></image>
       </view>

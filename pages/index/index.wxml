@@ -9,11 +9,11 @@
 </template>
 
 <template name="banner">
-  <swiper autoplay interval="5000" class="branner-bg" indicator-dots indicator-color="white" indicator-active-color="red">
+  <swiper autoplay interval="5000" class="branner-bg" indicator-dots indicator-color="white" indicator-active-color="#a40000">
     <block wx:for="{{list}}" wx:for-item="item" wx:key="">
-      <swiper-item>
+       <swiper-item>
         <image src="http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/pic.png" mode="aspectFill" class="branner-img" />
-      </swiper-item>
+      </swiper-item> 
       <swiper-item>
         <image src="{{item.url}}" mode="aspectFill" class="branner-img" />
       </swiper-item>
@@ -31,7 +31,7 @@
       <image src="/assets/images/menu_lhr.png" class="menu-item-ico"></image>
       <text class="menu-item-txt">超级联合日</text>
     </view>
-    <view class="menu-item">
+    <view class="menu-item" bindtap="localProduct">
       <image src="/assets/images/menu_tc.png" class="menu-item-ico"></image>
       <text class="menu-item-txt">福州特产馆</text>
     </view>
@@ -47,11 +47,11 @@
           <view  class="ticket-item">
             <view class='card-text'>
               <text class='card-name text-ellipsis-line'>《三坊七巷》</text>
-              <text class='text-ellipsis-line'>中瑞剧坊 • 坊巷文化影音秀</text>
+              <text class='text-ellipsis-line f12'>中瑞剧坊 • 坊巷文化影音秀</text>
               <text class='f16 bold'>￥228</text>
             </view>
             <image src='/assets/images/ccp_card.png' class='ticket-img'></image>
-            <image src='/assets/images/go_buy.png' class='go-buy' bindtap="ticketFilm"></image>
+            <view class="go-buy btn" bindtap="ticketFilm">购买</view>
           </view>
         </view>
       </scroll-view>
@@ -63,11 +63,11 @@
           <view wx:for="{{ ticketShow }}" wx:for-item="item" wx:key="" class="ticket-item">
             <view class='card-text'>
               <text class='card-name text-ellipsis-line'>《三坊七巷》</text>
-              <text class='text-ellipsis-line'>中瑞剧坊 • 坊巷文化影音秀</text>
+              <text class='text-ellipsis-line f12'>中瑞剧坊 • 坊巷文化影音秀</text>
               <text class='f16 bold'>￥228</text>
             </view>
             <image src='/assets/images/zhq_card.png' class='ticket-img'></image>
-            <image src='/assets/images/go_buy.png' class='go-buy' bindtap="ticketFilm"></image>
+            <view class="go-buy btn" bindtap="ticketFilm">购买</view>
           </view>
         </view>
       </scroll-view>
@@ -79,11 +79,11 @@
           <view wx:for="{{ ticketShow }}" wx:for-item="item" wx:key="" class="ticket-item">
             <view class='card-text'>
               <text class='card-name text-ellipsis-line'>《三坊七巷》</text>
-              <text class='text-ellipsis-line'>中瑞剧坊 • 坊巷文化影音秀</text>
+              <text class='text-ellipsis-line f12'>中瑞剧坊 • 坊巷文化影音秀</text>
               <text class='f16 bold'>￥228</text>
             </view>
             <image src='/assets/images/dhq_card.png' class='ticket-img'></image>
-            <image src='/assets/images/go_buy.png' class='go-buy' bindtap="ticketFilm"></image>
+            <view class="go-buy btn" bindtap="ticketFilm">购买</view>
           </view>
         </view>
       </scroll-view>

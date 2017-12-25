@@ -47,7 +47,14 @@ Page({
     })
   },
   // 超级联合日
-  localProduct: function() {
-    webviewUtil.goto('/LocalProduct');
+  unionDay: function() {
+    wx.navigateTo({
+      url: '../business/unionDay/unionDay',
+    })
+  },
+  localProduct:function(){
+    wx.navigateTo({
+      url: '../business/localProduct/localProduct',
+    })
   }
 })

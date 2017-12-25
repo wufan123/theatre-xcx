@@ -1,4 +1,4 @@
-// pages/business/unionDay.js
+// pages/business/unionDay/unionDay.js
 Page({
 
   /**

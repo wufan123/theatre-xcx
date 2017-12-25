@@ -26,4 +26,5 @@
 .card-text text{display: block;color: #c4a983;}
 
 
-.go-buy{position: absolute;width: 90rpx;height: 50rpx;right: 57rpx;bottom: 40rpx;}
+.go-buy{position: absolute;right: 60rpx;bottom: 40rpx;padding: 6rpx 20rpx;line-height:40rpx;}
+.go-buy::before{border-color: #1b2a3d;}
