@@ -10,7 +10,7 @@
               <text class='decoration'>￥{{item.marketFee}}</text>
             </view>
           </view>
-          <view class="btn" bindtap="goBuy">马上购买</view>
+          <view class="btn" bindtap="goBuy" id="{{item.hyGoodsId}}">马上购买</view>
         </view>
         <image src='/assets/images/business/lhr_card.png' class='good-card-bg'></image>
       </view>

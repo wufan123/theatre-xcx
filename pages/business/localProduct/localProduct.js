@@ -16,9 +16,9 @@ Page({
       console.log(success)
     })
   },
-  goBuy : function(){
+  goBuy : function(e){
     wx.navigateTo({
-      url: '../goodDetail/goodDetail',
+      url: '../goodDetail/goodDetail?goodsId='+e.currentTarget.id,
     })
   }
 })

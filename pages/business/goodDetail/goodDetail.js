@@ -1,5 +1,6 @@
 const filmRest = require('../../../rest/filmRest.js')
 const planRest = require('../../../rest/planRest.js')
+const storeRest = require('../../../rest/storeRest.js')
 const modalUtil = require('../../../util/modalUtil.js')
 var app = getApp();
 Page({
@@ -17,7 +18,12 @@ Page({
     bottomTxt: '马上购买'
   },
   onLoad: function (e) {
-    this.loadFilmDetail();
+    console.log(e)
+    storeRest.getGoodsDetail(e.goodsId, success => {
+      console.log(success)
+    }, error => {
+      console.log(error)
+    })
   },
   confirm: function (e) {
     if (!this.data.filmDetail.showPlan) {
