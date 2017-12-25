@@ -33,7 +33,7 @@
     </view>
     <view class="menu-item">
       <image src="/assets/images/menu_tc.png" class="menu-item-ico"></image>
-      <text class="menu-item-txt">商城</text>
+      <text class="menu-item-txt">福州特产馆</text>
     </view>
   </view>
 </template>

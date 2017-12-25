@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+
     
     "pages/index/index",
     "pages/login/login/login",
@@ -20,7 +20,8 @@
     "pages/ticket/confirm/confirm",
     "pages/ticket/payment/payment",
     "pages/ticket/payResult/paySuccess/index",
-    "pages/webview/webview"
+    "pages/webview/webview",
+    "pages/business/unionDay"
   ],
   "window": {
     "backgroundTextStyle": "dark",

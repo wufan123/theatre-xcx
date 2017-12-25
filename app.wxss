@@ -6,7 +6,7 @@ page {
   /* background-color:#e9decd;     */
   line-height:1.6;    
   font-size:24rpx;
-  background-image:url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/page_bg.png');
+  background-image:url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/page_bg.png');background-size: 137rpx 137rpx;background-repeat: repeat;
   font-family:-apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 input{width: 100%;flex:1;}
