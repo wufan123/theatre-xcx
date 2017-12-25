@@ -16,7 +16,8 @@ Page({
             planSelected: null,
             count: 0
         },
-        bottomTxt: '马上购买'
+        bottomTxt: '马上购买',
+        selectSeats: null // 选中排期座位信息
     },
     onLoad: function (e) {
         this.loadFilmTime();
@@ -66,11 +67,13 @@ Page({
     },
     // 排期
     loadFilmPlan: function(time) {
+        modalUtil.showLoadingToast()
         let params = {
             cinemaCode: app.globalData.cinemaCode,
             time: time
         }
         planRest.getPlans(params, res => {
+            modalUtil.hideLoadingToast();
             if (res.length>0) {
                 if (!this.data.filmDetail.detail) {
                     this.loadFilmDetail(res[0].filmId)
@@ -79,8 +82,10 @@ Page({
                 this.data.filmDetail.standardPrice = res[0].planInfo[0].standardPrice // 取价格
                 this.data.filmPlan.planSelected = res[0].planInfo[0].featureAppNo
                 this.setData(this.data)
+                this.loadSeat(this.data.filmPlan.planSelected)
             }
         }, res => {
+            modalUtil.hideLoadingToast();
             console.log(res)
         })
     },
@@ -105,6 +110,47 @@ Page({
             modalUtil.showWarnToast("影片加载失败");
         });
     },
+    // 加载座位信息
+    loadSeat: function(featureAppNo) {
+        modalUtil.showLoadingToast()
+        filmRest.getSeat(featureAppNo, success => {
+            modalUtil.hideLoadingToast();
+            this.data.selectSeats = success
+            this.setData(this.data)
+            this.checkOrder(this.data.selectSeats)
+        }, error => {
+            modalUtil.hideLoadingToast();
+        })
+    },
+    // 未完成订单提醒
+    checkOrder: function(seatInfo) {
+        if (seatInfo.hasOrder) {
+            wx.showModal({
+                title: '温馨提示',
+                content: '存在未付款影票订单',
+                cancelText: '取消订单',
+                cancelColor: '#000000',
+                confirmText: '支付订单',
+                confirmColor: '#159eec',
+                success: _res => {
+                    if (_res.confirm) {
+                        wx.redirectTo({
+                            url: '/pages/ticket/confirm/confirm?orderId=' + res.hasOrder
+                        });
+                    } else {
+                        orderRest.cancelOrder(res.hasOrder, res => {
+                            modalUtils.showLoadingToast('正在取消订单');
+                            setTimeout(() => {
+                                modalUtils.hideLoadingToast();
+                                modalUtils.showSuccessToast('订单取消成功');
+                                this.fetchInitData(options);
+                            }, 8000);
+                        });
+                    }
+                }
+            });
+        }
+    },
 
     // 数量
     subtract: function () {
@@ -120,12 +166,12 @@ Page({
     selectTime: function(e) {
         this.data.filmPlan.timeSelected = e.currentTarget.id
         this.setData(this.data)
-        // TODO
+        this.loadFilmPlan(this.data.filmPlan.timeSelected)
     },
     // 排期选择
     selectPlan: function(e) {
         this.data.filmPlan.planSelected = e.currentTarget.id
         this.setData(this.data)
-        // TODO 
+        this.loadSeat(this.data.filmPlan.planSelected)
     }
 })
