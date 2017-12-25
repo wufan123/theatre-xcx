@@ -1,15 +1,16 @@
 const storeRest = require('../../../rest/storeRest.js')
+const theatreRest = require('../../../rest/theatreRest.js')
 var app=getApp()
 Page({
   data: {
     dataList: null
   },
   onLoad: function (e) {
-    storeRest.getBuyingGoods(app.globalData.cinemaCode, result => {
-      this.data.dataList = result
+    theatreRest.getPackageList(202, success => {
+      this.data.dataList = success
       this.setData(this.data)
     }, error => {
-
+      console.log(error)
     })
   }
 })
