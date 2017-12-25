@@ -8,7 +8,14 @@ Page({
       this.setData({
         userInfo: app.globalData.userInfo
       })
-      console.log(app.globalData.userInfo)
+      userRest.getUserInfo(success => {
+        this.setData({
+          userInfo: success
+        })
+        app.setUserInfo(success);
+      }, error => {
+        console.log(error)
+      })
     },
     cardManage: function() {
       wx.navigateTo({
