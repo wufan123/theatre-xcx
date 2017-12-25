@@ -46,7 +46,7 @@
         <text class="plan-title-txt">时间</text>
         <scroll-view scroll-x>
           <view class="plan-scroll">
-            <view wx:for="{{ timeList }}" wx:for-item="item" wx:key="" class="plan-item fxrm selected" bindtap="ticketFilm">
+            <view wx:for="{{ timeList }}" wx:for-item="item" wx:key="time" id="{{item.time}}" class="plan-item fxrm {{timeSelected==item.time?'selected':''}}" bindtap="selectTime">
               {{item.instr}}
             </view>
           </view>
@@ -56,8 +56,8 @@
         <text class="plan-title-txt">场次</text>
         <scroll-view scroll-x>
           <view class="plan-scroll">
-            <view wx:for="{{ planList }}" wx:for-item="item" wx:key="" class="plan-item" bindtap="ticketFilm">
-              <view>{{item.time}}</view>
+            <view wx:for="{{ planList }}" wx:for-item="item" wx:key="featureAppNo" id="{{item.featureAppNo}}" class="plan-item fxrm {{planSelected==item.featureAppNo?'selected':''}}" bindtap="selectPlan">
+              <view>{{item.startTime}}</view>
             </view>
           </view>
         </scroll-view>
