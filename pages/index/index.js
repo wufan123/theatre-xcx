@@ -68,9 +68,9 @@ Page({
       url: '../business/unionDay/unionDay',
     })
   },
-  localProduct:function(){
+  localProduct:function(e){
     wx.navigateTo({
-      url: '../business/localProduct/localProduct',
+      url: '../business/localProduct/localProduct?classType='+e.currentTarget.id,
     })
   }
 })

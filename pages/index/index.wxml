@@ -24,11 +24,11 @@
       <image src="/assets/images/menu_xsq.png" class="menu-item-ico"></image>
       <text class="menu-item-txt">限时抢购</text>
     </view>
-    <view class="menu-item" bindtap="localProduct">
+    <view class="menu-item" bindtap="localProduct" id="102">
       <image src="/assets/images/menu_lhr.png" class="menu-item-ico"></image>
       <text class="menu-item-txt">超级联合日</text>
     </view>
-    <view class="menu-item" bindtap="localProduct">
+    <view class="menu-item" bindtap="localProduct" id="101">
       <image src="/assets/images/menu_tc.png" class="menu-item-ico"></image>
       <text class="menu-item-txt">福州特产馆</text>
     </view>
