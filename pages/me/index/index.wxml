@@ -30,34 +30,23 @@
 </template>
 <template name="listInfo">
     <view class="list-bg">
-      <view class="list-item" bindtap='cardManage'>
-        <view class='list-item-bg'>
-          <image class="list-item-ico" src="/images/fail-toast.png"></image>
-          <text class="list-item-text">剧坊会员卡</text>
-        </view>
-        <image class="list-item-arrow" src="/images/arrow_next.png"></image>
-      </view>
-      <view class="list-item" bindtap='couponManage'>
-        <view class='list-item-bg'>
-          <image class="list-item-ico" src="/images/fail-toast.png"></image>
-          <text class="list-item-text">优惠券</text>
-        </view>
-        <image class="list-item-arrow" src="/images/arrow_next.png"></image>
-      </view>
-      <view class="list-item" bindtap='couponManage'>
-        <view class='list-item-bg'>
-          <image class="list-item-ico" src="/images/fail-toast.png"></image>
-          <text class="list-item-text">邀请好友</text>
-        </view>
-        <image class="list-item-arrow" src="/images/arrow_next.png"></image>
-      </view>
-      <view class="list-item" bindtap='makeCall'>
-        <view class='list-item-bg'>
-          <image class="list-item-ico" src="/images/fail-toast.png"></image>
-          <text class="list-item-text">联系客服</text>
-        </view>
-        <image class="list-item-arrow" src="/images/arrow_next.png"></image>
-      </view>
+
+            <view class='cell' bindtap='cardManage'>
+            <image src="/images/menu-day.png" class="icon"></image>
+            <text class="text">剧坊会员卡</text>
+            </view>
+            <view class='cell' bindtap='couponManage'>
+            <image src="/images/menu-day.png" class="icon"></image>
+            <text class="text">优惠券</text>
+            </view>
+            <view class='cell' bindtap='couponManage'>
+            <image src="/images/menu-day.png" class="icon"></image>
+            <text class="text">邀请好友</text>
+            </view>
+            <view class='cell' bindtap='makeCall'>
+            <image src="/images/menu-day.png" class="icon"></image>
+            <text class="text">联系客服</text>
+            </view>
     </view>
 </template>
 <view>

@@ -18,9 +18,17 @@ input{width: 100%;flex:1;}
 
 .bottom-btn {background: #a40000; color: #ffffff;font-size: 32rpx;text-align: center;line-height: 100rpx;}
 
-.cell{border-bottom: 1px solid #eee;padding: 30rpx 0;position: relative;padding-right: 50rpx;display: flex;flex-direction: row; justify-content: space-between;}
-.cell::after{content: "";display: block; width: 6px;height: 6px;margin-left: 0;border: 2px solid #ccc;-webkit-transform: rotate(315deg);right: 15rpx;border-top: 0 none;position: absolute;margin-top: 15rpx;border-left: 0 none
+.cell{background: #ffffff; border-bottom: 1px solid #eee;padding: 20rpx 30rpx  ;position: relative;padding-right: 50rpx;display: flex;align-items: center;}
+.cell .icon{width: 60rpx;height: 60rpx;margin-right: 10rpx;}
+.cell .text{width: 60rpx;height: 60rpx;display: flex;align-items: center;flex:1;}
+.cell::after{content: "";display: block; width: 12rpx;height: 12rpx;margin-left: 0;border: 4rpx solid #ccc;-webkit-transform: rotate(315deg);right: 30rpx;border-top: 0 none;position: absolute;border-left: 0 none;top: 50%;margin-top: -2rpx;
 }
 
 .btn {padding: 8rpx 20rpx;display: inline-block;border: 1px solid #cd2e1b;position: relative;background: #cd2e1b;color:#ffffff;}
 .btn::before {content: "";display: block;border: 5rpx solid #e9decd;position: absolute; left: 0;right: 0;top: 0;bottom: 0;}
+
+.order { background: #fff;padding: 10rpx 30rpx;margin-top: 20rpx;}
+.order .info{display: flex;border-bottom: 1px solid #eee;padding: 10rpx 0;}
+.order .info .cover{width: 80rpx;height: 120rpx;}
+.order .info .detail{margin-left: 20rpx;display: flex;flex-direction: column;justify-content: space-around;}
+.order .line{padding: 10rpx 0;}

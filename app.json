@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+    "pages/me/order/detail/detail",
     "pages/index/index",
     "pages/login/login/login",
     "pages/login/register/register",
@@ -12,7 +12,7 @@
     "pages/me/coupon/index/index",
     "pages/me/coupon/detail/detail",
     "pages/me/order/index/index",
-    "pages/me/order/detail/detail",
+    
     "pages/ticket/index/index",
     "pages/ticket/goods/goods",
     "pages/business/flashSale/index",

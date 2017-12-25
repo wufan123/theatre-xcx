@@ -1,6 +1,6 @@
 <view class='page'>
   <view class='body'>
-      <view class='good-card' wx:for="[100]">
+      <view class='good-card' wx:for="[100]" wx:key="">
         <view class='good-card-body fxrbm'>
           <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1514175656023&di=ed11d70b533de5828661a3c015565239&imgtype=0&src=http%3A%2F%2Fwww.kedo.gov.cn%2Fupload%2Fresources%2Fimage%2F2015%2F09%2F08%2F100969.jpg' class='good-img' > </image>
           <view class='good-info fxcb'>
