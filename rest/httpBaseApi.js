@@ -115,7 +115,7 @@ function getToken(success_cb, fail_cb) {
         // tokenId: app.globalData.tokenId
         // sign: ''
     }
-    httpPost('/service/getToken?sign=' + getSign(params,app.globalData.tokenId), params, success_cb, fail_cb)
+    httpPost('/huoying/service/getToken?sign=' + getSign(params,app.globalData.tokenId), params, success_cb, fail_cb)
 }
 
 /**
@@ -153,7 +153,7 @@ function businessRest(requestRest, uri, params, success_cb, fail_cb, isAgain) {
             //如果有使用账号密码登陆，并且第一次重试
             if (account && !isAgain) {
                 //modalUtils.showLoadingToast("自动登陆,请稍后...")
-                postRequest('/user/login', {
+                postRequest('/huoying/user/login', {
                     userAccount: account.account,
                     userPasswd: account.passwd
                 }, res => {
@@ -195,7 +195,7 @@ function businessRest(requestRest, uri, params, success_cb, fail_cb, isAgain) {
  * @param {*} fail_cb 
  */
 function getRequest(uri, params, success_cb, fail_cb) {
-    businessRest(httpGet, uri, params, success_cb, fail_cb)
+    businessRest(httpGet, "/huoying" + uri, params, success_cb, fail_cb)
 }
 
 /**
@@ -207,12 +207,22 @@ function getRequest(uri, params, success_cb, fail_cb) {
  * @param {*} fail_cb 
  */
 function postRequest(uri, params, success_cb, fail_cb) {
-    businessRest(httpPost, uri, params, success_cb, fail_cb)
+    businessRest(httpPost, "/huoying" + uri, params, success_cb, fail_cb)
 }
 
-
+/**
+ * 剧坊服务接口
+ * @param {*} uri 
+ * @param {*} params 
+ * @param {*} success_cb 
+ * @param {*} fail_cb 
+ */
+function getTheatreRequest(uri, params, success_cb, fail_cb) {
+    businessRest(httpGet, "/theatre" + uri, params, success_cb, fail_cb)
+}
 
 module.exports = {
     postRequest: postRequest,
-    getRequest: getRequest
+    getRequest: getRequest,
+    getTheatreRequest: getTheatreRequest
 }

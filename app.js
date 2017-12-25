@@ -3,7 +3,7 @@ App({
   onLaunch: function () {
   },
   globalData: {
-    serverUrlBase: 'https://m.zmaxfilm.com/Api_35',
+    serverUrlBase: 'https://jufang.zmaxfilm.com/preapi',
     // serverUrlBase: 'https://premapi.zmaxfilm.com/Api_35',
     //serverUrlBase: 'http://newzr10.zmaxfilm.net:8181/Api_35',
     wapServerUrlBase: 'http://localhost:8080/#',

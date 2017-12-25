@@ -1,26 +1,42 @@
 //获取应用实例
 const webviewUtil = require('../../util/webviewUtil.js')
+const theatreRest = require('../../rest/theatreRest.js')
 var app = getApp()
 Page({
   data: {
     bannerList: {
-      list: [
-        {url: "http://pic23.photophoto.cn/20120530/0020033092420808_b.jpg"}
-      ]
+      list: []
     },
     goodsList: {
       ticketShow: [
         {id: "123"},{id: "456"},{id: "789"},{id: "456"},{id: "789"}
       ],
-      ticketSet: [
-        {id: "123"},{id: "456"},{id: "789"}
-      ],
-      ticketVoucher: [
-        {id: "123"},{id: "456"},{id: "789"}
-      ]
+      ticketSet: [],
+      ticketVoucher: []
     }
   },
   onLoad: function (e) {
+    // banner
+    theatreRest.getInformationList(10, success => {
+      this.data.bannerList.list = success
+      this.setData(this.data)
+    }, error => {
+      console.log(error)
+    })
+    // 组合购
+    theatreRest.getPackageList(200, success => {
+      this.data.goodsList.ticketSet = success
+      this.setData(this.data)
+    }, error => {
+      console.log(success)
+    })
+    // 通兑券
+    theatreRest.getPackageList(201, success => {
+      this.data.goodsList.ticketVoucher = success
+      this.setData(this.data)
+    }, error => {
+      console.log(success)
+    })
   },
   login: function() {
     let userInfo = app.getUserInfo()
