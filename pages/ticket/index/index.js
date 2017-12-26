@@ -1,5 +1,6 @@
 const filmRest = require('../../../rest/filmRest.js')
 const planRest = require('../../../rest/planRest.js')
+const orderRest = require('../../../rest/orderRest.js')
 const modalUtil = require('../../../util/modalUtil.js')
 var app = getApp();
 Page({
@@ -17,7 +18,7 @@ Page({
             count: 0
         },
         bottomTxt: '马上购买',
-        selectSeats: null // 选中排期座位信息
+        selectSeats: null, // 选中排期座位信息
     },
     onLoad: function (e) {
         this.loadFilmTime();
@@ -28,17 +29,7 @@ Page({
             this.data.bottomTxt = '确定'
             this.setData(this.data)
         } else {
-            // TODO 判断参数
-            wx.navigateTo({
-                url: '../goods/goods',
-            })
-
-            // 还原界面状态
-            setTimeout(() => {
-                this.data.filmDetail.showPlan = false;
-                this.data.bottomTxt = '马上购买'
-                this.setData(this.data)
-            }, 1000)
+            this.createOrder()
         }
     },
     hidePlan: function() {
@@ -135,14 +126,14 @@ Page({
                 success: _res => {
                     if (_res.confirm) {
                         wx.redirectTo({
-                            url: '/pages/ticket/confirm/confirm?orderId=' + res.hasOrder
+                            url: '../confirm/confirm?orderId=' + seatInfo.hasOrder
                         });
                     } else {
-                        orderRest.cancelOrder(res.hasOrder, res => {
-                            modalUtils.showLoadingToast('正在取消订单');
+                        modalUtil.showLoadingToast('正在取消订单');
+                        orderRest.cancelOrder(seatInfo.hasOrder, res => {
                             setTimeout(() => {
-                                modalUtils.hideLoadingToast();
-                                modalUtils.showSuccessToast('订单取消成功');
+                                modalUtil.hideLoadingToast();
+                                modalUtil.showSuccessToast('订单取消成功');
                                 this.fetchInitData(options);
                             }, 8000);
                         });
@@ -173,5 +164,55 @@ Page({
         this.data.filmPlan.planSelected = e.currentTarget.id
         this.setData(this.data)
         this.loadSeat(this.data.filmPlan.planSelected)
+    },
+    // 锁座，创建订单
+    createOrder: function() {
+        let seat = [];
+        this.data.selectSeats.seatinfos.seat.forEach(row=>{
+            row.forEach(col=>{
+                if (col.SeatState==0){
+                    seat.push(col)
+                }
+            })
+        })
+        if (this.data.filmPlan.count <= 0) {
+            modalUtil.showFailToast('数量必须大于0');
+            return;
+        }
+        if (seat.length == 0) {
+            modalUtil.showFailToast('已售罄');
+            return;
+        }
+        if(seat.length < this.data.filmPlan.count){
+            modalUtil.showFailToast('余票不足');
+            return;
+        }
+
+        let selectedSeat = seat.slice(0, this.data.filmPlan.count)
+        let seatIntroduce = [], datas = []
+        selectedSeat.forEach(e => {
+            seatIntroduce.push(e.SeatRow + '排' + e.SeatCol + '座')
+            datas.push({ seatNo: e.SeatNo, seatPieceNo: e.seatPieceNo })
+        })
+        modalUtil.showLoadingToast()
+        orderRest.setPlanAndGoodsOrder({
+            cinemaCode: app.globalData.cinemaCode,
+            mobile: app.getUserInfo().bindmobile,
+            featureAppNo: this.data.filmPlan.planSelected,
+            seatIntroduce: seatIntroduce.join(','),
+            datas: JSON.stringify(datas)
+        }, success => {
+            modalUtil.hideLoadingToast();
+            wx.navigateTo({
+                url: '../goods/goods?orderId=' + success.planOrderId
+            });
+            // 还原界面状态
+            setTimeout(() => {
+                this.hidePlan()
+            }, 1000)
+        }, error => {
+            console.log(error)
+            modalUtil.showFailToast('锁座失败');
+        })
     }
 })

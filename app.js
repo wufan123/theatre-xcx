@@ -53,6 +53,9 @@ App({
     wx.setStorageSync('zmaxfilm_userInfo', userInfo);
   },
   getUserInfo: function () {
+    if (this.globalData.userInfo) {
+      return this.globalData.userInfo;
+    }
     var userInfo = wx.getStorageSync('zmaxfilm_userInfo');
     this.globalData.userInfo = userInfo;
     return userInfo;
