@@ -29,7 +29,7 @@ input{width: 100%;flex:1;}
 
 /* 我的订单商品 */
  .order { background:rgba(255,251,244,.5);padding: 10rpx 30rpx;margin-top: 20rpx;}
-.order .info{display: flex;border-bottom: 1px solid #ded5c8;padding: 10rpx 0;}
+.order .info{display: flex;border-bottom: 1px solid #ded5c8;padding: 20rpx 0;}
 .order .info .cover{width: 202rpx;height: 135rpx;border-radius: 8rpx;}
 .order .info .detail{width: 100%; margin-left: 20rpx;display: flex;flex-direction: column;justify-content: space-around;}
 .order .line{padding: 10rpx 0;} 

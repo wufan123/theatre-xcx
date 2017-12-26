@@ -3,7 +3,7 @@
       <view class="member">
           <block wx:for="{{cardList}}" wx:key="index" wx:if="{{cardList.length!==0}}">
             <view class="{{item.isExpire==1?'member-card gray':'member-card black'}}">
-                <image src="/assets/images/me/delet_member.png" class="del-member-card" bindtap="deleteCardEvent" data-card="{{item}}"></image>
+                <image src="/assets/images/me/delet_member.png" class="del-member-card" catchtap="deleteCardEvent" data-card="{{item}}"></image>
               <view class="member-body fxcb">
                 <text class="title red">{{item.levelName}}:{{item.cardNumber}}</text>
                 <text >余额： <text  class="{{item.isExpire==1?'gray f16':'khaki f16'}}">{{item.money}}元</text> </text>

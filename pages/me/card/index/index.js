@@ -25,6 +25,7 @@ Page({
       })
     },
     deleteCardEvent: function (e) {
+      console.log('asdfasd')
       var card = e.target.dataset.card
       wx.showModal({
         title: '提示',
