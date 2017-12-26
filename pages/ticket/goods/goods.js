@@ -1,13 +1,17 @@
-const planRest = require('../../../rest/storeRest.js')
+const storeRest = require('../../../rest/storeRest.js')
+const orderRest = require('../../../rest/orderRest.js')
 var app = getApp()
 
 Page({
     data: {
         goodsList: [],
+        orderId: '',
         bottomTxt: '不选了，直接下单购票'
     },
-    onLoad: function (e) {
-        planRest.getGoodsList(app.globalData.cinemaCode, res => {
+    onLoad: function (option) {
+        this.data.orderId = option.orderId;
+        this.setData(this.data);
+        storeRest.getGoodsList(app.globalData.cinemaCode, res => {
             this.data.goodsList = res;
             this.setData(this.data);
         }, res => {
@@ -37,8 +41,32 @@ Page({
         this.setData(this.data);
     },
     confirm: function() {
-        wx.redirectTo({
-            url: '../confirm/confirm',
-        })
+        var goodsStr = "";
+        for (var i = 0; i < this.data.goodsList.length; i++) {
+            var goods = this.data.goodsList[i];
+            if (goods.num && goods.num != 0) {
+                if (goodsStr) {
+                    goodsStr += ",";
+                }
+                goodsStr += goods.goodsId + ":" + goods.num;
+            }
+        }
+        if (goodsStr.length == 0) {
+            wx.redirectTo({
+                url: '../confirm/confirm?orderId=' + this.data.orderId
+            });
+            return;
+        }
+        storeRest.createGoodsFilmOrder(app.globalData.cinemaCode, app.getUserInfo().bindmobile, goodsStr, this.data.orderId, res => {
+            orderRest.mergeOrder(this.data.orderId, res, app.getUserInfo().bindmobile, res => {
+                wx.redirectTo({
+                    url: '../confirm/confirm?orderId=' + this.data.orderId
+                });
+            }, res => {
+                modalUtils.showWarnToast(res.text);
+            });
+        }, res => {
+            modalUtils.showWarnToast(res.text);
+        });
     }
 })

@@ -33,6 +33,15 @@ function getCinemaOrders(status, page, success_cb, fail_cb) {
   }, success_cb, fail_cb)
 }
 
+// 合并影票卖品订单
+function mergeOrder(filmOrderId, goodsOrderId, mobile, success_cb, fail_cb) {
+  httpRest.postRequest('/user/mergeOrder', {
+    filmOrderId: filmOrderId,
+    goodsOrderId: goodsOrderId,
+    mobile: mobile
+  }, success_cb, fail_cb);
+}
+
 //退票
 function backTieck(orderId, success_cb, fail_cb) {
   httpRest.getRequest("/user/backTieck", {
@@ -219,5 +228,6 @@ module.exports = {
   userVoucherList,
   userVoucherDetail,
   changeFilmOrderGetBuyWay,
-  changeFilePay
+  changeFilePay,
+  mergeOrder
 }

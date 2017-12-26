@@ -134,7 +134,6 @@ Page({
                             setTimeout(() => {
                                 modalUtil.hideLoadingToast();
                                 modalUtil.showSuccessToast('订单取消成功');
-                                this.fetchInitData(options);
                             }, 8000);
                         });
                     }
