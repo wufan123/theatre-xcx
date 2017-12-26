@@ -28,11 +28,11 @@ input{width: 100%;flex:1;}
 .btn::before {content: "";display: block;border: 5rpx solid #e9decd;position: absolute; left: 0;right: 0;top: 0;bottom: 0;}
 
 /* 我的订单商品 */
-/* .order { background: #fff;padding: 10rpx 30rpx;margin-top: 20rpx;}
-.order .info{display: flex;border-bottom: 1px solid #eee;padding: 10rpx 0;}
-.order .info .cover{width: 80rpx;height: 120rpx;}
-.order .info .detail{margin-left: 20rpx;display: flex;flex-direction: column;justify-content: space-around;}
-.order .line{padding: 10rpx 0;} */
+ .order { background:rgba(255,251,244,.5);padding: 10rpx 30rpx;margin-top: 20rpx;}
+.order .info{display: flex;border-bottom: 1px solid #ded5c8;padding: 10rpx 0;}
+.order .info .cover{width: 202rpx;height: 135rpx;border-radius: 8rpx;}
+.order .info .detail{width: 100%; margin-left: 20rpx;display: flex;flex-direction: column;justify-content: space-around;}
+.order .line{padding: 10rpx 0;} 
 
 /*商品列表*/
 .good-card{margin: 20rpx 30rpx;position: relative;height: 200rpx;}

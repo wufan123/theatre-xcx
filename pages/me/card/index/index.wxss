@@ -1,74 +1,37 @@
-.card-item-normal{
-    margin: 30rpx;
-    border: 1rpx solid #f6f6f6;
-    border-radius: 10rpx;
-    padding:5rpx 30rpx 20rpx 30rpx;
-    background-color: white;
-    position: relative;
-  }
-  
-  .card-item-select{
-    margin: 30rpx;
-    border: 1rpx solid #f6f6f6;
-    border-radius: 10rpx;
-    padding:0rpx 30rpx;
-    background-color: white;
-  }
-  
-  .card-item-top{
-        border-bottom:  1rpx solid #f6f6f6;
-        padding: 20rpx 0rpx;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        
-    }
-    .transferButton{
-      position: absolute;
-      right: 30rpx;
-      bottom: 35rpx;
-      color: #ffffff;
-      border: 0px solid transparent;
-      border-radius: 4rpx;
-      padding: 5rpx 20rpx;
-      line-height: 1.8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color:#dc3c38;  
-      width:100rpx;
-      height: 55rpx; 
-      font-size:26rpx;    
-  }
-  .transferButton::after{
-    border: 0px solid transparent;
-    border-radius: 4rpx;
-  }
-    .card-item-top-title{
-      flex: 1;
-  }
-  .card-item-deital{
-    height: 90rpx;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .card-check-img{
-    width: 44rpx;
-    height: 44rpx;
-  }
-  .card-add-text{
-    color: #00a0e9;
-  }
-  
-  .flex-center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:20rpx 0;
-    
-  }
-  .no-card{
-    margin-top: 300rpx;
-    text-align: center
-  }
+
+.add-member{width: 280rpx;height: 61rpx;}
+.member{margin: 0 30rpx;}
+.member-card{position: relative;height: 250rpx;margin-top: 20rpx;}
+.member-card-bg{position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 1;}
+.member-body{position: relative;z-index: 2;padding:20px 50rpx 0 100px;}
+.member-body .title{margin-bottom: 30rpx;}
+.member-body .btn{position: absolute;right: 40rpx;bottom: 10rpx;}
+.del-member-card{width: 36rpx;height: 36rpx;position: absolute;z-index: 2;right: 50rpx;top: 40rpx;}
+
+
+.no-data-img{width:294rpx;height:310rpx;margin-bottom: 20rpx;}
+.no-card{font-size: 30rpx;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

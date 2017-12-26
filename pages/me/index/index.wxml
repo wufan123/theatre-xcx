@@ -58,9 +58,16 @@
         </view>
     </view>
 </template>
-<view>
-    <template is="topInfo" data="{{...userInfo}}"></template>
-    <template is="orderMenu"></template>
-    <template is="listInfo"></template>
-    <view class="logout" bindtap="loginOut">退出登陆</view>
-</view>
+
+
+<view class='page'>
+        <view class='body'>
+                <template is="topInfo" data="{{...userInfo}}"></template>
+                <template is="orderMenu"></template>
+                <template is="listInfo"></template>
+        </view>
+        <view class='footer'>
+                <view class="bottom-btn" bindtap="loginOut">退出登陆</view>
+        </view>
+      </view>
+
