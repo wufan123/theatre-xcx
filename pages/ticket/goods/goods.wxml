@@ -1,21 +1,25 @@
 <view class='page'>
   <view class='body'>
     <view class="main-content">
-      <view class='list' wx:for="{{goodsList}}" wx:key="index">
-        <image src="{{item.goodsImg}}" binderror="imageError" data-index="{{index}}"></image>
-        <view class='list-body fxrbm'>
-          <view class='list-con'>
-            <view>{{item.goodsName}}</view>
-            <view class='f12'>描述: {{item.detail}}</view>
-            <view class='bold'>￥{{item.showPrice}}</view>
+
+        <view class='good-card' wx:for="{{goodsList}}" wx:key="index">
+            <view class='good-card-body fxrbm'>
+              <image src='{{item.goodsImg}}' class='good-img' binderror="imageError" data-index="{{index}}" > </image>
+              <view class='good-info fxcb'>
+                <text class='title f14'>{{item.goodsName}}</text>
+                <view class="fxrbm">
+                  <text class='price'>￥{{item.showPrice}}</text>
+                  <view class="goods-item-quantity fxrbm">
+                      <view class="subtract fxrm" mode="aspectFit" bindtap="subtractQuatity" data-index="{{index}}">-</view>
+                      <em class="text-label">{{item.num?item.num:0}}</em>
+                      <view class="add fxrm" mode="aspectFit" bindtap="addQuatity" data-index="{{index}}">+</view>
+                    </view>
+                </view>
+              </view>
+             
+            </view>
+            <image src='/assets/images/business/lhr_card.png' class='good-card-bg'></image>
           </view>
-          <view class="goods-item-quantity fxrbm">
-            <view class="subtract fxrm" mode="aspectFit" bindtap="subtractQuatity" data-index="{{index}}">-</view>
-            <em class="text-label">{{item.num?item.num:0}}</em>
-            <view class="add fxrm" mode="aspectFit" bindtap="addQuatity" data-index="{{index}}">+</view>
-          </view>
-        </view>
-      </view>
     </view>
   </view>
   <view class='footer'>

@@ -1,5 +1,5 @@
 .ticket{margin: 40rpx;background: #ffffff;border-radius: 10rpx;}
-.line{padding: 10px 60px;}
+.line{padding: 10px 30px;}
 .code{padding: 20rpx 0rpx}
 
 .order{padding: 10px 15px;margin: 0}

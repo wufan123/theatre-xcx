@@ -27,8 +27,19 @@ input{width: 100%;flex:1;}
 .btn {padding: 8rpx 20rpx;display: inline-block;border: 1px solid #cd2e1b;position: relative;background: #cd2e1b;color:#ffffff;}
 .btn::before {content: "";display: block;border: 5rpx solid #e9decd;position: absolute; left: 0;right: 0;top: 0;bottom: 0;}
 
+/* 我的订单商品 */
 .order { background: #fff;padding: 10rpx 30rpx;margin-top: 20rpx;}
 .order .info{display: flex;border-bottom: 1px solid #eee;padding: 10rpx 0;}
 .order .info .cover{width: 80rpx;height: 120rpx;}
 .order .info .detail{margin-left: 20rpx;display: flex;flex-direction: column;justify-content: space-around;}
 .order .line{padding: 10rpx 0;}
+
+/*商品列表*/
+.good-card{margin: 20rpx 30rpx;position: relative;height: 200rpx;}
+.good-card-body{top: 0;position: absolute;width: 100%; height: 100%; z-index: 5;}
+.good-card-body .good-info{margin-left: 20rpx;flex:1;}
+.good-card-body .good-info .price{color: #a78658;font-size: 38rpx;font-weight: bolder;margin-top: 10rpx;}
+.good-card-body .good-info .decoration{color: #878787;text-decoration: line-through}
+.good-card-body .good-img{width: 202rpx;height: 135rpx;margin-left: 30rpx;}
+.good-card .good-card-bg{width: 100%;height: 100%;position: absolute;top: 0;left:0;z-index: 4}
+.good-card-body .btn{margin-right: 30rpx;margin-top: 60rpx;}

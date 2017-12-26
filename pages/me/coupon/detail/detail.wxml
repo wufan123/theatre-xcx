@@ -5,7 +5,7 @@
         <text class='bold'>{{coupon.voucherName}}</text>
         <text>{{coupon.validData}}</text>
       </view>
-      <view class='line'>￥5.00</view>
+      <view class='line f20'>￥5.00</view>
     </view>
     <view class='order'>
       优惠券编码：8888888888888

@@ -166,18 +166,22 @@ Page({
     },
     // 锁座，创建订单
     createOrder: function() {
-        let seat = [];
-        this.data.selectSeats.seatinfos.seat.forEach(row=>{
-            row.forEach(col=>{
-                if (col.SeatState==0){
-                    seat.push(col)
-                }
-            })
-        })
         if (this.data.filmPlan.count <= 0) {
             modalUtil.showFailToast('数量必须大于0');
             return;
         }
+        if (!this.data.selectSeats || !this.data.selectSeats.seatinfos) {
+          modalUtil.showFailToast('已售罄');
+          return;
+        }
+        let seat = [];
+        this.data.selectSeats.seatinfos.seat.forEach(row => {
+          row.forEach(col => {
+            if (col.SeatState == 0) {
+              seat.push(col)
+            }
+          })
+        })
         if (seat.length == 0) {
             modalUtil.showFailToast('已售罄');
             return;

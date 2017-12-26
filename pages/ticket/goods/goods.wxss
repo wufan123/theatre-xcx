@@ -1,15 +1,9 @@
 
 
-.main-content {padding: 20rpx 30rpx 0 30rpx;}
-.main-content .list{display: flex;justify-content: flex-start;background: #ffffff;border: 1px solid #eee;padding: 20rpx;margin-bottom: 20rpx;align-items: center;border-radius: 8rpx;}
-.main-content .list image{width: 120rpx;height: 120rpx;border: 1px solid #f6f6f6;margin-right: 20rpx;}
-
-.main-content .list .list-body{flex: 1}
-
-.goods-item-quantity {width: 150rpx;height: 50rpx; }
-.goods-item-quantity view.subtract,.goods-item-quantity view.add {font-size: 40rpx;font-weight: bolder;width: 50rpx; height: 50rpx;color: #dc3c38;border: 1px solid #e8e8e8;border-radius: 50%;
+.goods-item-quantity {width: 220rpx;height: 50rpx;margin-right: 30rpx; }
+.goods-item-quantity view.subtract,.goods-item-quantity view.add {font-size: 40rpx;font-weight: bolder;width: 50rpx; height: 50rpx;color: #a40000;border: 1px solid #a40000;border-radius:10rpx;
   }
 .goods-item-quantity view.subtract:active,
-.goods-item-quantity view.add:active {background: #dc3c38;color: #ffffff;}
-.goods-item-quantity .text-label {width: 50rpx;display: inline-block;text-align: center;}
+.goods-item-quantity view.add:active {background: #a40000;color: #ffffff;}
+.goods-item-quantity .text-label { flex: 1;width: 50rpx;display: inline-block;text-align: center;height: 100%;margin: 0 5rpx;border-radius: 10rpx;background:#a40000;color: #ffffff; }
 
