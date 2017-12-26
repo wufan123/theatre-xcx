@@ -1,17 +1,27 @@
-<view class="coupon-detial">
-    <view class="coupon-detial-item">
-      <lable class="t-gray f26">票券名称：</lable>
-      <lable class="t-black f26">{{coupon.voucherName}}</lable>
+<view class='page'>
+  <view class='body'>
+    <view class='ticket'>
+      <view class='code fxcm'>
+        <text class='bold'>{{coupon.voucherName}}</text>
+        <text>{{coupon.validData}}</text>
+      </view>
+      <view class='line'>￥5.00</view>
     </view>
-    <view class="coupon-detial-item">
-      <lable class="t-gray f26">票券编码：</lable>
-      <lable class="t-black f26">{{coupon.voucherNum}}</lable>
+    <view class='order'>
+      优惠券编码：8888888888888
     </view>
-    <view class="coupon-detial-item">
-      <lable class="t-gray f26">截止日期：</lable>
-      <lable class="t-black f26">{{coupon.validData}}</lable>
+    <view class='order fxcb'>
+      <text class='mb10 line'>使用规则：</text>
+      <text>1. 立减券可以在购买剧票时使用；</text>
+      <text>2. 特惠场，见面会等特殊场次不可用；</text>
+      <text>3. 一经兑换则该券为无效券，如需退单，退还金额为实际支付金额；</text>
+      <text>4. 立减券需在有效期内使用，过期作废，立减券不可兑换现金；</text>
+      <text>5. 中瑞剧坊可在法律许可的范围内对使用规则作出适当的调整。</text>
     </view>
-    <lable class="coupon-detial-rule t-danger f26">使用规则</lable>
-    <lable class="coupon-detial-rule-item t-black f24">{{coupon.useRule}} </lable>
-    <!--<lable class="coupon-detial-rule-item t-black f24">· 抵用券仅限购买卖品套餐时抵扣，不可与其他优惠同时使用；  </lable><lable class="coupon-detial-rule-item t-black f24">· 一经兑换即为无效券，如需退单，退换金额为实际支付金额；  </lable><lable class="coupon-detial-rule-item t-black f24"> · 抵用券只能冲抵卖品金额，不能冲抵影片金额，不兑换现金，不找赎；  </lable><lable class="coupon-detial-rule-item t-black f24">  · 抵用券需在有效期内使用，过期作废，每个订单限使用1张；  </lable><lable class="coupon-detial-rule-item t-black f24">   · 如另有附加规则，在发送礼券时附加使用说明；  </lable><lable class="coupon-detial-rule-item t-black f24">   · 影城可在法律允许的范围内对使用规则作出适当调整；  </lable>-->
+  </view>
+   <view class='footer'>
+    <view class="bottom-btn">解除绑定</view>
+  </view> 
+    
+
 </view>
