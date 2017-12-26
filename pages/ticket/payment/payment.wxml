@@ -25,6 +25,6 @@
     </view>
   </view>
   <view class='footer'>
-    <view class="bottom-btn" bindtap="pay">支付</view>
+    <view class="bottom-btn" bindtap="submit">支付</view>
   </view>
 </view>

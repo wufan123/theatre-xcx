@@ -50,14 +50,7 @@ Page({
     }
   },
   onUnload: function () {
-      app.debug("clearInterval ")
       clearInterval(this.data.clearTime)
-  },
-
-  pay: function () {
-    wx.redirectTo({
-      url: '../payResult/paySuccess/index',
-    })
   },
   /**
    * 处理数据
@@ -200,11 +193,14 @@ Page({
   requestWxPay: function (weixinpay) {
     var kThis = this
     function complete(res) {
-        app.debug("启动微信支付 支付成功", res)
         if (res.errMsg === "requestPayment:ok") {
-            pageUtil.gotoPaySuccess(kThis.data.orderId, kThis.data.orderType)
+          wx.redirectTo({
+            url: '../payResult/paySuccess/index?orderId=' + orderId + "&orderType=" + orderType
+          })
         } else if (res.errMsg === "requestPayment:fail") {
-            pageUtil.gotoPayFail(res)
+          wx.redirectTo({
+            url: '../payResult/payFail/index'
+          })
         }
     }
     var cinemaCode = app.globalData.cinemaCode
