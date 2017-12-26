@@ -3,16 +3,16 @@
     <view class="c-good">
       <view class='goods'>
         <view class='list'>
-          <image class='film-img' src="{{filmInfo.image}}"></image>
+          <image class='film-img' src="{{orderInfo.film.image}}"></image>
           <view class='list-body fxrb'>
             <view class='list-con'>
-              <view>{{filmInfo.filmName}}</view>
-              <view>x {{filmInfo.seatCount}}</view>
+              <view>{{orderInfo.film.filmName}}</view>
+              <view>x {{orderInfo.film.seatCount}}</view>
             </view>
-            <view class='bold'>￥{{filmInfo.price}}</view>
+            <view class='bold'>￥{{orderInfo.film.price}}</view>
           </view>
         </view>
-        <view class='list' wx:if="goodsInfo&&goodsInfo.list.length>0" wx:for="{{goodsInfo.list}}" wx:key="index">
+        <view class='list' wx:if="orderInfo.goods&&orderInfo.goods.list.length>0" wx:for="{{orderInfo.goods.list}}" wx:key="index">
           <image class='good-img' src="{{item.goodsImg}}"></image>
           <view class='list-body fxrb'>
             <view class='list-con'>
@@ -23,12 +23,12 @@
           </view>
         </view>
       </view>
-      <view class='cell'><text>优惠券</text><text>4张可用</text></view>
+      <view class='cell'><text>优惠券</text><text>{{orderPayWay.canUseCouponNum}}张可用</text></view>
       <view class='cell'><text>会员卡</text><text>未选择</text></view>
-      <view class='info fxrb f12'><text>总价</text><text>$233.00</text></view>
-      <view class='info fxrb'><text>实付款</text><text class='bold'>$233.00</text></view>
+      <view class='info fxrb f12'><text>总价</text><text>￥{{orderInfo._price}}</text></view>
+      <view class='info fxrb'><text>实付款</text><text class='bold'>￥{{amount}}</text></view>
     </view>
-    <view class='cell-line'><text>手机号</text> <input type='text' placeholder="请输入手机号码"></input> </view>
+    <view class='cell-line'><text>手机号</text> <input type='text' placeholder="请输入手机号码" value="{{orderInfo.phone}}"></input> </view>
   </view>
   <view class='footer'>
     <view class="bottom-btn" bindtap="confirm">支付</view>
