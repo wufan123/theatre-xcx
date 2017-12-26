@@ -1,20 +1,65 @@
-<view class="tab-bar bg-white">
-    <view class="tab {{curTab==0?'seperator-red':''}}" bindtap="selectTab" data-index="0">
-        <text class="f32 {{curTab==0?'t-red':'t-gray'}}">可用票券({{totalNum?totalNum:0}})</text>
-    </view>
-    <view class="tab {{curTab==1?'seperator-red':''}}" bindtap="selectTab" data-index="1">
-        <text class="f32 {{curTab==1?'t-red':'t-gray'}}">历史票券</text>
-    </view>
-    <view class="tab {{curTab==2?'seperator-red':''}}" bindtap="selectTab" data-index="2">
-        <text class="f32 {{curTab==2?'t-red':'t-gray'}}">过期票券</text>
-    </view>
-</view>
+
 <view class="coupon-top-item" wx:if="{{curTab==0}}">
     <input bindinput="bindInput" bindconfirm="addVoucherClickListener" class="coupon-top-item-input" placeholder="输入票券编码" confirm-type="done"></input>
     <button bindtap="addVoucherClickListener" class="coupon-top-item-button f32" hover-class="coupon-top-item-button-hover">添加</button>
     <image bindtap="scanCouponCode" class="coupon-top-item-img" src="/images/sm.png" mode="aspectFit"></image>
 </view>
-<block wx:for="{{couponData[curTab].couponList}}" wx:key="id">
+
+<view class='content'>
+  <view class='card' wx:for="{{dataList}}" wx:for-item="item" wx:key="" bindtap="couponDetail" couponList="item" >
+    <view class='shade' wx:if="{{item.stock==0}}"></view>
+    <view class='body fxcb '>
+      <view class='fxrb'>
+        <text class='f16 khaki bold'>{{item.voucherName}}</text>
+        <text>已使用</text>
+      </view>
+      <view>
+         <lable class="text-ellipsis-line f12" wx:if="{{item.isUse==1}}">使用日期：{{item.useDateTime}}</lable>
+          <lable class="text-ellipsis-line f12" wx:elif="{{item.isUnEffective}}">生效日期：{{item.startTime}}
+              <lable class="{{item._color}}">\t\t(待生效)</lable>
+          </lable>
+          <lable class="text-ellipsis-line f12" wx:else>有效期：{{item.startTime}}至{{item.validData}}</lable>
+          <!-- <lable class="text-ellipsis-line f12">备注：{{item.description}}</lable> -->
+      </view>
+      <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
+    </view>
+    <view class='info fxcm'>
+      <text class='f16 mb10'>￥20</text>
+      <text>即将过期</text>
+      <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <block wx:for="{{couponData[curTab].couponList}}" wx:key="id">
     <view class="coupon-item">
         <image class="coupon-item-bg" src="{{item._couponImage}}"></image>
         <view class="coupon-item-detial"  style="color:{{ curTab==0? '#81511c':'#d2d2d2'}}">
@@ -51,4 +96,4 @@
 <view wx:if="{{(!couponData[curTab].couponList||couponData[curTab].couponList.length==0)&&!couponData[curTab].isFirst}}" class="empty-view">
     <image src="/images/nopq.png" class="empty-img"/>
     <image src="/images/nopqword.png" class="empty-lable"/>
-</view>
+</view> -->

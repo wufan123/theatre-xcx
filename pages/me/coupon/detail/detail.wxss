@@ -1,20 +1,9 @@
-.coupon-detial {
-    padding: 0rpx 30rpx 30rpx 30rpx;
-    display: flex;
-    flex-direction: column;
-  }
-  .coupon-detial-item {
-    padding: 30rpx 0rpx;
-    width: 100%;
-    border-bottom: 1rpx solid #e8e8e8;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .coupon-detial-rule {
-    padding: 30rpx 0rpx;
-  }
-  .coupon-detial-rule-item {
-    line-height: 50rpx;
-  }
-  
+.ticket{margin: 40rpx;background: #ffffff;border-radius: 10rpx;}
+.line{padding: 10px 60px;}
+.code{padding: 20rpx 0rpx}
+
+.order{padding: 10px 15px;margin: 0}
+
+.cell-line{background: #ffffff;padding: 20rpx 30rpx;}
+
+

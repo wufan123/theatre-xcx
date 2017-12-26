@@ -1,23 +1,4 @@
-.t-red {
-  color: #dc3c38;
-}
-.seperator-red {
-  border-bottom: 1rpx solid #dc3c38;
-}
-.tab-bar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 100rpx;
-}
-.tab {
-  flex: 1;
-  text-align: center;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .coupon-top-item {
   display: flex;
   flex-direction: row;
@@ -55,6 +36,42 @@
   padding: 10rpx 20rpx;
   background: #dc3c38;
 }
+
+.content{margin: 30rpx 30rpx 0 30rpx;}
+.card{display: flex;height: 180rpx;margin-bottom: 20rpx;position: relative;}
+.card .body{width: 542rpx;position: relative;padding: 30rpx 50rpx;}
+.card .body text{display: block;}
+.card .info text{color: #ffffff;}
+.card .info{width: 148rpx;position: relative}
+.card .bg{width: 100%;height: 100%;position: absolute;top: 0;z-index: -1;left: 0;}
+.card .shade{width: 100%;height: 100%;background:rgba(0,0,0,.3);position: absolute;z-index: 9;display: block;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .coupon-item {
   margin: 30rpx 30rpx;
   position: relative;
