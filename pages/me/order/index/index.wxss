@@ -1,0 +1,6 @@
+.order-card{margin: 20rpx 30rpx;position: relative;height: 200rpx;}
+.order-card-body{top: 0;position: absolute;width: 100%; height: 100%; z-index: 5;}
+.order-card-body .order-info{margin-left: 20rpx;flex:1;margin-right:40rpx;}
+.order-card-body .order-info >view{width: 100%;}
+.order-card-body .order-img{width: 202rpx;height: 135rpx;margin-left: 30rpx;}
+.order-card .order-card-bg{width: 100%;height: 100%;position: absolute;top: 0;left:0;z-index: 4}
