@@ -3,23 +3,23 @@
     <view class="c-good">
       <view class='goods'>
         <view class='list'>
-          <image class='film-img' src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1050241476,1492482088&fm=58&s=D10340B45C13FECC042F9C4803007099"></image>
+          <image class='film-img' src="{{filmInfo.image}}"></image>
           <view class='list-body fxrb'>
             <view class='list-con'>
-              <view>永和鱼丸</view>
-              <view>x 1</view>
+              <view>{{filmInfo.filmName}}</view>
+              <view>x {{filmInfo.seatCount}}</view>
             </view>
-            <view class='bold'>￥5.00</view>
+            <view class='bold'>￥{{filmInfo.price}}</view>
           </view>
         </view>
-        <view class='list'>
-          <image class='good-img' src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513916524579&di=f8bb7b6721d3d41a2ed341591caf4ff0&imgtype=0&src=http%3A%2F%2Fimage1.ocj.com.cn%2Fitem_desc%2Fsupplier%2F2016%2F11%2F14%2F20160923652220%2F1479087155506.jpg"></image>
+        <view class='list' wx:if="goodsInfo&&goodsInfo.list.length>0" wx:for="{{goodsInfo.list}}" wx:key="index">
+          <image class='good-img' src="{{item.goodsImg}}"></image>
           <view class='list-body fxrb'>
             <view class='list-con'>
-              <view>永和鱼丸</view>
-              <view>x 1</view>
+              <view>{{item.name}}</view>
+              <view>x {{item.number}}</view>
             </view>
-            <view class='bold'>￥5.00</view>
+            <view class='bold'>￥{{item.price}}</view>
           </view>
         </view>
       </view>

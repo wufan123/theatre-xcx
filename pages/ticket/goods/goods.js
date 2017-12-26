@@ -1,5 +1,6 @@
 const storeRest = require('../../../rest/storeRest.js')
 const orderRest = require('../../../rest/orderRest.js')
+const modalUtil = require('../../../util/modalUtil.js')
 var app = getApp()
 
 Page({
@@ -57,6 +58,7 @@ Page({
             });
             return;
         }
+        modalUtil.showLoadingToast()
         storeRest.createGoodsFilmOrder(app.globalData.cinemaCode, app.getUserInfo().bindmobile, goodsStr, this.data.orderId, res => {
             orderRest.mergeOrder(this.data.orderId, res, app.getUserInfo().bindmobile, res => {
                 wx.redirectTo({
@@ -68,5 +70,6 @@ Page({
         }, res => {
             modalUtils.showWarnToast(res.text);
         });
+        modalUtil.hideLoadingToast()
     }
 })
