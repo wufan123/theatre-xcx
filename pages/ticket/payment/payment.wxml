@@ -1,29 +1,20 @@
 <view class='page'>
   <view class='body'>
-    <view class='last-time center'>支付剩余时间：15：00</view>
+    <view class='last-time center red'>支付剩余时间：15：00</view>
     <view class='cell-no-link'>
       <text>实付款</text>
-      <text class='bold'>$200.00</text>
+      <text class='bold khaki2'>$200.00</text>
     </view>
-    <view class='pay-type'>
+    <view class='pay-type '>
       <text class='title'>选择支付方式</text>
-      <radio-group class="radio-group" bindchange="radioChange">
-        <view class='fxrbm cell-type'>
+      <radio-group class="radio-group" bindchange="radioChange" >
+        <view class='fxrbm cell-type {{index==0?"disabled":""}}' wx:for="{{radioList}}" >
           <view class='con'>
-            <image class='' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513919089452&di=4498f3abfa18004595aafeb4e2ff5d0d&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F17%2F51%2F66%2F22N58PICFrK_1024.jpg'></image>
-            <text>会员卡：余额￥20.00</text>
+            <image class='' src='{{item.icon}}'></image>
+            <text>{{item.name}}</text>
           </view>
           <view class='radio'>
-            <radio value="1" checked="{{item.checked}}" />
-          </view>
-        </view>
-        <view class='fxrbm cell-type'>
-          <view class='con'>
-            <image class='' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513919089452&di=4498f3abfa18004595aafeb4e2ff5d0d&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F17%2F51%2F66%2F22N58PICFrK_1024.jpg'></image>
-            <text>微信</text>
-          </view>
-          <view class='radio'>
-            <radio value="2" />
+            <radio value="1" checked="{{item.checked}}" color="#a40000" disabled="{{item.disabled}}" />
           </view>
         </view>
       </radio-group>

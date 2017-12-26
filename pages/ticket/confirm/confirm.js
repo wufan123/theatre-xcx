@@ -252,7 +252,8 @@ Page({
 
     },
     onLoad: function (option) {
-        this.data.orderDetail.orderId = option.orderId
+        this.data.orderDetail.orderId = '700836722' //option.orderId
+      //  this.setData(this.data)
         this.fetchInitData()
     },
 

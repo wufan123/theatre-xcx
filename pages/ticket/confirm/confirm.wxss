@@ -1,12 +1,15 @@
-.c-good{background: #ffffff;padding: 10rpx 30rpx;}
-.c-good .goods{border-bottom: 1px solid #eee;}
+.c-good{background:rgba(255,251,244,.5); padding: 10rpx 30rpx;}
+.c-good .goods{border-bottom: 1px dashed #ded5c8;}
 .c-good .list{display: flex;justify-content: flex-start;align-items: center;padding: 20rpx 0;}
-.c-good .list .film-img{width: 100rpx;height: 180rpx;margin-right: 20rpx;}
-.c-good .list .good-img{width: 100rpx;height: 100rpx;margin-right: 20rpx;}
+.c-good .list .img{width: 202rpx;height: 135rpx;margin-right: 20rpx;border: 4rpx solid #c4a983;border-radius: 8rpx;}
 .c-good .list .list-body{flex: 1}
 
 .info{ margin-top: 20rpx;}
 
-.cell-line{display: flex;background: #ffffff;padding: 20rpx 30rpx;justify-content: center;margin-top: 20rpx;}
+.cell-line{display: flex;padding: 20rpx 30rpx;background:rgba(255,251,244,.5);align-items: center;margin-top: 20rpx;}
 .cell-line text{margin-right: 20rpx;}
 
+.cell-line.nobg{background: none;}
+
+.warn-info{padding: 30rpx;font-size: 30rpx;}
+.warn-info text{display: block;}

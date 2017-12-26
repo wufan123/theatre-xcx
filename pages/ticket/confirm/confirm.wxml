@@ -3,32 +3,33 @@
     <view class="c-good">
       <view class='goods'>
         <view class='list'>
-          <image class='film-img' src="{{orderInfo.film.image}}"></image>
+          <image class='img' src="{{orderInfo.film.image}}"></image>
           <view class='list-body fxrb'>
             <view class='list-con'>
-              <view>{{orderInfo.film.filmName}}</view>
+              <view class="f16">{{orderInfo.film.filmName}}</view>
               <view>x {{orderInfo.film.seatCount}}</view>
             </view>
-            <view class='bold'>￥{{orderInfo.film.price}}</view>
+            <view class='bold khaki2 f18'>￥{{orderInfo.film.price}}</view>
           </view>
         </view>
         <view class='list' wx:if="orderInfo.goods&&orderInfo.goods.list.length>0" wx:for="{{orderInfo.goods.list}}" wx:key="index">
-          <image class='good-img' src="{{item.goodsImg}}"></image>
+          <image class='img' src="{{item.goodsImg}}"></image>
           <view class='list-body fxrb'>
             <view class='list-con'>
               <view>{{item.name}}</view>
               <view>x {{item.number}}</view>
             </view>
-            <view class='bold'>￥{{item.price}}</view>
+            <view class='bold khaki2'>￥{{item.price}}</view>
           </view>
         </view>
       </view>
-      <view class='cell'><text>优惠券</text><text>{{orderPayWay.canUseCouponNum}}张可用</text></view>
-      <view class='cell'><text>会员卡</text><text>未选择</text></view>
-      <view class='info fxrb f12'><text>总价</text><text>￥{{orderInfo._price}}</text></view>
+      <view class='cell fxrbm'><text>优惠券</text><text>{{orderPayWay.canUseCouponNum}}张可用</text></view>
+      <view class='cell fxrbm'><text>会员卡</text><text>未选择</text></view>
+      <view class='info fxrb f12 gray'><text>总价</text><text>￥{{orderInfo._price}}</text></view>
       <view class='info fxrb'><text>实付款</text><text class='bold'>￥{{amount}}</text></view>
     </view>
     <view class='cell-line'><text>手机号</text> <input type='text' placeholder="请输入手机号码" value="{{orderInfo.phone}}"></input> </view>
+    <view class='warn-info'>  <text>温馨提示：</text><text>手机号用于生成订单，及发送支付短信</text> </view>
   </view>
   <view class='footer'>
     <view class="bottom-btn" bindtap="confirm">支付</view>

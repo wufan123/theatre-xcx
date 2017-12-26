@@ -14,6 +14,8 @@
 
 .black{color: #000000}
 .khaki{color: #a78658}
+.khaki2{color: #d2a778}
+.gray{color: #aaaaaa;}
 
 .mt10{margin-top: 20rpx;}
 .mb10{margin-bottom: 20rpx;}
@@ -26,7 +28,7 @@
 .fxrm{display: flex;justify-content:center;align-items: center;}
 .fxrbm{display: flex;justify-content: space-between;align-items: center;}
 
-.fxcb{display: flex;flex-direction: column; justify-content: space-between;}
+.fxcb{display: flex;flex-direction: column; justify-content: space-between;align-items: flex-start!important;}
 .fxcm{display: flex;flex-direction: column;justify-content:center;align-items: center;}
 .fxcbm{display: flex;flex-direction: column;justify-content:space-between;align-items: center;}
 

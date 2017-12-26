@@ -1,3 +1,13 @@
-.result-con{height: 1000rpx;}
-.result-con image{width: 300rpx;height: 300rpx;margin-bottom: 50rpx;}
-.result-con button{width: 50%;}
+.result-con {
+  height: 500rpx;
+}
+
+.result-con .result-img {
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 100rpx;
+}
+
+.result-con .button {
+width: 349rpx;height: 61rpx;
+}

@@ -1,4 +1,4 @@
 <view class='result-con fxcm'>
-  <image src='http://bpic.588ku.com/element_origin_min_pic/00/92/56/1756f22831ec1ac.jpg'></image>
-  <button type="default">查看订单</button>
+  <image src='../../../../assets/images/ticket/success_icon.png' class='result-img'></image>
+  <image src='../../../../assets/images/ticket/see_order.png' class='button'></image>
 </view>

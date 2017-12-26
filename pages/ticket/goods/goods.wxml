@@ -7,7 +7,7 @@
               <image src='{{item.goodsImg}}' class='good-img' binderror="imageError" data-index="{{index}}" > </image>
               <view class='good-info fxcb'>
                 <text class='title f14'>{{item.goodsName}}</text>
-                <view class="fxrbm">
+                <view class="fxrbm" >
                   <text class='price'>￥{{item.showPrice}}</text>
                   <view class="goods-item-quantity fxrbm">
                       <view class="subtract fxrm" mode="aspectFit" bindtap="subtractQuatity" data-index="{{index}}">-</view>
