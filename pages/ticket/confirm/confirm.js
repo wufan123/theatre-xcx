@@ -1,4 +1,5 @@
 const orderRest = require('../../../rest/orderRest.js')
+const storeRest = require('../../../rest/storeRest.js')
 const modalUtil = require('../../../util/modalUtil.js')
 const timeUtil = require('../../../util/timeUtil.js')
 var app = getApp()
@@ -38,7 +39,9 @@ Page({
                         clearInterval(this.data.clearTime)
                         modalUtil.showFailToast("当前订单超时关闭")
                         setTimeout(() => {
-                            pageUtil.goToHomePage()
+                            wx.reLaunch({
+                                url: '/pages/index/index',
+                            })
                         }, 1500);
 
                     }
@@ -103,6 +106,7 @@ Page({
             // $.each(seatArr, function(i, v) { _str += i + v.price + "*" + v.count });
             this.data.orderInfo.film._priceStr += "(含服务费¥" + _serviceFee.toFixed(2) + ")"
             this.data.orderInfo.phone = app.getUserInfo().bindmobile
+            this.data.oldPhone = this.data.orderInfo.phone
             console.log(this.data)
             this.setData(this.data)
             this.caculateCount()
@@ -247,13 +251,15 @@ Page({
         if (payLockInfo && payLockInfo.price == 0) {
             this.requestGoodsAndFilmComfirmNewPay(orderId, orderType)
         } else {
-            pageUtil.gotoOrderPay(orderId, orderType, payLockInfo)
+            var info = JSON.stringify(payLockInfo)
+            wx.navigateTo({
+                url: '../payment/payment?orderId=' + orderId + "&orderType=" + orderType + "&info=" + info
+            })
         }
 
     },
     onLoad: function (option) {
-        this.data.orderDetail.orderId = '700836722' //option.orderId
-      //  this.setData(this.data)
+        this.data.orderDetail.orderId = option.orderId
         this.fetchInitData()
     },
 
@@ -268,16 +274,7 @@ Page({
 
     addCard: function (e) {
         wx.navigateTo({
-            url: '/pages/card/addCard/addCard',
-            success: function (res) {
-                // success
-            },
-            fail: function () {
-                // fail
-            },
-            complete: function () {
-                // complete
-            }
+            url: '/pages/card/addCard/addCard'
         })
     },
 

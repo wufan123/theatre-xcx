@@ -210,6 +210,16 @@ function changeFilePay(orderId, payType, openId, success_cb, fail_cb) {
       openId: openId
   }, success_cb, fail_cb)
 }
+
+/**
+ * 修改订单手机
+ */
+function updateOrderMobile(mobile, success_cb, fail_cb) {
+  httpRest.postRequest('/user/updateOrderFilmMobile', {
+      mobile: mobile
+  }, success_cb, fail_cb)
+}
+
 module.exports = {
   getCinemaOrderInfo:getCinemaOrderInfo,
   getAllMoiveOrder: getAllMoiveOrder,
@@ -229,5 +239,6 @@ module.exports = {
   userVoucherDetail,
   changeFilmOrderGetBuyWay,
   changeFilePay,
-  mergeOrder
+  mergeOrder,
+  updateOrderMobile
 }
