@@ -4,46 +4,46 @@ page {
 }
 
 .top-bg {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    padding-top: 40rpx;
-    padding-bottom: 40rpx;
+    padding: 60rpx 0;
+    position: relative;
 }
-
-.top-phone {
-    font-size: 28rpx;
-}
+.top-body{z-index: 9;position: relative;}
+.top-bg-img{position: absolute;width: 100%;height: 100%;z-index: 2;top: 0;left: 0;}
 
 .top-balance {
-    font-size: 32rpx;
+    font-size: 26rpx;
     margin-top: 20rpx;
 }
+.top-balance text{margin: 0px 20rpx;}
 
 .top-tip {
-    font-size: 32rpx;
+    color: #a00000;
+    font-size: 22rpx;
+    border: 2rpx solid #1b2a3d;
+    border-radius: 20rpx;
+    padding: 4rpx 30rpx;
     margin-top: 20rpx;
 }
-
+.top-tip image{width: 24rpx;height: 24rpx;margin-right: 10rpx;}
 .menu-bg {
     display: flex;
     flex-direction: column;
-    background: white;
     padding-top: 40rpx;
     padding-bottom: 40rpx;
 }
 
 .menu-title-txt {
-    font-size: 30rpx;
-    margin-left: 40rpx;
+  height: 93rpx;position: relative;
 }
+.menu-title-txt .title_bg{position: absolute;z-index: 2;width: 100%;height: 93rpx; top: 0;left: 0;}
 
 .menu-row {
-    widows: 100%;
+    
     display: flex;
     justify-content: space-around;
     align-items:Center;
-    margin-top: 20rpx;
+    margin: 20rpx 30rpx 0 30rpx;
 }
 
 .menu-item {
@@ -53,16 +53,17 @@ page {
 }
 
 .menu-item-ico {
-    width: 110rpx;
+    margin-bottom: 10rpx;
+    width: 63rpx;
     height: 110rpx;
 }
 
 .menu-item-txt {
-    font-size: 24rpx;
+    font-size: 28rpx;
 }
 
 .list-bg {
-    margin-top: 20rpx;
+    border-top: 1rpx solid #c6ac88 ;
 }
 
 .list-item {

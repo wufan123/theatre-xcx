@@ -1,8 +1,17 @@
-.ticket{margin: 40rpx;background: #ffffff;border-radius: 10rpx;}
-.ticket .info{border-bottom: 1px dashed #eee;padding: 10rpx 0rpx;}
-.ticket .info text{display: block;padding-left: 20rpx;}
+.ticket-bg{position: absolute;z-index: 0;width: 100%;height: 500rpx;}
+.ticket-body{position: relative;z-index: 1;margin: 150rpx 100rpx 0 100rpx;}
 
-.code{padding: 20rpx 0rpx}
-.code-img{width: 200rpx;height: 200rpx;}
+.ticket .info image.bg,.code image.bg{width: 100%;height: 100%;position: absolute;top: 0;left: 0;z-index: 1}
+.ticket .info{padding: 30rpx 0rpx;position: relative;}
 
-.cell-line{background: #ffffff;padding: 20rpx 30rpx;}
+.ticket .info text{display: block;padding-left: 30rpx;z-index: 2;position: relative;}
+
+.code{padding: 60rpx 0rpx;position: relative;}
+.code text,.code .code-img{position: relative;z-index: 2;}
+.code-img{width: 200rpx;height: 200rpx;margin-top: 20rpx;}
+
+.cell-line{padding: 20rpx 0rpx;}
+.cell-line .title{width: 100%;height: 93rpx;}
+.cell-line .title image{width: 100%;height: 100%;}
+
+.order .line{padding: 10rpx 0;}
