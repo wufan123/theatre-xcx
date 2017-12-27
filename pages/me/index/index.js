@@ -47,6 +47,11 @@ Page({
         url: '../stamps/index/index'
       });
     },
+    share: function (e) {
+      wx.navigateTo({
+        url: '../share/share'
+      });
+    },
     makeCall:function(){
       wx.makePhoneCall({
         phoneNumber: app.globalData.servicePhone

@@ -11,11 +11,13 @@ page {
 }
 input{width: 100%;flex:1;}
 
+.bg{position: absolute;top: 0;left: 0;width: 100%;height: 100%}
+image{width: 100%;height: 100%}
+
  view label { box-sizing: content-box;} 
 .page{display: flex;flex-direction: column;height: 100%}
 .body{flex: 1;overflow: auto}
 .footer{height: 100rpx;overflow: hidden}
-
 .bottom-btn {background: #a40000; color: #ffffff;font-size: 32rpx;text-align: center;line-height: 100rpx;}
 
 .cell{font-size: 30rpx;  border-bottom: 1rpx solid #c6ac88 ;padding: 15rpx 30rpx;position: relative;padding-right: 50rpx;display: flex;align-items: center;}

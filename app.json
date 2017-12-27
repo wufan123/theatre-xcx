@@ -6,6 +6,7 @@
     "pages/login/register/register",
     "pages/login/protocol/protocol",
     "pages/me/index/index",
+    "pages/me/share/share",
     "pages/me/card/index/index",
     "pages/me/card/addCard/addCard",
     "pages/me/card/recharge/recharge",
@@ -29,6 +30,7 @@
     "pages/business/localProduct/localProduct",
     "pages/business/goodDetail/goodDetail",
     "pages/webview/webview"
+    
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -48,7 +48,7 @@
             <image src="../../../assets/images/me/cell_icon_02.png" class="icon"></image>
             <text class="text">优惠券</text>
         </view>
-        <view class='cell' bindtap='couponManage'>
+        <view class='cell' bindtap='share'>
             <image src="../../../assets/images/me/cell_icon_03.png" class="icon"></image>
             <text class="text">邀请好友</text>
         </view>

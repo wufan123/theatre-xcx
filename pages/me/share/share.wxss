@@ -1,0 +1,14 @@
+.content{margin: 150rpx 60rpx; text-align: center;font-size: 32rpx;}
+.bag-icon{width: 128rpx;height: 200rpx;margin-bottom: 20rpx;}
+
+.warn .title{height: 93rpx;width: 100%;position: relative;}
+.warn .body{margin: 30rpx;}
+
+.share-dialog{background: rgba(0,0,0,.5);z-index: 4}
+.share-dialog .body{ width: 600rpx;position: absolute;bottom: 0;left: 50%;margin-left: -300rpx;}
+
+.share-dialog .contain{background: white;text-align: center;border-radius: 8rpx;width:100%;}
+.share-dialog .contain .code{width: 245rpx;height: 245rpx;padding: 30rpx;}
+.share-dialog .contain .list{margin: 30rpx 60rpx 0 60rpx;display: flex;flex-wrap:wrap;width:500rpx;}
+.share-dialog .contain .list .item{width: 33%;height: 160rpx;display: flex;flex-direction: column;align-items: center;margin-bottom: 10rpx;}
+.share-dialog .contain .list .item image{width: 88rpx;height: 88rpx;margin-bottom: 10rpx;}
