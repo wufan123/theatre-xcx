@@ -5,19 +5,28 @@ var app = getApp()
 
 Page({
     data: {
+        couponList: {
+          list: []
+        },
         inputValue: null,
         dataList: [],
         canUseList: [],
         invalidList: [],
         totalNum: 0,
         curTab: 0,
-
+        isSeeExpire:false,
     },
 
     bindInput: function (e) {
         this.setData({
             inputValue: e.detail.value
         })
+    },
+
+    seeExpireCoupon:function(){
+      this.setData({
+        isSeeExpire: !this.data.isSeeExpire
+      })
     },
 
     couponDetail: function (res) {
@@ -58,6 +67,17 @@ Page({
         this.requestAddVoucher(this.data.inputValue)
     },
 
+<<<<<<< HEAD
+=======
+    formatCouponList: function (couponList, tab, pageIndex) {
+      console.log('dataList', couponList)
+        if (pageIndex == 1) {
+          this.data.couponList.list = couponList
+        }
+        this.setData(this.data)
+    },
+
+>>>>>>> 52e54340370c2661dda5d4b7e6cd18aef1845874
     requestAddVoucher: function (voucherNum) {
         modalUtils.showLoadingToast()
         orderRest.addVoucher(voucherNum, res => {
