@@ -195,7 +195,7 @@ Page({
     function complete(res) {
         if (res.errMsg === "requestPayment:ok") {
           wx.redirectTo({
-            url: '../payResult/paySuccess/index?orderId=' + orderId + "&orderType=" + orderType
+            url: '../payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
           })
         } else if (res.errMsg === "requestPayment:fail") {
           wx.redirectTo({
