@@ -177,13 +177,8 @@ function addVoucher(voucherNum, success_cb, fail_cb) {
  * @param {*} success_cb 
  * @param {*} fail_cb 
  */
-function userVoucherList(page,couponStatus,success_cb, fail_cb) {
-  var params={
-    page:page
-  }
-  if(couponStatus)
-    params.couponStatus=couponStatus
-  httpRest.getRequest('/user/userVoucherList',params, success_cb, fail_cb)
+function userVoucherList(success_cb, fail_cb) {
+  httpRest.getRequest('/user/userVoucherList',{}, success_cb, fail_cb)
 }
 
 /**

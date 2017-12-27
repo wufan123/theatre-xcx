@@ -7,8 +7,6 @@ Page({
         coupon: null
       },
       onLoad: function (options) {
-        console.log("couponDetail");
-        console.log(options);
         var coupon = JSON.parse(options.info);
         this.setData({
           coupon: coupon

@@ -6,7 +6,9 @@ var app = getApp()
 Page({
     data: {
         inputValue: null,
-        dataList:[],
+        dataList: [],
+        canUseList: [],
+        invalidList: [],
         totalNum: 0,
         curTab: 0,
 
@@ -19,20 +21,17 @@ Page({
     },
 
     couponDetail: function (res) {
-      var coupon = JSON.stringify(this.data.dataList[0])
+        var coupon;
+        this.data.dataList.forEach(item => {
+            if (item.memberVoucherId == res.currentTarget.id) {
+                coupon = item;
+            }
+        })
+        if (!coupon) {
+            return;
+        }
         wx.navigateTo({
-          url: '/pages/me/coupon/detail/detail?info=' + coupon,
-          success: function (res) {
-            // success
-            console.log("success")
-          },
-          fail: function () {
-            // fail
-          },
-          complete: function () {
-            // complete
-            console.log("complete")
-          }
+          url: '/pages/me/coupon/detail/detail?info=' + JSON.stringify(coupon)
         })
     },
 
@@ -59,37 +58,32 @@ Page({
         this.requestAddVoucher(this.data.inputValue)
     },
 
-    formatCouponList: function (couponList, tab, pageIndex) {
-      console.log('dataList', couponList)
-        if (pageIndex == 1) {
-            this.data.dataList = couponList
-        }
-        this.setData(this.data)
-    },
-
     requestAddVoucher: function (voucherNum) {
-
         modalUtils.showLoadingToast()
         orderRest.addVoucher(voucherNum, res => {
             console.log(res)
             // modalUtils.hideLoadingToast()
             modalUtils.showSuccessToast("添加成功")
-            this.requestCouponList(1, this.data.couponData[0].status, 0)
+            this.requestCouponList()
         })
     },
 
-    requestCouponList: function (page, status, tab) {
-        var kThis = this
-        function requestSuccess(res) {
-            modalUtils.hideLoadingToast()
-            wx.stopPullDownRefresh() //停止下拉刷新
-            if (tab == 0) {
-                kThis.data.totalNum = res.totalNum
-            }
-            kThis.formatCouponList(res.voucherList, tab, page)
-        }
-
-        orderRest.userVoucherList(page, status, requestSuccess, res => {
+    requestCouponList: function () {
+        orderRest.userVoucherList(success => {
+            this.data.dataList = success.voucherList
+            this.data.canUseList = []
+            this.data.invalidList = []
+            success.voucherList.forEach(item => {
+                if (item.status == 2) {
+                    this.data.canUseList.push(item)
+                } else {
+                    this.data.invalidList.push(item)
+                }
+            });
+            console.log(this.data.canUseList)
+            console.log(this.data.invalidList)
+            this.setData(this.data)
+        }, res => {
             modalUtils.showResError(res)
             this.data.couponData[tab].isFirst = false
             this.setData({
@@ -99,6 +93,6 @@ Page({
     },
 
     onLoad: function (options) {
-        this.requestCouponList(1, 1, 0)
+        this.requestCouponList() // 票券
     },
 })

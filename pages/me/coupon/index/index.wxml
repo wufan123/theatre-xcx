@@ -6,7 +6,7 @@
 </view>
 
 <view class='content'>
-  <view class='card' wx:for="{{dataList}}" wx:for-item="item" wx:key="" bindtap="couponDetail" couponList="item" >
+  <view class='card' wx:for="{{canUseList}}" wx:for-item="item" wx:key="" id="{{item.memberVoucherId}}" bindtap="couponDetail" couponList="item" >
     <view class='shade' wx:if="{{item.stock==0}}"></view>
     <view class='body fxcb '>
       <view class='fxrb'>
