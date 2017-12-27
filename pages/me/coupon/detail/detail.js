@@ -1,30 +1,46 @@
 const orderRest = require('../../../../rest/orderRest.js')
 const dateFormatter = require('../../../../util/timeUtil')
+const modalUtils = require('../../../../util/modalUtil.js')
 var app = getApp();
 
 Page({
-    data: {
-        coupon: null
-      },
-      onLoad: function (options) {
-        console.log("couponDetail");
-        console.log(options);
-        var coupon = JSON.parse(options.info);
-        this.setData({
-          coupon: coupon
-        });
-        this.fetchData();
-      },
-      fetchData: function () {
-        if (this.data.coupon && this.data.coupon.voucherNum) {
-            orderRest.userVoucherDetail(this.data.coupon.voucherNum, app.globalData.cinemaCode, res => {
-            res.validData = dateFormatter.formatTimeByStamp(res.validData, "yyyy-MM-dd")
-            if (res) {
-              this.setData({
-                coupon: res
-              });
-            }
+  data: {
+    coupon: null
+  },
+  onLoad: function (options) {
+    var coupon = JSON.parse(options.info);
+    this.setData({
+      coupon: coupon
+    });
+    this.fetchData();
+  },
+  fetchData: function () {
+    if (this.data.coupon && this.data.coupon.voucherNum) {
+      orderRest.userVoucherDetail(this.data.coupon.voucherNum, app.globalData.cinemaCode, res => {
+        res.startTime = dateFormatter.formatDate(res.startTime, 4)
+        res.validData = dateFormatter.formatDate(res.validData, 4)
+        if (res) {
+          this.setData({
+            coupon: res
           });
         }
-      }
+      });
+    }
+  },
+  // 解除绑定
+  delVoucher: function(e) {
+    if (this.data.coupon && this.data.coupon.voucherNum) {
+      modalUtils.showLoadingToast()
+      orderRest.userVoucherDelete(this.data.coupon.voucherNum, success => {
+        modalUtils.hideLoadingToast()
+        modalUtils.showSuccessToast('解绑成功')
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 1000)
+      }, error => {
+        modalUtils.hideLoadingToast()
+        modalUtils.showFailToast('解绑失败')
+      });
+    }
+  }
 })

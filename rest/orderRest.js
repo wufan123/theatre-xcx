@@ -177,13 +177,8 @@ function addVoucher(voucherNum, success_cb, fail_cb) {
  * @param {*} success_cb 
  * @param {*} fail_cb 
  */
-function userVoucherList(page,couponStatus,success_cb, fail_cb) {
-  var params={
-    page:page
-  }
-  if(couponStatus)
-    params.couponStatus=couponStatus
-  httpRest.getRequest('/user/userVoucherList',params, success_cb, fail_cb)
+function userVoucherList(success_cb, fail_cb) {
+  httpRest.getRequest('/user/userVoucherList',{}, success_cb, fail_cb)
 }
 
 /**
@@ -193,6 +188,18 @@ function userVoucherDetail(voucherNum, cinemaCode, success_cb, fail_cb) {
   httpRest.getRequest('/user/userVoucherDetail', {
     voucherNum: voucherNum,
     cinemaCode: cinemaCode
+  }, success_cb, fail_cb)
+}
+
+/**
+ * 解绑票券
+ * @param {*} voucherNum 
+ * @param {*} success_cb 
+ * @param {*} fail_cb 
+ */
+function userVoucherDelete(voucherNum, success_cb, fail_cb) {
+  httpRest.getRequest('/user/delvoucher', {
+    voucherNum: voucherNum
   }, success_cb, fail_cb)
 }
 
@@ -240,5 +247,6 @@ module.exports = {
   changeFilmOrderGetBuyWay,
   changeFilePay,
   mergeOrder,
-  updateOrderMobile
+  updateOrderMobile,
+  userVoucherDelete
 }

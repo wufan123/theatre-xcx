@@ -5,11 +5,14 @@ var app = getApp()
 
 Page({
     data: {
-        couponList: {
-          list: []
-        },
         inputValue: null,
-        dataList:[],
+        dataList: [],
+        canUseList: {
+            list: []
+        },
+        invalidList: {
+            list: []
+        },
         totalNum: 0,
         curTab: 0,
         isSeeExpire:false,
@@ -28,34 +31,30 @@ Page({
     },
 
     couponDetail: function (res) {
-      var coupon = JSON.stringify(this.data.dataList[0])
+        var coupon;
+        this.data.dataList.forEach(item => {
+            if (item.memberVoucherId == res.currentTarget.id) {
+                coupon = item;
+            }
+        })
+        if (!coupon) {
+            console.log('not found coupon.')
+            return;
+        }
         wx.navigateTo({
-          url: '/pages/me/coupon/detail/detail?info=' + coupon,
-          success: function (res) {
-            // success
-            console.log("success")
-          },
-          fail: function () {
-            // fail
-          },
-          complete: function () {
-            // complete
-            console.log("complete")
-          }
+          url: '/pages/me/coupon/detail/detail?info=' + JSON.stringify(coupon)
         })
     },
 
     scanCouponCode: function () {
-        console.log("startScan")
         var kThis = this
         function success(res) {
-            console.log(res)
             var couponCode = res.result
             kThis.requestAddVoucher(couponCode)
 
         }
         function fail(res) {
-            console.log(res)
+
         }
         wx.scanCode({
             onlyFromCamera: true,
@@ -68,37 +67,31 @@ Page({
         this.requestAddVoucher(this.data.inputValue)
     },
 
-    formatCouponList: function (couponList, tab, pageIndex) {
-      console.log('dataList', couponList)
-        if (pageIndex == 1) {
-          this.data.couponList.list = couponList
-        }
-        this.setData(this.data)
-    },
-
     requestAddVoucher: function (voucherNum) {
-
         modalUtils.showLoadingToast()
         orderRest.addVoucher(voucherNum, res => {
-            console.log(res)
-            // modalUtils.hideLoadingToast()
             modalUtils.showSuccessToast("添加成功")
-            this.requestCouponList(1, this.data.couponData[0].status, 0)
+            this.requestCouponList()
         })
     },
 
-    requestCouponList: function (page, status, tab) {
-        var kThis = this
-        function requestSuccess(res) {
-            modalUtils.hideLoadingToast()
-            wx.stopPullDownRefresh() //停止下拉刷新
-            if (tab == 0) {
-                kThis.data.totalNum = res.totalNum
-            }
-            kThis.formatCouponList(res.voucherList, tab, page)
-        }
-
-        orderRest.userVoucherList(page, status, requestSuccess, res => {
+    requestCouponList: function () {
+        orderRest.userVoucherList(success => {
+            this.data.dataList = success.voucherList
+            this.data.canUseList.list = []
+            this.data.invalidList.list = []
+            success.voucherList.forEach(item => {
+                item.startTime = dateFormatter.formatDate(item.startTime, 4)
+                item.validData = dateFormatter.formatDate(item.validData, 4)
+                if (item.status == 2) {
+                    this.data.canUseList.list.push(item)
+                } else {
+                    item.stock = true
+                    this.data.invalidList.list.push(item)
+                }
+            });
+            this.setData(this.data)
+        }, res => {
             modalUtils.showResError(res)
             this.data.couponData[tab].isFirst = false
             this.setData({
@@ -108,6 +101,10 @@ Page({
     },
 
     onLoad: function (options) {
-        this.requestCouponList(1, 1, 0)
+        
     },
+
+    onShow: function() {
+        this.requestCouponList() // 票券
+    }
 })
