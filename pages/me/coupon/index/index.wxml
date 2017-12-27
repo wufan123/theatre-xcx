@@ -6,7 +6,20 @@
 </view>
 
 <view class='content'>
-  <view class='card' wx:for="{{dataList}}" wx:for-item="item" wx:key="" bindtap="couponDetail" couponList="item" >
+  <template is="coupon" data="{{...couponList}}"></template>
+
+  
+  <view class="fxrm">
+      <text class='see-last-coupon f16 center' wx:if="{{isSeeExpire}}" bindtap="seeExpireCoupon" >已失效的券</text> 
+      <image  wx:else src="/assets/images/me/see_last_coupon.png" class="see-last-coupon" bindtap="seeExpireCoupon" ></image> 
+  </view>
+
+  <template  wx:if="{{isSeeExpire}}" is="coupon" data="{{...couponList}}"></template>
+</view>
+
+
+<template name="coupon">
+  <view class='card' wx:for="{{list}}" wx:for-item="item" wx:key="" bindtap="couponDetail" couponList="item" >
     <view class='shade' wx:if="{{item.stock==0}}"></view>
     <view class='body fxcb '>
       <view class='fxrb'>
@@ -29,14 +42,7 @@
       <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
     </view>
   </view>
-  <view class="fxrm">
-        <text>已失效的券</text>
-        <!-- <image src="/assets/images/me/see_last_coupon.png" class="see-last-coupon "></image> -->
-  </view>
-  
-</view>
-
-
+</template>
 
 
 

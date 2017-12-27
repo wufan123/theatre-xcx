@@ -5,17 +5,26 @@ var app = getApp()
 
 Page({
     data: {
+        couponList: {
+          list: []
+        },
         inputValue: null,
         dataList:[],
         totalNum: 0,
         curTab: 0,
-
+        isSeeExpire:false,
     },
 
     bindInput: function (e) {
         this.setData({
             inputValue: e.detail.value
         })
+    },
+
+    seeExpireCoupon:function(){
+      this.setData({
+        isSeeExpire: !this.data.isSeeExpire
+      })
     },
 
     couponDetail: function (res) {
@@ -62,7 +71,7 @@ Page({
     formatCouponList: function (couponList, tab, pageIndex) {
       console.log('dataList', couponList)
         if (pageIndex == 1) {
-            this.data.dataList = couponList
+          this.data.couponList.list = couponList
         }
         this.setData(this.data)
     },
