@@ -18,7 +18,7 @@
   </view>
 </view>
 <template name="coupon">
-  <view class='card' wx:for="{{list}}" wx:for-item="item" wx:key="" bindtap="couponDetail" couponList="item">
+  <view class='card' wx:for="{{list}}" wx:for-item="item" wx:key="" id="{{item.memberVoucherId}}" bindtap="couponDetail" couponList="item">
     <view class='shade' wx:if="{{item.stock==0}}"></view>
     <view class='body fxcb '>
       <view class='fxrb'>
@@ -32,12 +32,13 @@
         <lable class="text-ellipsis-line f12" wx:else>有效期：{{item.startTime}}至{{item.validData}}</lable>
         <!-- <lable class="text-ellipsis-line f12">备注：{{item.description}}</lable> -->
       </view>
-      <text class="is-tip">已使用</text>
+      <text wx:if="{{item.status==3}}" class="is-tip">已使用</text>
+      <text wx:if="{{item.status==4}}" class="is-tip">已过期</text>
       <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
     </view>
     <view class='info fxcm'>
-      <text class='f16 mb10'>￥20</text>
-      <text>即将过期</text>
+      <text class='f16 mb10'>￥{{item.voucherValue}}</text>
+      <!-- <text>即将过期</text> -->
       <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
     </view>
   </view>

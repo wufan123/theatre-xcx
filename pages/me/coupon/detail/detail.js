@@ -16,7 +16,8 @@ Page({
       fetchData: function () {
         if (this.data.coupon && this.data.coupon.voucherNum) {
             orderRest.userVoucherDetail(this.data.coupon.voucherNum, app.globalData.cinemaCode, res => {
-            res.validData = dateFormatter.formatTimeByStamp(res.validData, "yyyy-MM-dd")
+            res.startTime = dateFormatter.formatDate(res.startTime, 4)
+            res.validData = dateFormatter.formatDate(res.validData, 4)
             if (res) {
               this.setData({
                 coupon: res

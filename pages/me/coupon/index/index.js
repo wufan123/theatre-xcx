@@ -38,6 +38,7 @@ Page({
             }
         })
         if (!coupon) {
+            console.log('not found coupon.')
             return;
         }
         wx.navigateTo({
@@ -80,6 +81,8 @@ Page({
             this.data.canUseList.list = []
             this.data.invalidList.list = []
             success.voucherList.forEach(item => {
+                item.startTime = dateFormatter.formatDate(item.startTime, 4)
+                item.validData = dateFormatter.formatDate(item.validData, 4)
                 if (item.status == 2) {
                     this.data.canUseList.list.push(item)
                 } else {
