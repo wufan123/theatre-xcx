@@ -1,37 +1,48 @@
-
-<view class="coupon-top-item" wx:if="{{curTab==0}}">
-    <input bindinput="bindInput" bindconfirm="addVoucherClickListener" class="coupon-top-item-input" placeholder="输入票券编码" confirm-type="done"></input>
-    <view class="btn" bindtap="addVoucherClickListener" >添加</view>
-    <view class="btn" bindtap="addVoucherClickListener" > <image bindtap="scanCouponCode" class="coupon-top-item-img " src="/images/sm.png" mode="aspectFit"></image></view>
-</view>
-
-<view class='content'>
-  <template is="coupon" data="{{...couponList}}"></template>
-
-  
-  <view class="fxrm">
-      <text class='see-last-coupon f16 center' wx:if="{{isSeeExpire}}" bindtap="seeExpireCoupon" >已失效的券</text> 
-      <image  wx:else src="/assets/images/me/see_last_coupon.png" class="see-last-coupon" bindtap="seeExpireCoupon" ></image> 
+<view class='page'>
+  <view class='body'>
+    <view class='content'>
+      <view class="coupon-top-item mb20" wx:if="{{curTab==0}}">
+        <input bindinput="bindInput" bindconfirm="addVoucherClickListener" class="coupon-top-item-input" placeholder="输入票券编码" confirm-type="done"></input>
+        <view class="btn" bindtap="addVoucherClickListener">添加</view>
+        <view class="btn" bindtap="scanCouponCode">
+          <image class="coupon-top-item-img " src="/assets/images/me/sm.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      <template is="coupon" data="{{...couponList}}"></template>
+      <view class="fxrm">
+        <text class='see-last-coupon f16 center' wx:if="{{isSeeExpire}}" bindtap="seeExpireCoupon">已失效的券</text>
+        <image wx:else src="/assets/images/me/see_last_coupon.png" class="see-last-coupon" bindtap="seeExpireCoupon"></image>
+      </view>
+      <template wx:if="{{isSeeExpire}}" is="coupon" data="{{...couponList}}"></template>
+    </view>
   </view>
-
-  <template  wx:if="{{isSeeExpire}}" is="coupon" data="{{...couponList}}"></template>
 </view>
+
+
+
+
+
+
+
+
+
+
 
 
 <template name="coupon">
-  <view class='card' wx:for="{{list}}" wx:for-item="item" wx:key="" bindtap="couponDetail" couponList="item" >
+  <view class='card' wx:for="{{list}}" wx:for-item="item" wx:key="" bindtap="couponDetail" couponList="item">
     <view class='shade' wx:if="{{item.stock==0}}"></view>
     <view class='body fxcb '>
       <view class='fxrb'>
         <text class='f16 red bold'>{{item.voucherName}}</text>
       </view>
       <view>
-         <lable class="text-ellipsis-line f12" wx:if="{{item.isUse==1}}">使用日期：{{item.useDateTime}}</lable>
-          <lable class="text-ellipsis-line f12" wx:elif="{{item.isUnEffective}}">生效日期：{{item.startTime}}
-              <lable class="{{item._color}}">\t\t(待生效)</lable>
-          </lable>
-          <lable class="text-ellipsis-line f12" wx:else>有效期：{{item.startTime}}至{{item.validData}}</lable>
-          <!-- <lable class="text-ellipsis-line f12">备注：{{item.description}}</lable> -->
+        <lable class="text-ellipsis-line f12" wx:if="{{item.isUse==1}}">使用日期：{{item.useDateTime}}</lable>
+        <lable class="text-ellipsis-line f12" wx:elif="{{item.isUnEffective}}">生效日期：{{item.startTime}}
+          <lable class="{{item._color}}">\t\t(待生效)</lable>
+        </lable>
+        <lable class="text-ellipsis-line f12" wx:else>有效期：{{item.startTime}}至{{item.validData}}</lable>
+        <!-- <lable class="text-ellipsis-line f12">备注：{{item.description}}</lable> -->
       </view>
       <text class="is-tip">已使用</text>
       <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>

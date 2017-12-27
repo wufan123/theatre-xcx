@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+    "pages/me/coupon/index/index",
     "pages/index/index",
     "pages/login/login/login",
     "pages/login/register/register",
@@ -9,7 +9,7 @@
     "pages/me/card/index/index",
     "pages/me/card/addCard/addCard",
     "pages/me/card/recharge/recharge",
-    "pages/me/coupon/index/index",
+    
     "pages/me/coupon/detail/detail",
     "pages/me/order/index/index",
     "pages/me/order/detail/detail",
