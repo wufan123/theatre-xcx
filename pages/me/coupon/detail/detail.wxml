@@ -3,12 +3,8 @@
       <view class="h15"></view>
       <view class='card m15'>
           <view class='body fxcb '>
-            <view class='fxrb'>
-              <text class='f16 red bold'>{{coupon.voucherName}}</text>
-            </view>
-            <view>
-                <lable class="text-ellipsis-line f12" >有效期：{{coupon.startTime}}至{{coupon.validData}}</lable>
-            </view>
+            <view class='fxrb'><text class='f16 red bold'>{{coupon.voucherName}}</text></view>
+            <view><lable class="text-ellipsis-line f12" >有效期：{{coupon.startTime}}至{{coupon.validData}}</lable></view>
             <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
           </view>
           <view class='info fxcm'>
@@ -17,9 +13,7 @@
             <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
           </view>
         </view>
-    <view class='order  black'>
-      优惠券编码：{{voucherNum}}
-    </view>
+    <view class='order  black'>优惠券编码：{{voucherNum}}</view>
     <view class='order f12'>
       <view class='mb10 f14  black'>使用规则：</view>
       <view>1. 立减券可以在购买剧票时使用；</view>
@@ -30,7 +24,7 @@
     </view>
   </view>
    <view class='footer'>
-    <view class="bottom-btn">解除绑定</view>
+    <view class="bottom-btn" bindtap="delVoucher">解除绑定</view>
   </view> 
     
 

@@ -66,13 +66,13 @@
         <text class="plan-title-txt">购买数量</text>
         <view class='recharge-item' >
           <view class="recharge-item-btn">
-            <image src="/images/subtract_on.png" class="recharge-item-btn-active" catchtap="subtract"></image>
-            <image src="/images/subtract.png" class="recharge-item-btn-normal" catchtap="subtract"></image>
+            <image src="/assets/images/me/subtract_on.png" class="recharge-item-btn-active" catchtap="subtract"></image>
+            <image src="/assets/images/me/subtract.png" class="recharge-item-btn-normal" catchtap="subtract"></image>
           </view>
           <input class="recharge-item-lable t-black" placeholder="数量" value="{{count?count:''}}" type="number" bindinput="bindAmountInput"></input>
           <view class="recharge-item-btn">
-            <image src="/images/add_on.png" class="recharge-item-btn-active" catchtap="add"></image>
-            <image src="/images/add.png" class="recharge-item-btn-normal" catchtap="add"></image>
+            <image src="/assets/images/me/add_on.png" class="recharge-item-btn-active" catchtap="add"></image>
+            <image src="/assets/images/me/add.png" class="recharge-item-btn-normal" catchtap="add"></image>
           </view>
         </view>
       </view>

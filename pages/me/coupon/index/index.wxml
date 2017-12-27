@@ -19,8 +19,8 @@
 </view>
 <template name="coupon">
   <view class='card' wx:for="{{list}}" wx:for-item="item" wx:key="" id="{{item.memberVoucherId}}" bindtap="couponDetail" couponList="item">
-    <view class='shade' wx:if="{{item.stock==0}}"></view>
-    <view class='body fxcb '>
+    <view class='shade' wx:if="{{item.stock}}"></view>
+    <view class='body fxcb'>
       <view class='fxrb'>
         <text class='f16 red bold'>{{item.voucherName}}</text>
       </view>

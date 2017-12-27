@@ -192,6 +192,18 @@ function userVoucherDetail(voucherNum, cinemaCode, success_cb, fail_cb) {
 }
 
 /**
+ * 解绑票券
+ * @param {*} voucherNum 
+ * @param {*} success_cb 
+ * @param {*} fail_cb 
+ */
+function userVoucherDelete(voucherNum, success_cb, fail_cb) {
+  httpRest.getRequest('/user/delvoucher', {
+    voucherNum: voucherNum
+  }, success_cb, fail_cb)
+}
+
+/**
  * 退票支付手续费
  * @param {*} orderId 
  * @param {*} payType 
@@ -235,5 +247,6 @@ module.exports = {
   changeFilmOrderGetBuyWay,
   changeFilePay,
   mergeOrder,
-  updateOrderMobile
+  updateOrderMobile,
+  userVoucherDelete
 }

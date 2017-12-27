@@ -86,6 +86,7 @@ Page({
                 if (item.status == 2) {
                     this.data.canUseList.list.push(item)
                 } else {
+                    item.stock = true
                     this.data.invalidList.list.push(item)
                 }
             });
@@ -100,6 +101,10 @@ Page({
     },
 
     onLoad: function (options) {
-        this.requestCouponList() // 票券
+        
     },
+
+    onShow: function() {
+        this.requestCouponList() // 票券
+    }
 })

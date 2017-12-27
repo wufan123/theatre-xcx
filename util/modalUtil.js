@@ -14,14 +14,14 @@ function showMsgModal(msg) {
 function showWarnToast(msg) {
     wx.showToast && wx.showToast({
         title: msg,
-        image: '/images/warn-toast.png'
+        image: '/assets/images/warn-toast.png'
     });
 }
 
 function showFailToast(msg) {
     wx.showToast && wx.showToast({
         title: msg,
-        image: '/images/fail-toast.png'
+        image: '/assets/images/fail-toast.png'
     });
 }
 
