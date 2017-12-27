@@ -23,15 +23,15 @@
                 <image src="../../../assets/images/me/me_menu_01.png" class="menu-item-ico"></image>
                 <text class="menu-item-txt">场次票</text>
             </view>
-            <view class="menu-item" bindtap="orderManage" id="1">
+            <view class="menu-item" bindtap="packageManage" id="1">
                 <image src="../../../assets/images/me/me_menu_02.png" class="menu-item-ico"></image>
                 <text class="menu-item-txt">套票</text>
             </view>
-            <view class="menu-item" bindtap="orderManage" id="2">
+            <view class="menu-item" bindtap="localProductManage" id="2">
                 <image src="../../../assets/images/me/me_menu_03.png" class="menu-item-ico"></image>
                 <text class="menu-item-txt">福州特产</text>
             </view>
-            <view class="menu-item" bindtap="orderManage" id="3">
+            <view class="menu-item" bindtap="stampsManage" id="3">
                 <image src="../../../assets/images/me/me_menu_04.png" class="menu-item-ico"></image>
                 <text class="menu-item-txt">通兑券</text>
             </view>

@@ -1,16 +1,7 @@
 .center_confirm_button {
-    position: absolute;
-    left: 50%;
-    width: 260rpx;
-    margin-left: -120rpx;
-}
-.item-flex{
-    display: flex;
-    border-bottom: 1px solid #dad9d9;
-    padding: 30rpx 40rpx;
-}
-.button-b{
-    background: #dc3c38;
-    color: #ffffff;
-    margin: 50rpx;
-}
+    width: 165rpx;
+    height: 61rpx;
+    margin:50rpx auto;
+  }
+.form-flex{ padding:20rpx 30rpx ;}
+.form-flex .input-sty{box-sizing: border-box; height: 80rpx; line-height: 80rpx;padding:0 20rpx; border: 1px solid #a40000;margin-top: 10rpx;border-radius: 4rpx;}

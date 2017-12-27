@@ -1,8 +1,8 @@
 
 <view class="coupon-top-item" wx:if="{{curTab==0}}">
     <input bindinput="bindInput" bindconfirm="addVoucherClickListener" class="coupon-top-item-input" placeholder="输入票券编码" confirm-type="done"></input>
-    <button bindtap="addVoucherClickListener" class="coupon-top-item-button f32" hover-class="coupon-top-item-button-hover">添加</button>
-    <image bindtap="scanCouponCode" class="coupon-top-item-img" src="/images/sm.png" mode="aspectFit"></image>
+    <view class="btn" bindtap="addVoucherClickListener" >添加</view>
+    <view class="btn" bindtap="addVoucherClickListener" > <image bindtap="scanCouponCode" class="coupon-top-item-img " src="/images/sm.png" mode="aspectFit"></image></view>
 </view>
 
 <view class='content'>
@@ -10,8 +10,7 @@
     <view class='shade' wx:if="{{item.stock==0}}"></view>
     <view class='body fxcb '>
       <view class='fxrb'>
-        <text class='f16 khaki bold'>{{item.voucherName}}</text>
-        <text>已使用</text>
+        <text class='f16 red bold'>{{item.voucherName}}</text>
       </view>
       <view>
          <lable class="text-ellipsis-line f12" wx:if="{{item.isUse==1}}">使用日期：{{item.useDateTime}}</lable>
@@ -21,6 +20,7 @@
           <lable class="text-ellipsis-line f12" wx:else>有效期：{{item.startTime}}至{{item.validData}}</lable>
           <!-- <lable class="text-ellipsis-line f12">备注：{{item.description}}</lable> -->
       </view>
+      <text class="is-tip">已使用</text>
       <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
     </view>
     <view class='info fxcm'>
@@ -29,7 +29,13 @@
       <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
     </view>
   </view>
+  <view class="fxrm">
+        <text>已失效的券</text>
+        <!-- <image src="/assets/images/me/see_last_coupon.png" class="see-last-coupon "></image> -->
+  </view>
+  
 </view>
+
 
 
 

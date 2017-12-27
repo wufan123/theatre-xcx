@@ -6,7 +6,7 @@
                 <image src="/assets/images/me/delet_member.png" class="del-member-card" catchtap="deleteCardEvent" data-card="{{item}}"></image>
               <view class="member-body fxcb">
                 <text class="title red">{{item.levelName}}:{{item.cardNumber}}</text>
-                <text >余额： <text  class="{{item.isExpire==1?'gray f16':'khaki f16'}}">{{item.money}}元</text> </text>
+                <text class="mb10" >余额： <text  class="{{item.isExpire==1?'gray f16':'khaki f16'}}">{{item.money}}元</text> </text>
                 <text class="{{item.isExpire==1?'red':'black'}}">有效期：{{item._expireDate}}
                     <lable class="red" wx:if="{{item.isExpire==1}}">(已过期)</lable>
                   </text>

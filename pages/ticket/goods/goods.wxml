@@ -11,7 +11,7 @@
                   <text class='price'>￥{{item.showPrice}}</text>
                   <view class="goods-item-quantity fxrbm">
                       <view class="subtract fxrm" mode="aspectFit" bindtap="subtractQuatity" data-index="{{index}}">-</view>
-                      <em class="text-label">{{item.num?item.num:0}}</em>
+                      <em class="text-label fxrm">{{item.num?item.num:0}}</em>
                       <view class="add fxrm" mode="aspectFit" bindtap="addQuatity" data-index="{{index}}">+</view>
                     </view>
                 </view>

@@ -32,6 +32,21 @@ Page({
         url: '../order/index/index'
       });
     },
+    localProductManage: function (e) {
+      wx.navigateTo({
+        url: '../localProduct/index/index'
+      });
+    },
+    packageManage: function (e) {
+      wx.navigateTo({
+        url: '../package/index/index'
+      });
+    },
+    stampsManage: function (e) {
+      wx.navigateTo({
+        url: '../stamps/index/index'
+      });
+    },
     makeCall:function(){
       wx.makePhoneCall({
         phoneNumber: app.globalData.servicePhone

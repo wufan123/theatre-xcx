@@ -1,7 +1,14 @@
-<view class="item-flex">
-    <input class="t-black flex" placeholder="请输入会员卡号" placeholder-style="t-gray" value="{{cardCode}}" bindinput="bindCardCodeInput"></input>
+<view class="form">
+    <view class="form-flex fxcb">
+        <label>会员卡号</label>
+        <input class="input-sty" placeholder="请输入会员卡号" placeholder-style="t-gray" value="{{cardCode}}" bindinput="bindCardCodeInput"></input>
+
+
+    </view>
+    <view class="form-flex fxcb">
+        <label>会员卡密码</label>
+        <input class="input-sty" placeholder="请输入会员卡密码" placeholder-style="t-gray" password="{{true}}" value="{{cardPassword}}" bindinput="bindCardPwdInput"></input>
+
+    </view>
 </view>
-<view class="item-flex">
-    <input class="t-black flex" placeholder="请输入密码" placeholder-style="t-gray" password="{{true}}" value="{{cardPassword}}" bindinput="bindCardPwdInput"></input>
-</view>
-<button bindtap="confirm" class="button-b" hover-class="button-hover">确定</button>
+<image bindtap="confirm" src="/assets/images/me/comfirm_btn.png" class="center_confirm_button fxrm"></image>

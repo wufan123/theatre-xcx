@@ -4,13 +4,13 @@
 .member-card{position: relative;height: 250rpx;margin-top: 20rpx;}
 .member-card-bg{position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 1;}
 .member-body{position: relative;z-index: 2;padding:20px 50rpx 0 100px;}
-.member-body .title{margin-bottom: 30rpx;}
+.member-body .title{margin-bottom: 20rpx;}
 .member-body .btn{position: absolute;right: 40rpx;bottom: 10rpx;}
 .del-member-card{width: 36rpx;height: 36rpx;position: absolute;z-index: 4;right: 50rpx;top: 40rpx;}
 
 
 .no-data-img{width:294rpx;height:310rpx;margin-bottom: 20rpx;}
-.no-card{font-size: 30rpx;}
+.no-card{font-size: 30rpx;margin-top: 250rpx;}
 
 
 

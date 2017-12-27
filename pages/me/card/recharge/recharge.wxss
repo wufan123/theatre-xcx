@@ -1,7 +1,9 @@
+.title{margin-top: 150rpx;}
+
 .center_confirm_button {
-  background: #dc3c38;
-  color: #ffffff;
-  margin:50rpx 50rpx 20rpx ;
+  width: 165rpx;
+  height: 61rpx;
+  margin:50rpx auto;
 }
 .item-flex{
   display: flex;
@@ -16,9 +18,7 @@
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  border-radius: 45rpx;
   margin:50rpx;
-  background: white;
 }
 .recharge-item-btn{
   display:flex;
@@ -47,8 +47,8 @@
 }
 
 .recharge-item-lable{
-  display: inline-block;
-  position: relative;
+  width: 100%;margin: 0px 10rpx;border: 1px solid #cd2e1b;
+  position: relative;border-radius: 4rpx;
   flex: 1;
   text-align: center;
 }

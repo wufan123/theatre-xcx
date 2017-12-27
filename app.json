@@ -13,6 +13,12 @@
     "pages/me/coupon/detail/detail",
     "pages/me/order/index/index",
     "pages/me/order/detail/detail",
+    "pages/me/stamps/index/index",
+    "pages/me/stamps/detail/detail",
+    "pages/me/localProduct/index/index",
+    "pages/me/localProduct/detail/detail",
+    "pages/me/package/index/index",
+    "pages/me/package/detail/detail",
     "pages/ticket/index/index",
     "pages/ticket/goods/goods",
     "pages/business/flashSale/index",
@@ -23,7 +29,6 @@
     "pages/business/localProduct/localProduct",
     "pages/business/goodDetail/goodDetail",
     "pages/webview/webview"
-    
   ],
   "window": {
     "backgroundTextStyle": "dark",

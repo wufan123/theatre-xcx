@@ -1,22 +1,32 @@
 <view class='page'>
   <view class='body'>
-    <view class='ticket'>
-      <view class='code fxcm'>
-        <text class='bold'>{{coupon.voucherName}}</text>
-        <text>{{coupon.validData}}</text>
-      </view>
-      <view class='line f20'>￥5.00</view>
-    </view>
-    <view class='order'>
+      <view class="h15"></view>
+      <view class='card m15'>
+          <view class='body fxcb '>
+            <view class='fxrb'>
+              <text class='f16 red bold'>立减券</text>
+            </view>
+            <view>
+                <lable class="text-ellipsis-line f12" >有效期：2017-12-10至2018-12-12</lable>
+            </view>
+            <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
+          </view>
+          <view class='info fxcm'>
+            <text class='f16 mb10'>￥20</text>
+            <text>即将过期</text>
+            <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
+          </view>
+        </view>
+    <view class='order  black'>
       优惠券编码：8888888888888
     </view>
-    <view class='order fxcb'>
-      <text class='mb10 line'>使用规则：</text>
-      <text>1. 立减券可以在购买剧票时使用；</text>
-      <text>2. 特惠场，见面会等特殊场次不可用；</text>
-      <text>3. 一经兑换则该券为无效券，如需退单，退还金额为实际支付金额；</text>
-      <text>4. 立减券需在有效期内使用，过期作废，立减券不可兑换现金；</text>
-      <text>5. 中瑞剧坊可在法律许可的范围内对使用规则作出适当的调整。</text>
+    <view class='order f12'>
+      <view class='mb10 f14  black'>使用规则：</view>
+      <view>1. 立减券可以在购买剧票时使用；</view>
+      <view>2. 特惠场，见面会等特殊场次不可用；</view>
+      <view>3. 一经兑换则该券为无效券，如需退单，退还金额为实际支付金额；</view>
+      <view>4. 立减券需在有效期内使用，过期作废，立减券不可兑换现金；</view>
+      <view>5. 中瑞剧坊可在法律许可的范围内对使用规则作出适当的调整。</view>
     </view>
   </view>
    <view class='footer'>
