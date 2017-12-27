@@ -17,18 +17,6 @@
     </view>
   </view>
 </view>
-
-
-
-
-
-
-
-
-
-
-
-
 <template name="coupon">
   <view class='card' wx:for="{{list}}" wx:for-item="item" wx:key="" bindtap="couponDetail" couponList="item">
     <view class='shade' wx:if="{{item.stock==0}}"></view>
