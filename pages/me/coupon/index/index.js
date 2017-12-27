@@ -5,13 +5,14 @@ var app = getApp()
 
 Page({
     data: {
-        couponList: {
-          list: []
-        },
         inputValue: null,
         dataList: [],
-        canUseList: [],
-        invalidList: [],
+        canUseList: {
+            list: []
+        },
+        invalidList: {
+            list: []
+        },
         totalNum: 0,
         curTab: 0,
         isSeeExpire:false,
@@ -45,16 +46,14 @@ Page({
     },
 
     scanCouponCode: function () {
-        console.log("startScan")
         var kThis = this
         function success(res) {
-            console.log(res)
             var couponCode = res.result
             kThis.requestAddVoucher(couponCode)
 
         }
         function fail(res) {
-            console.log(res)
+
         }
         wx.scanCode({
             onlyFromCamera: true,
@@ -67,22 +66,9 @@ Page({
         this.requestAddVoucher(this.data.inputValue)
     },
 
-<<<<<<< HEAD
-=======
-    formatCouponList: function (couponList, tab, pageIndex) {
-      console.log('dataList', couponList)
-        if (pageIndex == 1) {
-          this.data.couponList.list = couponList
-        }
-        this.setData(this.data)
-    },
-
->>>>>>> 52e54340370c2661dda5d4b7e6cd18aef1845874
     requestAddVoucher: function (voucherNum) {
         modalUtils.showLoadingToast()
         orderRest.addVoucher(voucherNum, res => {
-            console.log(res)
-            // modalUtils.hideLoadingToast()
             modalUtils.showSuccessToast("添加成功")
             this.requestCouponList()
         })
@@ -91,17 +77,15 @@ Page({
     requestCouponList: function () {
         orderRest.userVoucherList(success => {
             this.data.dataList = success.voucherList
-            this.data.canUseList = []
-            this.data.invalidList = []
+            this.data.canUseList.list = []
+            this.data.invalidList.list = []
             success.voucherList.forEach(item => {
                 if (item.status == 2) {
-                    this.data.canUseList.push(item)
+                    this.data.canUseList.list.push(item)
                 } else {
-                    this.data.invalidList.push(item)
+                    this.data.invalidList.list.push(item)
                 }
             });
-            console.log(this.data.canUseList)
-            console.log(this.data.invalidList)
             this.setData(this.data)
         }, res => {
             modalUtils.showResError(res)
