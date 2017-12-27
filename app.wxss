@@ -24,17 +24,17 @@ input{width: 100%;flex:1;}
 .cell::after{content: "";display: block; width: 12rpx;height: 12rpx;margin-left: 0;border: 4rpx solid #d2a778;-webkit-transform: rotate(315deg);right: 30rpx;border-top: 0 none;position: absolute;border-left: 0 none;top: 50%;margin-top: -5rpx;
 }
 
-.btn {padding: 8rpx 20rpx;display: inline-block;border: 1px solid #cd2e1b;position: relative;background: #cd2e1b;color:#ffffff;}
+.btn {padding: 8rpx 20rpx;display: inline-block;border: 1px solid #a00000;position: relative;background: #a00000;color:#ffffff;}
 .btn::before {content: "";display: block;border: 5rpx solid #e9decd;position: absolute; left: 0;right: 0;top: 0;bottom: 0;}
 
-/* 我的订单商品 */
+/* 我的--（场次票--福州特产--套票--通兑券）--（确认订单） */
  .order { background:rgba(255,251,244,.5);padding: 10rpx 30rpx;margin-top: 20rpx;font-size: 26rpx;}
 .order .info{display: flex;border-bottom: 1px solid #ded5c8;padding: 20rpx 0;}
 .order .info .cover{width: 202rpx;height: 135rpx;border-radius: 8rpx;}
 .order .info .detail{width: 100%; margin-left: 20rpx;display: flex;flex-direction: column;justify-content: space-around;}
 .order .line{padding: 10rpx 0;} 
 
-/*商品列表*/
+/*（超级联合日--福州特产馆）--(来点小吃)*/
 .good-card{margin: 20rpx 30rpx;position: relative;height: 200rpx;}
 .good-card-body{top: 0;position: absolute;width: 100%; height: 100%; z-index: 5;}
 .good-card-body .good-info{margin-left: 20rpx;flex:1;}
@@ -45,7 +45,7 @@ input{width: 100%;flex:1;}
 .good-card .good-card-bg{width: 100%;height: 100%;position: absolute;top: 0;left:0;z-index: 4}
 .good-card-body .btn{margin-right: 30rpx;margin-top: 60rpx;}
 
-/*卡券*/
+/*卡券--(现实抢--优惠券列表)*/
 .card{display: flex;height: 180rpx;margin-bottom: 20rpx;position: relative;}
 .card .body{width: 542rpx;position: relative;padding: 30rpx 50rpx;}
 .card .body text{display: block;}

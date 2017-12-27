@@ -1,73 +1,24 @@
-
-<!-- 背景图 -->
-<image class="bg_container" src='/images/bg_mobile_login.png'></image>
-
-<!-- 背景 矩形背景 -->
-<image class="bg_container adjust-center" src='/images/bg_rectangle.png'></image>
-
-<view wx:if="{{curreyTab==='member'}}" class="center_mobile_view">
-    <view class="center_mobile_title_tab">
-        <view bindtap="tabChang" data-currey="member" class="{{curreyTab==='member'?'active':'default'}}">账号登录</view>
-        <view>|</view>
-        <view bindtap="tabChang" data-currey="noMember" class="{{curreyTab==='noMember'?'active':'default'}}">验证码登录</view>
-    </view>
-    <view style="padding:5px" class="list_flex_row_mobile input_field border_bottom">
-        <view style='width:150rpx;'>手机号</view>
-        <view>
-            <input type="number" name="phone" style='margin-left:10rpx;' value="{{phoneNum}}" placeholder="" bindinput="inputNum" />
+<view class="page">
+  <view class="body">
+    <view class="login">
+      <view class='form'>
+        <view class='form-item'>
+          <image src='/assets/images/me/login_phone.png' class='icon'></image>
+          <input placeholder='请输入会员卡号' type="number" name="phone" value="{{phoneNum}}" bindinput="inputNum"></input>
         </view>
-    </view>
-
-    <view style="padding:5px" class="list_flex_row_mobile input_field border_bottom">
-        <view style='width:150rpx;'>密码</view>
-        <input style='margin-left:10rpx;' type="password" class="" placeholder="" bindinput="inputPw" />
-    </view>
-
-    <view style='font-size:24rpx;color:gray;margin-top:10rpx'>
-        <label>登录即为同意</label>
-        <label class="titleColorBlue" bindtap="userProtocol">《闽都一台戏用户协议》</label>
-    </view>
-
-    <view bindtap="confirmLogin" class='center_confirm_button' style=''>
-        <image class="buttonDefault" src='/images/btn_red_outline.png'>
-        </image>
-        <label class='label_center_submit titleColorRed box_center_absolute font_normal_title_px'>登录</label>
-    </view>
-    <view class='center_confirm_register_text' >
-        <navigator url="/pages/login/register/register"  hover-class="other-navigator-hover">没有帐号？立即点击此注册></navigator>
-    </view>
-
-</view>
-
-<view wx:if="{{curreyTab==='noMember'}}" class="center_mobile_view">
-    <view class="center_mobile_title_tab">
-        <view bindtap="tabChang" data-currey="member"  class="{{curreyTab==='member'?'active':'default'}}">账号登录</view>
-        <view>|</view>
-        <view bindtap="tabChang" data-currey="noMember" class="{{curreyTab==='noMember'?'active':'default'}}">验证码登录</view>
-    </view>
-    <view style="padding:5px" class="list_flex_row_mobile input_field border_bottom">
-
-        <view style='width:150rpx;'>手机号</view>
-        <view style="width:130px;">
-            <input type="number" name="phone" value="{{phoneNum}}" placeholder="" bindinput="inputNum" />
+        <view class='form-item'>
+          <image src='/assets/images/me/login_code.png' class='icon'></image>
+          <input placeholder='请输入验证码' placeholder="" bindinput="inputCode"></input>
+          <button size="mini" class='hq-btn' bindtap="vcode">{{ c2 || '获取验证码' }}</button>
         </view>
-        <view style='padding:5rpx 0 5rpx 0;font-size:24rpx; width:110px;text-align:center;border:1rpx solid lightGray;color:gray'
-            bindtap="vcode">{{ c2 || '获取验证码' }}</view>
+        <view class='login-btn btn' bindtap='confirmCodeLogin'>登录</view>
+        <view class='red center'>
+          <label>登录即为同意</label>
+          <label class="titleColorBlue" bindtap="userProtocol">《闽都一台戏用户协议》</label>
+        </view>
+      </view>
+      <image src='/assets/images/me/login_bg.jpg' class='login_bg'></image>
     </view>
+  </view>
 
-    <view style="padding:5px" class="list_flex_row_mobile input_field border_bottom">
-        <view style='width:150rpx;'>验证码</view>
-        <input style='margin-left:10rpx;' type="number" class="" placeholder="" bindinput="inputCode" />
-    </view>
-
-    <view style='font-size:24rpx;color:gray;margin-top:10rpx'>
-        <label>登录即为同意</label>
-        <label class="titleColorBlue" bindtap="userProtocol">《闽都一台戏用户协议》</label>
-    </view>
-
-    <view bindtap="confirmCodeLogin" class='center_confirm_button' style=''>
-        <image class="buttonDefault" src='/images/btn_red_outline.png'>
-        </image>
-        <label class='label_center_submit titleColorRed box_center_absolute font_normal_title_px'>登录</label>
-    </view>
 </view>
