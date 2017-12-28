@@ -99,7 +99,7 @@ function createOrder(packages, mobile, cinemaCode, success_cb, fail_cb) {
         mobile: mobile,
         cinemaCode: cinemaCode
     };
-    httpRest.getRequest('package/createOrder', params, success_cb, fail_cb);
+    httpRest.getRequest('/package/createOrder', params, success_cb, fail_cb);
 }
 
 module.exports = {

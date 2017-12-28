@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/me/package/index/index",
+    
     
     "pages/index/index",
     "pages/login/login/login",
@@ -19,7 +19,7 @@
     "pages/me/stamps/detail/detail",
     "pages/me/localProduct/index/index",
     "pages/me/localProduct/detail/detail",
-    
+    "pages/me/package/index/index",
     "pages/me/package/detail/detail",
     "pages/ticket/index/index",
     "pages/ticket/goods/goods",
@@ -32,7 +32,8 @@
     "pages/business/goodDetail/goodDetail",
     "pages/business/orderConfirm/orderConfirm",
     "pages/package/index/index",
-    "pages/package/packageConfirm/packageConfirm",
+    "pages/package/confirm/confirm",
+    "pages/package/payment/payment",
     "pages/webview/webview"
     
   ],

@@ -15,17 +15,8 @@ Page({
     })
   },
   goBuy : function(e){
-    modalUtil.showLoadingToast()
-    let goodsStr = e.currentTarget.id + ':1'
-    console.log(e)
-    storeRest.createComboOrder(app.globalData.cinemaCode, app.getUserInfo().bindmobile, goodsStr, success => {
-      modalUtil.hideLoadingToast()
-      wx.navigateTo({
-        url: '../packageConfirm/packageConfirm?orderId='+success.packageId+'&number=1&packageId='+e.currentTarget.id,
-      })
-    }, error => {
-      modalUtil.hideLoadingToast()
-      modalUtil.showWarnToast(error.text);
+    wx.navigateTo({
+      url: '../confirm/confirm?packageId='+e.currentTarget.id,
     })
   }
 })

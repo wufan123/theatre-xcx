@@ -59,7 +59,7 @@ Page({
   // 套票购买
   createPackageOrder: function(e) {
     wx.navigateTo({
-      url: '../package/packageConfirm/packageConfirm?packageId='+e.currentTarget.id
+      url: '../package/index/index'
     });
   },
   // 限时抢购

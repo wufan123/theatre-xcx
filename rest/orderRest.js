@@ -112,11 +112,14 @@ function setPlanAndGoodsOrder(info, success_cb, fail_cb) {
  * @param {*} fail_cb 
  */
 function getOrderPayWay(cinemaCode, orderId, orderType, success_cb, fail_cb) {
-  httpRest.getRequest('/user/getOrderPayWay', {
+  let params = {
     cinemaCode: cinemaCode,
-    orderId: orderId,
     orderType: orderType
-  }, success_cb, fail_cb)
+  }
+  if (orderId) {
+    params.orderId = orderId
+  }
+  httpRest.getRequest('/user/getOrderPayWay', params, success_cb, fail_cb)
 }  
 
 /**

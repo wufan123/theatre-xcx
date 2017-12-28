@@ -1,0 +1,12 @@
+.last-time{padding: 20rpx;}
+
+.cell-no-link{padding: 20rpx 30rpx;background:rgba(255,251,244,.5);display: flex;font-size: 30rpx;justify-content: space-between}
+
+.pay-type{padding: 20rpx 30rpx;background:rgba(255,251,244,.5);margin-top: 20rpx;}
+.pay-type .cell-type{padding: 30rpx 0;border-bottom: 1px dashed #ded5c8;}
+.pay-type .cell-type.disabled{color:#aaaaaa;}
+.pay-type .cell-type .con{display: flex;align-items: center;font-size: 30rpx;}
+.pay-type .cell-type .con image{width: 60rpx;height: 60rpx;margin-right: 20rpx;}
+
+.warn-info{padding: 30rpx;font-size: 30rpx;}
+.warn-info text{display: block;}
