@@ -15,12 +15,6 @@ Page({
     }, error => {
 
     })
-
-  },
-  orderDetail: function () {
-    wx.navigateTo({
-      url: '../detail/detail',
-    })
   },
   // 生成二维码
   generateQRCode: function (str) {
@@ -28,5 +22,5 @@ Page({
         var size = qrcodeUtil.qrApi.getCanvasSize(200)
         qrcodeUtil.qrApi.draw(str, "qrcode", size.w, size.h)
     }
-}
+  }
 })
