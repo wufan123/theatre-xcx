@@ -51,7 +51,7 @@
 
 .plan-content {
     width: 100%;
-    background: white;
+    background: #f4eee3;
     position: fixed;
     bottom: 100rpx;
     padding-top: 20rpx;
@@ -68,7 +68,7 @@
 }
 
 .plan-item {
-    background: #eee;
+    background: #f3e8d6;
     margin-left: 20rpx;
     min-width:200rpx;
     height: 80rpx;
@@ -78,7 +78,7 @@
     box-sizing: border-box
 }
 .plan-item.selected {
-    border:1px solid red;
+    border:1px solid #d2a778;
 }
 
 .plan-title-txt {
@@ -115,7 +115,7 @@
   .recharge-item-lable{
     display: inline-block;
     margin: 0 10rpx;
-    background: #eee;
+    background: #ebe1d0;
     flex: 1;
     text-align: center;
   }
