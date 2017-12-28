@@ -5,7 +5,7 @@ Page({
     dataList: []
   },
   onLoad: function (options) {
-    orderRest.getGoodsOrderList(success => {
+    orderRest.getAllMoiveOrder(9, 0, success => {
       this.data.dataList = success;
       this.setData(this.data)
     }, error => {
@@ -13,8 +13,9 @@ Page({
     })
   },
   orderDetail: function (e) {
+    let order = e.currentTarget.dataset.order
     wx.navigateTo({
-      url: '../detail/detail?orderNo='+e.currentTarget.id,
+      url: '../detail/detail?info='+JSON.stringify(order),
     })
   }
 })

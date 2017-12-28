@@ -1,22 +1,20 @@
 <view class="page">
     <view class="body">
-      <view class='order' wx:for="{{dataList}}" id="{{item.orderNo}}" bindtap='orderDetail'>
-        <view class='info' wx:for="{{item.details}}">
-          <image class='cover' src='{{item.goodsImg}}'></image>
+      <view class='order' wx:for="{{dataList}}" data-order="{{item}}" bindtap='orderDetail'>
+        <view class='info'>
+          <image class='cover' src='{{item.filmImg}}'></image>
           <view class='detail'>
-            <text class='f16'>{{item.goodsName}}</text>
+            <text class='f16'>{{item.filmName}}</text>
             <!-- <text >兑换期</text> -->
-            <view class="fxrb"><text>数量</text><text>{{item.number}}张</text></view>
+            <view class="fxrb"><text>数量</text><text>{{item.seatCount}}张</text></view>
           </view>
         </view>
         <view class='fxrb line'>
-          <text>总价：{{item.price}} 元</text>
+          <text>总价：{{item.orderPrice}} 元</text>
           <text wx:if="{{item.status==0}}">未支付</text>
-          <text wx:if="{{item.status==1}}">已支付</text>
-          <text wx:if="{{item.status==3}}">已退货</text>
-          <text wx:if="{{item.status==6}}">已取消</text>
-          <text wx:if="{{item.status==10}}">已打印</text>
-          <text wx:if="{{item.status==11}}">已验证</text>
+          <text wx:if="{{item.status==3}}">已完成</text>
+          <text wx:if="{{item.status==6}}">异常订单</text>
+          <text wx:if="{{item.status==9}}">退票订单</text>
         </view>
       </view>
     </view>

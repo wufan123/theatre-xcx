@@ -4,14 +4,24 @@ const timeUtil = require('../../../../util/timeUtil.js')
 
 Page({
   data: {
+    orderInfo: null,
     orderDetail: null
   },
-  onLoad: function (options) {
-    orderRest.getGoodsOrderDetail(options.orderNo, success => {
+  onLoad: function (option) {
+    this.data.orderInfo = JSON.parse(option.info)
+    this.data.orderInfo._startTime = timeUtil.formatTimeByStamp(this.data.orderInfo.startTime, 'MM月dd日 HH:mm')
+    this.setData(this.data)
+    this.generateQRCode(this.data.orderInfo.verifyCode)
+    console.log(this.data)
+    orderRest.getCinemaOrderInfo(this.data.orderInfo.orderCode, success => {
       this.data.orderDetail = success
-      this.data.orderDetail._downTime = timeUtil.formatTimeByStamp(this.data.orderDetail.downTime, 'yyyy年MM月dd日 HH:mm:ss')
+      this.data.orderDetail._price = parseFloat(this.data.orderDetail.film.price)
+      if (this.data.orderDetail.goods&&this.data.orderDetail.goods.list.length > 0) {
+        this.data.orderDetail.goods.list.forEach(item => {
+          this.data.orderDetail._price += parseFloat(item.price)
+        })
+      }
       this.setData(this.data)
-      this.generateQRCode(success.qrCode)
     }, error => {
 
     })

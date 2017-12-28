@@ -1,12 +1,11 @@
 <view class="page">
   <view class='body'>
-    <image class="ticket-bg" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1514201893800&di=18c5972c1283256906ae1bc527574b88&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F1ad5ad6eddc451dac844bcf9bcfd5266d0163275.jpg"></image>
+    <image class="ticket-bg" src="{{orderInfo.filmImg}}"></image>
   <view class="ticket-body">
       <view class='ticket mb10'>
           <view class='info'>
-
-            <text class='bold f16'>{{orderDetail.cinemaName}}</text>
-            <text>{{orderDetail._downTime}}</text>
+            <text class='bold f16'>{{orderInfo.filmName}}</text>
+            <text>{{orderInfo._startTime}}</text>
             <image src="/assets/images/me/ticket_detail_bg.png" class="bg"></image>
           </view>
           <view class='code fxcm'>
@@ -17,11 +16,15 @@
           </view>
         </view>
         <view class='order mb10'>
-          <view class='line' wx:for="{{orderDetail.ticketing}}">
+          <view class='line' wx:for="{{orderInfo.ticketing}}">
             <text class="f15">{{item.key}}：{{item.value}}</text>
           </view>
-          <view class='fxrb line' style='border-bottom:1px solid #c6ac88 ' wx:for="{{orderDetail.details}}">
-            <text>{{item.goodsName}}</text>
+          <view class='fxrb line' style='border-bottom:1px solid #c6ac88 '>
+            <text>{{orderDetail.film.filmName}}</text>
+            <text>x {{orderDetail.film.seatCount}}</text>
+          </view>
+          <view wx:if="{{orderDetail.goods&&orderDetail.goods.list.length>0}}" class='fxrb line' style='border-bottom:1px solid #c6ac88 ' wx:for="{{orderDetail.goods.list}}">
+            <text>{{item.name}}</text>
             <text>x {{item.number}}</text>
           </view>
           <!-- <view class='fxrb line'>
@@ -32,7 +35,7 @@
             <text class="red">-￥30.00</text> </view> -->
           <view class='fxrb line f15'>
             <text>实付款 </text>
-            <text class="red">￥{{orderDetail.price}}</text> </view>
+            <text class="red">￥{{orderDetail._price}}</text> </view>
         </view>
     
         <view class='cell-line center mb10'>
