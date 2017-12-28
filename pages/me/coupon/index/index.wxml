@@ -9,11 +9,16 @@
         </view>
       </view>
       <template is="coupon" data="{{...canUseList}}"></template>
-      <view class="fxrm">
+      <view class="no-card fxcbm" wx:if="{{dataList.length===0}}">
+        <image src='/assets/images/me/no_data.png' class="no-data-img"></image>
+        当前账户未添加优惠券
+      </view>
+       <view class="fxrm" wx:if="{{dataList.length!==0}}">
         <text class='see-last-coupon f16 center' wx:if="{{isSeeExpire}}" bindtap="seeExpireCoupon">已失效的券</text>
         <image wx:else src="/assets/images/me/see_last_coupon.png" class="see-last-coupon" bindtap="seeExpireCoupon"></image>
       </view>
-      <template wx:if="{{isSeeExpire}}" is="coupon" data="{{...invalidList}}"></template>
+      <template wx:if="{{isSeeExpire}}" is="coupon" data="{{...invalidList}}"></template> 
+      
     </view>
   </view>
 </view>

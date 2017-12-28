@@ -5,7 +5,7 @@
         <view class='ticket mb10'>
             <view class='info'>
   
-              <text class='bold'>坊巷文化影音秀</text>
+              <text class='bold f16'>坊巷文化影音秀</text>
               <text>12 月 3 日 10：00</text>
               <image src="/assets/images/me/ticket_detail_bg.png" class="bg"></image>
             </view>
@@ -18,19 +18,19 @@
           </view>
           <view class='order mb10'>
             <view class='line'>
-              <text>订单号：8888888</text>
+              <text class="f15">订单号：8888888</text>
             </view>
             <view class='fxrb line' style='border-bottom:1px solid #c6ac88 '>
               <text>坊巷文化影音秀 </text>
               <text>x 1</text>
             </view>
             <view class='fxrb line'>
-              <text>总价 </text>
+              <text class="f12">总价 </text>
               <text>￥228.00</text> </view>
             <view class='fxrb line'>
               <text>立减券 </text>
               <text class="red">-￥30.00</text> </view>
-            <view class='fxrb line'>
+            <view class='fxrb line f15'>
               <text>实付款 </text>
               <text class="red">￥198.00</text> </view>
           </view>

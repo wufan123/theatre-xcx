@@ -2,7 +2,7 @@
 .line{padding: 10px 30px;}
 .code{padding: 20rpx 0rpx}
 
-.order{padding: 10px 15px;margin: 0}
+.order{padding: 10px 15px;margin: 0;background: none}
 
 .cell-line{background: #ffffff;padding: 20rpx 30rpx;}
 

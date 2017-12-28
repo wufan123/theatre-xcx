@@ -4,7 +4,7 @@
         <view class='good-card-body fxrbm'>
           <image src='{{item.goodsCoverImage}}' class='good-img' > </image>
           <view class='good-info fxcb'>
-            <text class='title f14'>{{item.goodsName}}</text>
+            <text class='title'>{{item.goodsName}}</text>
             <view>
               <text class='price'>￥{{item.channelFee}}</text>
               <text class='decoration'>￥{{item.marketFee}}</text>

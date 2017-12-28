@@ -4,12 +4,12 @@
       <view class='card' wx:for="{{dataList}}" wx:for-item="item" wx:key="">
         <view class='shade' wx:if="{{item.stock==0}}"></view>
         <view class='body '>
-          <text class='f24 khaki bold'>{{item.packageName}}</text>
+          <text class='f20 khaki bold'>{{item.packageName}}</text>
           <text class='text-ellipsis-line'>{{item.detail}}</text>
           <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
         </view>
         <view class='info fxcm'>
-          <text class='f16 mb10'>立即抢</text>
+          <text class='f15 mb10'>立即抢</text>
           <text>剩余{{item.stock}}份</text>
           <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
         </view>
