@@ -56,6 +56,12 @@ Page({
       url: '../ticket/index/index'
     });
   },
+  // 套票购买
+  createPackageOrder: function(e) {
+    wx.navigateTo({
+      url: '../package/packageConfirm/packageConfirm?packageId='+e.currentTarget.id
+    });
+  },
   // 限时抢购
   flashSale: function() {
     wx.navigateTo({

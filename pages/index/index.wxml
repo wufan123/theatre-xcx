@@ -64,7 +64,7 @@
               <text class='f16 bold'>￥{{item.price}}</text>
             </view>
             <image src='/assets/images/zhq_card.png' class='ticket-img'></image>
-            <view class="go-buy btn" bindtap="ticketFilm">购买</view>
+            <view class="go-buy btn" bindtap="createPackageOrder" id="{{item.hyPackageId}}">购买</view>
           </view>
         </view>
       </scroll-view>

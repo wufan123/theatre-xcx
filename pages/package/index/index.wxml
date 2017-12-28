@@ -1,0 +1,21 @@
+<view class='page'>
+  <view class='body'>
+      <view class='good-card' wx:for="{{dataList}}">
+        <view class='good-card-body fxrbm'>
+          <image src='{{item.imgs}}' class='good-img' > </image>
+          <view class='good-info fxcb'>
+            <text class='title'>{{item.packageName}}</text>
+            <view>
+              <text class='price'>￥{{item.price}}</text>
+              <text class='decoration'>￥{{item.showPrice}}</text>
+            </view>
+          </view>
+          <view class="btn" bindtap="goBuy" id="{{item.hyPackageId}}">马上购买</view>
+        </view>
+        <image src='/assets/images/business/lhr_card.png' class='good-card-bg'></image>
+      </view>
+    
+  </view>
+</view>
+
+
