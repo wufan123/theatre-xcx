@@ -7,7 +7,7 @@
   flex-wrap: nowrap;
   align-items: center;
 }
-.coupon-top-item .btn{margin-left: 10rpx;}
+.coupon-top-item .btn{margin-left: 10rpx;padding: 10rpx 20rpx;}
 .coupon-top-item .coupon-top-item-input {
   border: 1rpx solid #a40000;
   height: 60rpx;
@@ -16,16 +16,10 @@
   width: 100%;
   flex-grow: 1;
 }
-.coupon-top-item .coupon-top-item-img {
-  width: 45rpx;
-  height: 30rpx;
-  margin-top: 4rpx;
-}
-
+.coupon-top-item .coupon-top-item-img {width: 45rpx;height: 30rpx;position:relative;top:6rpx;}
 
 
 .content{margin: 30rpx 30rpx 0 30rpx;}
-
 .card .shade{width: 100%;height: 100%;background:rgba(0,0,0,.3);position: absolute;z-index: 9;display: block;}
 .content .see-last-coupon{width: 349rpx;height: 61rpx;margin: 30rpx 0;}
 
@@ -33,7 +27,8 @@
 
 
 
-
+.no-data-img{width:294rpx;height:310rpx;margin-bottom: 20rpx;}
+.no-card{font-size: 30rpx;margin-top: 250rpx;}
 
 
 

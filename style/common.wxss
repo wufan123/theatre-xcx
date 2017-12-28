@@ -1,9 +1,10 @@
-.f12{font-size: 24rpx;}
-.f14{font-size: 28rpx;}
-.f16{font-size: 32rpx;}
-.f18{font-size: 36rpx;}
-.f20{font-size: 40rpx;}
-.f22{font-size: 44rpx;}
+.f12{font-size: 24rpx!important;}
+.f14{font-size: 28rpx!important;}
+.f15{font-size: 30rpx!important;}
+.f16{font-size: 32rpx!important;}
+.f18{font-size: 36rpx!important;}
+.f20{font-size: 40rpx!important;}
+.f22{font-size: 44rpx!important;}
 .f24{font-size: 48rpx;}
 .f30{font-size: 60rpx;}
 .center{text-align: center}
