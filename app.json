@@ -30,6 +30,7 @@
     "pages/business/unionDay/unionDay",
     "pages/business/localProduct/localProduct",
     "pages/business/goodDetail/goodDetail",
+    "pages/business/orderConfirm/orderConfirm",
     "pages/webview/webview"
     
   ],

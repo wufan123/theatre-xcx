@@ -191,20 +191,18 @@ Page({
 
   //启动微信支付
   requestWxPay: function (weixinpay) {
-    var kThis = this
-    function complete(res) {
-        if (res.errMsg === "requestPayment:ok") {
-          wx.redirectTo({
-            url: '../payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
-          })
-        } else if (res.errMsg === "requestPayment:fail") {
-          wx.redirectTo({
-            url: '../payResult/payFail/index'
-          })
-        }
-    }
     var cinemaCode = app.globalData.cinemaCode
-    wxRest.requestWxPay(weixinpay, complete)
+    wxRest.requestWxPay(weixinpay, complete => {
+        if (complete.errMsg === "requestPayment:ok") {
+            wx.redirectTo({
+              url: '../payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
+            })
+          } else if (complete.errMsg === "requestPayment:fail") {
+            wx.redirectTo({
+              url: '../payResult/payFail/index'
+            })
+          }
+    })
   },
 
   //请求支付

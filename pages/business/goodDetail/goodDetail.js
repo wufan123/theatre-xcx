@@ -19,8 +19,17 @@ Page({
     })
   },
   confirm: function (e) {
-    // wx.navigateTo({
-    //   url: '../goods/goods',
-    // })
+    modalUtil.showLoadingToast()
+    let goodsStr = this.data.goodsDetail.detail.goodsId + ':1'
+    storeRest.createGoodsOrder(app.globalData.cinemaCode, app.getUserInfo().bindmobile, goodsStr, success => {
+      modalUtil.hideLoadingToast()
+      wx.navigateTo({
+        url: '../orderConfirm/orderConfirm?orderId='+success+'&number=1&goodsId='+this.data.goodsDetail.detail.goodsId,
+      })
+    }, error => {
+      modalUtil.hideLoadingToast()
+      modalUtil.showWarnToast(error.text);
+    })
+    
   }
 })
