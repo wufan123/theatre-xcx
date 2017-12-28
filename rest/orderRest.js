@@ -25,6 +25,18 @@ function getOrderPayInfo(orderId, success_cb, fail_cb) {
   }, success_cb, fail_cb)
 }
 
+// 卖品订单列表
+function getGoodsOrderList(success_cb, fail_cb) {
+  httpRest.getRequest("/sale/getMyGoods", {}, success_cb, fail_cb)
+}
+
+// 卖品订单详情
+function getGoodsOrderDetail(orderNo, success_cb, fail_cb) {
+  httpRest.getRequest("/sale/getOrderGoodDetail", {
+    orderNo: orderNo
+  }, success_cb, fail_cb)
+}
+
 //获取可退订单
 function getCinemaOrders(status, page, success_cb, fail_cb) {
   httpRest.getRequest('/user/getCinemaOrders', {
@@ -248,5 +260,7 @@ module.exports = {
   changeFilePay,
   mergeOrder,
   updateOrderMobile,
-  userVoucherDelete
+  userVoucherDelete,
+  getGoodsOrderList,
+  getGoodsOrderDetail
 }
