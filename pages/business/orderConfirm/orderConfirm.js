@@ -103,13 +103,14 @@ Page({
             this.data.selectFilmCouponList = selectCouponList
         this.caculateCount()
     },
-    selectGoodsCoupon: function () {
-        let orderId = this.data.orderDetail.orderId
-        pageUtil.selectCoupon(orderId, this.data.selectGoodsCouponList, this.data.orderDetail.orderType, 'goods')
+    // 选择会员卡
+    selectCard: function () {
+        this.data.orderPayWay.saleCouponList 
+        // let info = 
     },
-    selectFilmCoupon: function () {
-        let orderId = this.data.orderDetail.orderId
-        pageUtil.selectCoupon(orderId, this.data.selectFilmCouponList, this.data.orderDetail.orderType, 'film', this.data.orderInfo.film.seatCount)
+    // 选择优惠券按钮
+    selectCoupon: function () {
+        
     },
     getSelectCouponStr: function () {
         var couponStr = ""
