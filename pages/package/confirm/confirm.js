@@ -3,6 +3,7 @@ const storeRest = require('../../../rest/storeRest.js')
 const comboRest = require('../../../rest/comboRest.js')
 const modalUtil = require('../../../util/modalUtil.js')
 const timeUtil = require('../../../util/timeUtil.js')
+const wxRest = require('../../../rest/wxRest.js')
 var app = getApp()
 Page({
     data: {
@@ -38,10 +39,23 @@ Page({
         modalUtil.showLoadingToast()
         let packageStr = this.data.goodsDetail.packageId + ":1"
         comboRest.createOrder(packageStr, this.data.phone, app.globalData.cinemaCode, success => {
-            modalUtil.hideLoadingToast()
-            wx.redirectTo({
-                url: '../payment/payment?orderId='+success.packageId+'&packageId='+this.data.goodsDetail.packageId,
-            })
+            comboRest.packagePay(success.packageId, 'weixinpay', app.getOpenId(), success => {
+                modalUtil.hideLoadingToast()
+                wxRest.requestWxPay(success.weixinpay, complete => {
+                  if (complete.errMsg === "requestPayment:ok") {
+                    wx.redirectTo({
+                      url: '/pages/ticket/payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
+                    })
+                  } else if (complete.errMsg === "requestPayment:fail") {
+                    wx.redirectTo({
+                      url: '/pages/ticket/payResult/payFail/index'
+                    })
+                  }
+                })
+              }, error => {
+                modalUtil.hideLoadingToast()
+                modalUtil.showWarnToast(error.text);
+              })
         }, error => {
             modalUtil.hideLoadingToast()
             modalUtil.showWarnToast(error.text);
