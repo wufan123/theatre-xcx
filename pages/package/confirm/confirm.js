@@ -87,7 +87,6 @@ Page({
         this.fetchInitData()
     },
     onUnload: function () {
-        console.log("clearInterval")
         clearInterval(this.data.clearTime)
     }
 })
