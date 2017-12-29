@@ -8,9 +8,6 @@ Page({
       list: []
     },
     goodsList: {
-      ticketShow: [
-        {id: "123"},{id: "456"},{id: "789"},{id: "456"},{id: "789"}
-      ],
       ticketSet: [],
       ticketVoucher: []
     }
@@ -22,20 +19,6 @@ Page({
       this.setData(this.data)
     }, error => {
       console.log(error)
-    })
-    // 组合购
-    theatreRest.getPackageList(200, success => {
-      this.data.goodsList.ticketSet = success
-      this.setData(this.data)
-    }, error => {
-      console.log(success)
-    })
-    // 通兑券
-    theatreRest.getPackageList(201, success => {
-      this.data.goodsList.ticketVoucher = success
-      this.setData(this.data)
-    }, error => {
-      console.log(success)
     })
   },
   login: function() {

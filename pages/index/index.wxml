@@ -3,7 +3,7 @@
     <image src="/assets/images/logo.png" class="title-logo"></image>
     <view class='fxrm'>
       <image src="/assets/images/me.png" class="title-icon" bindtap="login"></image>
-      <image src="/assets/images/all.png" class="title-icon"></image>
+      <!-- <image src="/assets/images/all.png" class="title-icon"></image> -->
     </view>
   </view>
 </template>
@@ -41,14 +41,12 @@
       <view class="title-txt ticket"></view>
       <scroll-view scroll-x>
         <view class="ticket-scroll">
-          <view  class="ticket-item">
+          <view  class="ticket-item" bindtap="ticketFilm">
             <view class='card-text'>
               <text class='card-name text-ellipsis-line'>《三坊七巷》</text>
               <text class='text-ellipsis-line f12'>中瑞剧坊 • 坊巷文化影音秀</text>
-              <text class='f16 bold'>￥228</text>
             </view>
             <image src='/assets/images/ccp_card.png' class='ticket-img'></image>
-            <view class="go-buy btn" bindtap="ticketFilm">购买</view>
           </view>
         </view>
       </scroll-view>
@@ -57,35 +55,16 @@
       <view class="title-txt zhg"></view>
       <scroll-view scroll-x>
         <view class="ticket-scroll">
-          <view wx:for="{{ ticketSet }}" wx:for-item="item" wx:key="" class="ticket-item">
-            <view class='card-text'>
-              <text class='card-name text-ellipsis-line'>{{item.packageName}}</text>
-              <text class='text-ellipsis-line f12'>{{item.detail}}</text>
-              <text class='f16 bold'>￥{{item.price}}</text>
+          <view class="ticket-item">
+            <view class='card-text' bindtap="createPackageOrder">
+              <text class='card-name text-ellipsis-line'>礼品券</text>
+              <text class='text-ellipsis-line f12'>中瑞剧坊 • 坊巷文化影音秀</text>
             </view>
             <image src='/assets/images/zhq_card.png' class='ticket-img'></image>
-            <view class="go-buy btn" bindtap="createPackageOrder" id="{{item.hyPackageId}}">购买</view>
           </view>
         </view>
       </scroll-view>
     </view>
-    <view class="ticket-line">
-      <view class="title-txt tdq"></view>
-      <scroll-view scroll-x>
-        <view class="ticket-scroll">
-          <view wx:for="{{ ticketVoucher }}" wx:for-item="item" wx:key="" class="ticket-item">
-            <view class='card-text'>
-              <text class='card-name text-ellipsis-line'>{{item.packageName}}</text>
-              <text class='text-ellipsis-line f12'>{{item.detail}}</text>
-              <text class='f16 bold'>￥{{item.price}}</text>
-            </view>
-            <image src='/assets/images/dhq_card.png' class='ticket-img'></image>
-            <view class="go-buy btn" bindtap="ticketFilm">购买</view>
-          </view>
-        </view>
-      </scroll-view>
-    </view>
-
   </view>
 </template>
 

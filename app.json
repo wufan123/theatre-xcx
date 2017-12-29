@@ -26,13 +26,13 @@
     "pages/business/flashSale/index",
     "pages/ticket/confirm/confirm",
     "pages/ticket/payment/payment",
-    "pages/ticket/payResult/paySuccess/index",
     "pages/business/unionDay/unionDay",
     "pages/business/localProduct/localProduct",
     "pages/business/goodDetail/goodDetail",
     "pages/business/orderConfirm/orderConfirm",
     "pages/package/index/index",
     "pages/package/confirm/confirm",
+    "pages/common/payResult/paySuccess/index",
     "pages/webview/webview"
     
   ],
