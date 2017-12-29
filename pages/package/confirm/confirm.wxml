@@ -9,17 +9,17 @@
               <view>{{item.goodsName}}</view>
               <view>x {{item.goodsNums}}</view>
             </view>
-            <view class='bold khaki2'>￥{{item.goodsFee}}</view>
+            <!-- <view class='bold khaki2'>￥{{item.goodsFee}}</view> -->
           </view>
         </view>
       </view>
-      <view class='info fxrb f12 gray'><text>总价</text><text>￥{{goodsDetail.showPrice}}</text></view>
+      <!-- <view class='info fxrb f12 gray'><text>总价</text><text>￥{{goodsDetail.showPrice}}</text></view> -->
       <view class='info fxrb'><text>实付款</text><text class='bold'>￥{{goodsDetail.price}}</text></view>
     </view>
     <view class='cell-line'><text>手机号</text> <input type='number' bindinput="setOrderPhone" maxlength="11" placeholder="请输入手机号码" value="{{phone}}"></input> </view>
     <view class='warn-info'>  <text>温馨提示：</text><text>手机号用于生成订单，及发送支付短信</text> </view>
   </view>
   <view class='footer'>
-    <view class="bottom-btn" bindtap="requestOrderPayLock">支付</view>
+    <view class="bottom-btn" bindtap="submit">支付</view>
   </view>
 </view>

@@ -39,7 +39,7 @@ function getGoodsOrderDetail(orderNo, success_cb, fail_cb) {
 
 // 套票订单列表
 function getPackageOrderList(success_cb, fail_cb) {
-  httpRest.getRequest("/package/getMyOrders", {status: 0}, success_cb, fail_cb)
+  httpRest.getRequest("/package/getMyOrders", {status: 1}, success_cb, fail_cb)
 }
 
 //获取可退订单

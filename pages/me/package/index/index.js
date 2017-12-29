@@ -12,9 +12,11 @@ Page({
 
     })
   },
-  Detail: function () {
+  Detail: function (e) {
+    let order = e.currentTarget.dataset.order
+    var info = JSON.stringify(order)
     wx.navigateTo({
-      url: '../detail/detail',
+      url: '../detail/detail?info='+info,
     })
   }
 })

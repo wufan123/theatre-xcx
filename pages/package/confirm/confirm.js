@@ -7,6 +7,7 @@ const wxRest = require('../../../rest/wxRest.js')
 var app = getApp()
 Page({
     data: {
+        orderId: null,
         goodsDetail: {},
         amount: 0, //最后总价
         oldPhone: null,
@@ -22,9 +23,8 @@ Page({
         })
     },
 
-    requestOrderPayLock: function () {
-        var kThis = this
-
+    // 提交按钮点击
+    submit: function() {
         if (this.data.phone === '') {
             modalUtil.showWarnToast("手机号不能为空");
             return
@@ -35,30 +35,45 @@ Page({
         if (this.data.oldPhone !== this.data.phone) {
             orderRest.updateOrderMobile(this.data.phone)
         }
-
         modalUtil.showLoadingToast()
+        if (this.data.orderId) {
+            this.requestWxPay()
+        } else {
+            this.createOrder()
+        }
+    },
+
+    // 下单
+    createOrder: function() {
         let packageStr = this.data.goodsDetail.packageId + ":1"
         comboRest.createOrder(packageStr, this.data.phone, app.globalData.cinemaCode, success => {
-            comboRest.packagePay(success.packageId, 'weixinpay', app.getOpenId(), success => {
-                modalUtil.hideLoadingToast()
-                wxRest.requestWxPay(success.weixinpay, complete => {
-                  if (complete.errMsg === "requestPayment:ok") {
-                    wx.redirectTo({
-                      url: '/pages/common/payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
-                    })
-                  } else if (complete.errMsg === "requestPayment:fail") {
-                    modalUtil.hideLoadingToast()
-                    modalUtil.showWarnToast('微信支付失败');
-                  }
-                })
-              }, error => {
-                modalUtil.hideLoadingToast()
-                modalUtil.showWarnToast(error.text);
-              })
+            this.data.orderId = success.packageId
+            this.setData(this.data)
+            this.requestWxPay()
         }, error => {
             modalUtil.hideLoadingToast()
             modalUtil.showWarnToast(error.text);
         })
+    },
+
+    // 支付
+    requestWxPay: function() {
+        comboRest.packagePay(this.data.orderId, 'weixinpay', app.getOpenId(), success => {
+            modalUtil.hideLoadingToast()
+            wxRest.requestWxPay(success.weixinpay, complete => {
+              if (complete.errMsg === "requestPayment:ok") {
+                wx.redirectTo({
+                  url: '/pages/common/payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
+                })
+              } else if (complete.errMsg === "requestPayment:fail") {
+                modalUtil.hideLoadingToast()
+                modalUtil.showWarnToast('微信支付失败');
+              }
+            })
+          }, error => {
+            modalUtil.hideLoadingToast()
+            modalUtil.showWarnToast(error.text);
+          })
     },
 
     setOrderPhone: function (event) {
