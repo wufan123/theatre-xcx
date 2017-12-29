@@ -4,7 +4,7 @@
 .c-good .list .img{width: 202rpx;height: 135rpx;margin-right: 20rpx;border: 4rpx solid #c4a983;border-radius: 8rpx;}
 .c-good .list .list-body{flex: 1}
 
-.c-good .cell{padding: 20rpx 0;border-bottom: 1px dashed #ded5c8;}
+.c-good .cell{padding: 20rpx 60rpx 20rpx 0  ;border-bottom: 1px dashed #ded5c8;}
 
 .info{ margin-top: 20rpx;}
 
