@@ -1,0 +1,115 @@
+
+.branner-bg {
+    width: 100%;
+    height: 350rpx;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+}
+
+.branner-img { width: 100%; height: 350rpx;
+}
+
+.content-bg {
+    margin: 300rpx 30rpx 40rpx 30rpx;
+    z-index: 1;
+    padding: 40rpx;
+    background: #fbf7f0;
+}
+
+.content-detail{word-wrap:break-word;}
+
+.content-title text{ display: block; margin-bottom: 10rpx;}
+
+.content-interval {text-align: center; margin: 40rpx 0 60rpx 0; position: relative;height: 50rpx;}
+.content-interval-line {border-top: 1px dotted #a40000;left: 0; width: 100%; color: red; top: 30rpx; z-index: 0; position: absolute}
+.content-interval-txt {font-size: 32rpx;line-height: 69rpx;color: #a40000; position: relative;width: 256rpx;height: 68rpx;background: #fbf7f0;z-index: 1;margin-left:180rpx;}
+.content-interval-txt image{width: 100%;height: 100%;position: absolute;top:0;left: 0;}
+
+.content-line {
+    width: 225rpx;
+    height: 2rpx;
+    border-top:2rpx dotted red;
+}
+
+
+.plan-bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    position: fixed;
+    bottom: 100rpx;
+    z-index:2;
+}
+
+.plan-content {
+    width: 100%;
+    background: white;
+    position: fixed;
+    bottom: 100rpx;
+    padding-top: 20rpx;
+}
+
+.plan-line {
+    padding: 20rpx;
+}
+
+.plan-scroll {
+    display: flex;
+    margin-top: 20rpx;
+    height: 100rpx
+}
+
+.plan-item {
+    background: #eee;
+    margin-left: 20rpx;
+    min-width:200rpx;
+    height: 80rpx;
+    min-height: 80rpx;
+    white-space: nowrap;
+    border-radius: 10rpx;
+    box-sizing: border-box
+}
+.plan-item.selected {
+    border:1px solid red;
+}
+
+.plan-title-txt {
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+
+.recharge-item{
+    width: 300rpx;
+    display: flex;justify-content: center;align-items: center;
+  }
+  .recharge-item-btn{
+    display: flex;
+    align-items: center
+  }
+  .recharge-item-btn:active .recharge-item-btn-normal{
+    display: none;
+  }
+  .recharge-item-btn:active .recharge-item-btn-active{
+    display: inline-block;
+  }
+  .recharge-item-btn-normal{
+    display: inline-block;
+    width:60rpx;
+    height:60rpx;
+  
+  }
+  .recharge-item-btn-active{
+    display: none;
+    width:60rpx;
+    height:60rpx;
+  }
+  
+  .recharge-item-lable{
+    display: inline-block;
+    margin: 0 10rpx;
+    background: #eee;
+    flex: 1;
+    text-align: center;
+  }
+

@@ -16,7 +16,7 @@ Page({
   },
   goBuy : function(e){
     wx.navigateTo({
-      url: '../confirm/confirm?packageId='+e.currentTarget.id,
+      url: '../detail/detail?packageId='+e.currentTarget.id,
     })
   }
 })

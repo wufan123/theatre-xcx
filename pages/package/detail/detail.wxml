@@ -1,0 +1,30 @@
+<view class='page'>
+  <view class='body'>
+     <template is="goodsDetail" data="{{...goodsDetail}}"></template> 
+  </view>
+  <view class='footer'>
+   <view class="bottom-btn" bindtap="confirm">{{bottomTxt}}</view> 
+  </view>
+</view>
+
+<template name="goodsDetail">
+  <view class="branner-bg">
+    <image src="{{detail.shareIcon}}" mode="aspectFill" class="branner-img" />
+  </view>
+  <view class="content-bg">
+    <view class="content-title center">
+      <text class='bold f18'>{{detail.name}}</text>
+      <text class='f20 red'>￥{{detail.price}}</text>
+    </view>
+    <view class="content-interval">
+      <view class="content-interval-txt">
+        商品介绍
+        <image src='/assets/images/business/title_bg.png' class='content-interval-bg'></image>
+      </view>
+      <view class="content-interval-line"></view>
+    </view>
+    <view class="content-detail">
+      {{detail.converKnows}}
+    </view>
+  </view>
+</template>

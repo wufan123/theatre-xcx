@@ -81,6 +81,7 @@ Page({
         this.data.phone = event.detail.value
     },
     onLoad: function (option) {
+        this.data.orderId = option.orderId
         this.data.goodsDetail.packageId = option.packageId
         this.data.phone = app.getUserInfo().bindmobile
         this.data.oldPhone = this.data.phone

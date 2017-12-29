@@ -54,7 +54,7 @@ Page({
     // 套票
     else if (banner.redirectType == 5) {
       wx.navigateTo({
-        url: '/pages/package/confirm/confirm?packageId='+banner.redirectId
+        url: '/pages/package/detail/detail?packageId='+banner.redirectId
       });
     }
     // 场次票

@@ -30,6 +30,7 @@
     "pages/business/goodDetail/goodDetail",
     "pages/business/orderConfirm/orderConfirm",
     "pages/package/index/index",
+    "pages/package/detail/detail",
     "pages/package/confirm/confirm",
     "pages/common/payment/payment",
     "pages/common/selectCoupon/index",
@@ -40,7 +41,7 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#dc3c38",
+    "navigationBarBackgroundColor": "#a00000",
     "navigationBarTitleText": "坊巷文化影音秀《三坊七巷》",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#F8F8F8"

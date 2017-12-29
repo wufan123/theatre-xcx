@@ -12,14 +12,17 @@ Page({
         orderPayWay: "",
         orderInfo: "",
         amount: 0, //最后总价
-        selectGoodsCouponList: [],
-        selectFilmCouponList: [],
+        selectGoodsCoupon: null,
+        selectFilmCoupon: null,
         useCardId: null,
         goodsCouponText: '',
         filmCouponText: '',
         isUseCard: false,
         oldPhone: null,
-        clearTime: null
+        clearTime: null,
+
+        goodsCouponList: [],
+        filmCouponList: []
     },
     fetchInitData: function () {
         //获取优惠券信息
@@ -125,27 +128,27 @@ Page({
         let filmPrice = parseFloat(this.data.orderInfo.film._price)
         let goodsCouponText = ''
         let filmCouponText = ''
-        if (this.data.selectGoodsCouponList.length > 0) {
-            let amount = parseFloat(this.data.selectGoodsCouponList[0].ticketValue)
-            couponPrice += amount < goodsPrice ? amount : goodsPrice
-            goodsCouponText = '卖品优惠-¥' + couponPrice
-        }
+        // if (this.data.selectGoodsCouponList.length > 0) {
+        //     let amount = parseFloat(this.data.selectGoodsCouponList[0].ticketValue)
+        //     couponPrice += amount < goodsPrice ? amount : goodsPrice
+        //     goodsCouponText = '卖品优惠-¥' + couponPrice
+        // }
 
-        if (this.data.selectFilmCouponList.length > 0) {
-            let _filmcoupon = this.data.selectFilmCouponList[0]
-            if (_filmcoupon.voucherType == 0) {
-                filmPrice = 0
-                this.data.selectFilmCouponList.forEach(function (element) {
-                    filmPrice += parseFloat(element.ticketValue)
-                }, this);
-                filmPrice = parseFloat(filmPrice)
-                filmCouponText = '已兑换' + this.data.selectFilmCouponList.length + '张票'
-            } else {
-                let amount = parseFloat(_filmcoupon.ticketValue)
-                couponPrice += amount < filmPrice ? amount : filmPrice
-                filmCouponText = '影票优惠-¥' + parseFloat(_filmcoupon.ticketValue) * this.data.selectFilmCouponList.length
-            }
-        }
+        // if (this.data.selectFilmCouponList.length > 0) {
+        //     let _filmcoupon = this.data.selectFilmCouponList[0]
+        //     if (_filmcoupon.voucherType == 0) {
+        //         filmPrice = 0
+        //         this.data.selectFilmCouponList.forEach(function (element) {
+        //             filmPrice += parseFloat(element.ticketValue)
+        //         }, this);
+        //         filmPrice = parseFloat(filmPrice)
+        //         filmCouponText = '已兑换' + this.data.selectFilmCouponList.length + '张票'
+        //     } else {
+        //         let amount = parseFloat(_filmcoupon.ticketValue)
+        //         couponPrice += amount < filmPrice ? amount : filmPrice
+        //         filmCouponText = '影票优惠-¥' + parseFloat(_filmcoupon.ticketValue) * this.data.selectFilmCouponList.length
+        //     }
+        // }
         this.data.goodsCouponText = goodsCouponText
         this.data.filmCouponText = filmCouponText
         this.data.amount = (goodsPrice + filmPrice - couponPrice).toFixed(2)
@@ -218,19 +221,6 @@ Page({
         storeRest.getOrderPayLock(cinemaCode, orderId, orderType, cardId, couponStr, requestSuccess)
     },
 
-    radioChange: function (e) {
-        if (!this.data.useCard)
-            this.data.useCard = e.target.dataset.card
-        else {
-            if (this.data.useCard.cardId == e.target.dataset.card.cardId) {
-                this.data.useCard = null
-            } else {
-                this.data.useCard = e.target.dataset.card
-            }
-        }
-        this.caculateCount()
-    },
-
     //请求支付
     requestGoodsAndFilmComfirmNewPay: function (orderId, orderType) {
         var openId = app.getOpenId()
@@ -262,31 +252,11 @@ Page({
         this.data.orderDetail.orderId = option.orderId
         this.fetchInitData()
     },
-
-    onPullDownRefresh: function () {
-        this.requestGoodsList()
-    },
-
-    switchMember: function (e) {
-        this.data.isUseCard = e.detail.value
-        this.setData(this.data)
-    },
-
-    addCard: function (e) {
-        wx.navigateTo({
-            url: '/pages/card/addCard/addCard'
-        })
-    },
-
-    addCardSuccess: function () {
-        this.fetchInitData()
-    },
     clearPhone: function () {
         this.data.orderInfo.phone = ''
         this.setData(this.data)
     },
     onUnload: function () {
-        console.log("clearInterval")
         clearInterval(this.data.clearTime)
     }
 })
