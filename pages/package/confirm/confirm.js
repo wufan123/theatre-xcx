@@ -63,7 +63,7 @@ Page({
             wxRest.requestWxPay(success.weixinpay, complete => {
               if (complete.errMsg === "requestPayment:ok") {
                 wx.redirectTo({
-                  url: '/pages/common/payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
+                  url: '/pages/common/payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=package"
                 })
               } else if (complete.errMsg === "requestPayment:fail") {
                 modalUtil.hideLoadingToast()

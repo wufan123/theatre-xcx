@@ -1,4 +1,4 @@
 <view class='result-con fxcm'>
   <image src='../../../../assets/images/ticket/success_icon.png' class='result-img'></image>
-  <image src='../../../../assets/images/ticket/see_order.png' class='button'></image>
+  <image src='../../../../assets/images/ticket/see_order.png' class='button' bindtap='gotoOrderDetail'></image>
 </view>
