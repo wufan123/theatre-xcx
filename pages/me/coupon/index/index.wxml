@@ -18,7 +18,6 @@
         <image wx:else src="/assets/images/me/see_last_coupon.png" class="see-last-coupon" bindtap="seeExpireCoupon"></image>
       </view>
       <template wx:if="{{isSeeExpire}}" is="coupon" data="{{...invalidList}}"></template> 
-      
     </view>
   </view>
 </view>

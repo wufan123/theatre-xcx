@@ -1,2 +1,23 @@
-<view>
+<view class="page">
+  <view class="body">
+      <view class="member">
+          <block   wx:for="{{cardList}}" wx:key="index" wx:if="{{cardList.length!==0}}" >
+            <view class="'member-card black">
+              <view class="member-body fxcb">
+                <text class="title red">旅游卡</text>
+                <text class="mb10" >余额： <text  class="khaki f16}}">255元</text> </text>
+                <text class="black">有效期：2018-12-30
+                    <lable class="red" >(已过期)</lable>
+                  </text>
+                <view class="btn"  >选择</view>
+              </view>
+              <image src="/assets/images/me/member_card_bg.png" class="member-card-bg"></image>
+            </view>
+          </block>
+          <view class="no-card fxcbm" wx:if="{{cardList.length===0}}">
+              <image src='/assets/images/me/no_data.png' class="no-data-img"></image>
+              当前账户未添加会员卡
+            </view>
+      </view> 
+  </view>
 </view>

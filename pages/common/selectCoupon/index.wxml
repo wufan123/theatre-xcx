@@ -1,2 +1,30 @@
-<view>
+<view class='page'>
+  <view class='body'>
+    <view class='coupon'>
+      <view class='card' wx:for="{{couponList}}" wx:for-item="item" wx:key=""  bindtap="couponDetail" couponList="item">
+        <view class='shade' wx:if="{{false}}"></view>
+        <view class='body fxcb'>
+          <view class='fxrb'>
+            <text class='f16 red bold'>5元立减券</text>
+          </view>
+          <view>
+            <lable class="text-ellipsis-line f12" wx:if="{{true}}">使用日期：2018-10-15</lable>
+            <lable class="text-ellipsis-line f12" wx:elif="{{false}}">生效日期：2018-10-15
+              <lable class="{{item._color}}">\t\t(待生效)</lable>
+            </lable>
+            <lable class="text-ellipsis-line f12" wx:else>有效期：2018-10-15至2018-10-15</lable>
+            <!-- <lable class="text-ellipsis-line f12">备注：{{item.description}}</lable> -->
+          </view>
+          <text  class="is-tip">已使用</text>
+          <!-- <text wx:if="{{item.status==4}}" class="is-tip">已过期</text> -->
+          <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
+        </view>
+        <view class='info fxcm'>
+          <text class='f16 mb10'>￥50.00</text>
+          <!-- <text>即将过期</text> -->
+          <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
