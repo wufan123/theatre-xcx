@@ -195,12 +195,10 @@ Page({
     wxRest.requestWxPay(weixinpay, complete => {
         if (complete.errMsg === "requestPayment:ok") {
             wx.redirectTo({
-              url: '../payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
+              url: '/pages/common/payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
             })
           } else if (complete.errMsg === "requestPayment:fail") {
-            wx.redirectTo({
-              url: '../payResult/payFail/index'
-            })
+            modalUtils.showFailToast('微信支付失败')
           }
     })
   },
