@@ -33,6 +33,37 @@ Page({
       });
     }
   },
+  // banner 点击
+  bannerClick: function(e) {
+    let banner = e.currentTarget.dataset.banner
+    if (!banner.click) {
+      return;
+    }
+    // 链接跳转
+    if (banner.redirectType == 1 || banner.redirectType == 2 || banner.redirectType == 3) {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url='+banner.contentUrl
+      });
+    } 
+    // 卖品
+    else if (banner.redirectType == 4) {
+      wx.navigateTo({
+        url: '/pages/business/goodDetail/goodDetail?goodsId='+banner.redirectId
+      });
+    }
+    // 套票
+    else if (banner.redirectType == 5) {
+      wx.navigateTo({
+        url: '/pages/package/confirm/confirm?packageId='+banner.redirectId
+      });
+    }
+    // 场次票
+    else if (banner.redirectType == 6) {
+      wx.navigateTo({
+        url: '/pages/ticket/index/index'
+      });
+    }
+  },
   // 场次票购买
   ticketFilm: function() {
     wx.navigateTo({
