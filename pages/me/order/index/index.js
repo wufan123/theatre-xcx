@@ -5,7 +5,7 @@ Page({
   data: {
     dataList: [],
     page: 1,
-    requestFinish: false
+    canReachBottom: true
   },
   onLoad: function (options) {
     this.requestOrderList()
@@ -18,8 +18,10 @@ Page({
       success.forEach(item => {
         this.data.dataList.push(item);
       })
-      if (success.length == 0) {
-        this.data.requestFinish = true
+      if (success.length > 0) {
+        this.data.canReachBottom = true
+      } else {
+        this.data.canReachBottom = false
       }
       this.setData(this.data)
     }, error => {
@@ -28,7 +30,7 @@ Page({
   },
   // 触底加载
   onReachBottom: function() {
-    if (this.data.requestFinish) {
+    if (!this.data.canReachBottom) {
       return;
     }
     this.data.page += 1
