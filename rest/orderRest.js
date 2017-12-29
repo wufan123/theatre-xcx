@@ -4,10 +4,13 @@ var httpRest = require('./httpBaseApi.js');
 
 //获取我的影片订单
 function getAllMoiveOrder(status, page, success_cb, fail_cb) {
-  httpRest.getRequest('/user/getCinemaOrders', {
-      "status": status,
-      "page": page 
-  }, success_cb, fail_cb);
+  let param = {
+    page: page 
+  }
+  if (status) {
+    param.status = status
+  }
+  httpRest.getRequest('/user/getCinemaOrders', param, success_cb, fail_cb);
 }
 
 //影票订单详情
