@@ -2,10 +2,10 @@
     <view class="top-bg">
         <view class='top-body fxcm'>
             <text class="top-phone f16">{{userNickname}}</text>
-            <text class="top-balance">
+            <!-- <text class="top-balance">
                 <text>余额：{{userMoney}} </text> <text >|</text>
                 <text>积分：{{integral}}</text>
-            </text>
+            </text> -->
             <view class="top-tip fxrbm">
                 <image src='../../../assets/images/me/vip.png'></image>剧坊会员</view>
 
