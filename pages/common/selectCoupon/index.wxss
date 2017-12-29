@@ -1,1 +1,2 @@
 .coupon{padding: 30rpx;}
+.coupon .select{width: 35rpx;height:35rpx;position: absolute;top:80rpx;right: 50rpx;}
