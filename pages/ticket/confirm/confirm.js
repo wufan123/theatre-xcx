@@ -253,7 +253,7 @@ Page({
         } else {
             var info = JSON.stringify(payLockInfo)
             wx.navigateTo({
-                url: '../payment/payment?orderId=' + orderId + "&orderType=" + orderType + "&info=" + info
+                url: '/pages/common/payment/payment?orderId=' + orderId + "&orderType=" + orderType + "&info=" + info
             })
         }
 

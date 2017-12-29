@@ -3,7 +3,7 @@
     <view class='last-time center red'>支付剩余时间：{{payLockInfo._payTime}}</view>
     <view class='cell-no-link'>
       <text>实付款</text>
-      <text class='bold khaki2'>${{payCount}}</text>
+      <text class='bold khaki2'>￥{{payCount}}</text>
     </view>
     <view class='pay-type '>
       <text class='title'>选择支付方式</text>

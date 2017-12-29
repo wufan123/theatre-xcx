@@ -23,15 +23,15 @@
     "pages/me/package/detail/detail",
     "pages/ticket/index/index",
     "pages/ticket/goods/goods",
-    "pages/business/flashSale/index",
     "pages/ticket/confirm/confirm",
-    "pages/ticket/payment/payment",
+    "pages/business/flashSale/index",
     "pages/business/unionDay/unionDay",
     "pages/business/localProduct/localProduct",
     "pages/business/goodDetail/goodDetail",
     "pages/business/orderConfirm/orderConfirm",
     "pages/package/index/index",
     "pages/package/confirm/confirm",
+    "pages/common/payment/payment",
     "pages/common/payResult/paySuccess/index",
     "pages/webview/webview"
     
