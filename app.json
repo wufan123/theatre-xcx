@@ -32,6 +32,8 @@
     "pages/package/index/index",
     "pages/package/confirm/confirm",
     "pages/common/payment/payment",
+    "pages/common/selectCoupon/index",
+    "pages/common/selectCard/index",
     "pages/common/payResult/paySuccess/index",
     "pages/webview/webview"
     
