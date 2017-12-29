@@ -15,7 +15,7 @@ Page({
             planList: [],
             timeSelected: null,
             planSelected: null,
-            count: 0
+            count: 1
         },
         bottomTxt: '马上购买',
         selectSeats: null, // 选中排期座位信息
