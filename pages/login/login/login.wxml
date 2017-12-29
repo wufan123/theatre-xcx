@@ -8,7 +8,7 @@
         </view>
         <view class='form-item'>
           <image src='/assets/images/me/login_code.png' class='icon'></image>
-          <input placeholder='请输入验证码' placeholder="" bindinput="inputCode"></input>
+          <input placeholder='请输入验证码'  bindinput="inputCode"></input>
           <button size="mini" class='hq-btn' bindtap="vcode">{{ c2 || '获取验证码' }}</button>
         </view>
         <view class='login-btn btn' bindtap='confirmCodeLogin'>登录</view>
