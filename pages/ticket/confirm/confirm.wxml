@@ -23,8 +23,13 @@
           </view>
         </view>
       </view>
-      <view class='cell fxrbm'><text>优惠券</text><text>{{orderPayWay.canUseCouponNum}}张可用</text></view>
-      <view class='cell fxrbm'><text>会员卡</text><text>未选择</text></view>
+      <view class='cell fxrbm' wx:if="{{goodsCouponList.length>0}}"><text>卖品优惠券</text><text>{{goodsCouponList.length}}张可用</text></view>
+      <view class='cell fxrbm' wx:if="{{filmCouponList.length>0}}"><text>影票优惠券</text><text>{{filmCouponList.length}}张可用</text></view>
+      <view class='cell fxrbm' wx:if="{{memberCardList.length>0}}" bindtap="selectUseCard">
+        <text>会员卡</text>
+        <text wx:if="{{useCard}}">{{useCard.cardId}}</text>
+        <text wx:if="{{!useCard}}">未选择</text>
+      </view>
       <view class='info fxrb f12 gray'><text>总价</text><text>￥{{orderInfo._price}}</text></view>
       <view class='info fxrb f12 gray' wx:if="{{goodsCouponText}}"><text>{{goodsCouponText}}</text></view>
       <view class='info fxrb f12 gray'><text>影票券 - 123</text></view>

@@ -14,7 +14,7 @@ Page({
         amount: 0, //最后总价
         selectGoodsCoupon: null,
         selectFilmCoupon: null,
-        useCardId: null,
+        useCard: null,
         goodsCouponText: '',
         filmCouponText: '',
         isUseCard: false,
@@ -22,7 +22,8 @@ Page({
         clearTime: null,
 
         goodsCouponList: [],
-        filmCouponList: []
+        filmCouponList: [],
+        memberCardList: []
     },
     fetchInitData: function () {
         //获取优惠券信息
@@ -51,18 +52,25 @@ Page({
                 }, 1000)
             }
             this.data.orderPayWay._orderPrice = res.orderPrice.toFixed(2)
-            //优惠券判断
+            //影票优惠券判断
             if (res.couponList && res.couponList.length > 0) {
-                this.data.goodsCouponList = []
+                this.data.filmCouponList = []
                 res.couponList.forEach(element => {
-                    this.data.goodsCouponList.push(element)
+                    this.data.filmCouponList.push(element)
                 });
             }
             //卖品优惠券判断
             if (res.saleCouponList && res.saleCouponList.length > 0) {
-                this.data.filmCouponList = []
+                this.data.goodsCouponList = []
                 res.saleCouponList.forEach(element => {
-                    this.data.filmCouponList.push(element)
+                    this.data.goodsCouponList.push(element)
+                })
+            }
+            // 会员卡
+            if (res.memberCard && res.memberCard.length > 0) {
+                this.data.memberCardList = []
+                res.memberCard.forEach(element => {
+                    this.data.memberCardList.push(element)
                 })
             }
             this.setData(this.data)
@@ -171,6 +179,18 @@ Page({
             couponStr = couponStr.substr(0, couponStr.length - 1)
         }
         return couponStr
+    },
+    // 设置使用的会员卡
+    setUseCard: function(useCard) {
+        this.data.useCard = useCard;
+        this.setData(this.data)
+    },
+    // 选择会员卡点击
+    selectUseCard: function() {
+        let info = JSON.stringify(this.data.memberCardList)
+        wx.navigateTo({
+            url: '/pages/common/selectCard/index?info=' + info
+        })
     },
     setOrderPhone: function (event) {
         this.data.oldPhone = this.data.orderInfo.phone
