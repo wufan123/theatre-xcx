@@ -27,6 +27,10 @@ Page({
     },
     fetchInitData: function () {
         //获取优惠券信息
+        this.data.goodsCouponList = []
+        this.data.filmCouponList = []
+        this.data.memberCardList = []
+        this.data.couponListStr = []
         orderRest.getOrderPayWay(app.globalData.cinemaCode, this.data.orderDetail.orderId, this.data.orderDetail.orderType, res => {
             this.data.orderPayWay = res
             //this.data.orderPayWay.payTime = 10
@@ -54,21 +58,18 @@ Page({
             this.data.orderPayWay._orderPrice = res.orderPrice.toFixed(2)
             //影票优惠券判断
             if (res.couponList && res.couponList.length > 0) {
-                this.data.filmCouponList = []
                 res.couponList.forEach(element => {
                     this.data.filmCouponList.push(element)
                 });
             }
             //卖品优惠券判断
             if (res.saleCouponList && res.saleCouponList.length > 0) {
-                this.data.goodsCouponList = []
                 res.saleCouponList.forEach(element => {
                     this.data.goodsCouponList.push(element)
                 })
             }
             // 会员卡
             if (res.memberCard && res.memberCard.length > 0) {
-                this.data.memberCardList = []
                 res.memberCard.forEach(element => {
                     this.data.memberCardList.push(element)
                 })
@@ -106,7 +107,6 @@ Page({
             this.data.orderInfo.film._priceStr += "(含服务费¥" + _serviceFee.toFixed(2) + ")"
             this.data.orderInfo.phone = app.getUserInfo().bindmobile
             this.data.oldPhone = this.data.orderInfo.phone
-            console.log(this.data)
             this.setData(this.data)
             this.caculateCount()
         }, res => modalUtil.showFailToast(res.text));
@@ -133,7 +133,7 @@ Page({
                     goodsCouponPrice += couponRet
                     this.data.couponListStr.push({
                         name: '卖品优惠',
-                        value: couponRet
+                        value: '-￥'+couponRet
                     })
                 }
             })
@@ -152,7 +152,7 @@ Page({
                         filmCouponPrice += couponRet
                         this.data.couponListStr.push({
                             name: '影票优惠',
-                            value: couponRet
+                            value: '-￥'+couponRet
                         })
                     } else {
                         filmCouponPrice++;
@@ -190,7 +190,7 @@ Page({
         this.setData(this.data)
         let info = JSON.stringify(this.data.goodsCouponList)
         wx.navigateTo({
-            url: '/pages/common/selectCoupon/index?info=' + info + '&isRadio=1'
+            url: '/pages/common/selectCoupon/index?info=' + info
         })
     },
     // 选择影票优惠券点击
@@ -199,16 +199,20 @@ Page({
         this.setData(this.data)
         let info = JSON.stringify(this.data.filmCouponList)
         wx.navigateTo({
-            url: '/pages/common/selectCoupon/index?info=' + info + '&isRadio=0'
+            url: '/pages/common/selectCoupon/index?info=' + info + '&seatCount=' + this.data.orderInfo.film.seatCount
         })
     },
     getSelectCouponStr: function () {
         var couponStr = ""
-        this.data.selectFilmCouponList.forEach(e => {
-            couponStr += e.voucherNum + ','
+        this.data.goodsCouponList.forEach(item => {
+            if (item.checked) {
+                couponStr += item.voucherNum + ','
+            }
         })
-        this.data.selectGoodsCouponList.forEach(e => {
-            couponStr += e.voucherNum + ','
+        this.data.filmCouponList.forEach(item => {
+            if (item.checked) {
+                couponStr += item.voucherNum + ','
+            }
         })
         if (couponStr != "") {
             couponStr = couponStr.substr(0, couponStr.length - 1)

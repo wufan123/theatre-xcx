@@ -2,7 +2,7 @@
   <view class='body'>
     <view class='coupon'>
       <view class='card' wx:for="{{couponList}}" wx:for-item="item" wx:key="" data-coupon="{{item}}"  bindtap="couponCheck" couponList="item">
-        <view class='shade' wx:if="{{false}}"></view>
+        <view class='shade' wx:if="{{item._disable}}"></view>
         <view class='body fxcb'>
           <view class='fxrb'>
             <text class='f16 red bold'>{{item.voucherName}}</text>
@@ -10,7 +10,7 @@
           <view>
             <lable class="text-ellipsis-line f12">有效期：{{item.startTime}}至{{item.validData}}</lable>
           </view>
-          <block wx:if="{{isRadio==0}}">
+          <block>
              <image src="/assets/images/me/coupon_no_select.png" class='select' wx:if="{{!item.checked}}"></image> 
             <image src="/assets/images/me/coupon_select.png" class='select' wx:if="{{item.checked}}"></image>
           </block>
@@ -23,7 +23,7 @@
       </view>
     </view>
   </view>
-  <view class="footer" wx:if="{{isRadio==0}}">
+  <view class="footer">
     <view class="bottom-btn" bindtap="confirm">确认</view>
   </view>
 </view>

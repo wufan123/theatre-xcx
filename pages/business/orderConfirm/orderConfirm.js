@@ -78,7 +78,7 @@ Page({
                 this.data.amount -= useValue
                 couponListStr.push({
                     name: '卖品优惠',
-                    value: '-'+useValue
+                    value: '-￥'+useValue
                 })
             }
         })
@@ -94,7 +94,7 @@ Page({
     selectCoupon: function () {
         let info = JSON.stringify(this.data.couponList)
         wx.navigateTo({
-            url: '/pages/common/selectCoupon/index?info=' + info + '&isRadio=1'
+            url: '/pages/common/selectCoupon/index?info=' + info
         })
     },
     getSelectCouponStr: function () {
