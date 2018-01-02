@@ -99,8 +99,10 @@ Page({
     },
     getSelectCouponStr: function () {
         var couponStr = ""
-        this.data.selectGoodsCouponList.forEach(e => {
-            couponStr += e.voucherNum + ','
+        this.data.couponList.forEach(e => {
+            if (e.checked) {
+                couponStr += e.voucherNum + ','
+            }
         })
         if (couponStr != "") {
             couponStr = couponStr.substr(0, couponStr.length - 1)
@@ -165,7 +167,9 @@ Page({
         modalUtil.showLoadingToast()
         storeRest.goodsAndFilmComfirmNewPay(orderId, orderType, payType, integralNum, openId, res => {
             modalUtil.hideLoadingToast()
-            pageUtil.gotoPaySuccess(orderId, orderType)
+            wx.redirectTo({
+                url: '/pages/common/payResult/paySuccess/index?orderId=' + this.data.orderDetail.orderId + "&orderType=" + this.data.orderDetail.orderType
+              })
         })
     },
     /**
