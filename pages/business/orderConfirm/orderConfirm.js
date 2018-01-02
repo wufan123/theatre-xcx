@@ -12,8 +12,8 @@ Page({
         orderPayWay: "",
         orderInfo: {},
         amount: 0, //最后总价
-        selectGoodsCouponList: [],
-        selectFilmCouponList: [],
+        couponList: [],
+        couponListStr: [],
         useCardId: null,
         goodsCouponText: '',
         filmCouponText: '',
@@ -58,65 +58,47 @@ Page({
                 }, 1000)
             }
             this.data.orderPayWay._orderPrice = res.orderPrice.toFixed(2)
-            //优惠券判断
-            if (res.couponList && res.couponList.length > 0) {
-                var hasSelectedCouponList = []
-                res.couponList.forEach(function (element) {
-                    if (element.checked) {
-                        hasSelectedCouponList.push(element)
-                    }
-                }, this);
-                if (hasSelectedCouponList.length > 0) {
-                    this.setSelectCouponList(hasSelectedCouponList)
-                }
-            }
             //卖品优惠券判断
             if (res.saleCouponList && res.saleCouponList.length > 0) {
-                var hasSaleCouponList = []
-                res.saleCouponList.forEach(function (element) {
-                    if (element.checked) {
-                        hasSaleCouponList.push(element)
-                    }
-                }, this)
-                if (hasSaleCouponList.length > 0) {
-                    this.setSelectCouponList(hasSaleCouponList,'goods')
-                }
+                this.setCouponList(res.saleCouponList)
             }
-            this.setData({
-                orderPayWay: this.data.orderPayWay
-            })
+            this.setData(this.data)
+            this.caculateCount()
         }, res => modalUtil.showFailToast(res.text))
     },
     caculateCount: function () { //计算总价
-        //如果有使用会员卡
-        // if (this.data.isUseCard && this.data.useCard) {
-        //     this.data.orderInfo.film._price = parseFloat(this.data.useCard.settlementPrice) * parseInt(this.data.orderInfo.film.seatCount)
-        // }
         this.data.orderInfo._price = this.data.orderInfo.goods.price
         this.data.amount = this.data.orderInfo._price
+
+        let couponListStr = []
+        this.data.couponList.forEach(item => {
+            if (item.checked) {
+                let couponValue = parseFloat(item.voucherValue)
+                let useValue = this.data.amount < couponValue ? this.data.amount : couponValue
+                this.data.amount -= useValue
+                couponListStr.push({
+                    name: '卖品优惠',
+                    value: '-'+useValue
+                })
+            }
+        })
+        this.data.couponListStr = couponListStr
         this.setData(this.data)
     },
-    setSelectCouponList: function (selectCouponList, couponType) {
-        if (couponType == 'goods')
-            this.data.selectGoodsCouponList = selectCouponList
-        else
-            this.data.selectFilmCouponList = selectCouponList
+    setCouponList: function (couponList) {
+        this.data.couponList = couponList
+        this.setData(this.data)
         this.caculateCount()
-    },
-    // 选择会员卡
-    selectCard: function () {
-        this.data.orderPayWay.saleCouponList 
-        // let info = 
     },
     // 选择优惠券按钮
     selectCoupon: function () {
-        
+        let info = JSON.stringify(this.data.couponList)
+        wx.navigateTo({
+            url: '/pages/common/selectCoupon/index?info=' + info + '&isRadio=true'
+        })
     },
     getSelectCouponStr: function () {
         var couponStr = ""
-        this.data.selectFilmCouponList.forEach(e => {
-            couponStr += e.voucherNum + ','
-        })
         this.data.selectGoodsCouponList.forEach(e => {
             couponStr += e.voucherNum + ','
         })
@@ -196,7 +178,7 @@ Page({
             this.requestGoodsAndFilmComfirmNewPay(orderId, orderType)
         } else {
             var info = JSON.stringify(payLockInfo)
-            wx.navigateTo({
+            wx.redirectTo({
                 url: '/pages/common/payment/payment?orderId=' + orderId + "&orderType=" + orderType + "&info=" + info
             })
         }

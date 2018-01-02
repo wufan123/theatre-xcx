@@ -81,9 +81,9 @@ Page({
             this.data.canUseList.list = []
             this.data.invalidList.list = []
             success.voucherList.forEach(item => {
-                item.startTime = dateFormatter.formatDate(item.startTime, 4)
-                item.validData = dateFormatter.formatDate(item.validData, 4)
-                if (item.status == 2) {
+                item.startTimeStr = dateFormatter.formatDate(item.startTime, 4)
+                item.validDataStr = dateFormatter.formatDate(item.validData, 4)
+                if (item.status == 2 && (new Date().getTime()/1000 < item.validData)) {
                     this.data.canUseList.list.push(item)
                 } else {
                     item.stock = true

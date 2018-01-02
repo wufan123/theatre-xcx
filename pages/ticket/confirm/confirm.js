@@ -53,31 +53,19 @@ Page({
             this.data.orderPayWay._orderPrice = res.orderPrice.toFixed(2)
             //优惠券判断
             if (res.couponList && res.couponList.length > 0) {
-                var hasSelectedCouponList = []
-                res.couponList.forEach(function (element) {
-                    if (element.checked) {
-                        hasSelectedCouponList.push(element)
-                    }
-                }, this);
-                if (hasSelectedCouponList.length > 0) {
-                    this.setSelectCouponList(hasSelectedCouponList)
-                }
+                this.data.goodsCouponList = []
+                res.couponList.forEach(element => {
+                    this.data.goodsCouponList.push(element)
+                });
             }
             //卖品优惠券判断
             if (res.saleCouponList && res.saleCouponList.length > 0) {
-                var hasSaleCouponList = []
-                res.saleCouponList.forEach(function (element) {
-                    if (element.checked) {
-                        hasSaleCouponList.push(element)
-                    }
-                }, this)
-                if (hasSaleCouponList.length > 0) {
-                    this.setSelectCouponList(hasSaleCouponList,'goods')
-                }
+                this.data.filmCouponList = []
+                res.saleCouponList.forEach(element => {
+                    this.data.filmCouponList.push(element)
+                })
             }
-            this.setData({
-                orderPayWay: this.data.orderPayWay
-            })
+            this.setData(this.data)
         }, res => modalUtil.showFailToast(res.text))
         //获取订单信息
         orderRest.getCinemaOrderInfo(this.data.orderDetail.orderId, res => {
@@ -157,19 +145,19 @@ Page({
         this.setData(this.data)
     },
     setSelectCouponList: function (selectCouponList, couponType) {
-        if (couponType == 'goods')
-            this.data.selectGoodsCouponList = selectCouponList
-        else
-            this.data.selectFilmCouponList = selectCouponList
+        // if (couponType == 'goods')
+        //     this.data.selectGoodsCouponList = selectCouponList
+        // else
+        //     this.data.selectFilmCouponList = selectCouponList
         this.caculateCount()
     },
     selectGoodsCoupon: function () {
-        let orderId = this.data.orderDetail.orderId
-        pageUtil.selectCoupon(orderId, this.data.selectGoodsCouponList, this.data.orderDetail.orderType, 'goods')
+        // let orderId = this.data.orderDetail.orderId
+        // pageUtil.selectCoupon(orderId, this.data.selectGoodsCouponList, this.data.orderDetail.orderType, 'goods')
     },
     selectFilmCoupon: function () {
-        let orderId = this.data.orderDetail.orderId
-        pageUtil.selectCoupon(orderId, this.data.selectFilmCouponList, this.data.orderDetail.orderType, 'film', this.data.orderInfo.film.seatCount)
+        // let orderId = this.data.orderDetail.orderId
+        // pageUtil.selectCoupon(orderId, this.data.selectFilmCouponList, this.data.orderDetail.orderType, 'film', this.data.orderInfo.film.seatCount)
     },
     getSelectCouponStr: function () {
         var couponStr = ""

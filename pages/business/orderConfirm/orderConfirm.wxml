@@ -14,8 +14,8 @@
         </view>
       </view>
       <view class='cell fxrbm' bindtap="selectCoupon"><text>优惠券</text><text>{{orderPayWay.saleCouponList.length}}张可用</text></view>
-      <view class='cell fxrbm' bindtap="selectCard"><text>会员卡</text><text>未选择</text></view>
       <view class='info fxrb f12 gray'><text>总价</text><text>￥{{orderInfo._price}}</text></view>
+      <view class='info fxrb f12 gray' wx:for="{{couponListStr}}"><text>{{item.name}}</text><text>{{item.value}}</text></view>
       <view class='info fxrb'><text>实付款</text><text class='bold'>￥{{amount}}</text></view>
     </view>
     <view class='cell-line'><text>手机号</text> <input type='number' bindinput="setOrderPhone" maxlength="11" placeholder="请输入手机号码" value="{{orderInfo.phone}}"></input> </view>
