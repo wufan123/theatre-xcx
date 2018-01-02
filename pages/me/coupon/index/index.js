@@ -76,7 +76,9 @@ Page({
     },
 
     requestCouponList: function () {
+        modalUtils.showLoadingToast()
         orderRest.userVoucherList(success => {
+            modalUtils.hideLoadingToast()
             this.data.dataList = success.voucherList
             this.data.canUseList.list = []
             this.data.invalidList.list = []
@@ -92,6 +94,7 @@ Page({
             });
             this.setData(this.data)
         }, res => {
+            modalUtils.hideLoadingToast()
             modalUtils.showResError(res)
             this.data.couponData[tab].isFirst = false
             this.setData({
