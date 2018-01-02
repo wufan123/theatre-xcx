@@ -1,6 +1,6 @@
 <view class="page">
     <view class='body'>
-      <image class="ticket-bg" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1514201893800&di=18c5972c1283256906ae1bc527574b88&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F1ad5ad6eddc451dac844bcf9bcfd5266d0163275.jpg"></image>
+      <image class="ticket-bg" src="http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/detail_bg.png"></image>
     <view class="ticket-body">
         <view class='ticket mb10'>
             <view class='info'>
