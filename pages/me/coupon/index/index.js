@@ -16,6 +16,7 @@ Page({
         totalNum: 0,
         curTab: 0,
         isSeeExpire:false,
+        page: 1
     },
 
     bindInput: function (e) {
@@ -71,28 +72,44 @@ Page({
         modalUtils.showLoadingToast()
         orderRest.addVoucher(voucherNum, res => {
             modalUtils.showSuccessToast("添加成功")
-            this.requestCouponList()
+            this.reloadCouponList()
         })
     },
 
-    requestCouponList: function () {
+    reloadCouponList: function() {
+        this.data.canUseList.list = []
+        this.data.invalidList.list = []
+        this.data.dataList = []
+        this.data.page = 1
+        this.requestCouponList(this.data.page)
+    },
+
+    requestCouponList: function (page) {
         modalUtils.showLoadingToast()
-        orderRest.userVoucherList(success => {
+        orderRest.userVoucherList(page, success => {
             modalUtils.hideLoadingToast()
-            this.data.dataList = success.voucherList
-            this.data.canUseList.list = []
-            this.data.invalidList.list = []
             success.voucherList.forEach(item => {
-                item.startTimeStr = dateFormatter.formatDate(item.startTime, 4)
-                item.validDataStr = dateFormatter.formatDate(item.validData, 4)
-                if (item.status == 2 && (new Date().getTime()/1000 < item.validData)) {
-                    this.data.canUseList.list.push(item)
-                } else {
-                    item.stock = true
-                    this.data.invalidList.list.push(item)
+                if (item.bindStatus==1) {
+                    this.data.dataList.push(item)
+                    item.startTimeStr = dateFormatter.formatDate(item.startTime, 4)
+                    item.validDataStr = dateFormatter.formatDate(item.validData, 4)
+                    if (item.status == 2 && (new Date().getTime()/1000 < item.validData)) {
+                        this.data.canUseList.list.push(item)
+                    } else {
+                        item.stock = true
+                        this.data.invalidList.list.push(item)
+                    }
                 }
             });
-            this.setData(this.data)
+            if (success.voucherList.length > 0) {
+                this.data.page += 1
+                this.requestCouponList(this.data.page)
+            } else {
+                if (!this.data.isSeeExpire&&this.data.canUseList.list.length==0) {
+                    this.data.isSeeExpire = true
+                }
+                this.setData(this.data)
+            }
         }, res => {
             modalUtils.hideLoadingToast()
             modalUtils.showResError(res)
@@ -108,6 +125,6 @@ Page({
     },
 
     onShow: function() {
-        this.requestCouponList() // 票券
+        this.reloadCouponList()
     }
 })

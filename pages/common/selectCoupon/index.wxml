@@ -8,7 +8,7 @@
             <text class='f16 red bold'>{{item.voucherName}}</text>
           </view>
           <view>
-            <lable class="text-ellipsis-line f12">有效期：{{item.startTime}}至{{item.validData}}</lable>
+            <lable class="text-ellipsis-line f12">有效期：{{item.startTimeStr}}至{{item.validDataStr}}</lable>
           </view>
           <block>
              <image src="/assets/images/me/coupon_no_select.png" class='select' wx:if="{{!item.checked}}"></image> 

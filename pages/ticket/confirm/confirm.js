@@ -288,7 +288,7 @@ Page({
             this.requestGoodsAndFilmComfirmNewPay(orderId, orderType)
         } else {
             var info = JSON.stringify(payLockInfo)
-            wx.navigateTo({
+            wx.redirectTo({
                 url: '/pages/common/payment/payment?orderId=' + orderId + "&orderType=" + orderType + "&info=" + info
             })
         }

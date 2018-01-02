@@ -200,8 +200,10 @@ function addVoucher(voucherNum, success_cb, fail_cb) {
  * @param {*} success_cb 
  * @param {*} fail_cb 
  */
-function userVoucherList(success_cb, fail_cb) {
-  httpRest.getRequest('/user/userVoucherList',{}, success_cb, fail_cb)
+function userVoucherList(page, success_cb, fail_cb) {
+  httpRest.getRequest('/user/userVoucherList',{
+    page: page
+  }, success_cb, fail_cb)
 }
 
 /**

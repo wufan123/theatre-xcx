@@ -57,8 +57,11 @@ App({
       return this.globalData.userInfo;
     }
     var userInfo = wx.getStorageSync('zmaxfilm_userInfo');
-    this.globalData.userInfo = userInfo;
-    return userInfo;
+    if (userInfo) {
+      this.globalData.userInfo = userInfo;
+      return userInfo;
+    }
+    return ''
   },
   getCinema: function () {
     var cinema = wx.getStorageSync('cinema')

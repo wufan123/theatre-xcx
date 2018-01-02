@@ -4,7 +4,7 @@
       <view class='card m15'>
           <view class='body fxcb '>
             <view class='fxrb'><text class='f16 red bold'>{{coupon.voucherName}}</text></view>
-            <view><lable class="text-ellipsis-line f12" >有效期：{{coupon.startTime}}至{{coupon.validData}}</lable></view>
+            <view><lable class="text-ellipsis-line f12" >有效期：{{coupon.startTimeStr}}至{{coupon.validDataStr}}</lable></view>
             <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
           </view>
           <view class='info fxcm'>

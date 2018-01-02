@@ -13,6 +13,10 @@ Page({
       wx.redirectTo({
         url: '/pages/me/package/index/index'
       })
+    } else if (this.data.orderType == 'goodsAndFilm') {
+      wx.redirectTo({
+        url: '/pages/me/order/index/index'
+      })
     } else {
       wx.navigateBack();
     }

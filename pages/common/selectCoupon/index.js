@@ -1,6 +1,7 @@
 /**
  * 选择优惠券
  */
+const timeUtil = require('../../../util/timeUtil')
 Page({
   data: {
     couponList:[],
@@ -13,6 +14,10 @@ Page({
     if (e.seatCount) {
       this.data.seatCount = e.seatCount
     }
+    this.data.couponList.forEach(item => {
+      item.startTimeStr = timeUtil.formatDate(item.startTime, 4)
+      item.validDataStr = timeUtil.formatDate(item.validData, 4)
+    })
     this.setData(this.data)
   },
   couponCheck: function(e) {

@@ -4,7 +4,7 @@
       <view class='form'>
         <view class='form-item'>
           <image src='/assets/images/me/login_phone.png' class='icon'></image>
-          <input placeholder='请输入会员卡号' type="number" name="phone" value="{{phoneNum}}" bindinput="inputNum"></input>
+          <input placeholder='请输入手机号' type="number" name="phone" value="{{phoneNum}}" bindinput="inputNum"></input>
         </view>
         <view class='form-item'>
           <image src='/assets/images/me/login_code.png' class='icon'></image>
