@@ -20,6 +20,13 @@ function getCinemaOrderInfo(orderID, success_cb, fail_cb) {
   }, success_cb, fail_cb)
 }
 
+//影票订单详情
+function getCinemaOrderFilmDetail(orderID, success_cb, fail_cb) {
+  httpRest.getRequest('/user/getOrderFilmDetail', {
+      "orderNo": orderID
+  }, success_cb, fail_cb)
+}
+
 //影票订单详情2
 function getOrderPayInfo(orderId, success_cb, fail_cb) {
   httpRest.getRequest("/user/getOrderPayInfo", {
@@ -254,6 +261,7 @@ function updateOrderMobile(mobile, success_cb, fail_cb) {
 
 module.exports = {
   getCinemaOrderInfo:getCinemaOrderInfo,
+  getCinemaOrderFilmDetail: getCinemaOrderFilmDetail,
   getAllMoiveOrder: getAllMoiveOrder,
   getSeat,
   getOrderPayInfo:getOrderPayInfo,

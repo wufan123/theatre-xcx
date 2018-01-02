@@ -7,7 +7,7 @@
 
 .code{padding: 60rpx 0rpx;position: relative;}
 .code text,.code .code-img{position: relative;z-index: 2;}
-.code-img{width: 200rpx;height: 200rpx;}
+.code-img{width: 300rpx;height: 300rpx;}
 
 .cell-line{padding: 20rpx 0rpx;}
 .cell-line .title{width: 100%;height: 93rpx;}

@@ -6,7 +6,6 @@
           <view class='info'>
 
             <text class='bold f16'>{{orderDetail.cinemaName}}</text>
-            <text>{{orderDetail._downTime}}</text>
             <image src="/assets/images/me/ticket_detail_bg.png" class="bg"></image>
           </view>
           <view class='code fxcm'>
@@ -19,6 +18,9 @@
         <view class='order mb10'>
           <view class='line' wx:for="{{orderDetail.ticketing}}">
             <text class="f15">{{item.key}}：{{item.value}}</text>
+          </view>
+          <view class='line'>
+            <text class="f15">下单时间：{{orderDetail._downTime}}</text>
           </view>
           <view class='fxrb line' style='border-bottom:1px solid #c6ac88 ' wx:for="{{orderDetail.details}}">
             <text>{{item.goodsName}}</text>

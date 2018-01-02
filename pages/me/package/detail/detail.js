@@ -1,4 +1,5 @@
 const qrcodeUtil = require('../../../../util/qrcode')
+const timeUtil = require('../../../../util/timeUtil.js')
 
 Page({
   data: {
@@ -6,6 +7,7 @@ Page({
   },
   onLoad: function (options) {
     this.data.order = JSON.parse(options.info);
+    this.data.order._downTime = timeUtil.formatTimeByStamp(this.data.order.downTime, 'yyyy-MM-dd HH:mm:ss')
     this.setData(this.data)
     this.generateQRCode(this.data.order.convcode)
   },

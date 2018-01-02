@@ -9,7 +9,7 @@ Page({
   onLoad: function (options) {
     orderRest.getGoodsOrderDetail(options.orderNo, success => {
       this.data.orderDetail = success
-      this.data.orderDetail._downTime = timeUtil.formatTimeByStamp(this.data.orderDetail.downTime, 'yyyy年MM月dd日 HH:mm:ss')
+      this.data.orderDetail._downTime = timeUtil.formatTimeByStamp(this.data.orderDetail.downTime, 'yyyy-MM-dd HH:mm:ss')
       this.setData(this.data)
       this.generateQRCode(success.qrCode)
     }, error => {

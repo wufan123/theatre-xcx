@@ -41,7 +41,7 @@ Page({
   orderDetail: function (e) {
     let order = e.currentTarget.dataset.order
     wx.navigateTo({
-      url: '../detail/detail?info='+JSON.stringify(order),
+      url: '../detail/detail?orderId='+order.orderCode,
     })
   }
 })
