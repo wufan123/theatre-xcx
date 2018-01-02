@@ -23,16 +23,15 @@
           </view>
         </view>
       </view>
-      <view class='cell fxrbm' wx:if="{{goodsCouponList.length>0}}"><text>卖品优惠券</text><text>{{goodsCouponList.length}}张可用</text></view>
-      <view class='cell fxrbm' wx:if="{{filmCouponList.length>0}}"><text>影票优惠券</text><text>{{filmCouponList.length}}张可用</text></view>
+      <view class='cell fxrbm' wx:if="{{goodsCouponList.length>0}}" bindtap="selectGoodsCoupon"><text>卖品优惠券</text><text>{{goodsCouponList.length}}张可用</text></view>
+      <view class='cell fxrbm' wx:if="{{filmCouponList.length>0}}" bindtap="selectFilmCoupon"><text>影票优惠券</text><text>{{filmCouponList.length}}张可用</text></view>
       <view class='cell fxrbm' wx:if="{{memberCardList.length>0}}" bindtap="selectUseCard">
         <text>会员卡</text>
         <text wx:if="{{useCard}}">{{useCard.cardId}}</text>
         <text wx:if="{{!useCard}}">未选择</text>
       </view>
       <view class='info fxrb f12 gray'><text>总价</text><text>￥{{orderInfo._price}}</text></view>
-      <view class='info fxrb f12 gray' wx:if="{{goodsCouponText}}"><text>{{goodsCouponText}}</text></view>
-      <view class='info fxrb f12 gray'><text>影票券 - 123</text></view>
+      <view class='info fxrb f12 gray' wx:for="{{couponListStr}}"><text>{{item.name}}</text><text>{{item.value}}</text></view>
       <view class='info fxrb'><text>实付款</text><text class='bold'>￥{{amount}}</text></view>
     </view>
     <view class='cell-line'><text>手机号</text> <input type='number' bindinput="setOrderPhone" maxlength="11" placeholder="请输入手机号码" value="{{orderInfo.phone}}"></input> </view>

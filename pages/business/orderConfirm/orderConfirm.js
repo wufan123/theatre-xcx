@@ -73,7 +73,7 @@ Page({
         let couponListStr = []
         this.data.couponList.forEach(item => {
             if (item.checked) {
-                let couponValue = parseFloat(item.voucherValue)
+                let couponValue = parseFloat(item.ticketValue)
                 let useValue = this.data.amount < couponValue ? this.data.amount : couponValue
                 this.data.amount -= useValue
                 couponListStr.push({
@@ -94,7 +94,7 @@ Page({
     selectCoupon: function () {
         let info = JSON.stringify(this.data.couponList)
         wx.navigateTo({
-            url: '/pages/common/selectCoupon/index?info=' + info + '&isRadio=true'
+            url: '/pages/common/selectCoupon/index?info=' + info + '&isRadio=1'
         })
     },
     getSelectCouponStr: function () {

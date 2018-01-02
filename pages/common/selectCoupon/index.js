@@ -4,18 +4,19 @@
 Page({
   data: {
     couponList:[],
-    isRadio: false
+    isRadio: 0
   },
   onLoad: function (e) {
     this.data.couponList = JSON.parse(e.info)
     if (e.isRadio) {
       this.data.isRadio = e.isRadio
     }
+    console.log(this.data.isRadio)
     this.setData(this.data)
   },
   couponCheck: function(e) {
     // 单选
-    if (this.data.isRadio) {
+    if (this.data.isRadio == 1) {
       let coupon = e.currentTarget.dataset.coupon;
       this.data.couponList.forEach(item => {
         if (item.voucherNum == coupon.voucherNum) {

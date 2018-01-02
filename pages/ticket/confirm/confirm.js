@@ -15,15 +15,15 @@ Page({
         selectGoodsCoupon: null,
         selectFilmCoupon: null,
         useCard: null,
-        goodsCouponText: '',
-        filmCouponText: '',
         isUseCard: false,
         oldPhone: null,
         clearTime: null,
 
         goodsCouponList: [],
         filmCouponList: [],
-        memberCardList: []
+        memberCardList: [],
+        couponListStr: [],
+        selectType: null, // 选择类型
     },
     fetchInitData: function () {
         //获取优惠券信息
@@ -115,57 +115,92 @@ Page({
         //初始化显示订单价格
         this.data.orderInfo.film._price = parseFloat(this.data.orderInfo.film.price)
         //如果有使用会员卡
-        if (this.data.isUseCard && this.data.useCard) {
+        if (this.data.useCard) {
             this.data.orderInfo.film._price = parseFloat(this.data.useCard.settlementPrice) * parseInt(this.data.orderInfo.film.seatCount)
         }
-        this.data.orderInfo._price = this.data.orderInfo.film._price + (parseFloat(this.data.orderInfo.goods ? this.data.orderInfo.goods.price : 0))
+        this.data.orderInfo._price = this.data.orderInfo.film._price + (this.data.orderInfo.goods ? parseFloat(this.data.orderInfo.goods.price) : 0)
         let couponPrice = 0;
         let goodsPrice = parseFloat(this.data.orderInfo.goods ? this.data.orderInfo.goods.price : 0)
         let filmPrice = parseFloat(this.data.orderInfo.film._price)
-        let goodsCouponText = ''
-        let filmCouponText = ''
-        // if (this.data.selectGoodsCouponList.length > 0) {
-        //     let amount = parseFloat(this.data.selectGoodsCouponList[0].ticketValue)
-        //     couponPrice += amount < goodsPrice ? amount : goodsPrice
-        //     goodsCouponText = '卖品优惠-¥' + couponPrice
-        // }
 
-        // if (this.data.selectFilmCouponList.length > 0) {
-        //     let _filmcoupon = this.data.selectFilmCouponList[0]
-        //     if (_filmcoupon.voucherType == 0) {
-        //         filmPrice = 0
-        //         this.data.selectFilmCouponList.forEach(function (element) {
-        //             filmPrice += parseFloat(element.ticketValue)
-        //         }, this);
-        //         filmPrice = parseFloat(filmPrice)
-        //         filmCouponText = '已兑换' + this.data.selectFilmCouponList.length + '张票'
-        //     } else {
-        //         let amount = parseFloat(_filmcoupon.ticketValue)
-        //         couponPrice += amount < filmPrice ? amount : filmPrice
-        //         filmCouponText = '影票优惠-¥' + parseFloat(_filmcoupon.ticketValue) * this.data.selectFilmCouponList.length
-        //     }
-        // }
-        this.data.goodsCouponText = goodsCouponText
-        this.data.filmCouponText = filmCouponText
+        this.data.couponListStr = []
+        if (this.data.goodsCouponList.length > 0) {
+            let goodsCouponPrice = 0
+            this.data.goodsCouponList.forEach(item => {
+                if (item.checked) {
+                    let amount = parseFloat(item.ticketValue)
+                    let couponRet = (goodsCouponPrice+amount) < goodsPrice ? amount : (goodsPrice-goodsCouponPrice)
+                    goodsCouponPrice += couponRet
+                    this.data.couponListStr.push({
+                        name: '卖品优惠',
+                        value: couponRet
+                    })
+                }
+            })
+            couponPrice += goodsCouponPrice;
+        }
+
+        if (this.data.filmCouponList.length > 0) {
+            let voucherType;
+            let filmCouponPrice = 0;
+            this.data.filmCouponList.forEach(item => {
+                if (item.checked) {
+                    voucherType = item.voucherType
+                    if (voucherType != 0) {
+                        let amount = parseFloat(item.ticketValue)
+                        let couponRet = (filmCouponPrice+amount) < filmPrice ? amount : (filmPrice-filmCouponPrice)
+                        filmCouponPrice += couponRet
+                        this.data.couponListStr.push({
+                            name: '影票优惠',
+                            value: couponRet
+                        })
+                    } else {
+                        filmCouponPrice++;
+                    }
+                }
+            })
+            if (voucherType == 0) {
+                filmPrice = 0
+                this.data.couponListStr.push({
+                    name: '已兑换',
+                    value: filmCouponPrice+'张票'
+                })
+            } else {
+                couponPrice += filmCouponPrice;
+            }
+        }
+
         this.data.amount = (goodsPrice + filmPrice - couponPrice).toFixed(2)
         this.data.orderInfo.film._price = parseFloat(this.data.orderInfo.film._price).toFixed(2)
         this.data.orderInfo._price = parseFloat(this.data.orderInfo._price).toFixed(2)
         this.setData(this.data)
     },
-    setSelectCouponList: function (selectCouponList, couponType) {
-        // if (couponType == 'goods')
-        //     this.data.selectGoodsCouponList = selectCouponList
-        // else
-        //     this.data.selectFilmCouponList = selectCouponList
+    setCouponList: function(couponList) {
+        if (this.data.selectType == 'goods') {
+            this.data.goodsCouponList = couponList
+        } else {
+            this.data.filmCouponList = couponList
+        }
+        this.setData(this.data)
         this.caculateCount()
     },
+    // 选择卖品优惠券点击
     selectGoodsCoupon: function () {
-        // let orderId = this.data.orderDetail.orderId
-        // pageUtil.selectCoupon(orderId, this.data.selectGoodsCouponList, this.data.orderDetail.orderType, 'goods')
+        this.data.selectType = 'goods'
+        this.setData(this.data)
+        let info = JSON.stringify(this.data.goodsCouponList)
+        wx.navigateTo({
+            url: '/pages/common/selectCoupon/index?info=' + info + '&isRadio=1'
+        })
     },
+    // 选择影票优惠券点击
     selectFilmCoupon: function () {
-        // let orderId = this.data.orderDetail.orderId
-        // pageUtil.selectCoupon(orderId, this.data.selectFilmCouponList, this.data.orderDetail.orderType, 'film', this.data.orderInfo.film.seatCount)
+        this.data.selectType = 'film'
+        this.setData(this.data)
+        let info = JSON.stringify(this.data.filmCouponList)
+        wx.navigateTo({
+            url: '/pages/common/selectCoupon/index?info=' + info + '&isRadio=0'
+        })
     },
     getSelectCouponStr: function () {
         var couponStr = ""
@@ -220,10 +255,9 @@ Page({
         var cinemaCode = app.globalData.cinemaCode
         var orderType = this.data.orderDetail.orderType
         var orderId = this.data.orderDetail.orderId
-        var cardId
-        if (this.data.isUseCard) {
-            let card = this.data.useCard
-            cardId = card ? this.data.useCard.id : null
+        let cardId = null
+        if (this.data.useCard) {
+            cardId = this.data.useCard.id
         }
         modalUtil.showLoadingToast()
         storeRest.getOrderPayLock(cinemaCode, orderId, orderType, cardId, couponStr, requestSuccess)
