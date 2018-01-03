@@ -14,7 +14,11 @@
   <view class="content-bg">
     <view class="content-title center">
       <text class='bold f18'>{{detail.goodsName}}</text>
-      <text class='f20 red'>￥{{detail.price}}</text>
+      <view class='price'>
+        <text class='f20 red'>￥{{detail.price}}</text>
+        <text class='decoration' wx:if="{{classType==102}}">￥{{detail.showPrice}}</text>
+      </view>
+      
     </view>
     <view class="content-interval">
       <view class="content-interval-txt">

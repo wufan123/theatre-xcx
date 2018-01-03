@@ -21,7 +21,7 @@ Page({
   },
   goBuy : function(e){
     wx.navigateTo({
-      url: '../goodDetail/goodDetail?goodsId='+e.currentTarget.id,
+      url: '../goodDetail/goodDetail?goodsId='+e.currentTarget.id+'&classType='+this.data.classType,
     })
   }
 })
