@@ -108,9 +108,6 @@ App({
   },
   // 完成推广（已下单）
   finishPromotion: function(orderId) {
-    if (!this.globalData.promoter) {
-      return;
-    }
     let bindmobile = this.getUserInfo(false).bindmobile
     if (bindmobile) {
       var theatreRest = require('./rest/theatreRest')

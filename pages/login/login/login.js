@@ -6,7 +6,6 @@ const wxRest = require('../../../rest/wxRest.js')
 //获取应用实例
 const app = getApp()
 
-
 Page({
   data: {
     curreyTab: 'member',
@@ -54,9 +53,9 @@ Page({
 
     //账号登陆
     userRest.login(this.data.phoneNum, this.data.phonePw, function (params) {
-      console.log('返回参数c成功', params)
       app.setUserInfo(params);
-      app.setUserAccount(that.data.phoneNum, that.data.phonePw)
+      app.setUserAccount(that.data.phoneNum, that.data.phonePw);
+      app.loginPromotion();
       modalUtils.hideLoadingToast()
       wx.navigateBack({
         // delta: 2

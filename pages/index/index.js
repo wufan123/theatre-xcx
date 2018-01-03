@@ -11,7 +11,7 @@ Page({
   onLoad: function (option) {
     // 记录推广信息
     if (option.promoter) {
-      app.recordPromotion()
+      app.recordPromotion(option.promoter, option.type)
     }
     // banner
     theatreRest.getInformationList(10, success => {

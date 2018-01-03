@@ -1,7 +1,7 @@
 const comboRest = require('../../../rest/comboRest.js')
 const theatreRest = require('../../../rest/theatreRest.js')
 const modalUtil = require('../../../util/modalUtil.js')
-var app=getApp()
+var app = getApp()
 Page({
   data: {
     dataList: null,
