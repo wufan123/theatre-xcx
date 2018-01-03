@@ -7,7 +7,7 @@
             <text class='title'>{{item.goodsName}}</text>
             <view>
               <text class='price'>￥{{item.channelFee}}</text>
-              <!-- <text class='decoration'>￥{{item.marketFee}}</text> -->
+              <text class='decoration' wx:if="{{classType==102}}">￥{{item.marketFee}}</text>
             </view>
           </view>
           <view class="btn" bindtap="goBuy" id="{{item.hyGoodsId}}">马上购买</view>
