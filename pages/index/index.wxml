@@ -54,7 +54,7 @@
     </view>
     <view class="ticket-line">
       <view class="title-txt zhg"></view>
-      <view class='ticket-img zhg' bindtap="ticketFilm"></view>
+      <view class='ticket-img zhg' bindtap="createPackageOrder"></view>
       <!-- <scroll-view scroll-x>
         <view class="ticket-scroll">
           <view class="ticket-item">
