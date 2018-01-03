@@ -15,6 +15,7 @@
         </view>
     <view class='order  black f15'>优惠券编码：{{coupon.voucherNum}}</view>
     <view class='order f12'>
+    <view class='mb10 f15  black'>使用规则：</view>
     <text class='rule-info'>{{coupon.useRule}}</text>
     </view>
   </view>
