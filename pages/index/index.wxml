@@ -72,5 +72,5 @@
   <template is="titleBar"></template>
   <template is="banner" data="{{...bannerList}}"></template>
   <template is="menu"></template>
-  <template is="ticket" data="{{...goodsList}}"></template>
+  <template is="ticket"></template>
 </view>

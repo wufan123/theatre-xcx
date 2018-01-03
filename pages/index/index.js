@@ -6,10 +6,6 @@ Page({
   data: {
     bannerList: {
       list: []
-    },
-    goodsList: {
-      ticketSet: [],
-      ticketVoucher: []
     }
   },
   onLoad: function (e) {

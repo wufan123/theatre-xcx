@@ -4,7 +4,8 @@ const modalUtil = require('../../../util/modalUtil.js')
 var app=getApp()
 Page({
   data: {
-    dataList: null
+    dataList: null,
+    buyingDetail: null
   },
   onLoad: function (e) {
     this.loadList()
@@ -32,6 +33,8 @@ Page({
   },
   // 创建订单
   createOrder: function(detail) {
+    this.data.buyingDetail = detail
+    this.setData(detail)
     let packageStr = detail.hyPackageId + ":1"
     modalUtil.showLoadingToast()
     comboRest.createOrder(packageStr, app.getUserInfo().bindmobile, app.globalData.cinemaCode, success => {
