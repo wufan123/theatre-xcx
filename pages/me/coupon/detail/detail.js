@@ -36,6 +36,11 @@ Page({
       orderRest.userVoucherDelete(this.data.coupon.voucherNum, success => {
         modalUtils.hideLoadingToast()
         modalUtils.showSuccessToast('解绑成功')
+        // 列表更新
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 2];
+        prevPage.reloadCouponList()
+
         setTimeout(() => {
           wx.navigateBack()
         }, 1000)

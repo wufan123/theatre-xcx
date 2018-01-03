@@ -121,10 +121,6 @@ Page({
     },
 
     onLoad: function (options) {
-        
-    },
-
-    onShow: function() {
         this.reloadCouponList()
     }
 })
