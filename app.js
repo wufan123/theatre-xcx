@@ -1,5 +1,4 @@
 //app.js
-const modalUtil = require('./util/modalUtil')
 App({
   onLaunch: function () {
   },
@@ -21,7 +20,8 @@ App({
     userInfo: null,
     canUseCouponNum:0,
 
-    promoter: null // 推广人手机号
+    promoter: null, // 推广人手机号
+    promotionType: 1,
 
   },
   setTokenId: function (tokenId) {
@@ -66,6 +66,7 @@ App({
       return userInfo;
     }
     if (needLogin) {
+      var modalUtil = require('./util/modalUtil')
       modalUtil.showLoginModal()
     }
     return ''
@@ -85,20 +86,35 @@ App({
   },
 
   // 记录推广信息（点击进入）
-  recordPromotion: function(promoter) {
+  recordPromotion: function(promoter, type) {
     this.globalData.promoter = promoter;
+    if (type) {
+      this.globalData.promotionType = type;
+    }
+    this.loginPromotion()
   },
   // 本次推广已登陆
   loginPromotion: function() {
     if (!this.globalData.promoter) {
       return;
     }
+    let bindmobile = this.getUserInfo(false).bindmobile
+    if (bindmobile) {
+      var theatreRest = require('./rest/theatreRest')
+      theatreRest.loginPromotion(this.globalData.promoter, bindmobile, this.globalData.promotionType, success => {
+        this.globalData.promoter = null
+      })
+    }
   },
   // 完成推广（已下单）
-  finishPromotion: function() {
+  finishPromotion: function(orderId) {
     if (!this.globalData.promoter) {
       return;
     }
-
+    let bindmobile = this.getUserInfo(false).bindmobile
+    if (bindmobile) {
+      var theatreRest = require('./rest/theatreRest')
+      theatreRest.finishPromotion(bindmobile, orderId)
+    }
   }
 })
