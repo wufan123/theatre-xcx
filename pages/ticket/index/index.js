@@ -2,6 +2,7 @@ const filmRest = require('../../../rest/filmRest.js')
 const planRest = require('../../../rest/planRest.js')
 const orderRest = require('../../../rest/orderRest.js')
 const modalUtil = require('../../../util/modalUtil.js')
+const timeUtil = require('../../../util/timeUtil.js')
 var app = getApp();
 Page({
     data: {
@@ -46,6 +47,9 @@ Page({
             cinemaCode: app.globalData.cinemaCode
         }
         planRest.getTimes(params, res => {
+            res.forEach(item => {
+                item._instr = item.instr+' '+timeUtil.formatTimeByStamp(item.startTime, "MM.dd")
+            })
             this.data.filmPlan.timeList = res;
             this.setData(this.data)
             if (res.length > 0) {

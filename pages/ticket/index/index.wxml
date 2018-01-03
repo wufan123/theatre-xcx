@@ -20,11 +20,11 @@
       <view class="fxrb content-title">
         <view>
           <text class='bold f16'>{{detail.filmName}}</text>
-          <text>坊巷文化影音秀场次票</text>
+          <text>{{detail.simpleword}}</text>
         </view>
         <view>
           <text class='bold f22 red price'>￥{{standardPrice}}</text>
-          <text>满200立减10元</text>
+          <!-- <text>满200立减10元</text> -->
         </view>
       </view>
      <view class="content-interval">
@@ -47,7 +47,7 @@
         <scroll-view scroll-x>
           <view class="plan-scroll">
             <view wx:for="{{ timeList }}" wx:for-item="item" wx:key="time" id="{{item.time}}" class="plan-item fxrm {{timeSelected==item.time?'selected':''}}" bindtap="selectTime">
-              {{item.instr}}
+              <text>{{item._instr}}</text>
             </view>
           </view>
         </scroll-view>

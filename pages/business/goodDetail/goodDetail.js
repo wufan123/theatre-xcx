@@ -6,11 +6,13 @@ var app = getApp();
 Page({
   data: {
     goodsDetail: {
-      detail: null
+      detail: null,
+      classType: null
     },
     bottomTxt: '马上购买'
   },
   onLoad: function (e) {
+    this.data.goodsDetail.classType = e.classType
     storeRest.getGoodsDetail(e.goodsId, success => {
       this.data.goodsDetail.detail = success.goodInfo
       this.setData(this.data)
