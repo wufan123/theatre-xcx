@@ -1,8 +1,8 @@
-.title-bg {height: 100rpx;padding: 10rpx 30rpx;}
-.title-logo {width: 160rpx;height: 90rpx;}
+.title-bg {width: 100%; height: 100rpx;padding: 10rpx 30rpx;position: fixed;top: 0;z-index: 2;box-sizing:border-box;background-image:url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/page_bg.png');background-size: 137rpx 137rpx;background-repeat: repeat;}
+.title-logo {width: 140rpx;height: 80rpx;}
 .title-icon{width: 50rpx;height: 50rpx;margin-left: 40rpx;}
 
-.branner-bg {width: 100%;height: 500rpx;}
+.branner-bg {width: 100%;height: 500rpx;margin-top: 100rpx;}
 .branner-img {width: 100%;height: 500rpx;}
 
 .menu-bg {background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/menu_bg__.png'); background-repeat: no-repeat; background-size: 100% 100% ;display: flex;justify-content: space-around;align-items:Center;padding-top: 50rpx;}
