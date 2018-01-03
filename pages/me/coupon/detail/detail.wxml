@@ -8,8 +8,7 @@
             <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
           </view>
           <view class='info fxcm'>
-            <text class='f16 mb10'>￥{{coupon.voucherValue}}</text>
-            <!-- <text>即将过期</text> -->
+            <text class='f20'>￥{{coupon.voucherValue}}</text>
             <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
           </view>
         </view>

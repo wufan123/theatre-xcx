@@ -78,12 +78,6 @@ Page({
       url: '../business/flashSale/index',
     })
   },
-  // 超级联合日
-  unionDay: function() {
-    wx.navigateTo({
-      url: '../business/unionDay/unionDay',
-    })
-  },
   localProduct:function(e){
     wx.navigateTo({
       url: '../business/localProduct/localProduct?classType='+e.currentTarget.id,

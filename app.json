@@ -25,7 +25,6 @@
     "pages/ticket/goods/goods",
     "pages/ticket/confirm/confirm",
     "pages/business/flashSale/index",
-    "pages/business/unionDay/unionDay",
     "pages/business/localProduct/localProduct",
     "pages/business/goodDetail/goodDetail",
     "pages/business/orderConfirm/orderConfirm",
