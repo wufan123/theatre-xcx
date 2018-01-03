@@ -47,7 +47,7 @@
         <scroll-view scroll-x>
           <view class="plan-scroll">
             <view wx:for="{{ timeList }}" wx:for-item="item" wx:key="time" id="{{item.time}}" class="plan-item fxrm {{timeSelected==item.time?'selected':''}}" bindtap="selectTime">
-              {{item.instr}}
+              <text>{{item._instr}}</text>
             </view>
           </view>
         </scroll-view>
