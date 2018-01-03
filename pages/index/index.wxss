@@ -11,7 +11,7 @@
 
 .ticket-bg {margin-top: 20rpx;padding-bottom: 20rpx;}
 .title-txt {text-align: right;height: 93rpx;background-size: contain;padding-right: 30rpx;line-height: 93rpx;}
-.title-txt.zhg{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/zhg_title_bg.png');}
+.title-txt.zhg{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/zhg_title_bg_.png');}
 .title-txt.ticket{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/ticket__title_bg.png');}
 .title-txt.tdq{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/tdq_title_bg.png');}
 
@@ -19,7 +19,9 @@
 .ticket-line {margin: 20rpx 0 0 0;}
 .ticket-scroll {display: flex;height: 264rpx;align-items: center;}
 .ticket-item {width: 650rpx;min-width:650rpx;min-height: 204rpx;white-space: nowrap;text-align: center;position: relative;}
-.ticket-img {width: 696rpx;height: 240rpx;}
+.ticket-img {width: 696rpx;height: 240rpx;margin: 10rpx auto;background-size: contain;}
+.ticket-img.ccp{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/home_ccp.jpg');}
+.ticket-img.zhg{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/home_zhg.jpg');}
 
 .card-text{position: absolute;width: 375rpx;top: 20rpx;left: 160rpx;text-align: left;}
 .card-text .card-name{line-height: 60rpx;font-size: 32rpx;margin-bottom: 10rpx;}

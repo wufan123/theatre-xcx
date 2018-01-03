@@ -39,9 +39,7 @@
   <view class="ticket-bg">
     <view class="ticket-line">
       <view class="title-txt ticket"></view>
-      <view class='center'>
-        <image src='/assets/images/home_ccp.png'  bindtap="ticketFilm" class='ticket-img' ></image>
-      </view>
+      <view class='ticket-img ccp' bindtap="ticketFilm"></view>
       <!-- <scroll-view scroll-x>
         <view class="ticket-scroll">
           <view  class="ticket-item">
@@ -56,9 +54,7 @@
     </view>
     <view class="ticket-line">
       <view class="title-txt zhg"></view>
-      <view class='center'>
-        <image src='/assets/images/home_zhg.png'  bindtap="createPackageOrder" class='ticket-img' ></image>
-      </view>
+      <view class='ticket-img zhg' bindtap="ticketFilm"></view>
       <!-- <scroll-view scroll-x>
         <view class="ticket-scroll">
           <view class="ticket-item">
