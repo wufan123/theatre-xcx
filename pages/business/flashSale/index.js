@@ -33,11 +33,15 @@ Page({
   },
   // 创建订单
   createOrder: function(detail) {
+    let bindmobile = app.getUserInfo(true).bindmobile;
+    if (bindmobile) {
+      return;
+    }
     this.data.buyingDetail = detail
     this.setData(detail)
     let packageStr = detail.hyPackageId + ":1"
     modalUtil.showLoadingToast()
-    comboRest.createOrder(packageStr, app.getUserInfo().bindmobile, app.globalData.cinemaCode, success => {
+    comboRest.createOrder(packageStr, bindmobile, app.globalData.cinemaCode, success => {
       this.requestWxPay(success.packageId)
     }, error => {
         modalUtil.hideLoadingToast()

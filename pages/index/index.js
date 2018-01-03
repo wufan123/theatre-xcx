@@ -8,7 +8,11 @@ Page({
       list: []
     }
   },
-  onLoad: function (e) {
+  onLoad: function (option) {
+    // 记录推广信息
+    if (option.promoter) {
+      app.recordPromotion()
+    }
     // banner
     theatreRest.getInformationList(10, success => {
       this.data.bannerList.list = success
@@ -18,7 +22,7 @@ Page({
     })
   },
   login: function() {
-    let userInfo = app.getUserInfo()
+    let userInfo = app.getUserInfo(false)
     if (userInfo) {
       wx.navigateTo({
         url: '../me/index/index'
@@ -84,10 +88,15 @@ Page({
     })
   },
   onShareAppMessage: function () {
-      return {
-          title: '中瑞剧坊',
-          desc: '中瑞三坊七巷影音秀购票',
-          path: '/pages/index/index'
-      }
+    let path = '/pages/index/index';
+    let phone = app.getUserInfo(false).bindmobile
+    if (phone) {
+      path += '?promoter='+phone
+    }
+    return {
+        title: '中瑞剧坊',
+        desc: '中瑞三坊七巷影音秀购票',
+        path: path
+    }
   }
 })

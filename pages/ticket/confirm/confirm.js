@@ -105,7 +105,7 @@ Page({
             }
             // $.each(seatArr, function(i, v) { _str += i + v.price + "*" + v.count });
             this.data.orderInfo.film._priceStr += "(含服务费¥" + _serviceFee.toFixed(2) + ")"
-            this.data.orderInfo.phone = app.getUserInfo().bindmobile
+            this.data.orderInfo.phone = app.getUserInfo(false).bindmobile
             this.data.oldPhone = this.data.orderInfo.phone
             this.setData(this.data)
             this.caculateCount()

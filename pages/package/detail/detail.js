@@ -20,9 +20,13 @@ Page({
     })
   },
   confirm: function (e) {
+    let bindmobile = app.getUserInfo(true).bindmobile;
+    if (bindmobile) {
+      return;
+    }
     modalUtil.showLoadingToast()
     let packageStr = this.data.goodsDetail.detail.packageId + ":1"
-    comboRest.createOrder(packageStr, app.getUserInfo().bindmobile, app.globalData.cinemaCode, success => {
+    comboRest.createOrder(packageStr, bindmobile, app.globalData.cinemaCode, success => {
       modalUtil.hideLoadingToast()
       wx.navigateTo({
         url: '../confirm/confirm?orderId='+success.packageId+'&number=1&packageId='+this.data.goodsDetail.detail.packageId,

@@ -58,9 +58,13 @@ Page({
             });
             return;
         }
+        let bindmobile = app.getUserInfo(true).bindmobile;
+        if (bindmobile) {
+            return;
+        }
         modalUtil.showLoadingToast()
-        storeRest.createGoodsFilmOrder(app.globalData.cinemaCode, app.getUserInfo().bindmobile, goodsStr, this.data.orderId, res => {
-            orderRest.mergeOrder(this.data.orderId, res, app.getUserInfo().bindmobile, res => {
+        storeRest.createGoodsFilmOrder(app.globalData.cinemaCode, bindmobile, goodsStr, this.data.orderId, res => {
+            orderRest.mergeOrder(this.data.orderId, res, bindmobile, res => {
                 wx.redirectTo({
                     url: '../confirm/confirm?orderId=' + this.data.orderId
                 });

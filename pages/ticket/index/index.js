@@ -21,7 +21,11 @@ Page({
         bottomTxt: '马上购买',
         selectSeats: null, // 选中排期座位信息
     },
-    onLoad: function (e) {
+    onLoad: function (option) {
+        // 记录推广信息
+        if (option.promoter) {
+            app.recordPromotion()
+        }
         this.loadFilmTime();
     },
     confirm: function(e) {
@@ -195,6 +199,11 @@ Page({
             return;
         }
 
+        let bindmobile = app.getUserInfo(true).bindmobile;
+        if (bindmobile) {
+            return;
+        }
+
         let selectedSeat = seat.slice(0, this.data.filmPlan.count)
         let seatIntroduce = [], datas = []
         selectedSeat.forEach(e => {
@@ -204,7 +213,7 @@ Page({
         modalUtil.showLoadingToast()
         orderRest.setPlanAndGoodsOrder({
             cinemaCode: app.globalData.cinemaCode,
-            mobile: app.getUserInfo().bindmobile,
+            mobile: bindmobile,
             featureAppNo: this.data.filmPlan.planSelected,
             seatIntroduce: seatIntroduce.join(','),
             datas: JSON.stringify(datas)

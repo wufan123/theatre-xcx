@@ -83,7 +83,7 @@ Page({
     onLoad: function (option) {
         this.data.orderId = option.orderId
         this.data.goodsDetail.packageId = option.packageId
-        this.data.phone = app.getUserInfo().bindmobile
+        this.data.phone = app.getUserInfo(false).bindmobile
         this.data.oldPhone = this.data.phone
         this.fetchInitData()
     },

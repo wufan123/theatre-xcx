@@ -25,7 +25,7 @@ Page({
         // 卖品详情
         storeRest.getGoodsDetail(this.data.orderInfo.goods.goodsId, success => {
             this.data.orderInfo.goods = success.goodInfo
-            this.data.orderInfo.phone = app.getUserInfo().bindmobile
+            this.data.orderInfo.phone = app.getUserInfo(false).bindmobile
             this.data.oldPhone = this.data.orderInfo.phone
             this.setData(this.data)
             this.caculateCount()

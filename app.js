@@ -1,4 +1,5 @@
 //app.js
+const modalUtil = require('./util/modalUtil')
 App({
   onLaunch: function () {
   },
@@ -18,7 +19,9 @@ App({
     openId:'',
 
     userInfo: null,
-    canUseCouponNum:0
+    canUseCouponNum:0,
+
+    promoter: null // 推广人手机号
 
   },
   setTokenId: function (tokenId) {
@@ -52,7 +55,8 @@ App({
     this.globalData.userInfo = userInfo;
     wx.setStorageSync('zmaxfilm_userInfo', userInfo);
   },
-  getUserInfo: function () {
+  // needLogin=true，弹窗提示需要登陆
+  getUserInfo: function (needLogin) {
     if (this.globalData.userInfo) {
       return this.globalData.userInfo;
     }
@@ -60,6 +64,9 @@ App({
     if (userInfo) {
       this.globalData.userInfo = userInfo;
       return userInfo;
+    }
+    if (needLogin) {
+      modalUtil.showLoginModal()
     }
     return ''
   },
@@ -75,5 +82,23 @@ App({
   },
   setCanUseCouponNum: function(num){
     this.globalData.canUseCouponNum = num;
+  },
+
+  // 记录推广信息（点击进入）
+  recordPromotion: function(promoter) {
+    this.globalData.promoter = promoter;
+  },
+  // 本次推广已登陆
+  loginPromotion: function() {
+    if (!this.globalData.promoter) {
+      return;
+    }
+  },
+  // 完成推广（已下单）
+  finishPromotion: function() {
+    if (!this.globalData.promoter) {
+      return;
+    }
+
   }
 })
