@@ -15,8 +15,6 @@
     "pages/me/coupon/detail/detail",
     "pages/me/order/index/index",
     "pages/me/order/detail/detail",
-    "pages/me/stamps/index/index",
-    "pages/me/stamps/detail/detail",
     "pages/me/localProduct/index/index",
     "pages/me/localProduct/detail/detail",
     "pages/me/package/index/index",

@@ -42,11 +42,6 @@ Page({
         url: '../package/index/index'
       });
     },
-    stampsManage: function (e) {
-      wx.navigateTo({
-        url: '../stamps/index/index'
-      });
-    },
     share: function (e) {
       wx.navigateTo({
         url: '../share/share'

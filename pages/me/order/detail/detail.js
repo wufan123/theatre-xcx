@@ -43,5 +43,10 @@ Page({
         var size = qrcodeUtil.qrApi.getCanvasSize(300)
         qrcodeUtil.qrApi.draw(str, "qrcode", size.w, size.h)
     }
+  },
+  makeCall:function(){
+    wx.makePhoneCall({
+      phoneNumber: app.globalData.servicePhone
+    })
   }
 })

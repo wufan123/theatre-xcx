@@ -40,7 +40,7 @@
           </view>
       
           <view class='cell-line center mb10'>
-            <view class="btn">联系客服</view>
+            <view class="btn" bindtap="makeCall">联系客服</view>
           </view>
           <view class='cell-line fxcb mb10'>
             <view class='center mb10 title'><image src="/assets/images/me/use_sm_title_bg.png"></image></view>
