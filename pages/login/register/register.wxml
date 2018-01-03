@@ -35,7 +35,7 @@
 
     <view style='font-size:24rpx;color:gray;margin-top:10rpx'>
         <label>注册即为同意</label>
-        <label class="titleColorBlue" bindtap="userProtocol">《闽都一台戏用户协议》</label>
+        <label class="titleColorBlue" bindtap="userProtocol">《瑞华剧坊用户协议》</label>
     </view>
 
     <view bindtap="confirmRegister" class='center_confirm_button' style=''>

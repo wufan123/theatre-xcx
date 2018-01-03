@@ -14,7 +14,7 @@
         <view class='login-btn btn' bindtap='confirmCodeLogin'>登录</view>
         <view class='red center'>
           <label>登录即为同意</label>
-          <label class="titleColorBlue" bindtap="userProtocol">《闽都一台戏用户协议》</label>
+          <label class="titleColorBlue" bindtap="userProtocol">《瑞华剧坊用户协议》</label>
         </view>
       </view>
       <image src='/assets/images/me/login_bg.jpg' class='login_bg'></image>

@@ -47,6 +47,14 @@ Page({
   // 调用支付
   requestWxPay: function(orderId) {
     comboRest.packagePay(orderId, 'account', app.getOpenId(), success => {
+      if (this.data.buyingDetail) {
+        this.data.dataList.forEach(item => {
+          if (item.id == this.data.buyingDetail.id) {
+            item.stock--
+          }
+        })
+        this.setData(this.data)
+      }
       modalUtil.hideLoadingToast()
       modalUtil.showMsgModal('抢购成功')
     }, error => {
