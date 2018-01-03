@@ -1,6 +1,7 @@
 const orderRest = require('../../../../rest/orderRest')
 const qrcodeUtil = require('../../../../util/qrcode')
 const timeUtil = require('../../../../util/timeUtil.js')
+var app = getApp()
 
 Page({
   data: {
@@ -44,7 +45,7 @@ Page({
         qrcodeUtil.qrApi.draw(str, "qrcode", size.w, size.h)
     }
   },
-  makeCall:function(){
+  makeCall: function(){
     wx.makePhoneCall({
       phoneNumber: app.globalData.servicePhone
     })

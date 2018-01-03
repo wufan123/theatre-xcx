@@ -1,6 +1,7 @@
 const orderRest = require('../../../../rest/orderRest')
 const qrcodeUtil = require('../../../../util/qrcode')
 const timeUtil = require('../../../../util/timeUtil.js')
+var app = getApp()
 
 Page({
   data: {
