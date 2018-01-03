@@ -23,6 +23,8 @@ Page({
           this.setData({
             coupon: res
           });
+          
+    console.log(res.useRule)
         }
       });
     }

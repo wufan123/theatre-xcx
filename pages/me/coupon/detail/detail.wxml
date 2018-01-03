@@ -13,14 +13,9 @@
             <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
           </view>
         </view>
-    <view class='order  black f15'>优惠券编码：{{voucherNum}}</view>
+    <view class='order  black f15'>优惠券编码：{{coupon.voucherNum}}</view>
     <view class='order f12'>
-      <view class='mb10 f15  black'>使用规则：</view>
-      <view>1. 立减券可以在购买剧票时使用；</view>
-      <view>2. 特惠场，见面会等特殊场次不可用；</view>
-      <view>3. 一经兑换则该券为无效券，如需退单，退还金额为实际支付金额；</view>
-      <view>4. 立减券需在有效期内使用，过期作废，立减券不可兑换现金；</view>
-      <view>5. 中瑞剧坊可在法律许可的范围内对使用规则作出适当的调整。</view>
+    <text class='rule-info'>{{coupon.useRule}}</text>
     </view>
   </view>
    <view class='footer'>
