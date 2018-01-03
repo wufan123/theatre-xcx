@@ -39,9 +39,12 @@
   <view class="ticket-bg">
     <view class="ticket-line">
       <view class="title-txt ticket"></view>
-      <scroll-view scroll-x>
+      <view class='center'>
+        <image src='/assets/images/home_ccp.png'  bindtap="ticketFilm" class='ticket-img' ></image>
+      </view>
+      <!-- <scroll-view scroll-x>
         <view class="ticket-scroll">
-          <view  class="ticket-item" bindtap="ticketFilm">
+          <view  class="ticket-item">
             <view class='card-text'>
               <text class='card-name text-ellipsis-line'>《三坊七巷》</text>
               <text class='text-ellipsis-line f12'>中瑞剧坊 • 坊巷文化影音秀</text>
@@ -49,11 +52,14 @@
             <image src='/assets/images/ccp_card.png' class='ticket-img'></image>
           </view>
         </view>
-      </scroll-view>
+      </scroll-view> -->
     </view>
     <view class="ticket-line">
       <view class="title-txt zhg"></view>
-      <scroll-view scroll-x>
+      <view class='center'>
+        <image src='/assets/images/home_zhg.png'  bindtap="createPackageOrder" class='ticket-img' ></image>
+      </view>
+      <!-- <scroll-view scroll-x>
         <view class="ticket-scroll">
           <view class="ticket-item">
             <view class='card-text' bindtap="createPackageOrder">
@@ -63,7 +69,7 @@
             <image src='/assets/images/zhq_card.png' class='ticket-img'></image>
           </view>
         </view>
-      </scroll-view>
+      </scroll-view> -->
     </view>
   </view>
 </template>

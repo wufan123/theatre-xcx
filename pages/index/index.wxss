@@ -19,7 +19,7 @@
 .ticket-line {margin: 20rpx 0 0 0;}
 .ticket-scroll {display: flex;height: 264rpx;align-items: center;}
 .ticket-item {width: 650rpx;min-width:650rpx;min-height: 204rpx;white-space: nowrap;text-align: center;position: relative;}
-.ticket-img {width: 604rpx;height: 204rpx;}
+.ticket-img {width: 696rpx;height: 240rpx;}
 
 .card-text{position: absolute;width: 375rpx;top: 20rpx;left: 160rpx;text-align: left;}
 .card-text .card-name{line-height: 60rpx;font-size: 32rpx;margin-bottom: 10rpx;}
