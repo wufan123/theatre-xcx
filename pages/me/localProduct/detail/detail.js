@@ -1,11 +1,12 @@
 const orderRest = require('../../../../rest/orderRest')
-const qrcodeUtil = require('../../../../util/qrcode')
 const timeUtil = require('../../../../util/timeUtil.js')
+const jsQrcodeUtil = require('../../../../util/qrcode/wxqrcode')
 var app = getApp()
 
 Page({
   data: {
-    orderDetail: null
+    orderDetail: null,
+    qrcodeImg: ''
   },
   onLoad: function (options) {
     orderRest.getGoodsOrderDetail(options.orderNo, success => {
@@ -20,8 +21,8 @@ Page({
   // 生成二维码
   generateQRCode: function (str) {
     if (str && str.length > 0) {
-        var size = qrcodeUtil.qrApi.getCanvasSize(200)
-        qrcodeUtil.qrApi.draw(str, "qrcode", size.w, size.h)
+      this.data.qrcodeImg = jsQrcodeUtil.createQrCodeImg(str, {'size':300})
+      this.setData(this.data)
     }
   },
   makeCall:function(){

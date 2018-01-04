@@ -8,7 +8,7 @@
               <image src="/assets/images/me/ticket_detail_bg.png" class="bg"></image>
             </view>
             <view class='code fxcm'>
-              <canvas canvas-id="qrcode" class="code-img" />
+              <image src='{{qrcodeImg}}' class='code-img'></image>
               <image src="/assets/images/me/ticket_detail_bg2.png" class="bg"></image>
             </view>
           </view> -->
