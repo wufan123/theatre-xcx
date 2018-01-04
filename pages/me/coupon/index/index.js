@@ -104,7 +104,7 @@ Page({
             if (success.voucherList.length > 0) {
                 this.data.page += 1
                 this.requestCouponList(this.data.page)
-            } else {
+            // } else {
                 if (!this.data.isSeeExpire&&this.data.canUseList.list.length==0) {
                     this.data.isSeeExpire = true
                 }

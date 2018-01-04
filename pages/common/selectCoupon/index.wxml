@@ -3,17 +3,16 @@
     <view class='coupon'>
       <view class='card' wx:for="{{couponList}}" wx:for-item="item" wx:key="" data-coupon="{{item}}"  bindtap="couponCheck" couponList="item">
         <view class='shade' wx:if="{{item._disable}}"></view>
-        <view class='body fxcb'>
-          <view class='fxrb'>
+        <view class='body fxrbm'>
+            <label class="select {{item.checked?'active':''}}" ></label>
+          <view class='fxcb coupon-detail'>
             <text class='f16 red bold'>{{item.voucherName}}</text>
-          </view>
-          <view>
             <lable class="text-ellipsis-line f12">有效期：{{item.startTimeStr}}至{{item.validDataStr}}</lable>
           </view>
-          <block>
-             <image src="/assets/images/me/coupon_no_select.png" class='select' wx:if="{{!item.checked}}"></image> 
-            <image src="/assets/images/me/coupon_select.png" class='select' wx:if="{{item.checked}}"></image>
-          </block>
+            <!-- <block>
+              <image src="/assets/images/me/coupon_no_select.png" class='select' wx:if="{{!item.checked}}"></image> 
+              <image src="/assets/images/me/coupon_select.png" class='select' wx:if="{{item.checked}}"></image>
+            </block> -->
           <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
         </view>
         <view class='info fxcm'>
