@@ -57,14 +57,19 @@ Page({
    */
   setPayLockInfo: function (payLockInfo) {
     this.data.clearTime = setInterval(() => {
-      if (this.data.payLockInfo.payTime > 0) {
-          this.data.payLockInfo.payTime--
-          this.data.payLockInfo._payTime = parseInt(this.data.payLockInfo.payTime / 60) + ":" + parseInt(this.data.payLockInfo.payTime % 60)
-          this.setData(this.data)
-      } else {
-          clearInterval(this.data.clearTime)
-          this.cancelOrder()
-      }
+        if (this.data.payLockInfo.payTime > 0) {
+            this.data.payLockInfo.payTime--
+            this.data.payLockInfo._payTime = parseInt(this.data.payLockInfo.payTime / 60) + ":" + parseInt(this.data.payLockInfo.payTime % 60)
+            this.setData(this.data)
+        } else {
+            modalUtils.showFailToast("当前订单超时关闭")
+            clearInterval(this.data.clearTime)
+            setTimeout(() => {
+                wx.reLaunch({
+                url: '/pages/index/index',
+                })
+            }, 1500);
+        }
     }, 1000)
 
     if (payLockInfo && payLockInfo.otherPayWay) {
@@ -220,19 +225,6 @@ Page({
           this.requestWxPay(res.weixinpay)
         }
     })
-  },
-
-  //取消订单
-  cancelOrder: function () {
-    if (this.data.orderType != 'goods') {
-        modalUtils.showFailToast("当前订单超时关闭")
-        setTimeout(() => {
-          wx.reLaunch({
-            url: '/pages/index/index',
-          })
-        }, 1500);
-
-    }
   },
 
   submit: function () {
