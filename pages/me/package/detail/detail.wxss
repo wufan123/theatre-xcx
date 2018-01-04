@@ -1,4 +1,4 @@
-.ticket-bg{position: relative;z-index: 0;width: 100%;height: 500rpx;}
+.ticket-bg{position: relative;z-index: 0;width: 100%;height: 400rpx;}
 .ticket-body{position: relative;z-index: 1;margin: 0rpx 100rpx 0 100rpx;}
 
 .ticket .info image.bg,.code image.bg{width: 100%;height: 100%;position: absolute;top: 0;left: 0;z-index: 1}

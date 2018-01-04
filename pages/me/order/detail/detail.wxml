@@ -1,6 +1,6 @@
 <view class="page">
   <view class='body'>
-    <image class="ticket-bg" src="{{orderDetail.film.image}}"></image>
+    <image class="ticket-bg" src="{{orderDetail.film.image}}" mode="aspectFill"></image>
     <view class="ticket-body">
         <view class="ticket-body-nocode" wx:if="{{orderFilmDetail.status!=3}}"></view>
         <view class='ticket mb10' wx:if="{{orderFilmDetail.status==3}}">

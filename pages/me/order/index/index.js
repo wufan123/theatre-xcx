@@ -30,6 +30,7 @@ Page({
   },
   // 触底加载
   onReachBottom: function() {
+    console.log("onReachBottom")
     if (!this.data.canReachBottom) {
       return;
     }
