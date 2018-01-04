@@ -18,11 +18,11 @@
     </swiper>
     <view class="content-bg">
       <view class="fxrb content-title">
-        <view>
-          <text class='bold f16'>{{detail.filmName}}</text>
-          <text>{{detail.simpleword}}</text>
+        <view class='title-txt'>
+          <text class='bold f16 text-ellipsis-line'>{{detail.filmName}}</text>
+          <text class='text-ellipsis-line'>{{detail.simpleword}}</text>
         </view>
-        <view>
+        <view class='title-price'>
           <text class='bold f22 red price'>￥{{standardPrice}}</text>
           <!-- <text>满200立减10元</text> -->
         </view>
@@ -32,7 +32,7 @@
         <view class="content-interval-line"></view>
       </view>
       <view class="content-detail">
-        {{detail.introduction}}
+        <text>{{detail.introduction}}</text>
       </view>
     </view>
   </view>

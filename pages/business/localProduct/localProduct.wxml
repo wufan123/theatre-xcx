@@ -4,7 +4,7 @@
         <view class='good-card-body fxrbm'>
           <image src='{{item.goodsCoverImage}}' class='good-img' mode="aspectFill"> </image>
           <view class='good-info fxcb'>
-            <text class='title'>{{item.goodsName}}</text>
+            <text class='title text-ellipsis-line'>{{item.goodsName}}</text>
             <view>
               <text class='price'>￥{{item.channelFee}}</text>
               <text class='decoration' wx:if="{{classType==102}}">￥{{item.marketFee}}</text>

@@ -4,7 +4,7 @@
       <view class='card' wx:for="{{dataList}}" wx:for-item="item" wx:key="">
         <view class='shade' wx:if="{{item.stock==0}}"></view>
         <view class='body '>
-          <text class='f20 khaki bold'>{{item.packageName}}</text>
+          <text class='f20 khaki bold text-ellipsis-line'>{{item.packageName}}</text>
           <text class='text-ellipsis-line'>{{item.detail}}</text>
           <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
         </view>

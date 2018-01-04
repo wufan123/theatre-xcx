@@ -18,7 +18,7 @@
     padding: 40rpx;
     background: #fbf7f0;
 }
-
+.content-title .title-txt{flex: 1;overflow: hidden;}
 .content-title text{
   display: block;
   margin-bottom: 10rpx;

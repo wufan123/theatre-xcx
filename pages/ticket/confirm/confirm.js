@@ -275,7 +275,9 @@ Page({
         modalUtil.showLoadingToast()
         storeRest.goodsAndFilmComfirmNewPay(orderId, orderType, payType, integralNum, openId, res => {
             modalUtil.hideLoadingToast()
-            pageUtil.gotoPaySuccess(orderId, orderType)
+            wx.redirectTo({
+                url: '/pages/common/payResult/paySuccess/index?orderId=' + orderId + "&orderType=" + orderType
+            })
         })
     },
     /**

@@ -212,7 +212,9 @@ Page({
     storeRest.goodsAndFilmComfirmNewPay(orderId, orderType, payType, integralNum, openId, res => {
         modalUtils.hideLoadingToast()
         if (this.data.payCount == 0) {
-          pageUtil.gotoPaySuccess(this.data.orderId, this.data.orderType)
+            wx.redirectTo({
+                url: '/pages/common/payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
+            })
         }
         else {//启动微信支付
           this.requestWxPay(res.weixinpay)
