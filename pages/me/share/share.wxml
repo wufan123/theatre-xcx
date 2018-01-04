@@ -38,7 +38,8 @@
       <image src='/assets/images/me/bag.png' class='bag-icon'></image>
       <view>邀请好友注册，您好友</view>
       <view class='f20 mb20'>获得￥30优惠券</view>
-      <view class='btn' bindtap="goShare">立即邀请</view>
+      <!-- <view class='btn' bindtap="goShare">立即邀请</view> -->
+      <button class="share-btn" open-type="share">立即邀请</button>
     </view>
     <view class='warn'>
       <view class='title'>
