@@ -1,5 +1,4 @@
 //获取应用实例
-const webviewUtil = require('../../util/webviewUtil.js')
 const theatreRest = require('../../rest/theatreRest.js')
 var app = getApp()
 Page({

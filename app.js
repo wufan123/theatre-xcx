@@ -4,7 +4,6 @@ App({
   },
   globalData: {
     serverUrlBase: 'https://jufang.zmaxfilm.com/preapi',
-    wapServerUrlBase: 'http://localhost:8080/#',
     
     appAccount: 'zhongruijufang',
     appPasswd: 'zrjf1123',
