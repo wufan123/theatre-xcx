@@ -1,2 +1,5 @@
 .coupon{padding: 30rpx;}
-.coupon .select{width: 35rpx;height:35rpx;position: absolute;top:80rpx;right: 50rpx;}
+/* .coupon .select{width: 35rpx;height:35rpx;position: absolute;top:80rpx;right: 50rpx;} */
+.coupon-detail{flex: 1;}
+.select{border:1px solid #a40000;width:15px;height:15px;border-radius: 50%;position:relative; margin:0 10px 0 -5px;}
+.select.active::before{content:"";width:11px;height:11px;background:#a40000;border-radius: 50%;top:4rpx;left:4rpx;position: absolute;}
