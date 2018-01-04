@@ -8,6 +8,11 @@ Page({
   },
   onLoad: function (options) {
     theatreRest.getPackageList(200, success => {
+      success.forEach(item => {
+        try {
+          item.imgs = JSON.parse(item.imgs)
+        } catch(error) {}
+      })
       this.data.dataList = success;
       this.setData(this.data)
     }, error => {

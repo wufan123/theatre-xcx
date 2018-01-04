@@ -40,13 +40,13 @@ image{width: 100%;height: 100%}
 /*（超级联合日--福州特产馆）--(来点小吃)*/
 .good-card{margin: 20rpx 30rpx;position: relative;height: 200rpx;}
 .good-card-body{top: 0;position: absolute;width: 100%; height: 100%; z-index: 5;}
-.good-card-body .good-info{margin-left: 20rpx;flex:1;}
+.good-card-body .good-info{padding:0 20rpx;flex:1;overflow: hidden;box-sizing: border-box;}
 .good-card-body .good-info >view{width: 100%;}
 .good-card-body .good-info .title{font-size: 30rpx;font-weight: bolder;}
 .good-card-body .good-info .price{color: #a78658;font-size: 40rpx;font-weight: bolder;margin-top: 10rpx;margin-right: 10rpx;}
 .good-card-body .good-img{width: 202rpx;height: 135rpx;margin-left: 30rpx;}
 .good-card .good-card-bg{width: 100%;height: 100%;position: absolute;top: 0;left:0;z-index: 4}
-.good-card-body .btn{margin-right: 30rpx;margin-top: 60rpx;}
+.good-card-body .btn{margin-right: 30rpx;margin-top: 60rpx;position: absolute;right: 5rpx;bottom: 35rpx;}
 
 /*卡券--(现实抢--优惠券列表)*/
 .card{display: flex;height: 180rpx;margin-bottom: 20rpx;position: relative;}
