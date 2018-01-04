@@ -9,7 +9,7 @@
               <view class="f16">{{orderInfo.goods.goodsName}}</view>
               <view>x {{orderInfo.number}}</view>
             </view>
-            <view class='bold khaki2 f18'>￥{{orderInfo.goods.showPrice}}</view>
+            <view class='bold khaki2 f18'>￥{{orderInfo.goods.price}}</view>
           </view>
         </view>
       </view>

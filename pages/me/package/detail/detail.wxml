@@ -1,19 +1,17 @@
 <view class="page">
     <view class='body'>
       <image class="ticket-bg" src="http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/detail_bg.png"></image>
-    <view class="ticket-body">
-        <view class='ticket mb10'>
+      <view class="ticket-body">
+          <!-- <view class='ticket mb10'>
             <view class='info'>
-  
               <text class='bold f16'>{{order.data[0].name}}</text>
-              <!-- <text>12 月 3 日 10：00</text> -->
               <image src="/assets/images/me/ticket_detail_bg.png" class="bg"></image>
             </view>
             <view class='code fxcm'>
               <canvas canvas-id="qrcode" class="code-img" />
               <image src="/assets/images/me/ticket_detail_bg2.png" class="bg"></image>
             </view>
-          </view>
+          </view> -->
           <view class='order mb10'>
             <view class='line'>
               <text class="f15">订单号：{{order.orderId}}</text>

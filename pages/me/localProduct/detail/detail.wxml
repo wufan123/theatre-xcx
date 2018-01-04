@@ -4,8 +4,7 @@
   <view class="ticket-body">
       <view class='ticket mb10'>
           <view class='info'>
-
-            <text class='bold f16'>{{orderDetail.cinemaName}}</text>
+            <text class='bold f16'>{{orderDetail.details[0].goodsName}}</text>
             <image src="/assets/images/me/ticket_detail_bg.png" class="bg"></image>
           </view>
           <view class='code fxcm'>
