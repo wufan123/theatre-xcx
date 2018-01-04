@@ -22,7 +22,7 @@ Page({
   },
   confirm: function (e) {
     let bindmobile = app.getUserInfo(true).bindmobile;
-    if (bindmobile) {
+    if (!bindmobile) {
       return;
     }
     modalUtil.showLoadingToast()

@@ -67,7 +67,7 @@ function loginPromotion(promoter, toer, type, success_cb, fail_cb) {
  */
 function finishPromotion(toer, orderId, success_cb, fail_cb) {
     httpRest.getTheatreRequest("/promotion/finishPromotion", {
-        promoter: promoter,
+        sn: orderId,
         toer: toer
     }, success_cb, fail_cb)
 }

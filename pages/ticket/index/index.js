@@ -22,6 +22,7 @@ Page({
         selectSeats: null, // 选中排期座位信息
     },
     onLoad: function (option) {
+        console.log(option)
         // 记录推广信息
         if (option.promoter) {
             app.recordPromotion(option.promoter, option.type)
@@ -200,7 +201,7 @@ Page({
         }
 
         let bindmobile = app.getUserInfo(true).bindmobile;
-        if (bindmobile) {
+        if (!bindmobile) {
             return;
         }
 

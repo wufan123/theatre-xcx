@@ -34,7 +34,7 @@ Page({
   // 创建订单
   createOrder: function(detail) {
     let bindmobile = app.getUserInfo(true).bindmobile;
-    if (bindmobile) {
+    if (!bindmobile) {
       return;
     }
     this.data.buyingDetail = detail

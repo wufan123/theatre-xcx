@@ -22,7 +22,20 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "用户分享推广",
+					"pathName": "pages/index/index",
+					"query": "promoter=13645017650&type=1"
+				},
+				{
+					"id": 1,
+					"name": "商家分享推广",
+					"pathName": "pages/ticket/index/index",
+					"query": "promoter=13645017650&type=2"
+				}
+			]
 		}
 	}
 }

@@ -106,7 +106,8 @@ Page({
     userRest.getValidateCode(this.data.phoneNum, this.data.phoneCode, app.globalData.cinemaCode,
       function (res) {
         app.setUserInfo(res);
-        app.setUserAccount()
+        app.setUserAccount();
+        app.loginPromotion();
         modalUtils.hideLoadingToast()
         wx.navigateBack({
           delta: 2
