@@ -28,10 +28,10 @@ function getCinemaOrderFilmDetail(orderID, success_cb, fail_cb) {
 }
 
 //影票订单详情2
-function getOrderPayInfo(orderId, success_cb, fail_cb) {
+function getOrderPayInfo(orderId, orderType, success_cb, fail_cb) {
   httpRest.getRequest("/user/getOrderPayInfo", {
       "orderId": orderId,
-      "orderType":"film"
+      "orderType": orderType
   }, success_cb, fail_cb)
 }
 

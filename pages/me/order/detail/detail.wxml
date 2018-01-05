@@ -31,19 +31,18 @@
             <text>{{item.name}}</text>
             <text>x {{item.number}}</text>
           </view>
-          <!-- <view class='fxrb line'>
-            <text class="f12">总价 </text>
-            <text>￥228.00</text> </view>
           <view class='fxrb line'>
-            <text>立减券 </text>
-            <text class="red">-￥30.00</text> </view> -->
+            <text class="f12">总价</text><text>￥{{orderPayInfo.totalPrice}}</text> </view>
+          <view class='fxrb line' wx:for="{{orderPayInfo.payInfo}}">
+            <text>{{item.name}}</text><text class="red">￥{{item.money}}</text> </view>
           <view class='fxrb line f15'>
             <!-- <text>实付款 </text> -->
-            <text wx:if="{{orderFilmDetail.status==0}}" class="red">未支付</text>
-            <text wx:if="{{orderFilmDetail.status==3||orderFilmDetail.status==25}}">实付款</text>
-            <text wx:if="{{orderFilmDetail.status==6||orderFilmDetail.status==26}}" class="red">已取消</text>
-            <text wx:if="{{orderFilmDetail.status==9}}" class="red">已退票</text>
-            <text class="red">￥{{orderDetail._price}}</text> </view>
+            <text wx:if="{{orderFilmDetail.status==0||orderFilmDetail.status==6||orderFilmDetail.status==26}}" class="red">未支付</text>
+            <text wx:elif="{{orderFilmDetail.status==9}}" class="red">已退款</text>
+            <text wx:else>实付款</text>
+            <text wx:if="{{orderFilmDetail.status==0||orderFilmDetail.status==6||orderFilmDetail.status==26}}" class="red">￥{{orderPayInfo.totalPrice}}</text>
+            <text wx:else class="red">￥{{orderPayInfo.realPrice}}</text>
+          </view>
         </view>
     
         <view class='cell-line center mb10'>

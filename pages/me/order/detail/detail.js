@@ -9,19 +9,14 @@ Page({
     orderInfo: null,
     orderDetail: null,
     orderFilmDetail: null,
+    orderPayInfo: null,
     qrcodeImg: '',
     ruleConfig: ''
   },
   onLoad: function (option) {
     orderRest.getCinemaOrderInfo(option.orderId, success => {
       this.data.orderDetail = success
-      this.data.orderDetail._price = parseFloat(this.data.orderDetail.film.price)
       this.data.orderDetail._startTime = timeUtil.formatTimeByStamp(this.data.orderDetail.film.startTime, 'MM月dd日 HH:mm')
-      if (this.data.orderDetail.goods&&this.data.orderDetail.goods.list.length > 0) {
-        this.data.orderDetail.goods.list.forEach(item => {
-          this.data.orderDetail._price += parseFloat(item.price)
-        })
-      }
       this.setData(this.data)
     }, error => {
 
@@ -32,6 +27,14 @@ Page({
       this.data.orderFilmDetail._orderTime = timeUtil.formatTimeByStamp(success.orderTime, 'yyyy-MM-dd HH:mm:ss')
       this.setData(this.data)
       this.generateQRCode(success.qrCode)
+    }, error => {
+
+    })
+
+    // 支付信息
+    orderRest.getOrderPayInfo(option.orderId, 'goodsAndFilm', success => {
+      this.data.orderPayInfo = success
+      this.setData(this.data)
     }, error => {
 
     })
