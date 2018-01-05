@@ -66,11 +66,8 @@ Page({
       this.setData(this.data)
     },
     recharge: function (e) {
-      console.log('充值app.getOpenId()',app.getOpenId())
-      let card = e.currentTarget.dataset.card
-      console.log('card',card)
       wx.navigateTo({
-        url: '../recharge/recharge?cardId='+card.id,
+        url: '../recharge/recharge?info='+JSON.stringify(e.currentTarget.dataset.card),
       })
     },
     onLoad() {

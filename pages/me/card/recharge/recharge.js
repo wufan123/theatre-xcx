@@ -6,11 +6,11 @@ const app = getApp()
 Page({
   data: {
     amount: 0,
-    cardId: ''
+    card: {}
   },
   onLoad: function (options) {
-    console.log('cardId', options)
-    this.data.cardId = options.cardId
+    var card = JSON.parse(options.info);
+    this.data.card = card
     this.setData(this.data)
   },
   bindAmountInput: function (e) {
@@ -26,36 +26,29 @@ Page({
     modalUtil.showLoadingToast()
     let openId = app.getOpenId();
     let payType = 'weixinpay'
-    console.log('openId',openId)
-    cardRest.recharge(this.data.amount, app.globalData.cinemaCode, this.data.cardId, payType, openId, function (res) {
-      console.log("请求支付", res)
+    cardRest.recharge(this.data.amount, app.globalData.cinemaCode, this.data.card.id, payType, openId, function (res) {
       modalUtil.hideLoadingToast()
       if (payType == 'weixinpay') {//启动微信支付
         that.requestWxPay(res.weixinpay)
       } else {
-        console.log("无需支付", res)
         this.checkOrderStatus()
       }
-      console.log('充值成功')
     })
   },
   //启动微信支付
   requestWxPay: function (weixinpay) {
     var kThis = this
     function complete(res) {
-      console.log("启动微信支付 支付成功", res)
       if (res.errMsg === "requestPayment:ok") {
         var pages = getCurrentPages();
 
         var prevPage = pages[pages.length - 2]; //上一个页面
         //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
-        console.log('pages', pages, prevPage)
         prevPage.addCardSuccess("充值成功！")
         setTimeout(() => {
           wx.navigateBack()
         }, 1000)
       } else if (res.errMsg === "requestPayment:fail") {
-        console.log('支付失败', res)
         modalUtil.showFailToast("支付失败");
       }
     }

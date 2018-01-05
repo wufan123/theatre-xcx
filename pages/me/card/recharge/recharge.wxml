@@ -1,6 +1,6 @@
-<label class="f16 red recharge-bz title">金牌导游：888888</label>
-
-<view class="recharge-item">
+<view class='page'>
+  <label class="f16 red recharge-bz title">{{card.levelName}}：{{card.cardNumber}}</label>
+  <view class="recharge-item">
     <view class="recharge-item-btn">
         <image src="/assets/images/me/subtract_on.png" class="recharge-item-btn-active" catchtap="subtract"></image>
         <image src="/assets/images/me/subtract.png" class="recharge-item-btn-normal" catchtap="subtract"></image>
@@ -10,6 +10,7 @@
         <image src="/assets/images/me/add_on.png" class="recharge-item-btn-active" catchtap="add"></image>
         <image src="/assets/images/me/add.png" class="recharge-item-btn-normal" catchtap="add"></image>
     </view>
+  </view>
+  <image bindtap="recharge" src="/assets/images/me/comfirm_btn.png" class="center_confirm_button fxrm"></image>
+  <!-- <label class="f14 khaki recharge-bz">* 充值成功后不支持线上提现及线下退款</label> -->
 </view>
-<image bindtap="recharge" src="/assets/images/me/comfirm_btn.png" class="center_confirm_button fxrm"></image>
-<label class="f14 khaki recharge-bz">* 充值成功后不支持线上提现及线下退款</label>
