@@ -6,7 +6,7 @@
           <view class='good-info fxcb'>
             <text class='title text-ellipsis-line'>{{item.goodsName}}</text>
             <view>
-              <text class='price'>￥{{item.channelFee}}</text>
+              <text class='price'>￥{{item.channelFee+item.accessFee}}</text>
               <text class='decoration' wx:if="{{classType==102}}">￥{{item.marketFee}}</text>
             </view>
           </view>

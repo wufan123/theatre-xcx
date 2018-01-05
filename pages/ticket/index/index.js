@@ -116,6 +116,14 @@ Page({
         filmRest.getSeat(featureAppNo, success => {
             modalUtil.hideLoadingToast();
             this.data.selectSeats = success
+            this.data.selectSeats._saleSeatInfos = []
+            this.data.selectSeats.seatinfos.seat.forEach(row => {
+                row.forEach(col => {
+                  if (col.SeatState == 0) {
+                    this.data.selectSeats._saleSeatInfos.push(col)
+                  }
+                })
+            })
             this.setData(this.data)
             this.checkOrder(this.data.selectSeats)
         }, error => {
@@ -153,12 +161,20 @@ Page({
 
     // 数量
     subtract: function () {
-        this.data.filmPlan.count = this.data.filmPlan.count - 1;
-        this.data.filmPlan.count = this.data.filmPlan.count > 0 ? this.data.filmPlan.count : 0
-        this.setData(this.data)
+        this.setSelectCount(this.data.filmPlan.count-1)
     },
     add: function () {
-        this.data.filmPlan.count = Number(this.data.filmPlan.count) + 1
+        this.setSelectCount(this.data.filmPlan.count+1)
+    },
+    bindAmountInput: function(e) {
+        this.setSelectCount(e.detail.value)
+    },
+    setSelectCount: function(count) {
+        if (count < 0) {
+            count = 0
+        }
+        let saleCount = this.data.selectSeats._saleSeatInfos.length;
+        this.data.filmPlan.count = count > saleCount ? saleCount : count
         this.setData(this.data)
     },
     // 营业日期选择
@@ -179,23 +195,11 @@ Page({
             modalUtil.showFailToast('数量必须大于0');
             return;
         }
-        if (!this.data.selectSeats || !this.data.selectSeats.seatinfos) {
+        if (!this.data.selectSeats || !this.data.selectSeats._saleSeatInfos || this.data.selectSeats._saleSeatInfos.length == 0) {
           modalUtil.showFailToast('已售罄');
           return;
         }
-        let seat = [];
-        this.data.selectSeats.seatinfos.seat.forEach(row => {
-          row.forEach(col => {
-            if (col.SeatState == 0) {
-              seat.push(col)
-            }
-          })
-        })
-        if (seat.length == 0) {
-            modalUtil.showFailToast('已售罄');
-            return;
-        }
-        if(seat.length < this.data.filmPlan.count){
+        if(this.data.selectSeats._saleSeatInfos.length < this.data.filmPlan.count){
             modalUtil.showFailToast('余票不足');
             return;
         }
@@ -205,7 +209,7 @@ Page({
             return;
         }
 
-        let selectedSeat = seat.slice(0, this.data.filmPlan.count)
+        let selectedSeat = this.data.selectSeats._saleSeatInfos.slice(0, this.data.filmPlan.count)
         let seatIntroduce = [], datas = []
         selectedSeat.forEach(e => {
             seatIntroduce.push(e.SeatRow + '排' + e.SeatCol + '座')
