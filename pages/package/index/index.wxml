@@ -4,7 +4,7 @@
         <view class='good-card-body fxrbm'>
           <image src='{{item.imgs[0]}}' class='good-img' mode="aspectFill"> </image>
           <view class='good-info fxcb'>
-            <text class='title text-ellipsis-line'>{{item.packageName}}阿三发射点发射点发射点发射点发</text>
+            <text class='title text-ellipsis-line'>{{item.packageName}}</text>
             <view>
               <text class='price'>￥{{item.price}}</text>
               <!-- <text class='decoration'>￥{{item.showPrice}}</text> -->

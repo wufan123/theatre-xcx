@@ -5,7 +5,7 @@
         <view class='shade' wx:if="{{item.stock==0}}"></view>
         <view class='body '>
           <text class='f20 khaki bold text-ellipsis-line'>{{item.packageName}}</text>
-          <text class='text-ellipsis-line'>{{item.detail}}</text>
+          <text class='text-ellipsis-line'>{{item.converKnows}}</text>
           <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
         </view>
         <view class='info fxcm' bindtap="submit" data-detail="{{item}}">

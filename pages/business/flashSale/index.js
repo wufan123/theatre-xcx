@@ -8,11 +8,13 @@ Page({
     buyingDetail: null
   },
   onLoad: function (e) {
-    this.loadList()
+    this.loadList(true)
   },
   // 刷新列表
-  loadList: function() {
-    modalUtil.showLoadingToast()
+  loadList: function(loading) {
+    if (loading) {
+      modalUtil.showLoadingToast()
+    }
     theatreRest.getPackageList(202, success => {
       modalUtil.hideLoadingToast()
       this.data.dataList = success
@@ -59,6 +61,7 @@ Page({
         })
         this.setData(this.data)
       }
+      theatreRest.getPackageList(202)
       modalUtil.hideLoadingToast()
       modalUtil.showMsgModal('抢购成功')
     }, error => {
