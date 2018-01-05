@@ -87,6 +87,12 @@ Page({
       url: '../business/localProduct/localProduct?classType='+e.currentTarget.id,
     })
   },
+  // 跳转我的优惠券
+  seeCardClick: function () {
+    wx.navigateTo({
+      url: '/pages/me/coupon/index/index'
+    })
+  },
   onShareAppMessage: function () {
     let path = '/pages/index/index';
     let phone = app.getUserInfo(false).bindmobile

@@ -30,3 +30,5 @@
 
 .go-buy{position: absolute;right: 60rpx;bottom: 40rpx;padding: 6rpx 20rpx;line-height:40rpx;}
 .go-buy::before{border-color: #1b2a3d;}
+
+.convert-img{width: 269rpx;height: 61rpx;}
