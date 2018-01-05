@@ -39,9 +39,9 @@
         <view class='cell-line center mb10'>
           <view class="btn" bindtap="makeCall">联系客服</view>
         </view>
-        <view class='cell-line fxcb mb10'>
+        <view class='cell-line fxcb mb10' wx:if='{{ruleConfig}}'>
           <view class='center mb10 title'><image src="/assets/images/me/use_sm_title_bg.png"></image></view>
-          <text>本票售出不退，请至少提前30分钟凭此二维码取票入场 12月2日至12月31日，所购每份正价戏票中均包含咖啡一份，领票时即可兑换</text>
+          <text>{{ruleConfig}}</text>
         </view>
     </view>
   </view>

@@ -1,4 +1,5 @@
 const orderRest = require('../../../../rest/orderRest')
+const theatreRest = require('../../../../rest/theatreRest')
 const timeUtil = require('../../../../util/timeUtil.js')
 const jsQrcodeUtil = require('../../../../util/qrcode/wxqrcode')
 var app = getApp()
@@ -6,7 +7,8 @@ var app = getApp()
 Page({
   data: {
     orderDetail: null,
-    qrcodeImg: ''
+    qrcodeImg: '',
+    ruleConfig: ''
   },
   onLoad: function (options) {
     orderRest.getGoodsOrderDetail(options.orderNo, success => {
@@ -16,6 +18,14 @@ Page({
       this.generateQRCode(success.qrCode)
     }, error => {
 
+    })
+
+    // 规则说明
+    theatreRest.getMiscConfig('goods_order_info', success => {
+      if (success && success.length > 0) {
+        this.data.ruleConfig = success[0].miscVal
+        this.setData(this.data)
+      }
     })
   },
   // 生成二维码

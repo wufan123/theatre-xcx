@@ -1,4 +1,5 @@
 const orderRest = require('../../../../rest/orderRest')
+const theatreRest = require('../../../../rest/theatreRest')
 const timeUtil = require('../../../../util/timeUtil.js')
 const jsQrcodeUtil = require('../../../../util/qrcode/wxqrcode')
 var app = getApp()
@@ -8,14 +9,10 @@ Page({
     orderInfo: null,
     orderDetail: null,
     orderFilmDetail: null,
-    qrcodeImg: ''
+    qrcodeImg: '',
+    ruleConfig: ''
   },
   onLoad: function (option) {
-    // this.data.orderInfo = JSON.parse(option.info)
-    // this.data.orderInfo._startTime = timeUtil.formatTimeByStamp(this.data.orderInfo.startTime, 'MM月dd日 HH:mm')
-    // this.setData(this.data)
-    // this.generateQRCode(this.data.orderInfo.verifyCode)
-    // console.log(this.data)
     orderRest.getCinemaOrderInfo(option.orderId, success => {
       this.data.orderDetail = success
       this.data.orderDetail._price = parseFloat(this.data.orderDetail.film.price)
@@ -37,6 +34,14 @@ Page({
       this.generateQRCode(success.qrCode)
     }, error => {
 
+    })
+
+    // 规则说明
+    theatreRest.getMiscConfig('show_order_info', success => {
+      if (success && success.length > 0) {
+        this.data.ruleConfig = success[0].miscVal
+        this.setData(this.data)
+      }
     })
   },
   // 生成二维码

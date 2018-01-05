@@ -72,6 +72,20 @@ function finishPromotion(toer, orderId, success_cb, fail_cb) {
     }, success_cb, fail_cb)
 }
 
+/**
+ * 页面配置信息
+ * @param {*} miscKey 
+ * @param {*} success_cb 
+ * @param {*} fail_cb 
+ */
+function getMiscConfig(miscKey, success_cb, fail_cb) {
+    let params = {}
+    if (miscKey) {
+        params.miscKey = miscKey
+    }
+    httpRest.getTheatreRequest("/miscConfig/list", params, success_cb, fail_cb)
+}
+
 module.exports = {
     getClassList: getClassList,
     getGoodsList: getGoodsList,
@@ -79,4 +93,5 @@ module.exports = {
     getInformationList: getInformationList,
     loginPromotion: loginPromotion,
     finishPromotion: finishPromotion,
+    getMiscConfig: getMiscConfig,
 }
