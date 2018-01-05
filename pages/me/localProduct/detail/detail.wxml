@@ -25,15 +25,13 @@
             <text>{{item.goodsName}}</text>
             <text>x {{item.number}}</text>
           </view>
-          <!-- <view class='fxrb line'>
-            <text class="f12">总价 </text>
-            <text>￥228.00</text> </view>
           <view class='fxrb line'>
-            <text>立减券 </text>
-            <text class="red">-￥30.00</text> </view> -->
+            <text class="f12">总价</text><text>￥{{orderPayInfo.totalPrice}}</text> </view>
+          <view class='fxrb line' wx:for="{{orderPayInfo.payInfo}}">
+            <text>{{item.name}}</text><text class="red">￥{{item.money}}</text> </view>
           <view class='fxrb line f15'>
-            <text>实付款 </text>
-            <text class="red">￥{{orderDetail.price}}</text> </view>
+            <text>实付款</text>
+            <text class="red">￥{{orderPayInfo.realPrice}}</text> </view>
         </view>
     
         <view class='cell-line center mb10'>

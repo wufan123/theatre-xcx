@@ -7,6 +7,7 @@ var app = getApp()
 Page({
   data: {
     orderDetail: null,
+    orderPayInfo: null,
     qrcodeImg: '',
     ruleConfig: ''
   },
@@ -16,6 +17,13 @@ Page({
       this.data.orderDetail._downTime = timeUtil.formatTimeByStamp(this.data.orderDetail.downTime, 'yyyy-MM-dd HH:mm:ss')
       this.setData(this.data)
       this.generateQRCode(success.qrCode)
+      // 支付信息
+      orderRest.getOrderPayInfo(success.orderId, 'goods', success => {
+        this.data.orderPayInfo = success
+        this.setData(this.data)
+      }, error => {
+
+      })
     }, error => {
 
     })
