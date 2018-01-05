@@ -7,7 +7,8 @@ Page({
     data: {
         goodsList: [],
         orderId: '',
-        bottomTxt: '不选了，直接下单购票'
+        bottomTxt: '不选了，直接下单购票',
+        destoryCancelOrder: true
     },
     onLoad: function (option) {
         this.data.orderId = option.orderId;
@@ -18,6 +19,14 @@ Page({
         }, res => {
             console.log(res)
         })
+    },
+    onUnload: function () {
+        // 如果不是跳转到取人界面，取消订单
+        if (this.data.destoryCancelOrder) {
+            orderRest.cancelOrder(this.data.orderId, res => {
+                console.log(res)
+            });
+        }
     },
     addQuatity: function (e) {
         var goods = this.data.goodsList[e.currentTarget.dataset.index];
@@ -41,6 +50,14 @@ Page({
         this.data.bottomTxt = count>0?"下一步（￥"+count+"）":"不选了，直接下单购票"
         this.setData(this.data);
     },
+    // 跳转确认页面
+    gotoConfirm: function() {
+        this.data.destoryCancelOrder = false
+        this.setData(this.data)
+        wx.redirectTo({
+            url: '../confirm/confirm?orderId=' + this.data.orderId
+        });
+    },
     confirm: function() {
         var goodsStr = "";
         for (var i = 0; i < this.data.goodsList.length; i++) {
@@ -53,9 +70,7 @@ Page({
             }
         }
         if (goodsStr.length == 0) {
-            wx.redirectTo({
-                url: '../confirm/confirm?orderId=' + this.data.orderId
-            });
+            this.gotoConfirm();
             return;
         }
         let bindmobile = app.getUserInfo(true).bindmobile;
@@ -65,9 +80,7 @@ Page({
         modalUtil.showLoadingToast()
         storeRest.createGoodsFilmOrder(app.globalData.cinemaCode, bindmobile, goodsStr, this.data.orderId, res => {
             orderRest.mergeOrder(this.data.orderId, res, bindmobile, res => {
-                wx.redirectTo({
-                    url: '../confirm/confirm?orderId=' + this.data.orderId
-                });
+                this.gotoConfirm();
             }, res => {
                 modalUtils.showWarnToast(res.text);
             });

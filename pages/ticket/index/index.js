@@ -148,10 +148,8 @@ Page({
                     } else {
                         modalUtil.showLoadingToast('正在取消订单');
                         orderRest.cancelOrder(seatInfo.hasOrder, res => {
-                            setTimeout(() => {
-                                modalUtil.hideLoadingToast();
-                                modalUtil.showSuccessToast('订单取消成功');
-                            }, 8000);
+                            modalUtil.hideLoadingToast();
+                            modalUtil.showSuccessToast('订单取消成功');
                         });
                     }
                 }

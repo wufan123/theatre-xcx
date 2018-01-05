@@ -18,6 +18,7 @@ Page({
         isUseCard: false,
         oldPhone: null,
         clearTime: null,
+        destoryCancelOrder: true,
 
         goodsCouponList: [],
         filmCouponList: [],
@@ -284,6 +285,8 @@ Page({
      * 去支付
      */
     gotoOrderPay: function (payLockInfo) {
+        this.data.destoryCancelOrder = false
+        this.setData(this.data)
         var orderId = this.data.orderDetail.orderId
         var orderType = this.data.orderDetail.orderType
         if (payLockInfo && payLockInfo.price == 0) {
@@ -306,5 +309,11 @@ Page({
     },
     onUnload: function () {
         clearInterval(this.data.clearTime)
+        // 如果不是跳转到支付界面，取消订单
+        if (this.data.destoryCancelOrder) {
+            orderRest.cancelOrder(this.data.orderDetail.orderId, res => {
+                console.log(res)
+            });
+        }
     }
 })
