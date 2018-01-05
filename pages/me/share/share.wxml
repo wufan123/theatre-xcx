@@ -34,19 +34,17 @@
 <view class='page'>
   <view class='body'>
     <template is="shareDialog" wx:if="{{isShare}}"></template>
-    <view class='content'>
+    <view class='content fxcbm'>
       <image src='/assets/images/me/bag.png' class='bag-icon'></image>
-      <view>邀请好友注册，您好友</view>
-      <view class='f20 mb20'>获得￥30优惠券</view>
-      <!-- <view class='btn' bindtap="goShare">立即邀请</view> -->
-      <button class="share-btn" open-type="share">立即邀请</button>
+      <view wx:if='{{titleConfig}}'>{{titleConfig}}</view>
+      <view wx:if='{{titleConfig}}' class='f20'>{{subtitleConfig}}</view>
+      <button class="share-btn mt20" open-type="share">立即邀请</button>
     </view>
-    <view class='warn'>
+    <view class='warn' wx:if='{{ruleConfig}}'>
       <view class='title'>
         <image class='bg' src='/assets/images/me/share_title_bg.png'></image>
       </view>
-      <view class='body'>通过您分享的链接,或扫描您分享二维码而进行注册的用户，即可获得30元观剧优惠券，使用优惠券可以抵等值的购票款（特价票除外）。
-      </view>
+      <view class='body'><text>{{ruleConfig}}</text></view>
     </view>
 
 
