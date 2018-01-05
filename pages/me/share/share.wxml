@@ -37,7 +37,7 @@
     <view class='content fxcbm'>
       <image src='/assets/images/me/bag.png' class='bag-icon'></image>
       <view wx:if='{{titleConfig}}'>{{titleConfig}}</view>
-      <view wx:if='{{titleConfig}}' class='f20'>{{subtitleConfig}}</view>
+      <view wx:if='{{subtitleConfig}}' class='f20'>{{subtitleConfig}}</view>
       <button class="share-btn mt20" open-type="share">立即邀请</button>
     </view>
     <view class='warn' wx:if='{{ruleConfig}}'>
