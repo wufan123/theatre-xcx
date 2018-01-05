@@ -9,7 +9,7 @@ Page({
     card: {}
   },
   onLoad: function (options) {
-    var card = JSON.parse(options.info);
+    var card = app.getPageData()
     this.data.card = card
     this.setData(this.data)
   },

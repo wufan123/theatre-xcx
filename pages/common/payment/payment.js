@@ -37,7 +37,7 @@ Page({
   },
   onLoad: function (options) {
     var orderId = options.orderId
-    var payLockInfo = JSON.parse(options.info)
+    var payLockInfo = app.getPageData()
     this.data.orderId = orderId
     this.data.orderType = options.orderType
     this.setPayLockInfo(payLockInfo)

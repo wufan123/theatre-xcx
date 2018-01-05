@@ -92,9 +92,9 @@ Page({
     },
     // 选择优惠券按钮
     selectCoupon: function () {
-        let info = JSON.stringify(this.data.couponList)
+        app.setPageData(this.data.couponList)
         wx.navigateTo({
-            url: '/pages/common/selectCoupon/index?info=' + info
+            url: '/pages/common/selectCoupon/index?pageData=1'
         })
     },
     getSelectCouponStr: function () {
@@ -181,9 +181,9 @@ Page({
         if (payLockInfo && payLockInfo.price == 0) {
             this.requestGoodsAndFilmComfirmNewPay(orderId, orderType)
         } else {
-            var info = JSON.stringify(payLockInfo)
+            app.setPageData(payLockInfo)
             wx.redirectTo({
-                url: '/pages/common/payment/payment?orderId=' + orderId + "&orderType=" + orderType + "&info=" + info
+                url: '/pages/common/payment/payment?orderId=' + orderId + "&orderType=" + orderType + "&pageData=1"
             })
         }
 

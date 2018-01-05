@@ -1,9 +1,13 @@
+var app = getApp()
+
 Page({
   data: {
     cardList:[]
   },
   onLoad: function (e) {
-    this.data.cardList = JSON.parse(e.info)
+    if (e.pageData==1) {
+      this.data.cardList = app.getPageData()
+    }
     this.setData(this.data)
   },
   selectClick: function(e) {

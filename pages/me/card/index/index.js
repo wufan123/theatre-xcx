@@ -66,8 +66,9 @@ Page({
       this.setData(this.data)
     },
     recharge: function (e) {
+      app.setPageData(e.currentTarget.dataset.card)
       wx.navigateTo({
-        url: '../recharge/recharge?info='+JSON.stringify(e.currentTarget.dataset.card),
+        url: '../recharge/recharge?pageData=1',
       })
     },
     onLoad() {

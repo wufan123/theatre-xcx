@@ -42,8 +42,9 @@ Page({
             console.log('not found coupon.')
             return;
         }
+        app.setPageData(coupon)
         wx.navigateTo({
-          url: '/pages/me/coupon/detail/detail?info=' + JSON.stringify(coupon)
+          url: '/pages/me/coupon/detail/detail?pageData=1'
         })
     },
 

@@ -2,6 +2,7 @@
  * 选择优惠券
  */
 const timeUtil = require('../../../util/timeUtil')
+var app = getApp()
 Page({
   data: {
     couponList:[],
@@ -10,7 +11,9 @@ Page({
     voucherType: null
   },
   onLoad: function (e) {
-    this.data.couponList = JSON.parse(e.info)
+    if (e.pageData==1) {
+      this.data.couponList = app.getPageData()
+    }
     if (e.seatCount) {
       this.data.seatCount = e.seatCount
     }

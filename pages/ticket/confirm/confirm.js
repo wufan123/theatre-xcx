@@ -189,18 +189,18 @@ Page({
     selectGoodsCoupon: function () {
         this.data.selectType = 'goods'
         this.setData(this.data)
-        let info = JSON.stringify(this.data.goodsCouponList)
+        app.setPageData(this.data.goodsCouponList)
         wx.navigateTo({
-            url: '/pages/common/selectCoupon/index?info=' + info
+            url: '/pages/common/selectCoupon/index?pageData=1'
         })
     },
     // 选择影票优惠券点击
     selectFilmCoupon: function () {
         this.data.selectType = 'film'
         this.setData(this.data)
-        let info = JSON.stringify(this.data.filmCouponList)
+        app.setPageData(this.data.filmCouponList)
         wx.navigateTo({
-            url: '/pages/common/selectCoupon/index?info=' + info + '&seatCount=' + this.data.orderInfo.film.seatCount
+            url: '/pages/common/selectCoupon/index?pageData=1&seatCount=' + this.data.orderInfo.film.seatCount
         })
     },
     getSelectCouponStr: function () {
@@ -227,9 +227,9 @@ Page({
     },
     // 选择会员卡点击
     selectUseCard: function() {
-        let info = JSON.stringify(this.data.memberCardList)
+        app.setPageData(this.data.memberCardList)
         wx.navigateTo({
-            url: '/pages/common/selectCard/index?info=' + info
+            url: '/pages/common/selectCard/index?pageData=1'
         })
     },
     setOrderPhone: function (event) {
@@ -292,9 +292,9 @@ Page({
         if (payLockInfo && payLockInfo.price == 0) {
             this.requestGoodsAndFilmComfirmNewPay(orderId, orderType)
         } else {
-            var info = JSON.stringify(payLockInfo)
+            app.setPageData(payLockInfo)
             wx.redirectTo({
-                url: '/pages/common/payment/payment?orderId=' + orderId + "&orderType=" + orderType + "&info=" + info
+                url: '/pages/common/payment/payment?orderId=' + orderId + "&orderType=" + orderType + "&pageData=1"
             })
         }
 

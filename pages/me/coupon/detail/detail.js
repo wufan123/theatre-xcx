@@ -8,7 +8,7 @@ Page({
     coupon: null
   },
   onLoad: function (options) {
-    var coupon = JSON.parse(options.info);
+    var coupon = app.getPageData()
     this.setData({
       coupon: coupon
     });

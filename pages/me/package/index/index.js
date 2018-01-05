@@ -1,5 +1,6 @@
 const orderRest = require('../../../../rest/orderRest')
 const modalUtil = require('../../../../util/modalUtil.js')
+var app = getApp()
 
 Page({
   data: {
@@ -16,10 +17,9 @@ Page({
     })
   },
   Detail: function (e) {
-    let order = e.currentTarget.dataset.order
-    var info = JSON.stringify(order)
+    app.setPageData(e.currentTarget.dataset.order)
     wx.navigateTo({
-      url: '../detail/detail?info='+info,
+      url: '../detail/detail?pageData=1'
     })
   }
 })

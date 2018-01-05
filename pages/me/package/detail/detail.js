@@ -8,7 +8,7 @@ Page({
     ruleConfig: ''
   },
   onLoad: function (options) {
-    this.data.order = JSON.parse(options.info);
+    this.data.order = app.getPageData()
     this.data.order._downTime = timeUtil.formatTimeByStamp(this.data.order.downTime, 'yyyy-MM-dd HH:mm:ss')
     this.setData(this.data)
 

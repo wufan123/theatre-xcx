@@ -22,6 +22,7 @@ App({
     promoter: null, // 推广人手机号
     promotionType: 1,
 
+    pageData: null, // 存放页面参数（有一些需要传递大量的数据，uri有长度限制）
   },
   setTokenId: function (tokenId) {
     this.globalData.tokenId = tokenId
@@ -83,7 +84,12 @@ App({
   setCanUseCouponNum: function(num){
     this.globalData.canUseCouponNum = num;
   },
-
+  setPageData: function (pageData) {
+    this.globalData.pageData = pageData
+  },
+  getPageData: function() {
+    return this.globalData.pageData
+  },
   // 记录推广信息（点击进入）
   recordPromotion: function(promoter, type) {
     this.globalData.promoter = promoter;
