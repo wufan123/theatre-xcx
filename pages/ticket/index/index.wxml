@@ -1,3 +1,4 @@
+<wxs src="./index.wxs" module="module"></wxs>
 <view class='page'>
   <view class='body'>
      <template is="filmDetail" data="{{...filmDetail}}"></template> 
@@ -40,14 +41,6 @@
 
 <template is="filmPlan" wx:if="{{filmDetail.showPlan}}" data="{{...filmPlan}}"></template>
 <template name="filmPlan">
-  <wxs module="mPlan">
-    var tool = require("../../../wxs/tool.wxs")
-    var planDate = function(item) {
-      console.log(item.startTime)
-      return item.instr + " " + tool.formatDate(getDate(item.startTime*1000), "MM.dd")
-    }
-    module.exports.planDate = planDate
-  </wxs>
   <view class="plan-bg" catchtap="hidePlan">
     <view class="plan-content" catchtap="emptyBtn">
       <view class="plan-line">
@@ -55,7 +48,7 @@
         <scroll-view scroll-x>
           <view class="plan-scroll">
             <view wx:for="{{ timeList }}" wx:for-item="item" wx:key="time" id="{{item.time}}" class="plan-item fxrm {{timeSelected==item.time?'selected':''}}" bindtap="selectTime">
-              <text>{{mPlan.planDate(item)}}</text>
+              <text>{{module.formatPlanDate(item)}}</text>
             </view>
           </view>
         </scroll-view>

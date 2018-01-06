@@ -1,0 +1,11 @@
+// 界面逻辑
+var tool = require("../../../wxs/tool.wxs")
+
+// 排期时间格式化
+var formatPlanDate = function(item) {
+  return item.instr + " " + tool.formatDate(getDate(item.startTime*1000), "MM.dd")
+}
+
+module.exports = {
+    formatPlanDate: formatPlanDate
+}
