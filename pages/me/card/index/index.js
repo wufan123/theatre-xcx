@@ -4,7 +4,7 @@ const timeUtil = require('../../../../util/timeUtil.js')
 const app = getApp()
 Page({
     data: {
-        cardList: null
+        cardList: []
     },
     onLoad: function (e) {
     },

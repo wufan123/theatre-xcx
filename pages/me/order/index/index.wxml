@@ -15,3 +15,7 @@
     <text wx:if="{{item.status==9}}">已退票</text>
   </view>
 </view>
+<view class="no-card fxcbm" wx:if="{{dataList.length===0}}">
+  <image src='/assets/images/me/no_data.png' class="no-data-img"></image>
+  当前无任何订单
+</view>
