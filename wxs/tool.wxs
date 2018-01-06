@@ -1,0 +1,27 @@
+// 界面工具函数
+
+// 时间格式化
+function formatDate(date, fmt) {
+    if (!date || !fmt) return null
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+    var hour = date.getHours()
+    var minute = date.getMinutes()
+    var second = date.getSeconds()
+    return fmt.replace("yyyy", year)
+            .replace("yy", (year + "").substring(2))
+            .replace("MM", month < 10 ? "0" + month : month)
+            .replace("M", month)
+            .replace("dd", day < 10 ? "0" + day : day)
+            .replace("d", day)
+            .replace("hh", hour < 10 ? "0" + hour : hour)
+            .replace("h", hour)
+            .replace("mm", minute < 10 ? "0" + minute : minute)
+            .replace("m", minute)
+            .replace("ss", minute < 10 ? "0" + minute : minute)
+            .replace("s", minute)
+  }
+module.exports = {
+    formatDate: formatDate,
+};

@@ -52,9 +52,6 @@ Page({
             cinemaCode: app.globalData.cinemaCode
         }
         planRest.getTimes(params, res => {
-            res.forEach(item => {
-                item._instr = item.instr+' '+timeUtil.formatTimeByStamp(item.startTime, "MM.dd")
-            })
             this.data.filmPlan.timeList = res;
             this.setData(this.data)
             if (res.length > 0) {
@@ -157,7 +154,7 @@ Page({
         }
     },
 
-    // 数量
+    // 购买数量
     subtract: function () {
         this.setSelectCount(this.data.filmPlan.count-1)
     },
