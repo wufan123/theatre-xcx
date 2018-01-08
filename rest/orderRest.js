@@ -36,8 +36,8 @@ function getOrderPayInfo(orderId, orderType, success_cb, fail_cb) {
 }
 
 // 卖品订单列表
-function getGoodsOrderList(success_cb, fail_cb) {
-  httpRest.getRequest("/sale/getMyGoods", {}, success_cb, fail_cb)
+function getGoodsOrderList(page, success_cb, fail_cb) {
+  httpRest.getRequest("/sale/getMyGoods", {page: page}, success_cb, fail_cb)
 }
 
 // 卖品订单详情

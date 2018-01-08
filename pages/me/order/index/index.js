@@ -15,14 +15,14 @@ Page({
     modalUtil.showLoadingToast()
     orderRest.getAllMoiveOrder(null, this.data.page, success => {
       modalUtil.hideLoadingToast()
+      if (!success || success.length <= 0) {
+        this.data.canReachBottom = false
+        return;
+      }
       success.forEach(item => {
         this.data.dataList.push(item);
       })
-      if (success.length > 0) {
-        this.data.canReachBottom = true
-      } else {
-        this.data.canReachBottom = false
-      }
+      this.data.canReachBottom = true
       this.setData(this.data)
     }, error => {
       modalUtil.hideLoadingToast()
@@ -30,7 +30,6 @@ Page({
   },
   // 触底加载
   onReachBottom: function() {
-    console.log("onReachBottom")
     if (!this.data.canReachBottom) {
       return;
     }
