@@ -38,13 +38,13 @@ Page({
       curreyTab: e.target.dataset.currey
     });
   },
-  confirmLogin: function (params) {
+  confirmLogin: function () {
     var that = this;
     var warn = ''
     if (!inputUtil.validatePhoneNum(this.data.phoneNum, true))
       return 0;
 
-    if (!this.data.phonePw || !this.data.phonePw.trim()) {
+    if (!this.data.phoneCode || !this.data.phoneCode.trim()) {
       warn = "请输入密码";
       modalUtils.showWarnToast(warn);
       return;
@@ -52,15 +52,14 @@ Page({
     modalUtils.showLoadingToast('登录中')
 
     //账号登陆
-    userRest.login(this.data.phoneNum, this.data.phonePw, function (params) {
-      app.setUserInfo(params);
-      app.setUserAccount(that.data.phoneNum, that.data.phonePw);
+    userRest.login(this.data.phoneNum, this.data.phoneCode, function (res) {
+      app.setUserInfo(res);
+      app.setUserAccount();
       app.loginPromotion();
       modalUtils.hideLoadingToast()
       wx.navigateBack({
-        // delta: 2
+        delta: 2
       });
-
     })
     if (!app.getOpenId())
       wxRest.wxLogin(app.globalData.cinemaCode)
@@ -112,7 +111,6 @@ Page({
         wx.navigateBack({
           delta: 2
         });
-
       }
     );
     if (!app.getOpenId())

@@ -1,3 +1,15 @@
+<wxs module="ModuleOrder">
+  var getStatus = function(status) {
+    if (status==0||status==6||status==26) {
+      return 0; // 未支付
+    } else if (status==9) {
+      return 2; // 已退款
+    } else {
+      return 1; // 已支付
+    }
+  }
+  module.exports.getStatus = getStatus
+</wxs>
 <view class="page">
   <view class='body'>
     <image class="ticket-bg" src="{{orderDetail.film.image}}" mode="aspectFill"></image>
@@ -33,14 +45,14 @@
           </view>
           <view class='fxrb line'>
             <text class="f12">总价</text><text>￥{{orderPayInfo.totalPrice}}</text> </view>
-          <view class='fxrb line' wx:for="{{orderPayInfo.payInfo}}">
-            <text>{{item.name}}</text><text class="red">￥{{item.money}}</text> </view>
-          <view class='fxrb line f15'>
+            <view wx:if="{{ModuleOrder.getStatus(orderFilmDetail.status) != 0}}" class='fxrb line' wx:for="{{orderPayInfo.payInfo}}">
+              <text>{{item.name}}</text><text class="red">￥{{item.money}}</text> </view>
+            <view class='fxrb line f15'>
             <!-- <text>实付款 </text> -->
-            <text wx:if="{{orderFilmDetail.status==0||orderFilmDetail.status==6||orderFilmDetail.status==26}}" class="red">未支付</text>
-            <text wx:elif="{{orderFilmDetail.status==9}}" class="red">已退款</text>
+            <text wx:if="{{ModuleOrder.getStatus(orderFilmDetail.status) == 0}}" class="red">未支付</text>
+            <text wx:elif="{{ModuleOrder.getStatus(orderFilmDetail.status) == 2}}" class="red">已退款</text>
             <text wx:else>实付款</text>
-            <text wx:if="{{orderFilmDetail.status==0||orderFilmDetail.status==6||orderFilmDetail.status==26}}" class="red">￥{{orderPayInfo.totalPrice}}</text>
+            <text wx:if="{{ModuleOrder.getStatus(orderFilmDetail.status) == 0}}" class="red">￥{{orderPayInfo.totalPrice}}</text>
             <text wx:else class="red">￥{{orderPayInfo.realPrice}}</text>
           </view>
         </view>
