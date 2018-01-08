@@ -1,5 +1,6 @@
 const filmRest = require('../../../rest/filmRest.js')
 const planRest = require('../../../rest/planRest.js')
+const theatreRest = require('../../../rest/theatreRest.js')
 const orderRest = require('../../../rest/orderRest.js')
 const modalUtil = require('../../../util/modalUtil.js')
 const timeUtil = require('../../../util/timeUtil.js')
@@ -20,6 +21,7 @@ Page({
         },
         bottomTxt: '马上购买',
         selectSeats: null, // 选中排期座位信息
+        maxPurchase: 4, // 最大购票数量
     },
     onLoad: function (option) {
         console.log(option)
@@ -28,6 +30,13 @@ Page({
             app.recordPromotion(option.promoter, option.type)
         }
         this.loadFilmTime();
+        // 购票限制
+        theatreRest.getMiscConfig('ticket_max_purchase', success => {
+            if (success && success.length > 0) {
+                this.data.maxPurchase = Number(success[0].miscVal)
+                this.setData(this.data)
+            }
+        })
     },
     confirm: function(e) {
         if (!this.data.filmDetail.showPlan) {
@@ -168,8 +177,7 @@ Page({
         if (count < 0) {
             count = 0
         }
-        let saleCount = this.data.selectSeats._saleSeatInfos.length;
-        this.data.filmPlan.count = count > saleCount ? saleCount : count
+        this.data.filmPlan.count = count > this.data.maxPurchase ? this.data.maxPurchase : count
         this.setData(this.data)
     },
     // 营业日期选择
