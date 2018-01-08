@@ -7,11 +7,19 @@ Page({
     dataList: []
   },
   onLoad: function (options) {
+    this.requestOrderList()
+  },
+  // 获取数据
+  requestOrderList: function() {
     modalUtil.showLoadingToast()
     orderRest.getPackageOrderList(success => {
-      modalUtil.hideLoadingToast()
-      this.data.dataList = success
+      success.forEach(item => {
+        if (item.price>0) {
+          this.data.dataList.push(item);
+        }
+      })
       this.setData(this.data)
+      modalUtil.hideLoadingToast()
     }, error => {
       modalUtil.hideLoadingToast()
     })
