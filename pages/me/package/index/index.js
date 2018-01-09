@@ -4,7 +4,8 @@ var app = getApp()
 
 Page({
   data: {
-    dataList: []
+    dataList: [],
+    showNoMore: false
   },
   onLoad: function (options) {
     this.requestOrderList()
@@ -18,6 +19,7 @@ Page({
           this.data.dataList.push(item);
         }
       })
+      this.data.showNoMore = true
       this.setData(this.data)
       modalUtil.hideLoadingToast()
     }, error => {

@@ -17,6 +17,7 @@ Page({
       modalUtil.hideLoadingToast()
       if (!success || success.length <= 0) {
         this.data.canReachBottom = false
+        this.setData(this.data)
         return;
       }
       success.forEach(item => {
