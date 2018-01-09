@@ -4,6 +4,7 @@ const theatreRest = require('../../../rest/theatreRest.js')
 const orderRest = require('../../../rest/orderRest.js')
 const modalUtil = require('../../../util/modalUtil.js')
 const timeUtil = require('../../../util/timeUtil.js')
+const urlUtil = require('../../../util/urlUtil.js')
 var app = getApp();
 Page({
     data: {
@@ -26,8 +27,12 @@ Page({
     onLoad: function (option) {
         console.log(option)
         // 记录推广信息
-        if (option.promoter) {
-            app.recordPromotion(option.promoter, option.type)
+        // if (option.promoter) {
+        //     app.recordPromotion(option.promoter, option.type)
+        // }
+        if (option.q) {
+          let promoteInfo = urlUtil.getSearchParams(unescape(option.q))
+          console.log(promoteInfo)
         }
         this.loadFilmTime();
         // 购票限制

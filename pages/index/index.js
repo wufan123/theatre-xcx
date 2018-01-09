@@ -1,5 +1,6 @@
 //获取应用实例
 const theatreRest = require('../../rest/theatreRest.js')
+const urlUtil = require('../../util/urlUtil.js')
 var app = getApp()
 Page({
   data: {
@@ -10,8 +11,12 @@ Page({
   onLoad: function (option) {
     console.log(option)
     // 记录推广信息
-    if (option.promoter) {
-      app.recordPromotion(option.promoter, option.type)
+    // if (option.promoter) {
+    //   app.recordPromotion(option.promoter, option.type)
+    // }
+    if (option.q) {
+      let promoteInfo = urlUtil.getSearchParams(unescape(option.q))
+      console.log(promoteInfo)
     }
     // banner
     theatreRest.getInformationList(10, success => {

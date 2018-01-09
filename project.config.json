@@ -20,20 +20,24 @@
 			"current": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"game": {
 			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "用户分享推广",
 					"pathName": "pages/index/index",
-					"query": "promoter=13645017650&type=1"
+					"query": "q=%3fid%3d1"
 				},
 				{
 					"id": 1,
 					"name": "商家分享推广",
 					"pathName": "pages/ticket/index/index",
-					"query": "promoter=13645017650&type=2"
+					"query": "q=https%3a%2f%2fjufang.zmaxfilm.com%2fxcx%2fticket%2fpre%3fid%3d1"
 				}
 			]
 		}
