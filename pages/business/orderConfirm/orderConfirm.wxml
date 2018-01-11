@@ -13,7 +13,9 @@
           </view>
         </view>
       </view>
-      <view class='cell fxrbm' bindtap="selectCoupon"><text>优惠券</text><text>{{orderPayWay.saleCouponList.length}}张可用</text></view>
+      <view class='cell fxrbm' bindtap="selectCoupon" wx:if="{{couponLineStr}}">
+      <text>优惠券</text>
+      <text class='coupon-detail text-ellipsis-line'>{{couponLineStr}}</text></view>
       <view class='info fxrb f12 gray'><text>总价</text><text>￥{{orderInfo._price}}</text></view>
       <view class='info fxrb f12 gray' wx:for="{{couponListStr}}"><text>{{item.name}}</text><text>{{item.value}}</text></view>
       <view class='info fxrb'><text>实付款</text><text class='bold'>￥{{amount}}</text></view>

@@ -14,6 +14,7 @@ Page({
         amount: 0, //最后总价
         couponList: [],
         couponListStr: [],
+        couponLineStr: '',
         useCardId: null,
         goodsCouponText: '',
         filmCouponText: '',
@@ -78,11 +79,24 @@ Page({
                 this.data.amount -= useValue
                 couponListStr.push({
                     name: '卖品优惠',
-                    value: '-￥'+useValue
+                    value: '-￥'+useValue,
+                    voucherName: item.voucherName
                 })
             }
         })
         this.data.couponListStr = couponListStr
+
+        this.data.couponLineStr = ''
+        if (this.data.couponList.length>0) {
+            if (couponListStr.length == 0) {
+                this.data.couponLineStr = '共'+this.data.couponList.length+'张可用'
+            } else {
+                couponListStr.forEach(item => {
+                    if (this.data.couponLineStr) this.data.couponLineStr+','
+                    this.data.couponLineStr += item.voucherName
+                })
+            }
+        }
         this.setData(this.data)
     },
     setCouponList: function (couponList) {
