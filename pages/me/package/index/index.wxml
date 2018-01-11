@@ -1,4 +1,4 @@
-<view>
+<view wx:if="{{dataList.length>0}}">
   <view class='order' wx:for="{{dataList}}"  bindtap='Detail' data-order="{{item}}">
     <view wx:for="{{item.data}}">
       <view class='fxrb line borb'>

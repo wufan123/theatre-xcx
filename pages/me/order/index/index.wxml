@@ -1,4 +1,4 @@
-<view>
+<view wx:if="{{dataList.length>0}}">
   <view class='order' wx:for="{{dataList}}" data-order="{{item}}" bindtap='orderDetail'>
     <view class='info'>
       <image class='cover' src='{{item.filmImg}}'></image>
