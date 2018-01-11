@@ -25,15 +25,12 @@ Page({
         maxPurchase: 4, // 最大购票数量
     },
     onLoad: function (option) {
-        console.log(option)
-        // 记录推广信息
-        // if (option.promoter) {
-        //     app.recordPromotion(option.promoter, option.type)
-        // }
         if (option.q) {
-          let promoteInfo = urlUtil.getSearchParams(unescape(option.q))
-          console.log(promoteInfo)
-        }
+            let promoteInfo = urlUtil.getSearchParams(unescape(option.q))
+            if (promoteInfo) {
+              app.recordPromotion(promoteInfo.promoter, promoteInfo.type)
+            }
+          }
         this.loadFilmTime();
         // 购票限制
         theatreRest.getMiscConfig('ticket_max_purchase', success => {

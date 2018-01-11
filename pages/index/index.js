@@ -9,14 +9,11 @@ Page({
     }
   },
   onLoad: function (option) {
-    console.log(option)
-    // 记录推广信息
-    // if (option.promoter) {
-    //   app.recordPromotion(option.promoter, option.type)
-    // }
     if (option.q) {
       let promoteInfo = urlUtil.getSearchParams(unescape(option.q))
-      console.log(promoteInfo)
+      if (promoteInfo) {
+        app.recordPromotion(promoteInfo.promoter, promoteInfo.type)
+      }
     }
     // banner
     theatreRest.getInformationList(10, success => {
