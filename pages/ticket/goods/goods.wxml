@@ -8,7 +8,7 @@
               <view class='good-info fxcb'>
                 <text class='title'>{{item.goodsName}}</text>
                 <view class="fxrbm" >
-                  <text class='price'>￥{{item.showPrice}}</text>
+                  <text class='price'>￥{{item.price}}</text>
                   <view class="goods-item-quantity fxrbm">
                       <view class="subtract fxrm" mode="aspectFit" bindtap="subtractQuatity" data-index="{{index}}">-</view>
                       <em class="text-label fxrm">{{item.num?item.num:0}}</em>
