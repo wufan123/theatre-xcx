@@ -14,14 +14,18 @@ Page({
   requestOrderList: function() {
     modalUtil.showLoadingToast()
     orderRest.getPackageOrderList(success => {
+      modalUtil.hideLoadingToast()
+      this.data.showNoMore = true
+      if (!success || success.length <= 0) {
+        this.setData(this.data)
+        return;
+      }
       success.forEach(item => {
         if (item.price>0) {
           this.data.dataList.push(item);
         }
       })
-      this.data.showNoMore = true
       this.setData(this.data)
-      modalUtil.hideLoadingToast()
     }, error => {
       modalUtil.hideLoadingToast()
     })

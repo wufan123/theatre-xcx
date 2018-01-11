@@ -62,6 +62,7 @@ Page({
         let params = {
             cinemaCode: app.globalData.cinemaCode
         }
+        modalUtil.showLoadingToast()
         planRest.getTimes(params, res => {
             this.data.filmPlan.timeList = res;
             this.setData(this.data)
