@@ -21,7 +21,9 @@ Page({
         destoryCancelOrder: true,
 
         goodsCouponList: [],
+        goodsCoupinLineStr: '',
         filmCouponList: [],
+        filmCoupinLineStr: '',
         memberCardList: [],
         couponListStr: [],
         selectType: null, // 选择类型
@@ -127,6 +129,7 @@ Page({
         this.data.couponListStr = []
         if (this.data.goodsCouponList.length > 0) {
             let goodsCouponPrice = 0
+            this.data.goodsCoupinLineStr = ''
             this.data.goodsCouponList.forEach(item => {
                 if (item.checked) {
                     let amount = parseFloat(item.ticketValue)
@@ -136,14 +139,20 @@ Page({
                         name: '卖品优惠',
                         value: '-￥'+couponRet
                     })
+                    if (this.data.goodsCoupinLineStr) this.data.goodsCoupinLineStr += ','
+                    this.data.goodsCoupinLineStr += item.voucherName
                 }
             })
+            if (!this.data.goodsCoupinLineStr) {
+                this.data.goodsCoupinLineStr = '共'+this.data.goodsCouponList.length+'张可用'
+            }
             couponPrice += goodsCouponPrice;
         }
 
         if (this.data.filmCouponList.length > 0) {
             let voucherType;
             let filmCouponPrice = 0;
+            this.data.filmCoupinLineStr = ''
             this.data.filmCouponList.forEach(item => {
                 if (item.checked) {
                     voucherType = item.voucherType
@@ -158,6 +167,8 @@ Page({
                     } else {
                         filmCouponPrice++;
                     }
+                    if (this.data.filmCoupinLineStr) this.data.filmCoupinLineStr += ','
+                    this.data.filmCoupinLineStr += item.voucherName
                 }
             })
             if (voucherType == 0) {
@@ -166,8 +177,12 @@ Page({
                     name: '已兑换',
                     value: filmCouponPrice+'张票'
                 })
+                this.data.filmCoupinLineStr = '已选兑换券'+filmCouponPrice+'张'
             } else {
                 couponPrice += filmCouponPrice;
+            }
+            if (!this.data.filmCoupinLineStr) {
+                this.data.filmCoupinLineStr = '共'+this.data.filmCouponList.length+'张可用'
             }
         }
 

@@ -23,8 +23,14 @@
           </view>
         </view>
       </view>
-      <view class='cell fxrbm' wx:if="{{goodsCouponList.length>0}}" bindtap="selectGoodsCoupon"><text>卖品优惠券</text><text>{{goodsCouponList.length}}张可用</text></view>
-      <view class='cell fxrbm' wx:if="{{filmCouponList.length>0}}" bindtap="selectFilmCoupon"><text>影票优惠券</text><text>{{filmCouponList.length}}张可用</text></view>
+      <view class='cell fxrbm' wx:if="{{goodsCoupinLineStr}}" bindtap="selectGoodsCoupon">
+        <text>卖品优惠券</text>
+        <text class='coupon-detail text-ellipsis-line'>{{goodsCoupinLineStr}}</text>
+      </view>
+      <view class='cell fxrbm' wx:if="{{filmCoupinLineStr}}" bindtap="selectFilmCoupon">
+        <text>影票优惠券</text>
+        <text class='coupon-detail text-ellipsis-line'>{{filmCoupinLineStr}}</text>
+      </view>
       <view class='cell fxrbm' wx:if="{{memberCardList.length>0}}" bindtap="selectUseCard">
         <text>会员卡</text>
         <text wx:if="{{useCard}}">{{useCard.cardId}}</text>
