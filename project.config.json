@@ -25,13 +25,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "用户分享推广",
 					"pathName": "pages/index/index",
-					"query": "q=%3fid%3d1"
+					"query": "q=https%3a%2f%2fjufang.zmaxfilm.com%2fxcx%3fpromoter%3dd771a392b6c235604e0073896aaa80d0%26type%3d1"
 				},
 				{
 					"id": 1,
