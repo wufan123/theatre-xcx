@@ -300,6 +300,7 @@ Page({
      * 去支付
      */
     gotoOrderPay: function (payLockInfo) {
+        // 去支付
         this.data.destoryCancelOrder = false
         this.setData(this.data)
         var orderId = this.data.orderDetail.orderId
@@ -313,6 +314,8 @@ Page({
             })
         }
 
+        // 推广完成
+        app.finishPromotion(orderId, payLockInfo && payLockInfo.price ? payLockInfo.price : 0)
     },
     onLoad: function (option) {
         this.data.orderDetail.orderId = option.orderId

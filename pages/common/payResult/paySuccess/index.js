@@ -1,4 +1,3 @@
-var app = getApp()
 Page({
   data: {
     orderId: '',
@@ -8,10 +7,6 @@ Page({
     this.data.orderId = e.orderId
     this.data.orderType = e.orderType
     this.setData(this.data)
-    // 场次票购买完成
-    if (this.data.orderType == 'goodsAndFilm') {
-      app.finishPromotion(this.data.orderId)
-    }
   },
   gotoOrderDetail: function() {
     if (this.data.orderType == 'package') {
