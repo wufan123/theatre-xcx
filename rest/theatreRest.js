@@ -65,11 +65,12 @@ function loginPromotion(promoter, toer, type, success_cb, fail_cb) {
  * @param {*} success_cb 
  * @param {*} fail_cb 
  */
-function finishPromotion(toer, orderId, price, success_cb, fail_cb) {
+function finishPromotion(toer, orderId, price, ticketsCnt, success_cb, fail_cb) {
     httpRest.getTheatreRequest("/promotion/finishPromotion", {
         sn: orderId,
         toer: toer,
-        price: price
+        price: price,
+        ticketsCnt: ticketsCnt
     }, success_cb, fail_cb)
 }
 

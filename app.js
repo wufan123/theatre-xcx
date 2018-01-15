@@ -112,11 +112,11 @@ App({
     }
   },
   // 完成推广（已下单）
-  finishPromotion: function(orderId, price) {
+  finishPromotion: function(orderId, price, ticketsCnt) {
     let bindmobile = this.getUserInfo(false).bindmobile
     if (bindmobile) {
       var theatreRest = require('./rest/theatreRest')
-      theatreRest.finishPromotion(bindmobile, orderId, price)
+      theatreRest.finishPromotion(bindmobile, orderId, price, ticketsCnt)
     }
   }
 })

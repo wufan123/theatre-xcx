@@ -315,7 +315,7 @@ Page({
         }
 
         // 推广完成
-        app.finishPromotion(orderId, payLockInfo && payLockInfo.price ? payLockInfo.price : 0)
+        app.finishPromotion(orderId, payLockInfo && payLockInfo.price ? payLockInfo.price : 0, this.data.orderInfo.film.seatCount)
     },
     onLoad: function (option) {
         this.data.orderDetail.orderId = option.orderId
