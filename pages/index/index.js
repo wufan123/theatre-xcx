@@ -15,6 +15,8 @@ Page({
         app.recordPromotion(promoteInfo.promoter, promoteInfo.type)
       }
     }
+  },
+  onShow: function() {
     // banner
     theatreRest.getInformationList(10, success => {
       this.data.bannerList.list = success

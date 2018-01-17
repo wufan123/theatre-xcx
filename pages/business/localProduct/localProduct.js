@@ -9,7 +9,7 @@ Page({
     this.setData(this.data)
     if (this.data.classType == 102) {
       wx.setNavigationBarTitle({
-        title: '超级联合日'
+        title: '超级特价'
       })
     }
     theatreRest.getGoodsList(this.data.classType, success => {
