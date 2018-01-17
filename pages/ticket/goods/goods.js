@@ -16,6 +16,9 @@ Page({
         storeRest.getGoodsList(app.globalData.cinemaCode, res => {
             this.data.goodsList = res;
             this.setData(this.data);
+            if (res.length==0) {
+              this.gotoConfirm();
+            }
         }, res => {
             console.log(res)
         })
