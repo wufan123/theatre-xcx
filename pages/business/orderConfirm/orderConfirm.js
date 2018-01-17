@@ -139,7 +139,7 @@ Page({
             return
         }
         if (this.data.oldPhone !== this.data.orderInfo.phone) {
-            orderRest.updateOrderMobile(this.data.orderInfo.phone)
+            orderRest.updateOrderMobile(this.data.orderDetail.orderId, this.data.orderInfo.phone)
         }
 
         function requestSuccess(res) {

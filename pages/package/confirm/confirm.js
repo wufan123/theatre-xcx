@@ -33,7 +33,7 @@ Page({
             return
         }
         if (this.data.oldPhone !== this.data.phone) {
-            orderRest.updateOrderMobile(this.data.phone)
+            orderRest.updateOrderMobile(this.data.orderId, this.data.phone)
         }
         modalUtil.showLoadingToast()
         if (this.data.orderId) {

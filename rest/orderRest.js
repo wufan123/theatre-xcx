@@ -253,9 +253,10 @@ function changeFilePay(orderId, payType, openId, success_cb, fail_cb) {
 /**
  * 修改订单手机
  */
-function updateOrderMobile(mobile, success_cb, fail_cb) {
+function updateOrderMobile(orderId, mobile, success_cb, fail_cb) {
   httpRest.postRequest('/user/updateOrderFilmMobile', {
-      mobile: mobile
+    orderCode: orderId,
+    mobile: mobile
   }, success_cb, fail_cb)
 }
 

@@ -189,21 +189,6 @@ function getGoodsStatus(orderId, success_cb, fail_cb) {
 }
 
 /**
- * 修改订单电话号码
- * @param {*} orderId 
- * @param {*} phone 
- * @param {*} success_cb 
- * @param {*} fail_cb 
- */
-function updateGoodsOrder(orderId, phone, success_cb, fail_cb) {
-  var params = {
-    orderCode: orderId,
-    mobile: phone,
-  }
-  httpRest.getRequest('/user/updateOrderFilmMobile', params, success_cb, fail_cb)
-}
-
-/**
  * 获取抢购卖品列表
  * @param {*} cinemaCode
  * @param {*} success_cb
@@ -245,7 +230,6 @@ module.exports = {
   getGoodsStatus: getGoodsStatus,
   createGoodsFilmOrder: createGoodsFilmOrder,
   getGoodsDetail: getGoodsDetail,
-  updateGoodsOrder: updateGoodsOrder,
   getBuyingGoods: getBuyingGoods,
   createBuyingOrder: createBuyingOrder
 }
