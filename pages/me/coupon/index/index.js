@@ -73,7 +73,9 @@ Page({
         modalUtils.showLoadingToast()
         orderRest.addVoucher(voucherNum, res => {
             modalUtils.showSuccessToast("添加成功")
-            this.reloadCouponList()
+            setTimeout(() => {
+                this.reloadCouponList()
+            }, 1000)
         })
     },
 
