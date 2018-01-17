@@ -12,7 +12,7 @@
 .ticket-bg {margin-top: 20rpx;padding-bottom: 20rpx;}
 .title-txt {text-align: right;height: 93rpx;background-size: contain;padding-right: 30rpx;line-height: 93rpx;}
 .title-txt.zhg{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/zhg_title_bg_.png');}
-.title-txt.ticket{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/ticket__title_bg.png');}
+.title-txt.ticket{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/ticket_title_bg.png');}
 .title-txt.tdq{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/tdq_title_bg.png');}
 
 
