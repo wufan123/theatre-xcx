@@ -5,8 +5,8 @@
             <view class="'member-card black" bindtap="selectClick" data-card="{{item}}">
               <view class="member-body fxcb">
                 <text class="title red">{{item.accLevelName}}:{{item.cardId}}</text>
-                <text class="mb10" >余额： <text  class="khaki f16}}">{{item.accBalance}}元</text> </text>
-                <view class="btn"  >选择</view>
+                <text class="mb10">余额： <text  class="khaki f16}}">{{item.accBalance}}元</text> </text>
+                <view class="btn">{{item._selected?'取消':'选择'}}</view>
               </view>
               <image src="/assets/images/me/member_card_bg.png" class="member-card-bg"></image>
             </view>

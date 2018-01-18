@@ -14,7 +14,11 @@ Page({
     let card = e.currentTarget.dataset.card
     var pages = getCurrentPages();
     var prevPage = pages[pages.length - 2];
-    prevPage.setUseCard(card)
+    if (card._selected) {
+      prevPage.setUseCard(null)
+    } else {
+      prevPage.setUseCard(card)
+    }
     wx.navigateBack()
   }
 })

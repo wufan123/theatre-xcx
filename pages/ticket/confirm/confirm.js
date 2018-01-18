@@ -238,10 +238,22 @@ Page({
     // 设置使用的会员卡
     setUseCard: function(useCard) {
         this.data.useCard = useCard;
+        if (!useCard) {
+            this.data.memberCardList.forEach(item => {
+                item._selected = false
+            })
+        }
         this.setData(this.data)
     },
     // 选择会员卡点击
     selectUseCard: function() {
+        if (this.data.useCard) {
+            this.data.memberCardList.forEach(item => {
+                if (item.id == this.data.useCard.id) {
+                    item._selected = true
+                }
+            })
+        }
         app.setPageData(this.data.memberCardList)
         wx.navigateTo({
             url: '/pages/common/selectCard/index?pageData=1'
