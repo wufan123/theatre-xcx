@@ -8,7 +8,7 @@ Page({
     couponList:[],
     seatCount: 1,
     selectCount: 0,
-    voucherType: null
+    firstCoupon: null // 初始选中的票券
   },
   onLoad: function (e) {
     if (e.pageData==1) {
@@ -38,12 +38,12 @@ Page({
   changeSelect: function(coupon) {
     let itemCheck = !coupon.checked // 当前选中状态
     // 初始化选中类型
-    if (!this.data.voucherType && itemCheck) {
-      this.data.voucherType = coupon.voucherType
+    if (!this.data.firstCoupon && itemCheck) {
+      this.data.firstCoupon = coupon
       // 已选中兑换券，立减券不可选。或者已选中立减券，兑换券不可选
       this.data.couponList.forEach(item => {
         if (item.status == 1) {
-          item._disable = (this.data.voucherType==0&&item.voucherType!=0)||(this.data.voucherType!=0&&item.voucherType==0)
+          item._disable = (this.data.firstCoupon.voucherType==0&&item.voucherType!=0)||(this.data.firstCoupon.voucherType!=0&&item.voucherType==0)
         }
       })
     }
@@ -70,7 +70,7 @@ Page({
 
     // 无选中状态，清除当前类型
     if(this.data.selectCount == 0) {
-      this.data.voucherType = null
+      this.data.firstCoupon.voucherType = null
       this.data.couponList.forEach(item => {
         if (item.status == 1) {
           item._disable = false
@@ -79,10 +79,14 @@ Page({
     }
 
     // 如果是兑换券，且已经达到最大
-    if (this.data.voucherType == 0) {
+    if (this.data.firstCoupon&&this.data.firstCoupon.voucherType == 0) {
       this.data.couponList.forEach(item => {
         if (item.voucherType == 0 && item.status == 1) {
-          item._disable = (this.data.selectCount >= this.data.seatCount) && (!item.checked)
+          if (item.ticketValue != this.data.firstCoupon.ticketValue) { // 不同类型兑换券不可用
+            item._disable = true
+          } else {
+            item._disable = (this.data.selectCount >= this.data.seatCount) && (!item.checked)
+          }
         }
       })
     }

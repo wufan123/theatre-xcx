@@ -36,8 +36,7 @@
         <lable class="text-ellipsis-line f12" wx:else>有效期：{{item.startTimeStr}}至{{item.validDataStr}}</lable>
         <!-- <lable class="text-ellipsis-line f12">备注：{{item.description}}</lable> -->
       </view>
-      <text wx:if="{{item.status==3}}" class="is-tip">已使用</text>
-      <text wx:else class="is-tip">已过期</text>
+      <text wx:if="{{item._status}}" class="is-tip">{{item._status}}</text>
       <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
     </view>
     <view class='info fxcm'>

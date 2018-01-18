@@ -71,6 +71,7 @@ Page({
                 this.loadFilmPlan(res[0].time);
             }
         }, res => {
+            modalUtil.hideLoadingToast();
             console.log(res)
         })
     },

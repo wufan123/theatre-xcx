@@ -100,6 +100,11 @@ Page({
                     if (item.status == 2 && (new Date().getTime()/1000 < item.validData)) {
                         this.data.canUseList.list.push(item)
                     } else {
+                        if (item.status == 2) {
+                            item._status = '已使用'
+                        } else {
+                            item._status = '已过期'
+                        }
                         item.stock = true
                         this.data.invalidList.list.push(item)
                     }
