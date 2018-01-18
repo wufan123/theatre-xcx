@@ -34,7 +34,7 @@ Page({
       })
     }, error => {
       modalUtil.hideLoadingToast()
-      modalUtil.showWarnToast(error.text);
+      modalUtil.showWarnToast('卖品已下架');
     })
     
   }
