@@ -61,7 +61,7 @@
             <!-- <text>实付款 </text> -->
             <text wx:if="{{ModuleOrder.getStatus(orderFilmDetail.status) == 0}}" class="red">待付款</text>
             <text wx:elif="{{ModuleOrder.getStatus(orderFilmDetail.status) == 3}}" class="red">取消付款</text>
-            <text wx:elif="{{ModuleOrder.getStatus(orderFilmDetail.status) == 2}}" class="red">已退款</text>
+            <text wx:elif="{{ModuleOrder.getStatus(orderFilmDetail.status) == 2}}" class="red">已退票</text>
             <text wx:else>实付款</text>
             <text wx:if="{{ModuleOrder.getIsPayed(orderFilmDetail.status) == 0}}" class="red">￥{{orderPayInfo.totalPrice}}</text>
             <text wx:else class="red">￥{{orderPayInfo.realPrice}}</text>
