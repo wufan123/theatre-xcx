@@ -75,6 +75,6 @@
   <template is="banner" data="{{...bannerList}}"></template>
   <template is="menu"></template>
   <template is="ticket"></template>
-  <view class='fxrm mb20'><image src='/assets/images/convert.png' class='convert-img' bindtap='seeCardClick'></image></view>
+  <view class='fxrm mb20'><image src='/assets/images/convert.png' class='convert-img' bindtap='ticketFilm'></image></view>
   
 </view>
