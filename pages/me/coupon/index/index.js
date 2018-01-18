@@ -108,6 +108,11 @@ Page({
                         item.stock = true
                         this.data.invalidList.list.push(item)
                     }
+                    if (item.voucherType == 0) {
+                        item._voucherValue = '兑换券'
+                    } else {
+                        item._voucherValue = '￥' + item.voucherValue
+                    }
                 }
             });
             if (success.voucherList.length > 0) {
