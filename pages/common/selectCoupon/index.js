@@ -20,6 +20,9 @@ Page({
     this.data.couponList.forEach(item => {
       item.startTimeStr = timeUtil.formatDate(item.startTime, 4)
       item.validDataStr = timeUtil.formatDate(item.validData, 4)
+      if (item.status != 1) {
+        item._disable = true
+      }
     })
     this.setData(this.data)
   },
@@ -28,9 +31,6 @@ Page({
     if (coupon._disable) {
       return;
     }
-    // if (coupon.status != 1) {
-    //   return
-    // }
     this.changeSelect(coupon)
     this.setData(this.data)
   },
@@ -42,7 +42,9 @@ Page({
       this.data.voucherType = coupon.voucherType
       // 已选中兑换券，立减券不可选。或者已选中立减券，兑换券不可选
       this.data.couponList.forEach(item => {
-        item._disable = (this.data.voucherType==0&&item.voucherType!=0)||(this.data.voucherType!=0&&item.voucherType==0)
+        if (item.status == 1) {
+          item._disable = (this.data.voucherType==0&&item.voucherType!=0)||(this.data.voucherType!=0&&item.voucherType==0)
+        }
       })
     }
 
@@ -70,14 +72,16 @@ Page({
     if(this.data.selectCount == 0) {
       this.data.voucherType = null
       this.data.couponList.forEach(item => {
-        item._disable = false
+        if (item.status == 1) {
+          item._disable = false
+        }
       })
     }
 
     // 如果是兑换券，且已经达到最大
     if (this.data.voucherType == 0) {
       this.data.couponList.forEach(item => {
-        if (item.voucherType == 0) {
+        if (item.voucherType == 0 && item.status == 1) {
           item._disable = (this.data.selectCount >= this.data.seatCount) && (!item.checked)
         }
       })
