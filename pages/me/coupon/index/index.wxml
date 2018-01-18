@@ -29,7 +29,7 @@
         <text class='f16 red bold'>{{item.voucherName}}</text>
       </view>
       <view>
-        <lable class="text-ellipsis-line f12" wx:if="{{item.isUse==1}}">使用日期：{{item.useDateTime}}</lable>
+        <lable class="text-ellipsis-line f12" wx:if="{{item.isUse==1}}">使用日期：{{item.useDateTimeStr}}</lable>
         <lable class="text-ellipsis-line f12" wx:elif="{{item.isUnEffective}}">生效日期：{{item.startTimeStr}}
           <lable class="{{item._color}}">\t\t(待生效)</lable>
         </lable>
@@ -37,7 +37,7 @@
         <!-- <lable class="text-ellipsis-line f12">备注：{{item.description}}</lable> -->
       </view>
       <text wx:if="{{item.status==3}}" class="is-tip">已使用</text>
-      <text wx:if="{{item.status==4}}" class="is-tip">已过期</text>
+      <text wx:else class="is-tip">已过期</text>
       <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
     </view>
     <view class='info fxcm'>

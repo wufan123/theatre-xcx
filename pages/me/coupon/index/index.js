@@ -96,6 +96,7 @@ Page({
                     this.data.dataList.push(item)
                     item.startTimeStr = dateFormatter.formatDate(item.startTime, 4)
                     item.validDataStr = dateFormatter.formatDate(item.validData, 4)
+                    item.useDateTimeStr = dateFormatter.formatDate(item.useDateTime, 4)
                     if (item.status == 2 && (new Date().getTime()/1000 < item.validData)) {
                         this.data.canUseList.list.push(item)
                     } else {
