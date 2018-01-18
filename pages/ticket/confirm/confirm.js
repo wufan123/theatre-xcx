@@ -78,6 +78,7 @@ Page({
                 })
             }
             this.setData(this.data)
+            this.caculateCount()
         }, res => modalUtil.showFailToast(res.text))
         //获取订单信息
         orderRest.getCinemaOrderInfo(this.data.orderDetail.orderId, res => {
