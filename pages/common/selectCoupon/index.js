@@ -2,6 +2,7 @@
  * 选择优惠券
  */
 const timeUtil = require('../../../util/timeUtil')
+const modalUtil = require('../../../util/modalUtil.js')
 var app = getApp()
 Page({
   data: {
@@ -92,6 +93,19 @@ Page({
     }
   },
   confirm: function() {
+    // 如果是兑换券，兑换券票数必须和座位数一致
+    if (this.data.firstCoupon.voucherType == 0) {
+      let couponCount = 0;
+      this.data.couponList.forEach(item => {
+        if (item.checked) {
+          couponCount++;
+        }
+      })
+      if (couponCount != this.data.seatCount) {
+        modalUtil.showFailToast("还需要"+(this.data.seatCount-couponCount)+'张')
+        return;
+      }
+    }
     var pages = getCurrentPages();
     var prevPage = pages[pages.length - 2];
     prevPage.setCouponList(this.data.couponList)

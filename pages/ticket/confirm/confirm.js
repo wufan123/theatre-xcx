@@ -116,16 +116,21 @@ Page({
         }, res => modalUtil.showFailToast(res.text));
     },
     caculateCount: function () { //计算总价
-        //初始化显示订单价格
-        this.data.orderInfo.film._price = parseFloat(this.data.orderInfo.film.price)
-        //如果有使用会员卡
-        if (this.data.useCard) {
-            this.data.orderInfo.film._price = parseFloat(this.data.useCard.settlementPrice) * parseInt(this.data.orderInfo.film.seatCount)
-        }
-        this.data.orderInfo._price = this.data.orderInfo.film._price + (this.data.orderInfo.goods ? parseFloat(this.data.orderInfo.goods.price) : 0)
+        
+        let goodsPrice = 0;
+        let filmPrice = 0;
         let couponPrice = 0;
-        let goodsPrice = parseFloat(this.data.orderInfo.goods ? this.data.orderInfo.goods.price : 0)
-        let filmPrice = parseFloat(this.data.orderInfo.film._price)
+        if (this.data.orderInfo) {
+            //初始化显示订单价格
+            this.data.orderInfo.film._price = parseFloat(this.data.orderInfo.film.price)
+            //如果有使用会员卡
+            if (this.data.useCard) {
+                this.data.orderInfo.film._price = parseFloat(this.data.useCard.settlementPrice) * parseInt(this.data.orderInfo.film.seatCount)
+            }
+            this.data.orderInfo._price = this.data.orderInfo.film._price + (this.data.orderInfo.goods ? parseFloat(this.data.orderInfo.goods.price) : 0)
+            goodsPrice = parseFloat(this.data.orderInfo.goods ? this.data.orderInfo.goods.price : 0)
+            filmPrice = parseFloat(this.data.orderInfo.film._price)
+        }
 
         this.data.couponListStr = []
         if (this.data.goodsCouponList.length > 0) {
@@ -174,6 +179,11 @@ Page({
             })
             if (voucherType == 0) {
                 filmPrice = 0
+                this.data.filmCouponList.forEach(item => {
+                    if (item.checked) {
+                        filmPrice+= parseFloat(item.ticketValue)
+                    }
+                })
                 this.data.couponListStr.push({
                     name: '已兑换',
                     value: filmCouponPrice+'张票'
@@ -188,8 +198,10 @@ Page({
         }
 
         this.data.amount = (goodsPrice + filmPrice - couponPrice).toFixed(2)
-        this.data.orderInfo.film._price = parseFloat(this.data.orderInfo.film._price).toFixed(2)
-        this.data.orderInfo._price = parseFloat(this.data.orderInfo._price).toFixed(2)
+        if(this.data.orderInfo) {
+            this.data.orderInfo.film._price = parseFloat(this.data.orderInfo.film._price).toFixed(2)
+            this.data.orderInfo._price = parseFloat(this.data.orderInfo._price).toFixed(2)
+        }
         this.setData(this.data)
     },
     setCouponList: function(couponList) {
