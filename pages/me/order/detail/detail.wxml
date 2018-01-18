@@ -1,14 +1,24 @@
 <wxs module="ModuleOrder">
   var getStatus = function(status) {
-    if (status==0||status==6||status==26) {
+    if (status==0) {
       return 0; // 未支付
     } else if (status==9) {
       return 2; // 已退款
+    } else if(status==6||status==26) {
+      return 3; // 已取消
     } else {
       return 1; // 已支付
     }
   }
+  var getIsPayed = function(status) {
+    if (status==0||status==6||status==26) {
+      return 0;
+    } else {
+      return 1;
+    }
+  }
   module.exports.getStatus = getStatus
+  module.exports.getIsPayed = getIsPayed
 </wxs>
 <view class="page">
   <view class='body'>
@@ -45,14 +55,15 @@
           </view>
           <view class='fxrb line'>
             <text class="f12">总价</text><text>￥{{orderPayInfo.totalPrice}}</text> </view>
-            <view wx:if="{{ModuleOrder.getStatus(orderFilmDetail.status) != 0}}" class='fxrb line' wx:for="{{orderPayInfo.payInfo}}">
-              <text>{{item.name}}</text><text class="red">￥{{item.money}}</text> </view>
+            <view wx:if="{{ModuleOrder.getIsPayed(orderFilmDetail.status) == 1}}" class='fxrb line' wx:for="{{orderPayInfo.payInfo}}">
+              <text>{{item.name}}</text><text class="red">{{item.money}}</text> </view>
             <view class='fxrb line f15'>
             <!-- <text>实付款 </text> -->
-            <text wx:if="{{ModuleOrder.getStatus(orderFilmDetail.status) == 0}}" class="red">未支付</text>
+            <text wx:if="{{ModuleOrder.getStatus(orderFilmDetail.status) == 0}}" class="red">待付款</text>
+            <text wx:elif="{{ModuleOrder.getStatus(orderFilmDetail.status) == 3}}" class="red">取消付款</text>
             <text wx:elif="{{ModuleOrder.getStatus(orderFilmDetail.status) == 2}}" class="red">已退款</text>
             <text wx:else>实付款</text>
-            <text wx:if="{{ModuleOrder.getStatus(orderFilmDetail.status) == 0}}" class="red">￥{{orderPayInfo.totalPrice}}</text>
+            <text wx:if="{{ModuleOrder.getIsPayed(orderFilmDetail.status) == 0}}" class="red">￥{{orderPayInfo.totalPrice}}</text>
             <text wx:else class="red">￥{{orderPayInfo.realPrice}}</text>
           </view>
         </view>
