@@ -354,9 +354,10 @@ Page({
         clearInterval(this.data.clearTime)
         // 如果不是跳转到支付界面，取消订单
         if (this.data.destoryCancelOrder) {
-            orderRest.cancelOrder(this.data.orderDetail.orderId, res => {
-                console.log(res)
-            });
+            // 这边不关闭订单，返回界面后提示
+            // orderRest.cancelOrder(this.data.orderDetail.orderId, res => {
+            //     console.log(res)
+            // });
         }
     }
 })

@@ -40,6 +40,11 @@ Page({
             }
         })
     },
+    onShow: function() {
+        if (this.data.filmPlan&&this.data.filmPlan.planSelected) {
+            this.loadSeat(this.data.filmPlan.planSelected)
+        }
+    },
     confirm: function(e) {
         if (!this.data.filmDetail.showPlan) {
             this.data.filmDetail.showPlan = true;
