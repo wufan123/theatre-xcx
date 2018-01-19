@@ -1,4 +1,5 @@
 var storeRest = require('../../../rest/storeRest.js')
+var orderRest = require('../../../rest/orderRest.js')
 var wxRest = require('../../../rest/wxRest.js')
 var modalUtils = require('../../../util/modalUtil.js')
 var app = getApp()
@@ -33,7 +34,8 @@ Page({
     _showAccount: 0,
     _showIntegral: 0,
     _showIntegralOriginal: 0,
-    clearTime: null
+    clearTime: null,
+    checkOutTicket: false
   },
   onLoad: function (options) {
     var orderId = options.orderId
@@ -197,14 +199,62 @@ Page({
     this.setData(this.data)
   },
 
+  gotoPaySuccess: function() {
+    wx.redirectTo({
+        url: '/pages/common/payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
+    })
+  },
+
+  // 支付完成后，检查出票
+  checkOrderStatus: function() {
+    // 只有影票显示出票中
+    if (this.data.orderType != 'goodsAndFilm') {
+        this.gotoPaySuccess()
+    } else {
+        function checkSuccess() {
+
+        }
+        this.data.checkOutTicket = true
+        orderRest.getOrderStatus(this.data.orderId, success => {
+            if (!success||!success.orderInfo||success.orderInfo.orderStatus == 0) {
+                setTimeout(() => {
+                    this.checkOrderStatus();
+                }, 1000);
+            } else if (success.orderInfo.orderStatus == 3) {
+                this.gotoPaySuccess();
+            } else {
+                // 出票失败
+                let failReason=success.orderInfo.payErrorMsg||success.orderInfo.statustr
+                wx.showModal({
+                    title: '出票失败',
+                    content: failReason,
+                    cancelColor: '#000000',
+                    confirmText: '确定',
+                    confirmColor: '#159eec',
+                    showCancel: false,
+                    success: function (res) {},
+                    fail: function () {},
+                    complete: function () {
+                        wx.navigateBack({
+                            delta: 1
+                        });
+                    }
+                });
+            }
+        }, error => {
+            setTimeout(() => {
+                this.checkOrderStatus();
+            }, 1000);
+        })
+    }
+  },
+
   //启动微信支付
   requestWxPay: function (weixinpay) {
     var cinemaCode = app.globalData.cinemaCode
     wxRest.requestWxPay(weixinpay, complete => {
         if (complete.errMsg === "requestPayment:ok") {
-            wx.redirectTo({
-              url: '/pages/common/payResult/paySuccess/index?orderId=' + this.data.orderId + "&orderType=" + this.data.orderType
-            })
+            this.checkOrderStatus()
           } else if (complete.errMsg === "requestPayment:fail") {
             modalUtils.showFailToast('微信支付失败')
           }
