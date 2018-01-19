@@ -56,21 +56,24 @@ Page({
    * 处理数据
    */
   setPayLockInfo: function (payLockInfo) {
-    this.data.clearTime = setInterval(() => {
-        if (this.data.payLockInfo.payTime > 0) {
-            this.data.payLockInfo.payTime--
-            this.data.payLockInfo._payTime = parseInt(this.data.payLockInfo.payTime / 60) + ":" + parseInt(this.data.payLockInfo.payTime % 60)
-            this.setData(this.data)
-        } else {
-            modalUtils.showFailToast("当前订单超时关闭")
-            clearInterval(this.data.clearTime)
-            setTimeout(() => {
-                wx.reLaunch({
-                url: '/pages/index/index',
-                })
-            }, 1500);
-        }
-    }, 1000)
+    // 只有影票显示支付倒计时
+    if (this.data.orderType == 'goodsAndFilm') {
+        this.data.clearTime = setInterval(() => {
+            if (this.data.payLockInfo.payTime > 0) {
+                this.data.payLockInfo.payTime--
+                this.data.payLockInfo._payTime = parseInt(this.data.payLockInfo.payTime / 60) + ":" + parseInt(this.data.payLockInfo.payTime % 60)
+                this.setData(this.data)
+            } else {
+                modalUtils.showFailToast("当前订单超时关闭")
+                clearInterval(this.data.clearTime)
+                setTimeout(() => {
+                    wx.reLaunch({
+                    url: '/pages/index/index',
+                    })
+                }, 1500);
+            }
+        }, 1000)
+    }
 
     if (payLockInfo && payLockInfo.otherPayWay) {
         payLockInfo.canUseAccount = false
