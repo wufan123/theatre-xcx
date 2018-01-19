@@ -17,9 +17,14 @@ Page({
   fetchData: function () {
     if (this.data.coupon && this.data.coupon.voucherNum) {
       orderRest.userVoucherDetail(this.data.coupon.voucherNum, app.globalData.cinemaCode, res => {
-        res.startTimeStr = dateFormatter.formatDate(res.startTime, 4)
-        res.validDataStr = dateFormatter.formatDate(res.validData, 4)
         if (res) {
+          res.startTimeStr = dateFormatter.formatDate(res.startTime, 4)
+          res.validDataStr = dateFormatter.formatDate(res.validData, 4)
+          if (res.voucherType == 0) {
+            res._voucherValue = '兑换券'
+          } else {
+            res._voucherValue = '￥' + res.voucherValue
+          }
           this.setData({
             coupon: res
           });
