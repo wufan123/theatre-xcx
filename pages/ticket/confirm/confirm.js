@@ -259,10 +259,8 @@ Page({
             this.data.memberCardList.forEach(item => {
                 item._selected = false
             })
-            this.setData(this.data)
-        } else {
-            this.caculateCount()
         }
+        this.caculateCount()
     },
     // 选择会员卡点击
     selectUseCard: function() {
