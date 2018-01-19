@@ -7,9 +7,12 @@
           <view class='list-body fxrb'>
             <view class='list-con'>
               <view class="f16">{{orderInfo.film.filmName}}</view>
-              <view>x {{orderInfo.film.seatCount}}</view>
+              <view wx:if="orderInfo.film._startTime" style="margin-top: 4rpx;">{{orderInfo.film._startTime}}场</view>
             </view>
-            <view class='bold khaki2 f18'>￥{{orderInfo.film.price}}</view>
+            <view class='list-con'>
+              <view class='bold khaki2 f18'>￥{{orderInfo.film.price}}</view>
+              <view class="right">x {{orderInfo.film.seatCount}}</view>
+            </view>
           </view>
         </view>
         <view class='list' wx:if="orderInfo.goods&&orderInfo.goods.list.length>0" wx:for="{{orderInfo.goods.list}}" wx:key="index">

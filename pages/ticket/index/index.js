@@ -128,7 +128,7 @@ Page({
     // 加载座位信息
     loadSeat: function(featureAppNo) {
         modalUtil.showLoadingToast()
-        filmRest.getSeat(featureAppNo, success => {
+        filmRest.getSeat(app.globalData.cinemaCode, featureAppNo, success => {
             modalUtil.hideLoadingToast();
             this.data.selectSeats = success
             this.data.selectSeats._saleSeatInfos = []

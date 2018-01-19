@@ -64,10 +64,18 @@ function filmReplyList(evalauteId, success_cb, fail_cb) {
     }, success_cb, fail_cb);
 }
 
-function getSeat(featureAppNo, success_cb, fail_cb) {
-    httpRest.postRequest('/home/seat', {
+/**
+ * 座位信息接口
+ * 
+ * @param {*} featureAppNo 	排期编码
+ */
+function getSeat(cinemaCode, featureAppNo, success_cb, fail_cb) {
+    var params = {
+        cinemaCode: cinemaCode,
         featureAppNo: featureAppNo
-    }, success_cb, fail_cb);
+    };
+    params.refresh = new Date().getTime();
+    httpRest.postRequest('/home/seat', params, success_cb, fail_cb);
 }
 //电影关注
 function remind(filmId, success_cb, fail_cb) {

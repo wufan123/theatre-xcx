@@ -95,20 +95,6 @@ function getBackFilmStatus(orderId, success_cb, fail_cb) {
   }, success_cb, fail_cb)
 }
 
-/**
- * 座位信息接口
- * 
- * @param {*} featureAppNo 	排期编码
- */
-function getSeat(featureAppNo,cinemaCode, success_cb, fail_cb) {
-  var params = {
-    cinemaCode:cinemaCode,
-    featureAppNo: featureAppNo
-  }
-  params.refresh = new Date().getTime()
-  httpRest.postRequest('/home/seat', params, success_cb, fail_cb)
-}
-
 function setPlanAndGoodsOrder(info, success_cb, fail_cb) {
   httpRest.postRequest('/user/setPlanAndGoodsOrder', info, success_cb, fail_cb)
 }
@@ -264,7 +250,6 @@ module.exports = {
   getCinemaOrderInfo:getCinemaOrderInfo,
   getCinemaOrderFilmDetail: getCinemaOrderFilmDetail,
   getAllMoiveOrder: getAllMoiveOrder,
-  getSeat,
   getOrderPayInfo:getOrderPayInfo,
   setPlanAndGoodsOrder,
   getCinemaOrders:getCinemaOrders,

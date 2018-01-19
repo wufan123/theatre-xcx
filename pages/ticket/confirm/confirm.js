@@ -83,7 +83,7 @@ Page({
         //获取订单信息
         orderRest.getCinemaOrderInfo(this.data.orderDetail.orderId, res => {
             this.data.orderInfo = res
-            this.data.orderInfo.film._startTime = timeUtil.formatDate(res.film.startTime, 5) + "  " + timeUtil.formatDate(res.film.startTime, 6)
+            this.data.orderInfo.film._startTime = timeUtil.formatDate(res.film.startTime, 6)
             //服务费&价格
             let seatArr = {}
             let _serviceFee = 0
