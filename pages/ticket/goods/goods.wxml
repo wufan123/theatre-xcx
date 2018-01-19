@@ -15,7 +15,7 @@
             <view class='good-card-body fxrbm'>
               <image src='{{item.goodsImg}}' class='good-img' binderror="imageError" data-index="{{index}}" > </image>
               <view class='good-info fxcb'>
-                <text class='title'>{{item.goodsName}}</text>
+                <text class='title text-ellipsis-line'>{{item.goodsName}}</text>
                 <view class="fxrbm" >
                   <text class='price'>￥{{item.price}}</text>
                   <view class="goods-item-quantity fxrbm right">

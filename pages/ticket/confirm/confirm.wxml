@@ -6,7 +6,7 @@
           <image class='img' src="{{orderInfo.film.image}}"></image>
           <view class='list-body fxrb'>
             <view class='list-con'>
-              <view class="f16">{{orderInfo.film.filmName}}</view>
+              <view class="f16 text-ellipsis-line">{{orderInfo.film.filmName}}</view>
               <view wx:if="orderInfo.film._startTime" style="margin-top: 4rpx;">{{orderInfo.film._startTime}}场</view>
             </view>
             <view class='list-con'>
@@ -19,7 +19,7 @@
           <image class='img' src="{{item.goodsImg}}"></image>
           <view class='list-body fxrb'>
             <view class='list-con'>
-              <view>{{item.name}}</view>
+              <view class="f16 text-ellipsis-line">{{item.name}}</view>
             </view>
             <view class='list-con'>
               <view class='bold khaki2'>￥{{item.price}}</view>
