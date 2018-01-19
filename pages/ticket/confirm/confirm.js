@@ -125,7 +125,11 @@ Page({
             this.data.orderInfo.film._price = parseFloat(this.data.orderInfo.film.price)
             //如果有使用会员卡
             if (this.data.useCard) {
-                this.data.orderInfo.film._price = parseFloat(this.data.useCard.settlementPrice) * parseInt(this.data.orderInfo.film.seatCount)
+                if (this.data.useCard.totalSettlementPrice) {
+                    this.data.orderInfo.film._price = parseFloat(this.data.useCard.totalSettlementPrice)
+                } else {//旧版接口兼容
+                    this.data.orderInfo.film._price = parseFloat(this.data.useCard.settlementPrice) * parseInt(this.data.orderInfo.film.seatCount)
+                }
             }
             this.data.orderInfo._price = this.data.orderInfo.film._price + (this.data.orderInfo.goods ? parseFloat(this.data.orderInfo.goods.price) : 0)
             goodsPrice = parseFloat(this.data.orderInfo.goods ? this.data.orderInfo.goods.price : 0)
@@ -255,8 +259,10 @@ Page({
             this.data.memberCardList.forEach(item => {
                 item._selected = false
             })
+            this.setData(this.data)
+        } else {
+            this.caculateCount()
         }
-        this.setData(this.data)
     },
     // 选择会员卡点击
     selectUseCard: function() {

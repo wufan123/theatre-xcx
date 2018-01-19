@@ -41,7 +41,7 @@
         <text wx:if="{{useCard}}">{{useCard.cardId}}</text>
         <text wx:if="{{!useCard}}">未选择</text>
       </view>
-      <view class='info fxrb f12 gray'><text>总价</text><text>￥{{orderInfo._price}}</text></view>
+      <view class='info fxrb f12 gray'><text>总价<text class="tip" wx:if="{{useCard}}">会员卡优惠</text></text><text>￥{{orderInfo._price}}</text></view>
       <view class='info fxrb f12 gray' wx:for="{{couponListStr}}"><text>{{item.name}}</text><text>{{item.value}}</text></view>
       <view class='info fxrb'><text>实付款</text><text class='bold'>￥{{amount}}</text></view>
     </view>

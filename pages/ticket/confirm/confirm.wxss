@@ -17,3 +17,5 @@
 .warn-info text{display: block;}
 
 .coupon-detail{flex:1;margin-left:10px;text-align: right;}
+
+.tip {font-size: 22rpx;color: #cd2e1b;border: 1px solid #cd2e1b;margin-left: 10rpx;}
