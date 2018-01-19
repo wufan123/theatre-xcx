@@ -1,7 +1,16 @@
+<wxs module="ModuleGoods">
+  var showNumStyle = function(num) {
+    if (num&&num>0) {
+      return "";
+    } else {
+      return "visibility: hidden;";
+    }
+  }
+  module.exports.showNumStyle = showNumStyle
+</wxs>
 <view class='page'>
   <view class='body'>
     <view class="main-content">
-
         <view class='good-card' wx:for="{{goodsList}}" wx:key="index">
             <view class='good-card-body fxrbm'>
               <image src='{{item.goodsImg}}' class='good-img' binderror="imageError" data-index="{{index}}" > </image>
@@ -9,14 +18,13 @@
                 <text class='title'>{{item.goodsName}}</text>
                 <view class="fxrbm" >
                   <text class='price'>￥{{item.price}}</text>
-                  <view class="goods-item-quantity fxrbm">
-                      <view class="subtract fxrm" mode="aspectFit" bindtap="subtractQuatity" data-index="{{index}}">-</view>
-                      <em class="text-label fxrm">{{item.num?item.num:0}}</em>
-                      <view class="add fxrm" mode="aspectFit" bindtap="addQuatity" data-index="{{index}}">+</view>
-                    </view>
+                  <view class="goods-item-quantity fxrbm right">
+                    <view style="{{ModuleGoods.showNumStyle(item.num)}}" class="subtract fxrm" mode="aspectFit" bindtap="subtractQuatity" data-index="{{index}}">-</view>
+                    <em style="{{ModuleGoods.showNumStyle(item.num)}}" class="text-label fxrm">{{item.num?item.num:0}}</em>
+                    <view class="add fxrm" mode="aspectFit" bindtap="addQuatity" data-index="{{index}}">+</view>
+                  </view>
                 </view>
               </view>
-             
             </view>
             <image src='/assets/images/business/lhr_card.png' class='good-card-bg'></image>
           </view>
