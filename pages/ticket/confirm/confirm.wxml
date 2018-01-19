@@ -52,3 +52,4 @@
     <view class="bottom-btn" bindtap="requestOrderPayLock">支付</view>
   </view>
 </view>
+<view wx:if="{{checkOutTicket}}" class='body-shade'>出票中...</view>

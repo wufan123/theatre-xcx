@@ -211,10 +211,8 @@ Page({
     if (this.data.orderType != 'goodsAndFilm') {
         this.gotoPaySuccess()
     } else {
-        function checkSuccess() {
-
-        }
         this.data.checkOutTicket = true
+        this.setData(this.data)
         orderRest.getOrderStatus(this.data.orderId, success => {
             if (!success||!success.orderInfo||success.orderInfo.orderStatus == 0) {
                 setTimeout(() => {

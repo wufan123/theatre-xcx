@@ -27,6 +27,7 @@ Page({
         memberCardList: [],
         couponListStr: [],
         selectType: null, // 选择类型
+        checkOutTicket: false,
     },
     fetchInitData: function () {
         //获取优惠券信息
@@ -312,17 +313,74 @@ Page({
         storeRest.getOrderPayLock(cinemaCode, orderId, orderType, cardId, couponStr, requestSuccess)
     },
 
+    gotoPaySuccess: function() {
+        wx.redirectTo({
+            url: '/pages/common/payResult/paySuccess/index?orderId=' + this.data.orderDetail.orderId + "&orderType=" + this.data.orderDetail.orderType
+        })
+      },
+
+    // 支付完成后，检查出票
+  checkOrderStatus: function() {
+    this.data.checkOutTicket = true
+    this.setData(this.data)
+    orderRest.getOrderStatus(this.data.orderDetail.orderId, success => {
+        if (!success||!success.orderInfo||success.orderInfo.orderStatus == 0) {
+            setTimeout(() => {
+                this.checkOrderStatus();
+            }, 1000);
+        } else if (success.orderInfo.orderStatus == 3) {
+            this.gotoPaySuccess();
+        } else {
+            // 出票失败
+            let failReason=success.orderInfo.payErrorMsg||success.orderInfo.statustr
+            wx.showModal({
+                title: '出票失败',
+                content: failReason,
+                cancelColor: '#000000',
+                confirmText: '确定',
+                confirmColor: '#159eec',
+                showCancel: false,
+                success: function (res) {},
+                fail: function () {},
+                complete: function () {
+                    wx.navigateBack({
+                        delta: 1
+                    });
+                }
+            });
+        }
+    }, error => {
+        setTimeout(() => {
+            this.checkOrderStatus();
+        }, 1000);
+    })
+  },
+
     //请求支付
     requestGoodsAndFilmComfirmNewPay: function (orderId, orderType) {
         var openId = app.getOpenId()
         var payType = "account"
         var integralNum
         modalUtil.showLoadingToast()
-        storeRest.goodsAndFilmComfirmNewPay(orderId, orderType, payType, integralNum, openId, res => {
+        storeRest.goodsAndFilmComfirmNewPay(orderId, orderType, payType, integralNum, openId, success => {
             modalUtil.hideLoadingToast()
-            wx.redirectTo({
-                url: '/pages/common/payResult/paySuccess/index?orderId=' + orderId + "&orderType=" + orderType
-            })
+            this.checkOrderStatus()
+        }, error => {
+            wx.showModal({
+                title: '支付失败',
+                content: error.text,
+                cancelColor: '#000000',
+                confirmText: '确定',
+                confirmColor: '#159eec',
+                showCancel: false,
+                success: function (res) {},
+                fail: function () {},
+                complete: function () {
+                    wx.navigateBack({
+                        delta: 1
+                    });
+                }
+            });
         })
     },
     /**
