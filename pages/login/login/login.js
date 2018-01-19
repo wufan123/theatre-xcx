@@ -109,7 +109,7 @@ Page({
         app.loginPromotion();
         modalUtils.hideLoadingToast()
         wx.navigateBack({
-          delta: 2
+          delta: 1
         });
       }
     );

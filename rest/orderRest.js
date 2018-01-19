@@ -169,6 +169,12 @@ function goodsAndFilmComfirmNewPay(orderId, orderType, payType, integralNum, ope
   httpRest.getRequest('/user/goodsAndFilmComfirmNewPay', params, success_cb, fail_cb)
 }
 
+/**
+ * 订单状态
+ * @param {*} orderid 
+ * @param {*} success_cb 
+ * @param {*} fail_cb 
+ */
 function getOrderStatus(orderid, success_cb, fail_cb) {
   httpRest.getRequest("/user/getOrderStatus", {
     orderid: orderid
