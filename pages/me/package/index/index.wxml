@@ -9,7 +9,7 @@
         <image class='cover' src='{{item.img}}'></image>
         <view class='detail'>
           <text class='title'>{{item.name}}</text>
-          <view class="fxrb"><text>数量</text><text>{{item.number}}张</text></view>
+          <view class="fxrb"><text>数量</text><text>{{item.number}}{{item.type==2?'份':'张'}}</text></view>
         </view>
       </view>
     </view>
