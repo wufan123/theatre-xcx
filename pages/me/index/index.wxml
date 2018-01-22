@@ -25,7 +25,7 @@
             </view>
             <view class="menu-item" bindtap="packageManage" id="1">
                 <image src="../../../assets/images/me/me_menu_02.png" class="menu-item-ico"></image>
-                <text class="menu-item-txt">套票</text>
+                <text class="menu-item-txt">组合购</text>
             </view>
             <view class="menu-item" bindtap="localProductManage" id="2">
                 <image src="../../../assets/images/me/me_menu_03.png" class="menu-item-ico"></image>
