@@ -51,7 +51,7 @@ Page({
             var item = this.data.goodsList[i];
             if (item.num) count += item.num * item.price;
         }
-        this.data.bottomTxt = count>0?"下一步（￥"+count+"）":"不选了，直接下单购票"
+        this.data.bottomTxt = count>0?"下一步（￥"+count.toFixed(2)+"）":"不选了，直接下单购票"
         this.setData(this.data);
     },
     // 跳转确认页面

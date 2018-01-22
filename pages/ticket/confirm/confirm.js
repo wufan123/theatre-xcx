@@ -155,7 +155,13 @@ Page({
                 }
             })
             if (!this.data.goodsCoupinLineStr) {
-                this.data.goodsCoupinLineStr = '共'+this.data.goodsCouponList.length+'张可用'
+                let canUseCount = 0;
+                this.data.goodsCouponList.forEach(item => {
+                    if (item.status==1) {
+                        canUseCount++;
+                    }
+                })
+                this.data.goodsCoupinLineStr = '共'+canUseCount+'张可用'
             }
             couponPrice += goodsCouponPrice;
         }
@@ -198,7 +204,13 @@ Page({
                 couponPrice += filmCouponPrice;
             }
             if (!this.data.filmCoupinLineStr) {
-                this.data.filmCoupinLineStr = '共'+this.data.filmCouponList.length+'张可用'
+                let canUseCount = 0;
+                this.data.filmCouponList.forEach(item => {
+                    if (item.status==1) {
+                        canUseCount++;
+                    }
+                })
+                this.data.filmCoupinLineStr = '共'+canUseCount+'张可用'
             }
         }
 
