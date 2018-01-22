@@ -14,6 +14,10 @@
           <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
         </view>
       </view>
+      <view class="no-card fxcbm" wx:if="{{dataList.length===0}}">
+        <image src='/assets/images/me/no_data.png' class="no-data-img"></image>
+        当前无任何商品
+      </view>
     </view>
   </view>
   <view class='footer fxrm'>

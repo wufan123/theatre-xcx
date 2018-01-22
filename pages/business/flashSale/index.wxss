@@ -8,3 +8,6 @@
 .card .info{width: 148rpx;position: relative}
 .card .bg{width: 100%;height: 100%;position: absolute;top: 0;z-index: -1;left: 0;}
 .card .shade{width: 100%;height: 100%;background:rgba(0,0,0,.3);position: absolute;z-index: 9;display: block;}
+
+.no-data-img{width:294rpx;height:310rpx;margin-bottom: 20rpx;}
+.no-card{font-size: 30rpx;margin-top: 250rpx;}

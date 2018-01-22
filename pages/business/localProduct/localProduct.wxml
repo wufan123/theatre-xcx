@@ -1,21 +1,22 @@
 <view class='page'>
   <view class='body'>
-      <view class='good-card' wx:for="{{dataList}}">
-        <view class='good-card-body fxrbm'>
-          <image src='{{item.goodsCoverImage}}' class='good-img' mode="aspectFill"> </image>
-          <view class='good-info fxcb'>
-            <text class='title text-ellipsis-line'>{{item.goodsName}}</text>
-            <view>
-              <text class='price'>￥{{item.channelFee+item.accessFee}}</text>
-              <text class='decoration' wx:if="{{classType==102}}">￥{{item.marketFee}}</text>
-            </view>
+    <view class='good-card' wx:for="{{dataList}}">
+      <view class='good-card-body fxrbm'>
+        <image src='{{item.goodsCoverImage}}' class='good-img' mode="aspectFill"> </image>
+        <view class='good-info fxcb'>
+          <text class='title text-ellipsis-line'>{{item.goodsName}}</text>
+          <view>
+            <text class='price'>￥{{item.channelFee+item.accessFee}}</text>
+            <text class='decoration' wx:if="{{classType==102}}">￥{{item.marketFee}}</text>
           </view>
-          <view class="btn" bindtap="goBuy" id="{{item.hyGoodsId}}">马上购买</view>
         </view>
-        <image src='/assets/images/business/lhr_card.png' class='good-card-bg'></image>
+        <view class="btn" bindtap="goBuy" id="{{item.hyGoodsId}}">马上购买</view>
       </view>
-    
+      <image src='/assets/images/business/lhr_card.png' class='good-card-bg'></image>
+    </view>
+    <view class="no-card fxcbm" wx:if="{{dataList.length===0}}">
+      <image src='/assets/images/me/no_data.png' class="no-data-img"></image>
+      当前无任何商品
+    </view>
   </view>
 </view>
-
-
