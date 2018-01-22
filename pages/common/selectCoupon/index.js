@@ -24,6 +24,11 @@ Page({
       if (item.status != 1) {
         item._disable = true
       }
+      if (item.voucherType == 0) {
+        item._voucherValue = '兑换券'
+    } else {
+        item._voucherValue = '￥' + item.voucherValue
+    }
     })
     this.setData(this.data)
   },

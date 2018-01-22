@@ -16,7 +16,7 @@
           <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
         </view>
         <view class='info fxcm'>
-          <text class='f16 mb10'>￥{{item.voucherValue}}</text>
+          <text class='f16 mb10'>{{item._voucherValue}}</text>
           <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
         </view>
       </view>
