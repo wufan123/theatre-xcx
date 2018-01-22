@@ -26,11 +26,11 @@ Page({
     },
     onLoad: function (option) {
         if (option.q) {
-            let promoteInfo = urlUtil.getSearchParams(unescape(option.q))
-            if (promoteInfo) {
-              app.recordPromotion(promoteInfo.promoter, promoteInfo.type)
-            }
+          let promoteInfo = urlUtil.getSearchParams(unescape(option.q))
+          if (promoteInfo) {
+            app.recordPromotion(promoteInfo.promoter, promoteInfo.type)
           }
+        }
         this.loadFilmTime();
         // 购票限制
         theatreRest.getMiscConfig('ticket_max_purchase', success => {
