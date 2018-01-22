@@ -71,7 +71,7 @@ Page({
 
     // 无选中状态，清除当前类型
     if(this.data.selectCount == 0) {
-      this.data.firstCoupon.voucherType = null
+      this.data.firstCoupon = null
       this.data.couponList.forEach(item => {
         if (item.status == 1) {
           item._disable = false
@@ -94,7 +94,7 @@ Page({
   },
   confirm: function() {
     // 如果是兑换券，兑换券票数必须和座位数一致
-    if (this.data.firstCoupon.voucherType == 0) {
+    if (this.data.firstCoupon&&this.data.firstCoupon.voucherType == 0) {
       let couponCount = 0;
       this.data.couponList.forEach(item => {
         if (item.checked) {
