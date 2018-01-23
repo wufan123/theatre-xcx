@@ -12,11 +12,14 @@ Page({
     bottomTxt: '马上购买'
   },
   onLoad: function (e) {
+    modalUtil.showLoadingToast()
     comboRest.getPackageDetail(e.packageId, "package", success => {
+      modalUtil.hideLoadingToast()
       this.data.goodsDetail.detail = success
       this.setData(this.data)
     }, error => {
-
+      modalUtil.hideLoadingToast()
+      modalUtil.showWarnToast('信息获取失败');
     })
   },
   confirm: function (e) {

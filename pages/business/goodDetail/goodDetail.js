@@ -13,11 +13,14 @@ Page({
   },
   onLoad: function (e) {
     this.data.goodsDetail.classType = e.classType
+    modalUtil.showLoadingToast()
     storeRest.getGoodsDetail(e.goodsId, success => {
+      modalUtil.hideLoadingToast()
       this.data.goodsDetail.detail = success.goodInfo
       this.setData(this.data)
     }, error => {
-      console.log(error)
+      modalUtil.hideLoadingToast()
+      modalUtil.showWarnToast('信息获取失败');
     })
   },
   confirm: function (e) {
