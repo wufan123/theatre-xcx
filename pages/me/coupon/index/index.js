@@ -26,9 +26,11 @@ Page({
     },
 
     seeExpireCoupon:function(){
-      this.setData({
-        isSeeExpire: !this.data.isSeeExpire
-      })
+        if (!this.data.isSeeExpire) {
+            this.setData({
+              isSeeExpire: !this.data.isSeeExpire
+            })
+        }
     },
 
     couponDetail: function (res) {
