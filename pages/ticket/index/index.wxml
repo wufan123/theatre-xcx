@@ -1,7 +1,7 @@
 <wxs src="./index.wxs" module="module"></wxs>
 <view class='page'>
   <view class='body'>
-     <template is="filmDetail" data="{{...filmDetail}}"></template> 
+     <template wx:if="{{filmDetail.detail}}" is="filmDetail" data="{{...filmDetail}}"></template> 
   </view>
   <view class='footer'>
    <view class="bottom-btn" bindtap="confirm">{{bottomTxt}}</view> 

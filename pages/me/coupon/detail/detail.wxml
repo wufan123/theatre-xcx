@@ -8,7 +8,7 @@
         <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
       </view>
       <view class='info fxcm'>
-        <text class='f20'>{{coupon._voucherValue}}</text>
+        <text class='f16'>{{coupon._voucherValue}}</text>
         <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
       </view>
       </view>

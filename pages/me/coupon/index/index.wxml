@@ -40,7 +40,7 @@
       <image src='/assets/images/business/card_body.png' class='bg body_bg'></image>
     </view>
     <view class='info fxcm'>
-      <text class='f20'>{{item._voucherValue}}</text>
+      <text class='f16'>{{item._voucherValue}}</text>
       <!-- <text>即将过期</text> -->
       <image src='/assets/images/business/card_info_active.png' class='bg info_bg'></image>
     </view>
