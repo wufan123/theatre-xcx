@@ -66,6 +66,10 @@ Page({
     },
 
     addVoucherClickListener: function () {
+        if (!this.data.inputValue) {
+            modalUtils.showWarnToast('输入票券编码')
+            return;
+        }
         this.requestAddVoucher(this.data.inputValue)
     },
 
