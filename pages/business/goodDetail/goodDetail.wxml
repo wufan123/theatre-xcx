@@ -1,6 +1,6 @@
 <view class='page'>
   <view class='body'>
-     <template is="goodsDetail" data="{{...goodsDetail}}"></template> 
+     <template wx:if="{{goodsDetail.detail}}" is="goodsDetail" data="{{...goodsDetail}}"></template> 
   </view>
   <view class='footer'>
    <view class="bottom-btn" bindtap="confirm">{{bottomTxt}}</view> 
