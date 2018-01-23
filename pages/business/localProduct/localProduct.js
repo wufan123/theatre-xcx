@@ -1,4 +1,5 @@
 const theatreRest = require('../../../rest/theatreRest.js')
+const modalUtil = require('../../../util/modalUtil.js')
 Page({
   data: {
     dataList: [],
@@ -12,11 +13,14 @@ Page({
         title: '超级特价'
       })
     }
+    modalUtil.showLoadingToast()
     theatreRest.getGoodsList(this.data.classType, success => {
+      modalUtil.hideLoadingToast()
       this.data.dataList = success;
       this.setData(this.data);
     }, error => {
-      console.log(success)
+      modalUtil.hideLoadingToast()
+      modalUtil.showWarnToast('列表获取失败');
     })
   },
   goBuy : function(e){

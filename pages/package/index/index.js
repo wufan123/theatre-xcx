@@ -7,7 +7,9 @@ Page({
     dataList: []
   },
   onLoad: function (options) {
+    modalUtil.showLoadingToast()
     theatreRest.getPackageList(200, success => {
+      modalUtil.hideLoadingToast()
       success.forEach(item => {
         try {
           item.imgs = JSON.parse(item.imgs)
@@ -16,7 +18,8 @@ Page({
       this.data.dataList = success;
       this.setData(this.data)
     }, error => {
-      console.log(success)
+      modalUtil.hideLoadingToast()
+      modalUtil.showWarnToast('列表获取失败');
     })
   },
   goBuy : function(e){
