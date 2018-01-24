@@ -21,9 +21,9 @@ function getValidateCode(userMobile, validateCode, cinemaCode, success_cb, fail_
     validateCode: validateCode,
     cinemaCode: cinemaCode
   }
-  let recommmendId = getApp().globalData.recommmendId
-  if (recommmendId) {
-    params.recommmendId = recommmendId
+  let recommendId = getApp().globalData.recommendId
+  if (recommendId) {
+    params.recommendId = recommendId
   }
   httpRest.postRequest('/user/smsLogin', params, success_cb, fail_cb)
 }

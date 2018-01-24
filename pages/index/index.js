@@ -14,8 +14,8 @@ Page({
       if (promoteInfo) {
         app.recordPromotion(promoteInfo.promoter, promoteInfo.type)
       }
-    } else if (option.recommmendId) {
-      app.recordPromotion(null, null, option.recommmendId)
+    } else if (option.recommendId) {
+      app.recordPromotion(null, null, option.recommendId)
     }
   },
   onShow: function() {

@@ -21,7 +21,7 @@ App({
 
     promoter: null, // 推广人手机号
     promotionType: 1,
-    recommmendId: null,
+    recommendId: null,
 
     pageData: null, // 存放页面参数（有一些需要传递大量的数据，uri有长度限制）
   },
@@ -92,9 +92,9 @@ App({
     return this.globalData.pageData
   },
   // 记录推广信息（点击进入）
-  recordPromotion: function(promoter, type, recommmendId) {
+  recordPromotion: function(promoter, type, recommendId) {
     this.globalData.promoter = promoter;
-    this.globalData.recommmendId = recommmendId;
+    this.globalData.recommendId = recommendId;
     if (type) {
       this.globalData.promotionType = type;
     }
@@ -141,7 +141,7 @@ App({
       } else {
         params += '?';
       }
-      params += 'recommmendId='+userId
+      params += 'recommendId='+userId
     }
     return {
         title: '中瑞剧坊',
