@@ -3,6 +3,7 @@
       <view class="member">
           <block wx:for="{{cardList}}" wx:key="index" wx:if="{{cardList.length!==0}}">
             <view class="'member-card black" bindtap="selectClick" data-card="{{item}}">
+              <view class='shade' wx:if="{{item.expirationTime == 1}}"></view>
               <view class="member-body fxcb">
                 <text class="title red">{{item.accLevelName}}:{{item.cardId}}</text>
                 <text class="mb10">余额： <text  class="khaki f16}}">{{item.accBalance}}元</text> </text>

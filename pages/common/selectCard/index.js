@@ -12,6 +12,9 @@ Page({
   },
   selectClick: function(e) {
     let card = e.currentTarget.dataset.card
+    if (card.expirationTime == 1) { // 已过期
+      return;
+    }
     var pages = getCurrentPages();
     var prevPage = pages[pages.length - 2];
     if (card._selected) {

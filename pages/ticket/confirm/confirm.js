@@ -74,8 +74,10 @@ Page({
             }
             // 会员卡
             if (res.memberCard && res.memberCard.length > 0) {
-                res.memberCard.forEach(element => {
-                    this.data.memberCardList.push(element)
+                res.memberCard.forEach(item => {
+                    if (item.expirationTime != 1) {
+                        this.data.memberCardList.push(item)
+                    }
                 })
             }
             this.setData(this.data)
