@@ -16,11 +16,16 @@ function requestMobileVerifyCode(codeType, userMobile, success_cb, fail_cb) {
 
 //手机验证码登录
 function getValidateCode(userMobile, validateCode, cinemaCode, success_cb, fail_cb) {
-  httpRest.postRequest('/user/smsLogin', {
-      userMobile: userMobile,
-      validateCode: validateCode,
-      cinemaCode: cinemaCode
-  }, success_cb, fail_cb)
+  let params = {
+    userMobile: userMobile,
+    validateCode: validateCode,
+    cinemaCode: cinemaCode
+  }
+  let recommmendId = getApp().globalData.recommmendId
+  if (recommmendId) {
+    params.recommmendId = recommmendId
+  }
+  httpRest.postRequest('/user/smsLogin', params, success_cb, fail_cb)
 }
 
 //账号登陆

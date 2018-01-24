@@ -21,6 +21,7 @@ App({
 
     promoter: null, // 推广人手机号
     promotionType: 1,
+    recommmendId: null,
 
     pageData: null, // 存放页面参数（有一些需要传递大量的数据，uri有长度限制）
   },
@@ -91,8 +92,9 @@ App({
     return this.globalData.pageData
   },
   // 记录推广信息（点击进入）
-  recordPromotion: function(promoter, type) {
+  recordPromotion: function(promoter, type, recommmendId) {
     this.globalData.promoter = promoter;
+    this.globalData.recommmendId = recommmendId;
     if (type) {
       this.globalData.promotionType = type;
     }
@@ -117,6 +119,34 @@ App({
     if (bindmobile) {
       var theatreRest = require('./rest/theatreRest')
       theatreRest.finishPromotion(bindmobile, orderId, price, ticketsCnt)
+    }
+  },
+  // 分享
+  shareMessage: function() {
+    let path = '/pages/index/index';
+    let params = ''
+    let phone = this.getUserInfo(false).bindmobile
+    if (phone) {
+      if (params) {
+        params += '&';
+      } else {
+        params += '?';
+      }
+      params += 'promoter='+phone
+    }
+    let userId = this.getUserInfo(false).userId
+    if (userId) {
+      if (params) {
+        params += '&';
+      } else {
+        params += '?';
+      }
+      params += 'recommmendId='+userId
+    }
+    return {
+        title: '中瑞剧坊',
+        desc: '中瑞三坊七巷影音秀购票',
+        path: path+params
     }
   }
 })
