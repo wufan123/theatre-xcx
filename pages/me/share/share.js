@@ -39,6 +39,6 @@ Page({
     })
   },
   onShareAppMessage: function () {
-    app.shareMessage()
+    return app.shareMessage()
   }
 })

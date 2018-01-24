@@ -14,6 +14,8 @@ Page({
       if (promoteInfo) {
         app.recordPromotion(promoteInfo.promoter, promoteInfo.type)
       }
+    } else if (option.recommmendId) {
+      app.recordPromotion(null, null, option.recommmendId)
     }
   },
   onShow: function() {
@@ -98,6 +100,6 @@ Page({
     })
   },
   onShareAppMessage: function () {
-    app.shareMessage()
+    return app.shareMessage()
   }
 })
