@@ -157,7 +157,7 @@ Page({
                 confirmColor: '#159eec',
                 success: _res => {
                     if (_res.confirm) {
-                        wx.redirectTo({
+                        wx.navigateTo({
                             url: '../confirm/confirm?orderId=' + seatInfo.hasOrder
                         });
                     } else {
