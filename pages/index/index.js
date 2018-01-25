@@ -5,7 +5,8 @@ var app = getApp()
 Page({
   data: {
     bannerList: {
-      list: []
+      list: [],
+      indicatorDots: false
     }
   },
   onLoad: function (option) {
@@ -22,6 +23,9 @@ Page({
     // banner
     theatreRest.getInformationList(10, success => {
       this.data.bannerList.list = success
+      if (success && success.length > 1) {
+        this.data.bannerList.indicatorDots = true
+      }
       this.setData(this.data)
     }, error => {
       console.log(error)
