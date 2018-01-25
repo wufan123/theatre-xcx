@@ -10,13 +10,13 @@
 
 <template name="filmDetail">
   <view class="film-detail-bg" style="{{showPlan?'overflow: hidden;':''}}">
-    <swiper autoplay interval="5000" class="branner-bg">
+    <!-- <swiper autoplay interval="5000" class="branner-bg">
       <block wx:for="{{detail.imgs}}" wx:for-item="item" wx:key="">
-        <swiper-item>
-          <image src="{{item}}" mode="aspectFill" class="branner-img" />
-        </swiper-item>
+        <swiper-item> -->
+          <image src="{{detail.image}}" mode="aspectFill" class="branner-bg branner-img" />
+        <!-- </swiper-item>
       </block>
-    </swiper>
+    </swiper> -->
     <view class="content-bg">
       <view class="fxrb content-title">
         <view class='title-txt'>
