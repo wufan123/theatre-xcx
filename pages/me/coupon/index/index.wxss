@@ -18,19 +18,6 @@
 }
 .coupon-top-item .coupon-top-item-img {width: 45rpx;height: 30rpx;position:relative;top:6rpx;}
 
-
 .content{margin: 30rpx 30rpx 0 30rpx;}
 .card .shade{width: 100%;height: 100%;background:rgba(0,0,0,.3);position: absolute;z-index: 9;display: block;}
 .content .see-last-coupon{width: 349rpx;height: 61rpx;margin: 30rpx 0;}
-
-
-
-
-
-.no-data-img{width:294rpx;height:310rpx;margin-bottom: 20rpx;}
-.no-card{font-size: 30rpx;margin-top: 250rpx;}
-
-
-
-
-
