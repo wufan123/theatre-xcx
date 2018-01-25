@@ -5,9 +5,6 @@ Page({
       userInfo: {}
     },
     onLoad: function (e) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
       userRest.getUserInfo(success => {
         this.setData({
           userInfo: success
@@ -15,6 +12,11 @@ Page({
         app.setUserInfo(success);
       }, error => {
         console.log(error)
+      })
+    },
+    onShow: function() {
+      this.setData({
+        userInfo: app.globalData.userInfo
       })
     },
     cardManage: function() {
