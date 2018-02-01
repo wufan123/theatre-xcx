@@ -65,9 +65,16 @@ Page({
         const str = this.data.messageInfo.marqueeDetail.title;
         this.data.messageInfo.marquee.text = str;
         this.data.messageInfo.marquee.width = marquee.getWidth(str);
-        this.data.messageInfo.marquee.duration = (this.data.messageInfo.marquee.width + 25) * 5 / 25
+        this.data.messageInfo.marquee.duration = (this.data.messageInfo.marquee.width + 25) * 5 / 20
         this.setData({
           messageInfo: this.data.messageInfo
+        });
+      } else {
+        this.setData({
+          messageInfo: {
+            marquee: { text: '' },
+            marqueeDetail: null
+          }
         });
       }
     }, error => {
