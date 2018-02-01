@@ -11,7 +11,8 @@ Page({
       indicatorDots: false
     },
     messageInfo: {
-      marquee: { text: '通知消息……' }
+      marquee: { text: '' },
+      marqueeDetail: null
     },
   },
   onLoad: function (option) {
@@ -23,28 +24,12 @@ Page({
     } else if (option.recommendId) {
       app.recordPromotion(null, null, option.recommendId)
     }
-
-    const str = this.data.messageInfo.marquee.text;
-    this.data.messageInfo.marquee.width = marquee.getWidth(str);
-    this.data.messageInfo.marquee.duration = (this.data.messageInfo.marquee.width + 25) * 5 / 25
-    console.log(this.data.messageInfo.marquee)
-    this.setData({ 
-      messageInfo: {
-        marquee: this.data.messageInfo.marquee
-      }
-     });
   },
   onShow: function() {
     // banner
-    theatreRest.getInformationList(10, success => {
-      this.data.bannerList.list = success
-      if (success && success.length > 1) {
-        this.data.bannerList.indicatorDots = true
-      }
-      this.setData(this.data)
-    }, error => {
-      console.log(error)
-    })
+    this.requestBanner();
+    // 跑马灯
+    this.requestMarquee();
   },
   login: function() {
     let userInfo = app.getUserInfo(false)
@@ -58,8 +43,40 @@ Page({
       });
     }
   },
+  // 获取banner列表
+  requestBanner: function() {
+    theatreRest.getInformationList(10, success => {
+      this.data.bannerList.list = success
+      if (success && success.length > 1) {
+        this.data.bannerList.indicatorDots = true
+      }
+      this.setData(this.data)
+    }, error => {
+      console.log(error)
+    })
+  },
+  // 获取跑马灯消息
+  requestMarquee: function() {
+    theatreRest.getInformationList(40, success => {
+      if (success&&success.length>0) {
+        this.data.messageInfo.marqueeDetail = success[0];
+
+        // 消息跑马灯 
+        const str = this.data.messageInfo.marqueeDetail.title;
+        this.data.messageInfo.marquee.text = str;
+        this.data.messageInfo.marquee.width = marquee.getWidth(str);
+        this.data.messageInfo.marquee.duration = (this.data.messageInfo.marquee.width + 25) * 5 / 25
+        this.setData({
+          messageInfo: this.data.messageInfo
+        });
+      }
+    }, error => {
+      console.log(error)
+    })
+  },
   // banner 点击
   bannerClick: function(e) {
+    console.log(e)
     let banner = e.currentTarget.dataset.banner
     if (!banner.click) {
       return;

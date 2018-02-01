@@ -9,7 +9,7 @@
 </template>
 
 <template name="message">
-  <view class='message-bg'><include src="../../components/marquee/marquee.wxml" /></view>
+  <view class='message-bg' data-banner="{{marqueeDetail}}" bindtap="bannerClick"><include src="../../components/marquee/marquee.wxml" /></view>
 </template>
 
 <template name="banner">
@@ -76,7 +76,8 @@
 
 <view>
   <template is="titleBar"></template>
-  <template is="message" data="{{...messageInfo}}"></template>
+  <view style='margin-top: 100rpx;'></view>
+  <template is="message" data="{{...messageInfo}}" wx:if="{{messageInfo.marquee.text}}"></template>
   <template is="banner" data="{{...bannerList}}"></template>
   <template is="menu"></template>
   <template is="ticket"></template>

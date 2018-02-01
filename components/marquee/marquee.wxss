@@ -9,7 +9,7 @@
 
 .marquee_container{
   position: relative;
-  width: 650rpx;
+  width: 660rpx;
   overflow: hidden;
 }
 .marquee_container:hover{

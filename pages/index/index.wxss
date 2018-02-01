@@ -4,7 +4,7 @@
 .title-logo {width: 140rpx;height: 80rpx;}
 .title-icon{width: 50rpx;height: 50rpx;margin-left: 40rpx;}
 
-.message-bg {height: 60rpx;margin-top: 100rpx;display: flex;align-items:Center;color:white;padding-left: 80rpx;padding-right: 20rpx; background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/message-bg.png');background-repeat: no-repeat;background-size: 750rpx 60rpx;}
+.message-bg {height: 60rpx;display: flex;align-items:Center;color:white;padding-left: 70rpx;padding-right: 20rpx; background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/message-bg.png');background-repeat: no-repeat;background-size: 750rpx 60rpx;}
 
 .branner-bg {width: 100%;height: 350rpx;}
 .branner-img {width: 100%;height: 350rpx;}
