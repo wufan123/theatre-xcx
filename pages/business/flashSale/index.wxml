@@ -16,7 +16,7 @@
       </view>
       <view class="no-card fxcbm" wx:if="{{dataList.length===0}}">
         <image src='/assets/images/me/no_data.png' class="no-data-img"></image>
-        当前无任何商品
+        当前无任何优惠券
       </view>
     </view>
   </view>

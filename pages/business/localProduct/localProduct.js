@@ -10,7 +10,7 @@ Page({
     this.setData(this.data)
     if (this.data.classType == 102) {
       wx.setNavigationBarTitle({
-        title: '超级特价'
+        title: '3DCafé'
       })
     }
     modalUtil.showLoadingToast()
