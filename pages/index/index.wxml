@@ -42,36 +42,28 @@
 
 <template name="ticket">
   <view class="ticket-bg">
-    <view class="ticket-line">
+    <!-- <view class="ticket-line">
       <view class="title-txt ticket"></view>
       <view class='ticket-img ccp' bindtap="ticketFilm"></view>
-      <!-- <scroll-view scroll-x>
-        <view class="ticket-scroll">
-          <view  class="ticket-item">
-            <view class='card-text'>
-              <text class='card-name text-ellipsis-line'>《三坊七巷》</text>
-              <text class='text-ellipsis-line f12'>中瑞剧坊 • 坊巷文化影音秀</text>
-            </view>
-            <image src='/assets/images/ccp_card.png' class='ticket-img'></image>
-          </view>
-        </view>
-      </scroll-view> -->
     </view>
     <view class="ticket-line">
       <view class="title-txt zhg"></view>
       <view class='ticket-img zhg' bindtap="createPackageOrder"></view>
-      <!-- <scroll-view scroll-x>
-        <view class="ticket-scroll">
-          <view class="ticket-item">
-            <view class='card-text' bindtap="createPackageOrder">
-              <text class='card-name text-ellipsis-line'>礼品券</text>
-              <text class='text-ellipsis-line f12'>中瑞剧坊 • 坊巷文化影音秀</text>
-            </view>
-            <image src='/assets/images/zhq_card.png' class='ticket-img'></image>
-          </view>
-        </view>
-      </scroll-view> -->
+    </view> -->
+    <view class="buy-bg yyx" bindtap="ticketFilm">
+      <view class='detail'>
+        <image src='/assets/images/yyx_title.png' class='yyx-img'></image>
+        <view>《三坊七巷》</view>
+        <view>中瑞剧坊·坊巷剧坊影音秀</view>
+        <image src='/assets/images/go_buy_btn.png' class='yyx-img2'></image>
+      </view>
     </view>
+    <view class="buy-bg zhg" bindtap="createPackageOrder">
+      <view class='detail'>
+        <image src='/assets/images/zhq_title.png' class='zhg-img'></image>
+        <image src='/assets/images/thzh_btn.png' class='zhg-img2'></image>
+      </view>
+    </view> 
   </view>
 </template>
 

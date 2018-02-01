@@ -14,7 +14,7 @@
 .menu-item {display: flex;flex-direction: column;align-items: center;}
 .menu-item-ico {width: 110rpx;height: 110rpx;}
 
-.ticket-bg {margin-top: 20rpx;padding-bottom: 20rpx;}
+.ticket-bg {margin-top: 20rpx;padding-bottom: 20rpx;padding-left: 10rpx;}
 .title-txt {text-align: right;height: 93rpx;background-size: contain;padding-right: 30rpx;line-height: 93rpx;}
 .title-txt.zhg{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/zhg_title_bg_.png');}
 .title-txt.ticket{background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/ticket_title_bg.png');}
@@ -37,3 +37,14 @@
 .go-buy::before{border-color: #1b2a3d;}
 
 .convert-img{width: 269rpx;height: 61rpx;}
+
+.buy-bg {width: 690rpx;height: 449rpx;background-size: 690rpx 449rpx;display: flex; flex-direction: column;justify-content: center;}
+.buy-bg .detail{display: flex;flex-direction: column;font-size: 22rpx;}
+
+.buy-bg.yyx{ background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/buy_yyx_bg.png');padding-right: 40rpx;align-items: flex-end;}
+.buy-bg .yyx-img {width: 172rpx;height: 81rpx;margin-bottom: 10rpx;}
+.buy-bg .yyx-img2 {width: 228rpx;height: 50rpx;margin-top: 10rpx;}
+
+.buy-bg.zhg{ background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/buy_zhg_bg.png');padding-left: 40rpx;align-items: flex-start;}
+.buy-bg .zhg-img {width: 202rpx;height: 83rpx;}
+.buy-bg .zhg-img2 {width: 228rpx;height: 50rpx;margin-top: 20rpx;}
