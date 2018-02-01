@@ -1,0 +1,3 @@
+<view class="marquee_container" style="--marqueeWidth--:{{-marquee.width}}em;">
+    <view class="marquee_text" style='animation-duration:{{marquee.duration}}s'>{{marquee.text}}</view>
+</view>

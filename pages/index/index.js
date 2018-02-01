@@ -1,4 +1,6 @@
 //获取应用实例
+import marquee from '../../components/marquee/marquee.js';
+
 const theatreRest = require('../../rest/theatreRest.js')
 const urlUtil = require('../../util/urlUtil.js')
 var app = getApp()
@@ -7,7 +9,10 @@ Page({
     bannerList: {
       list: [],
       indicatorDots: false
-    }
+    },
+    messageInfo: {
+      marquee: { text: '通知消息……' }
+    },
   },
   onLoad: function (option) {
     if (option.q) {
@@ -18,6 +23,16 @@ Page({
     } else if (option.recommendId) {
       app.recordPromotion(null, null, option.recommendId)
     }
+
+    const str = this.data.messageInfo.marquee.text;
+    this.data.messageInfo.marquee.width = marquee.getWidth(str);
+    this.data.messageInfo.marquee.duration = (this.data.messageInfo.marquee.width + 25) * 5 / 25
+    console.log(this.data.messageInfo.marquee)
+    this.setData({ 
+      messageInfo: {
+        marquee: this.data.messageInfo.marquee
+      }
+     });
   },
   onShow: function() {
     // banner

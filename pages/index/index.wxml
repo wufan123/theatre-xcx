@@ -8,6 +8,10 @@
   </view>
 </template>
 
+<template name="message">
+  <view class='message-bg'><include src="../../components/marquee/marquee.wxml" /></view>
+</template>
+
 <template name="banner">
   <swiper autoplay interval="5000" class="branner-bg" indicator-dots="{{indicatorDots}}" indicator-color="white" indicator-active-color="#a40000">
     <block wx:for="{{list}}" wx:for-item="item" wx:key="">
@@ -72,6 +76,7 @@
 
 <view>
   <template is="titleBar"></template>
+  <template is="message" data="{{...messageInfo}}"></template>
   <template is="banner" data="{{...bannerList}}"></template>
   <template is="menu"></template>
   <template is="ticket"></template>
