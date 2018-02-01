@@ -3,7 +3,6 @@
     <image src="/assets/images/logo.png" class="title-logo"></image>
     <view class='fxrm'>
       <image src="/assets/images/me.png" class="title-icon" bindtap="login"></image>
-      <!-- <image src="/assets/images/all.png" class="title-icon"></image> -->
     </view>
   </view>
 </template>
@@ -20,50 +19,42 @@
       </swiper-item>
     </block>
   </swiper>
-  <image src="/assets/images/banner-bottom.png" class='branner-bottom'></image>
+  <view class='branner-bottom'></view>
 </template>
 
 <template name="menu">
   <view class="menu-bg">
-    <view class="menu-item" bindtap="localProduct" id="101">
-      <image src="/assets/images/menu_tc.png" class="menu-item-ico"></image>
-      <text class="menu-item-txt">福州特产馆</text>
+    <view class="menu-item" bindtap="ticketFilm">
+      <image src="/assets/images/menu_xsq.png" class="menu-item-ico"></image>
+      <text class="menu-item-txt">马上购票</text>
     </view>
     <view class="menu-item" bindtap="localProduct" id="102">
       <image src="/assets/images/menu_zk.png" class="menu-item-ico"></image>
       <text class="menu-item-txt">3DCafé</text>
     </view>
-    <view class="menu-item" bindtap="flashSale">
-      <image src="/assets/images/menu_xsq.png" class="menu-item-ico"></image>
-      <text class="menu-item-txt">限时抢券</text>
+    <view class="menu-item" bindtap="localProduct" id="101">
+      <image src="/assets/images/menu_tc.png" class="menu-item-ico"></image>
+      <text class="menu-item-txt">福州特产馆</text>
     </view>
   </view>
 </template>
 
 <template name="ticket">
   <view class="ticket-bg">
-    <!-- <view class="ticket-line">
-      <view class="title-txt ticket"></view>
-      <view class='ticket-img ccp' bindtap="ticketFilm"></view>
-    </view>
-    <view class="ticket-line">
-      <view class="title-txt zhg"></view>
-      <view class='ticket-img zhg' bindtap="createPackageOrder"></view>
-    </view> -->
-    <view class="buy-bg yyx" bindtap="ticketFilm">
-      <view class='detail'>
-        <image src='/assets/images/yyx_title.png' class='yyx-img'></image>
-        <view>《三坊七巷》</view>
-        <view>中瑞剧坊·坊巷剧坊影音秀</view>
-        <image src='/assets/images/go_buy_btn.png' class='yyx-img2'></image>
-      </view>
-    </view>
     <view class="buy-bg zhg" bindtap="createPackageOrder">
       <view class='detail'>
         <image src='/assets/images/zhq_title.png' class='zhg-img'></image>
         <image src='/assets/images/thzh_btn.png' class='zhg-img2'></image>
       </view>
     </view> 
+    <view class="buy-bg yyx" bindtap="ticketFilm">
+      <view class='detail'>
+        <image src='/assets/images/yyx_title.png' class='yyx-img'></image>
+        <view>《三坊七巷》</view>
+        <view>中瑞剧坊·坊巷文化影音秀</view>
+        <image src='/assets/images/go_buy_btn.png' class='yyx-img2'></image>
+      </view>
+    </view>
   </view>
 </template>
 
