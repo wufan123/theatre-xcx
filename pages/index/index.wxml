@@ -25,7 +25,7 @@
 <template name="menu">
   <view class="menu-bg">
     <view class="menu-item" bindtap="ticketFilm">
-      <image src="/assets/images/menu_xsq.png" class="menu-item-ico"></image>
+      <image src="/assets/images/menu_ticket_buy.png" class="menu-item-ico"></image>
       <text class="menu-item-txt">马上购票</text>
     </view>
     <view class="menu-item" bindtap="localProduct" id="102">
@@ -41,12 +41,6 @@
 
 <template name="ticket">
   <view class="ticket-bg">
-    <view class="buy-bg zhg" bindtap="createPackageOrder">
-      <view class='detail'>
-        <image src='/assets/images/zhq_title.png' class='zhg-img'></image>
-        <image src='/assets/images/thzh_btn.png' class='zhg-img2'></image>
-      </view>
-    </view> 
     <view class="buy-bg yyx" bindtap="ticketFilm">
       <view class='detail'>
         <image src='/assets/images/yyx_title.png' class='yyx-img'></image>
@@ -55,6 +49,12 @@
         <image src='/assets/images/go_buy_btn.png' class='yyx-img2'></image>
       </view>
     </view>
+    <view class="buy-bg zhg" bindtap="createPackageOrder">
+      <view class='detail'>
+        <image src='/assets/images/zhq_title.png' class='zhg-img'></image>
+        <image src='/assets/images/thzh_btn.png' class='zhg-img2'></image>
+      </view>
+    </view> 
   </view>
 </template>
 
