@@ -14,22 +14,13 @@ Page({
     phonePw:''
   },
   inputNum(e) {
-    let value = e.detail.value
-    this.setData({
-      phoneNum: value
-    })
+    this.data.phoneNum = e.detail.value
   },
   inputCode(e) {
-    let value = e.detail.value
-    this.setData({
-      phoneCode: value
-    })
+    this.data.phoneCode = e.detail.value
   },
   inputPw(e) {
-    let value = e.detail.value
-    this.setData({
-      phonePw: value
-    })
+    this.data.phonePw = e.detail.value
   },
   tabChang: function (e) {
     if(this.data.phoneNum){
