@@ -23,27 +23,32 @@ Page({
         bottomTxt: '马上购买',
         selectSeats: null, // 选中排期座位信息
         maxPurchase: 4, // 最大购票数量
+        pageFinish: true,
     },
     onLoad: function (option) {
-        if (option.q) {
-          let promoteInfo = urlUtil.getSearchParams(unescape(option.q))
-          if (promoteInfo) {
-            app.recordPromotion(promoteInfo.promoter, promoteInfo.type)
-          }
+      this.data.pageFinish = false;
+      if (option.q) {
+        let promoteInfo = urlUtil.getSearchParams(unescape(option.q))
+        if (promoteInfo) {
+          app.recordPromotion(promoteInfo.promoter, promoteInfo.type)
         }
-        this.loadFilmTime();
-        // 购票限制
-        theatreRest.getMiscConfig('ticket_max_purchase', success => {
-            if (success && success.length > 0) {
-                this.data.maxPurchase = Number(success[0].miscVal)
-                this.setData(this.data)
-            }
-        })
+      }
+      this.loadFilmTime();
+      // 购票限制
+      theatreRest.getMiscConfig('ticket_max_purchase', success => {
+          if (success && success.length > 0) {
+              this.data.maxPurchase = Number(success[0].miscVal)
+              this.setData(this.data)
+          }
+      })
     },
     onShow: function() {
         if (this.data.filmPlan&&this.data.filmPlan.planSelected) {
             this.loadSeat(this.data.filmPlan.planSelected)
         }
+    },
+    onUnload: function() {
+      this.data.pageFinish = true;
     },
     confirm: function(e) {
         if (!this.data.filmDetail.showPlan) {
@@ -64,112 +69,116 @@ Page({
     },
     // 营业日期
     loadFilmTime: function() {
-        let params = {
-            cinemaCode: app.globalData.cinemaCode
-        }
-        modalUtil.showLoadingToast()
-        planRest.getTimes(params, res => {
-            this.data.filmPlan.timeList = res;
-            this.setData(this.data)
-            if (res.length > 0) {
-                this.data.filmPlan.timeSelected = res[0].time
-                this.loadFilmPlan(res[0].time);
-            }
-        }, res => {
-            modalUtil.hideLoadingToast();
-            console.log(res)
-        })
+      if (this.data.pageFinish) return;
+      let params = {
+          cinemaCode: app.globalData.cinemaCode
+      }
+      modalUtil.showLoadingToast()
+      planRest.getTimes(params, res => {
+          this.data.filmPlan.timeList = res;
+          this.setData(this.data)
+          if (res.length > 0) {
+              this.data.filmPlan.timeSelected = res[0].time
+              this.loadFilmPlan(res[0].time);
+          }
+      }, res => {
+          modalUtil.hideLoadingToast();
+          console.log(res)
+      })
     },
     // 排期
     loadFilmPlan: function(time) {
-        modalUtil.showLoadingToast()
-        let params = {
-            cinemaCode: app.globalData.cinemaCode,
-            time: time
-        }
-        planRest.getPlans(params, res => {
-            modalUtil.hideLoadingToast();
-            if (res.length>0) {
-                if (!this.data.filmDetail.detail) {
-                    this.loadFilmDetail(res[0].filmId)
-                }
-                this.data.filmPlan.planList = res[0].planInfo;
-                this.data.filmDetail.standardPrice = res[0].planInfo[0].standardPrice // 取价格
-                this.data.filmPlan.planSelected = res[0].planInfo[0].featureAppNo
-                this.setData(this.data)
-                this.loadSeat(this.data.filmPlan.planSelected)
-            }
-        }, res => {
-            modalUtil.hideLoadingToast();
-            console.log(res)
-        })
+      if (this.data.pageFinish) return;
+      modalUtil.showLoadingToast()
+      let params = {
+          cinemaCode: app.globalData.cinemaCode,
+          time: time
+      }
+      planRest.getPlans(params, res => {
+          modalUtil.hideLoadingToast();
+          if (res.length>0) {
+              if (!this.data.filmDetail.detail) {
+                  this.loadFilmDetail(res[0].filmId)
+              }
+              this.data.filmPlan.planList = res[0].planInfo;
+              this.data.filmDetail.standardPrice = res[0].planInfo[0].standardPrice // 取价格
+              this.data.filmPlan.planSelected = res[0].planInfo[0].featureAppNo
+              this.setData(this.data)
+              this.loadSeat(this.data.filmPlan.planSelected)
+          }
+      }, res => {
+          modalUtil.hideLoadingToast();
+          console.log(res)
+      })
     },
     // 加载影片详情
     loadFilmDetail: function(filmId) {
-        modalUtil.showLoadingToast()
-        filmRest.getFilmDetail(filmId, res => {
-            modalUtil.hideLoadingToast();
-            res.introduction = res.introduction.replace('&lt;html&gt;&lt;body&gt;', '')
-                                                .replace('&lt;/body&gt;&lt;/html&gt;', '')
-                                                .replace(/&lt;/g, "<")
-                                                .replace(/&gt;/g, ">")
-                                                .replace(/&amp;/g, "&")
-                                                .replace(/&quot;/g, '"')
-                                                .replace(/&apos;/g, "'")
-                                                .replace(/\<br\s*\/\>/g, "\r\n")
-            this.data.filmDetail.detail = res
-            this.setData(this.data)
-        }, res => {
-            console.log(res)
-            modalUtil.hideLoadingToast();
-            modalUtil.showWarnToast("影片加载失败");
-        });
+      if (this.data.pageFinish) return;
+      modalUtil.showLoadingToast()
+      filmRest.getFilmDetail(filmId, res => {
+          modalUtil.hideLoadingToast();
+          res.introduction = res.introduction.replace('&lt;html&gt;&lt;body&gt;', '')
+                                              .replace('&lt;/body&gt;&lt;/html&gt;', '')
+                                              .replace(/&lt;/g, "<")
+                                              .replace(/&gt;/g, ">")
+                                              .replace(/&amp;/g, "&")
+                                              .replace(/&quot;/g, '"')
+                                              .replace(/&apos;/g, "'")
+                                              .replace(/\<br\s*\/\>/g, "\r\n")
+          this.data.filmDetail.detail = res
+          this.setData(this.data)
+      }, res => {
+          console.log(res)
+          modalUtil.hideLoadingToast();
+          modalUtil.showWarnToast("影片加载失败");
+      });
     },
     // 加载座位信息
     loadSeat: function(featureAppNo) {
-        modalUtil.showLoadingToast()
-        filmRest.getSeat(app.globalData.cinemaCode, featureAppNo, success => {
-            modalUtil.hideLoadingToast();
-            this.data.selectSeats = success
-            this.data.selectSeats._saleSeatInfos = []
-            this.data.selectSeats.seatinfos.seat.forEach(row => {
-                row.forEach(col => {
-                  if (col.SeatState == 0) {
-                    this.data.selectSeats._saleSeatInfos.push(col)
-                  }
-                })
-            })
-            this.setData(this.data)
-            this.checkOrder(this.data.selectSeats)
-        }, error => {
-            modalUtil.hideLoadingToast();
-        })
+      if (this.data.pageFinish) return;
+      modalUtil.showLoadingToast()
+      filmRest.getSeat(app.globalData.cinemaCode, featureAppNo, success => {
+          modalUtil.hideLoadingToast();
+          this.data.selectSeats = success
+          this.data.selectSeats._saleSeatInfos = []
+          this.data.selectSeats.seatinfos.seat.forEach(row => {
+              row.forEach(col => {
+                if (col.SeatState == 0) {
+                  this.data.selectSeats._saleSeatInfos.push(col)
+                }
+              })
+          })
+          this.setData(this.data)
+          this.checkOrder(this.data.selectSeats)
+      }, error => {
+          modalUtil.hideLoadingToast();
+      })
     },
     // 未完成订单提醒
     checkOrder: function(seatInfo) {
-        if (seatInfo.hasOrder) {
-            wx.showModal({
-                title: '温馨提示',
-                content: '存在未付款影票订单',
-                cancelText: '取消订单',
-                cancelColor: '#000000',
-                confirmText: '支付订单',
-                confirmColor: '#159eec',
-                success: _res => {
-                    if (_res.confirm) {
-                        wx.navigateTo({
-                            url: '../confirm/confirm?orderId=' + seatInfo.hasOrder
-                        });
-                    } else {
-                        modalUtil.showLoadingToast('正在取消订单');
-                        orderRest.cancelOrder(seatInfo.hasOrder, res => {
-                            modalUtil.hideLoadingToast();
-                            modalUtil.showSuccessToast('订单取消成功');
-                        });
-                    }
-                }
-            });
-        }
+      if (seatInfo.hasOrder) {
+          wx.showModal({
+              title: '温馨提示',
+              content: '存在未付款影票订单',
+              cancelText: '取消订单',
+              cancelColor: '#000000',
+              confirmText: '支付订单',
+              confirmColor: '#159eec',
+              success: _res => {
+                  if (_res.confirm) {
+                      wx.navigateTo({
+                          url: '../confirm/confirm?orderId=' + seatInfo.hasOrder
+                      });
+                  } else {
+                      modalUtil.showLoadingToast('正在取消订单');
+                      orderRest.cancelOrder(seatInfo.hasOrder, res => {
+                          modalUtil.hideLoadingToast();
+                          modalUtil.showSuccessToast('订单取消成功');
+                      });
+                  }
+              }
+          });
+      }
     },
 
     // 购买数量
