@@ -6,7 +6,7 @@ var app = getApp()
 
 Page({
     data: {
-      classType: 102,
+      classType: 103,
       goodsList: [],
       orderId: '',
       bottomTxt: '不选了，直接下单购票',
