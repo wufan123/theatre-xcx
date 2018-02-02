@@ -31,11 +31,11 @@
     </view>
     <view class="menu-item" bindtap="localProduct" id="102">
       <image src="/assets/images/menu_zk.png" class="menu-item-ico"></image>
-      <text class="menu-item-txt">3DCafé</text>
+      <text class="menu-item-txt">3D Café</text>
     </view>
     <view class="menu-item" bindtap="localProduct" id="101">
       <image src="/assets/images/menu_tc.png" class="menu-item-ico"></image>
-      <text class="menu-item-txt">福州特产馆</text>
+      <text class="menu-item-txt">福州特产</text>
     </view>
   </view>
 </template>
