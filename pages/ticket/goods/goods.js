@@ -1,26 +1,45 @@
 const storeRest = require('../../../rest/storeRest.js')
 const orderRest = require('../../../rest/orderRest.js')
+const theatreRest = require('../../../rest/theatreRest.js')
 const modalUtil = require('../../../util/modalUtil.js')
 var app = getApp()
 
 Page({
     data: {
-        goodsList: [],
-        orderId: '',
-        bottomTxt: '不选了，直接下单购票',
-        destoryCancelOrder: true
+      classType: 102,
+      goodsList: [],
+      orderId: '',
+      bottomTxt: '不选了，直接下单购票',
+      destoryCancelOrder: true
     },
     onLoad: function (option) {
         this.data.orderId = option.orderId;
         this.setData(this.data);
-        storeRest.getGoodsList(app.globalData.cinemaCode, res => {
-            this.data.goodsList = res;
-            this.setData(this.data);
-            if (res.length==0) {
+        storeRest.getGoodsList(app.globalData.cinemaCode, hyGoodsList => {
+          if (hyGoodsList.length == 0) {
+            this.gotoConfirm();
+          }
+          theatreRest.getGoodsList(this.data.classType, dataList => {
+            this.data.goodsList = []
+            dataList.forEach(goods => {
+              hyGoodsList.forEach(hyGoods => {
+                if (hyGoods.goodsId == goods.hyGoodsId) {
+                  this.data.goodsList.push(hyGoods)
+                }
+              })
+            })
+            if (this.data.goodsList.length == 0) {
               this.gotoConfirm();
+              return;
             }
-        }, res => {
-            console.log(res)
+            this.setData(this.data);
+          }, error => {
+            console.log(error)
+            this.gotoConfirm();
+          })
+        }, error => {
+          console.log(error)
+          this.gotoConfirm();
         })
     },
     onUnload: function () {
