@@ -1,2 +1,2 @@
 /* pages/mobile_protocol/mobile_protocol.wxss */
-
+.content {padding: 30rpx 40rpx;}
