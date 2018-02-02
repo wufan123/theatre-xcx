@@ -8,8 +8,7 @@
 
 .branner-bg {width: 100%;height: 350rpx;}
 .branner-img {width: 100%;height: 350rpx;}
-.branner-bottom {background: url(http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/home_wy_bg.png) repeat-x;
-        background-size: 29rpx 36rpx;width: 100%;height: 36rpx;}
+.branner-bottom {width: 100%;height: 36rpx;}
 
 .menu-bg {background-image: url('http://p0bd8izdn.bkt.clouddn.com/ruihua/xcx/images/menu_bg__.png'); background-repeat: no-repeat; background-size: 100% 100% ;display: flex;justify-content: space-around;align-items:Center;padding-top: 50rpx;margin-top: -20rpx;}
 .menu-item {display: flex;flex-direction: column;align-items: center;}

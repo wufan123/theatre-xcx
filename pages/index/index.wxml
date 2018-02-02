@@ -19,7 +19,8 @@
       </swiper-item>
     </block>
   </swiper>
-  <view class='branner-bottom'></view>
+  <!-- <view class='branner-bottom'></view> -->
+  <image src='../../assets/images/banner-bottom.png' class='branner-bottom'></image>
 </template>
 
 <template name="menu">
