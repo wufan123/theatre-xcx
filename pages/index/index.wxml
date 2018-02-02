@@ -12,7 +12,7 @@
 </template>
 
 <template name="banner">
-  <swiper autoplay interval="5000" class="branner-bg" indicator-dots="{{indicatorDots}}" indicator-color="white" indicator-active-color="#a40000">
+  <swiper autoplay interval="5000" class="branner-bg" indicator-dots="{{indicatorDots}}" indicator-color="white" indicator-active-color="#a40000" circular>
     <block wx:for="{{list}}" wx:for-item="item" wx:key="">
       <swiper-item data-banner="{{item}}" bindtap="bannerClick">
         <image src="{{item.thumbUrl}}" mode="aspectFill" class="branner-img"/>
@@ -41,16 +41,16 @@
 
 <template name="ticket">
   <view class="ticket-bg">
-    <view class="buy-bg yyx" bindtap="ticketFilm">
-      <view class='detail'>
+    <view class="buy-bg yyx">
+      <view class='detail' bindtap="ticketFilm">
         <image src='/assets/images/yyx_title.png' class='yyx-img'></image>
         <view>《三坊七巷》</view>
         <view>中瑞剧坊·坊巷文化影音秀</view>
         <image src='/assets/images/go_buy_btn.png' class='yyx-img2'></image>
       </view>
     </view>
-    <view class="buy-bg zhg" bindtap="createPackageOrder">
-      <view class='detail'>
+    <view class="buy-bg zhg">
+      <view class='detail' bindtap="createPackageOrder">
         <image src='/assets/images/zhq_title.png' class='zhg-img'></image>
         <image src='/assets/images/thzh_btn.png' class='zhg-img2'></image>
       </view>
