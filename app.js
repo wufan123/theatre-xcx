@@ -3,7 +3,7 @@ App({
   onLaunch: function () {
   },
   globalData: {
-    serverUrlBase: 'https://jufang.zmaxfilm.com/preapi',
+    serverUrlBase: 'https://jufang.zmaxfilm.com/api',
     
     appAccount: 'zhongruijufang',
     appPasswd: 'zrjf1123',
